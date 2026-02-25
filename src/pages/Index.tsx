@@ -105,6 +105,7 @@ const Index = () => {
           <WordFadeIn
             words="Kommunikation, die sich persönlich anfühlt, aber automatisch abläuft."
             className="text-white md:text-5xl"
+            triggerOnView
           />
           <p className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base">
             Wir kombinieren datengetriebene Zielgruppenrecherche mit personalisierten, mehrstufigen E-Mail- und

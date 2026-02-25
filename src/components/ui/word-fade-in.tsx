@@ -9,6 +9,7 @@ interface WordFadeInProps {
   className?: string;
   delay?: number;
   variants?: Variants;
+  triggerOnView?: boolean;
 }
 
 function WordFadeIn({
@@ -22,6 +23,7 @@ function WordFadeIn({
       transition: { delay: i * delay },
     }),
   },
+  triggerOnView = false,
   className,
 }: WordFadeInProps) {
   const _words = words.split(" ");
@@ -30,7 +32,9 @@ function WordFadeIn({
     <motion.h1
       variants={variants}
       initial="hidden"
-      animate="visible"
+      animate={triggerOnView ? undefined : "visible"}
+      whileInView={triggerOnView ? "visible" : undefined}
+      viewport={triggerOnView ? { once: true, amount: 0.5 } : undefined}
       className={cn(
         "font-display text-center text-4xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem]",
         className,
