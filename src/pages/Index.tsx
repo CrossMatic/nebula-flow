@@ -7,7 +7,7 @@ const Index = () => {
     <>
       <GradientBackground />
       <div className="relative flex min-h-screen flex-col items-center justify-center py-16">
-        <section className="text-center space-y-4">
+        <section className="text-center space-y-1">
           <img
             src={crossmaticLogo}
             alt="CrossMatic"
