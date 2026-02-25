@@ -1,6 +1,11 @@
+import { GlassButton } from "@/components/ui/glass-button";
+import { useNavigate } from "react-router-dom";
+
 const BOOKING_URL = "https://cal.com/crossmatic/call";
 
 const Termin = () => {
+  const navigate = useNavigate();
+
   return (
     <main className="min-h-screen bg-[#02040a] px-4 py-8 text-white md:px-8 lg:px-16">
       <div className="mx-auto max-w-6xl">
@@ -12,12 +17,9 @@ const Termin = () => {
               Wählen Sie direkt einen passenden Termin. Die Buchung erfolgt auf dieser Seite.
             </p>
           </div>
-          <a
-            href="/"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm transition-colors hover:bg-white/10"
-          >
+          <GlassButton size="sm" onClick={() => navigate("/")} contentClassName="inline-flex items-center gap-2">
             Zurück zur Startseite
-          </a>
+          </GlassButton>
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/30">

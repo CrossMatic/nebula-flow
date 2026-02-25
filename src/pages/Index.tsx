@@ -1,10 +1,12 @@
 import GradientBackground from "@/components/GradientBackground";
+import { GlassButton } from "@/components/ui/glass-button";
 import { Timeline } from "@/components/ui/timeline";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import { CalendarCheck2, Mail, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -92,6 +94,7 @@ const faqs = [
 
 const Index = () => {
   const [showNavbar, setShowNavbar] = useState(false);
+  const navigate = useNavigate();
   const processTimelineData = processSteps.map((item) => ({
     title: `${item.step} ${item.title}`,
     content: (
@@ -147,12 +150,13 @@ const Index = () => {
                 FAQ
               </a>
             </nav>
-            <a
-              href="/termin"
-              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-4 py-2 text-xs text-foreground transition-colors hover:bg-secondary/80 md:text-sm"
+            <GlassButton
+              size="sm"
+              onClick={() => navigate("/termin")}
+              contentClassName="inline-flex items-center gap-2"
             >
               Gespräch buchen
-            </a>
+            </GlassButton>
           </div>
         </div>
       </header>
@@ -163,13 +167,10 @@ const Index = () => {
           <img src={crossmaticLogo} alt="CrossMatic" className="mx-auto h-64 w-auto -mb-24 md:h-[22rem] md:-mb-32" />
           <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für B2B-Unternehmen</p>
           <div className="pt-4">
-            <a
-              href="/termin"
-              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-6 py-3 text-sm text-foreground backdrop-blur-sm transition-colors hover:bg-secondary/80"
-            >
+            <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               Termin vereinbaren
               <span>→</span>
-            </a>
+            </GlassButton>
           </div>
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[#02040a]/70 to-[#02040a]" />
@@ -230,13 +231,10 @@ const Index = () => {
             ))}
           </div>
           <div className="pt-2 text-center">
-            <a
-              href="/termin"
-              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-6 py-3 text-sm text-foreground backdrop-blur-sm transition-colors hover:bg-secondary/80"
-            >
+            <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               Gespräch buchen
               <span>→</span>
-            </a>
+            </GlassButton>
           </div>
 
         </div>
@@ -303,19 +301,13 @@ const Index = () => {
             und skalierbar wird.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="/termin"
-              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-6 py-3 text-sm text-foreground backdrop-blur-sm transition-colors hover:bg-secondary/80"
-            >
+            <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               Termin vereinbaren
               <span>→</span>
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-transparent px-6 py-3 text-sm text-white transition-colors hover:bg-white/10"
-            >
+            </GlassButton>
+            <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               Kostenlose Analyse anfragen
-            </a>
+            </GlassButton>
           </div>
         </div>
       </section>
