@@ -1,5 +1,6 @@
 import GradientBackground from "@/components/GradientBackground";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
+import crossmaticLogo from "@/assets/crossmatic-logo.png";
 
 const services = [
   {
@@ -81,6 +82,7 @@ const faqs = [
 
 const Index = () => {
   return (
+<<<<<<< HEAD
     <main className="relative bg-[#02040a] text-white">
       <section className="relative isolate flex min-h-screen items-center justify-center px-4 overflow-hidden">
         <GradientBackground />
@@ -88,6 +90,17 @@ const Index = () => {
           <h1 className="text-3xl md:text-5xl tracking-tight leading-none text-white font-crossmatic">
             CrossMatic
           </h1>
+=======
+    <>
+      <GradientBackground />
+      <div className="relative flex min-h-screen flex-col items-center justify-center py-16">
+        <section className="text-center space-y-1">
+          <img
+            src={crossmaticLogo}
+            alt="CrossMatic"
+            className="h-32 md:h-48 mx-auto"
+          />
+>>>>>>> e3e7d7d007214a4135a71c63a337ee08b054637d
           <p className="text-lg text-muted-foreground">
             Automatisierte Lead-Generierung für B2B-Unternehmen
           </p>
@@ -100,6 +113,7 @@ const Index = () => {
               <span>→</span>
             </a>
           </div>
+<<<<<<< HEAD
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[#02040a]/70 to-[#02040a]" />
       </section>
@@ -225,6 +239,24 @@ const Index = () => {
         </div>
       </section>
     </main>
+=======
+        </section>
+      </div>
+
+      <div className="relative py-24 px-4 md:px-8 lg:px-16">
+        <section className="mx-auto max-w-4xl space-y-6">
+          <WordFadeIn
+            words="Mehr qualifizierte B2B-Leads durch automatisierte Outreach-Sequenzen."
+            className="text-white md:text-5xl"
+          />
+          <p className="text-center text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+            Wir kombinieren datengetriebene Zielgruppenrecherche mit personalisierten, mehrstufigen E-Mail- und
+            LinkedIn-Kampagnen – komplett automatisiert, aber trotzdem individuell.
+          </p>
+        </section>
+      </div>
+    </>
+>>>>>>> e3e7d7d007214a4135a71c63a337ee08b054637d
   );
 };
 
