@@ -1,5 +1,6 @@
 import GradientBackground from "@/components/GradientBackground";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
+import crossmaticLogo from "@/assets/crossmatic-logo.png";
 
 const Index = () => {
   return (
@@ -7,9 +8,11 @@ const Index = () => {
       <GradientBackground />
       <div className="relative flex min-h-screen flex-col items-center justify-center py-16">
         <section className="text-center space-y-4">
-          <h1 className="text-3xl md:text-5xl tracking-tight leading-none text-white font-crossmatic">
-            CrossMatic
-          </h1>
+          <img
+            src={crossmaticLogo}
+            alt="CrossMatic"
+            className="h-16 md:h-24 mx-auto"
+          />
           <p className="text-lg text-muted-foreground">
             Automatisierte Lead-Generierung für B2B-Unternehmen
           </p>
