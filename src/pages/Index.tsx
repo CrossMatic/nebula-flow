@@ -147,7 +147,7 @@ const Index = () => {
               </a>
             </nav>
             <a
-              href="#kontakt"
+              href="/termin"
               className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-4 py-2 text-xs text-foreground transition-colors hover:bg-secondary/80 md:text-sm"
             >
               Gespräch buchen
@@ -163,7 +163,7 @@ const Index = () => {
           <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für B2B-Unternehmen</p>
           <div className="pt-4">
             <a
-              href="#kontakt"
+              href="/termin"
               className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-6 py-3 text-sm text-foreground backdrop-blur-sm transition-colors hover:bg-secondary/80"
             >
               Termin vereinbaren
@@ -230,7 +230,7 @@ const Index = () => {
           </div>
           <div className="pt-2 text-center">
             <a
-              href="#kontakt"
+              href="/termin"
               className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-6 py-3 text-sm text-foreground backdrop-blur-sm transition-colors hover:bg-secondary/80"
             >
               Gespräch buchen
@@ -303,7 +303,7 @@ const Index = () => {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="#"
+              href="/termin"
               className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-6 py-3 text-sm text-foreground backdrop-blur-sm transition-colors hover:bg-secondary/80"
             >
               Termin vereinbaren
