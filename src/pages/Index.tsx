@@ -1,6 +1,5 @@
 import GradientBackground from "@/components/GradientBackground";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
-import crossmaticLogo from "@/assets/crossmatic-logo.png";
 
 const services = [
   {
@@ -82,28 +81,12 @@ const faqs = [
 
 const Index = () => {
   return (
-<<<<<<< HEAD
     <main className="relative bg-[#02040a] text-white">
-      <section className="relative isolate flex min-h-screen items-center justify-center px-4 overflow-hidden">
+      <section className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
         <GradientBackground />
         <div className="relative z-10 text-center space-y-4">
-          <h1 className="text-3xl md:text-5xl tracking-tight leading-none text-white font-crossmatic">
-            CrossMatic
-          </h1>
-=======
-    <>
-      <GradientBackground />
-      <div className="relative flex min-h-screen flex-col items-center justify-center py-16">
-        <section className="text-center space-y-1">
-          <img
-            src={crossmaticLogo}
-            alt="CrossMatic"
-            className="h-32 md:h-48 mx-auto"
-          />
->>>>>>> e3e7d7d007214a4135a71c63a337ee08b054637d
-          <p className="text-lg text-muted-foreground">
-            Automatisierte Lead-Generierung für B2B-Unternehmen
-          </p>
+          <h1 className="text-3xl md:text-5xl tracking-tight leading-none text-white font-crossmatic">CrossMatic</h1>
+          <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für B2B-Unternehmen</p>
           <div className="pt-4">
             <a
               href="#kontakt"
@@ -113,7 +96,6 @@ const Index = () => {
               <span>→</span>
             </a>
           </div>
-<<<<<<< HEAD
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[#02040a]/70 to-[#02040a]" />
       </section>
@@ -137,7 +119,6 @@ const Index = () => {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Leistungen</p>
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Was wir konkret für dich umsetzen</h2>
           </div>
-
           <div className="grid gap-4 md:grid-cols-2">
             {services.map((service) => (
               <article key={service.title} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
@@ -156,7 +137,6 @@ const Index = () => {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Prozess</p>
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">So läuft die Zusammenarbeit ab</h2>
           </div>
-
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((item) => (
               <article key={item.step} className="rounded-2xl border border-white/10 bg-white/5 p-6">
@@ -175,7 +155,6 @@ const Index = () => {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Ergebnisse</p>
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Performance, die messbar ist</h2>
           </div>
-
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
               <p className="text-3xl font-bold text-blue-300">+42%</p>
@@ -199,13 +178,12 @@ const Index = () => {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">FAQ</p>
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Häufige Fragen</h2>
           </div>
-
           <div className="space-y-3">
             {faqs.map((faq) => (
               <details key={faq.question} className="group rounded-xl border border-white/10 bg-white/5 p-5">
                 <summary className="cursor-pointer list-none text-left font-medium">
                   {faq.question}
-                  <span className="ml-2 text-blue-300 transition-transform group-open:rotate-45 inline-block">+</span>
+                  <span className="ml-2 inline-block text-blue-300 transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <p className="mt-3 text-sm text-muted-foreground">{faq.answer}</p>
               </details>
@@ -239,24 +217,6 @@ const Index = () => {
         </div>
       </section>
     </main>
-=======
-        </section>
-      </div>
-
-      <div className="relative py-24 px-4 md:px-8 lg:px-16">
-        <section className="mx-auto max-w-4xl space-y-6">
-          <WordFadeIn
-            words="Mehr qualifizierte B2B-Leads durch automatisierte Outreach-Sequenzen."
-            className="text-white md:text-5xl"
-          />
-          <p className="text-center text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-            Wir kombinieren datengetriebene Zielgruppenrecherche mit personalisierten, mehrstufigen E-Mail- und
-            LinkedIn-Kampagnen – komplett automatisiert, aber trotzdem individuell.
-          </p>
-        </section>
-      </div>
-    </>
->>>>>>> e3e7d7d007214a4135a71c63a337ee08b054637d
   );
 };
 
