@@ -2,6 +2,7 @@ import GradientBackground from "@/components/GradientBackground";
 import { Timeline } from "@/components/ui/timeline";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
+import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import { CalendarCheck2, Mail, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -127,10 +128,10 @@ const Index = () => {
           showNavbar ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="mx-auto mt-4 w-[min(96%,1100px)] rounded-full border border-white/10 bg-[#02040a]/80 px-4 py-3 backdrop-blur-md md:px-6">
+        <div className="mx-auto mt-4 w-[min(86%,920px)] rounded-xl border border-white/10 bg-[#02040a]/80 px-4 py-3 backdrop-blur-md md:px-6">
           <div className="flex items-center justify-between gap-4">
-            <a href="#hero" className="text-sm font-semibold tracking-wide text-white">
-              CrossMatic
+            <a href="#hero" className="inline-flex items-center">
+              <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-10 w-auto object-contain" />
             </a>
             <nav className="hidden items-center gap-5 text-sm text-slate-200/90 md:flex">
               <a href="#leistungen" className="transition-colors hover:text-white">
