@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Gabriel Sans Bold für CrossMatic-Logo */
+@font-face {
+  font-family: "Gabriel Sans";
+  src: url("/fonts/gabriel-sans-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-crossmatic {
+  font-family: "Gabriel Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
 @layer base {
   :root {
     --background: 222 50% 7%;
