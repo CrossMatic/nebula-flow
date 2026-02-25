@@ -1,31 +1,37 @@
 import GradientBackground from "@/components/GradientBackground";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
+import { CalendarCheck2, Mail } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const services = [
   {
-    title: "Zielgruppenrecherche",
+    title: "Neukundengewinnung",
+    subtitle: "Automatisierte Akquise-Kampagnen",
     description:
-      "Wir identifizieren ICPs, Branchencluster und relevante Entscheider mit klaren Priorisierungen.",
-    outcome: "Ergebnis: Fokus auf Kontakte mit hoher Abschlusswahrscheinlichkeit.",
+      "Wir bauen personalisierte Akquise Kampagnen, die konstant qualifizierte Gespräche in Ihren Kalender bringen – komplett automatisiert.",
+    benefits: [
+      "Wöchentliche Erstgespräche",
+      "100% Done-for-You Service",
+      "Volle CRM-Integration",
+    ],
+    footer: "Ideal für: B2B-Unternehmen mit klarem ICP, die planbar skalieren wollen.",
+    icon: "mail",
+    dashedBenefits: false,
   },
   {
-    title: "Personalisierte Outreach-Sequenzen",
+    title: "Conversion-Automatisierung",
+    subtitle: "Lead-zu-Kunde-Systeme",
     description:
-      "Mehrstufige E-Mail- und LinkedIn-Nachrichten, die auf Rolle, Branche und Trigger zugeschnitten sind.",
-    outcome: "Ergebnis: Höhere Antwortquote durch relevante Ansprache.",
-  },
-  {
-    title: "Follow-up-Automation",
-    description:
-      "Automatische Follow-ups im richtigen Timing, ohne dass Leads unpersönlich oder generisch wirken.",
-    outcome: "Ergebnis: Mehr gebuchte Gespräche ohne manuellen Mehraufwand.",
-  },
-  {
-    title: "Reporting & Optimierung",
-    description:
-      "Live-Dashboard mit Öffnungen, Antworten, Meetings und klaren Hebeln zur laufenden Verbesserung.",
-    outcome: "Ergebnis: Kontinuierliche Performance-Steigerung statt Blindflug.",
+      "Automatische Prozesse, die bestehende Leads durch Follow-ups und proaktiver Ansprache in zahlende Kunden verwandeln.",
+    benefits: [
+      "Höhere Conversion-Rate",
+      "Keine vergessenen Leads",
+      "Automatisches Performance-Tracking",
+    ],
+    footer: "Ideal für: Teams mit vorhandenen Leads, die schneller konvertieren wollen.",
+    icon: "calendar",
+    dashedBenefits: true,
   },
 ];
 
@@ -81,9 +87,59 @@ const faqs = [
 ];
 
 const Index = () => {
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const hero = document.getElementById("hero");
+      if (!hero) return;
+
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      setShowNavbar(heroBottom <= 0);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <main className="relative bg-[#02040a] text-white">
-      <section className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          showNavbar ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="mx-auto mt-4 w-[min(96%,1100px)] rounded-full border border-white/10 bg-[#02040a]/80 px-4 py-3 backdrop-blur-md md:px-6">
+          <div className="flex items-center justify-between gap-4">
+            <a href="#hero" className="text-sm font-semibold tracking-wide text-white">
+              CrossMatic
+            </a>
+            <nav className="hidden items-center gap-5 text-sm text-slate-200/90 md:flex">
+              <a href="#leistungen" className="transition-colors hover:text-white">
+                Leistungen
+              </a>
+              <a href="#prozess" className="transition-colors hover:text-white">
+                Prozess
+              </a>
+              <a href="#ergebnisse" className="transition-colors hover:text-white">
+                Ergebnisse
+              </a>
+              <a href="#faq" className="transition-colors hover:text-white">
+                FAQ
+              </a>
+            </nav>
+            <a
+              href="#kontakt"
+              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-4 py-2 text-xs text-foreground transition-colors hover:bg-secondary/80 md:text-sm"
+            >
+              Gespräch buchen
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <section id="hero" className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
         <GradientBackground />
         <div className="relative z-10 text-center space-y-0">
           <img src={crossmaticLogo} alt="CrossMatic" className="mx-auto h-64 w-auto -mb-24 md:h-[22rem] md:-mb-32" />
@@ -115,25 +171,60 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="w-full px-4 py-16 md:px-8 lg:px-16">
+      <section id="leistungen" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Leistungen</p>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Was wir konkret für dich umsetzen</h2>
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Mehr Kunden durch Systeme statt Zufall</h2>
+            <p className="mx-auto max-w-3xl text-sm text-muted-foreground md:text-base">
+              Jedes Unternehmen ist einzigartig - unsere Automatisierungssysteme werden speziell auf Ihre Ziele,
+              Kunden und täglichen Abläufe zugeschnitten.
+            </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             {services.map((service) => (
-              <article key={service.title} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-                <h3 className="text-xl font-semibold">{service.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground md:text-base">{service.description}</p>
-                <p className="mt-4 text-sm text-blue-300">{service.outcome}</p>
+              <article
+                key={service.title}
+                className="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-colors hover:border-blue-400/30"
+              >
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
+                  {service.icon === "mail" ? (
+                    <Mail className="h-5 w-5 text-blue-200" />
+                  ) : (
+                    <CalendarCheck2 className="h-5 w-5 text-blue-200" />
+                  )}
+                </div>
+                <h3 className="text-2xl font-semibold">{service.title}</h3>
+                <p className="mt-1 text-sm font-medium text-blue-300">{service.subtitle}</p>
+                <p className="mt-4 text-sm text-muted-foreground md:text-base">{service.description}</p>
+                <div className="mt-5">
+                  <ul className="space-y-2">
+                    {service.benefits.map((benefit) => (
+                      <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90">
+                        <span className="mt-[2px] text-blue-300">✓</span>
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p className="mt-5 border-t border-white/10 pt-4 text-sm text-muted-foreground">{service.footer}</p>
               </article>
             ))}
           </div>
+          <div className="pt-2 text-center">
+            <a
+              href="#kontakt"
+              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-6 py-3 text-sm text-foreground backdrop-blur-sm transition-colors hover:bg-secondary/80"
+            >
+              Gespräch buchen
+              <span>→</span>
+            </a>
+          </div>
+
         </div>
       </section>
 
-      <section className="w-full px-4 py-16 md:px-8 lg:px-16">
+      <section id="prozess" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Prozess</p>
@@ -151,7 +242,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="w-full px-4 py-16 md:px-8 lg:px-16">
+      <section id="ergebnisse" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Ergebnisse</p>
@@ -174,7 +265,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="w-full px-4 py-16 md:px-8 lg:px-16">
+      <section id="faq" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">FAQ</p>
