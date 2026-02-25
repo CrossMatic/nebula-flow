@@ -86,7 +86,7 @@ const Index = () => {
       <section className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
         <GradientBackground />
         <div className="relative z-10 text-center space-y-0">
-          <img src={crossmaticLogo} alt="CrossMatic" className="mx-auto h-48 w-auto -mb-16 md:h-72 md:-mb-24" />
+          <img src={crossmaticLogo} alt="CrossMatic" className="mx-auto h-64 w-auto -mb-24 md:h-[22rem] md:-mb-32" />
           <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für B2B-Unternehmen</p>
           <div className="pt-4">
             <a
