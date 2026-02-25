@@ -1,7 +1,8 @@
 import GradientBackground from "@/components/GradientBackground";
+import { Timeline } from "@/components/ui/timeline";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
-import { CalendarCheck2, Mail } from "lucide-react";
+import { CalendarCheck2, Mail, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const services = [
@@ -17,7 +18,6 @@ const services = [
     ],
     footer: "Ideal für: B2B-Unternehmen mit klarem ICP, die planbar skalieren wollen.",
     icon: "mail",
-    dashedBenefits: false,
   },
   {
     title: "Conversion-Automatisierung",
@@ -31,30 +31,33 @@ const services = [
     ],
     footer: "Ideal für: Teams mit vorhandenen Leads, die schneller konvertieren wollen.",
     icon: "calendar",
-    dashedBenefits: true,
   },
 ];
 
 const processSteps = [
   {
     step: "01",
-    title: "Analyse",
-    text: "Wir prüfen Positionierung, Zielkunden und Angebot, um die richtige Botschaft zu definieren.",
+    title: "Kostenloses Erstgespräch",
+    text: "In diesem Gespräch teilen Sie uns mehr über Ihr Unternehmen mit, Ihre aktuellen Prozesse und wir schlagen Bereiche vor, in denen KI und Automatisierung Ihnen helfen kann.",
+    icon: "call",
   },
   {
     step: "02",
-    title: "Setup",
-    text: "Technisches Setup, Sequenzen, Datenquellen und Tracking werden sauber aufgesetzt.",
+    title: "Planung & Strategie-Session",
+    text: "Wenn es passt, starten wir nach dem Erstgespräch mit der Planung. Wir vereinbaren einen Strategie-Termin, in dem wir die nächsten Schritte besprechen und den Plan bei Bedarf anpassen.",
+    icon: "strategy",
   },
   {
     step: "03",
-    title: "Kampagnenstart",
-    text: "Outreach startet kontrolliert mit ersten Wellen und enger Qualitätskontrolle.",
+    title: "Umsetzung",
+    text: "Sobald wir uns auf die Strategie und den Aktionsplan geeinigt haben, beginnen wir mit der Entwicklung Ihrer neuen Automatisierungslösungen.",
+    icon: "build",
   },
   {
     step: "04",
-    title: "Optimierung",
-    text: "Wir testen Hooks, Nachrichten und Zielgruppen kontinuierlich auf bessere Ergebnisse.",
+    title: "Launch + Optimierung",
+    text: "Sobald die Entwicklung abgeschlossen ist, setzten wir das System auf und suchen kontinuierlich nach Verbesserungsmöglichkeiten.",
+    icon: "launch",
   },
 ];
 
@@ -88,6 +91,20 @@ const faqs = [
 
 const Index = () => {
   const [showNavbar, setShowNavbar] = useState(false);
+  const processTimelineData = processSteps.map((item) => ({
+    title: `${item.step} ${item.title}`,
+    content: (
+      <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+        <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10 shadow-[0_0_24px_rgba(59,130,246,0.3)]">
+          {item.icon === "call" && <PhoneCall className="h-5 w-5 text-blue-200" />}
+          {item.icon === "strategy" && <Target className="h-5 w-5 text-blue-200" />}
+          {item.icon === "build" && <Settings2 className="h-5 w-5 text-blue-200" />}
+          {item.icon === "launch" && <Rocket className="h-5 w-5 text-blue-200" />}
+        </div>
+        <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{item.text}</p>
+      </div>
+    ),
+  }));
 
   useEffect(() => {
     const onScroll = () => {
@@ -230,15 +247,7 @@ const Index = () => {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Prozess</p>
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">So läuft die Zusammenarbeit ab</h2>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((item) => (
-              <article key={item.step} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <p className="text-sm font-medium text-blue-300">{item.step}</p>
-                <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{item.text}</p>
-              </article>
-            ))}
-          </div>
+          <Timeline data={processTimelineData} />
         </div>
       </section>
 
