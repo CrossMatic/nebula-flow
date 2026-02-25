@@ -5,7 +5,7 @@ const Index = () => {
   return (
     <>
       <GradientBackground />
-      <div className="relative flex min-h-screen flex-col items-center justify-center gap-24 py-16">
+      <div className="relative flex min-h-screen flex-col items-center justify-center py-16">
         <section className="text-center space-y-4">
           <h1 className="text-3xl md:text-5xl tracking-tight leading-none text-white font-crossmatic">
             CrossMatic
@@ -23,18 +23,18 @@ const Index = () => {
             </a>
           </div>
         </section>
+      </div>
 
-        <section className="w-full px-4 md:px-8 lg:px-16">
-          <div className="mx-auto max-w-4xl space-y-6">
-            <WordFadeIn
-              words="Mehr qualifizierte B2B-Leads durch automatisierte Outreach-Sequenzen."
-              className="text-white md:text-5xl"
-            />
-            <p className="text-center text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-              Wir kombinieren datengetriebene Zielgruppenrecherche mit personalisierten, mehrstufigen E-Mail- und
-              LinkedIn-Kampagnen – komplett automatisiert, aber trotzdem individuell.
-            </p>
-          </div>
+      <div className="relative py-24 px-4 md:px-8 lg:px-16">
+        <section className="mx-auto max-w-4xl space-y-6">
+          <WordFadeIn
+            words="Mehr qualifizierte B2B-Leads durch automatisierte Outreach-Sequenzen."
+            className="text-white md:text-5xl"
+          />
+          <p className="text-center text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+            Wir kombinieren datengetriebene Zielgruppenrecherche mit personalisierten, mehrstufigen E-Mail- und
+            LinkedIn-Kampagnen – komplett automatisiert, aber trotzdem individuell.
+          </p>
         </section>
       </div>
     </>
