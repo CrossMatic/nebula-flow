@@ -57,39 +57,39 @@
 
 /* Animated gradient orbs */
 @keyframes float1 {
-  0%, 100% { transform: translate(-20%, -20%); }
-  25% { transform: translate(30%, 10%); }
-  50% { transform: translate(60%, 40%); }
-  75% { transform: translate(10%, 60%); }
+  0%, 100% { transform: translate(-20%, -20%) scale(1.35, 0.65) rotate(0deg); }
+  25% { transform: translate(30%, 10%) scale(0.75, 1.35) rotate(40deg); }
+  50% { transform: translate(60%, 40%) scale(1.45, 0.6) rotate(85deg); }
+  75% { transform: translate(10%, 60%) scale(0.8, 1.4) rotate(130deg); }
 }
 
 @keyframes float2 {
-  0%, 100% { transform: translate(80%, -10%); }
-  25% { transform: translate(20%, 50%); }
-  50% { transform: translate(-10%, 30%); }
-  75% { transform: translate(50%, -20%); }
+  0%, 100% { transform: translate(80%, -10%) scale(0.7, 1.4) rotate(0deg); }
+  25% { transform: translate(20%, 50%) scale(1.35, 0.7) rotate(-45deg); }
+  50% { transform: translate(-10%, 30%) scale(0.75, 1.45) rotate(-95deg); }
+  75% { transform: translate(50%, -20%) scale(1.4, 0.75) rotate(-140deg); }
 }
 
 @keyframes float3 {
-  0%, 100% { transform: translate(40%, 70%); }
-  25% { transform: translate(-20%, 20%); }
-  50% { transform: translate(70%, -10%); }
-  75% { transform: translate(20%, 40%); }
+  0%, 100% { transform: translate(40%, 70%) scale(1.4, 0.7) rotate(0deg); }
+  25% { transform: translate(-20%, 20%) scale(0.7, 1.4) rotate(55deg); }
+  50% { transform: translate(70%, -10%) scale(1.5, 0.6) rotate(110deg); }
+  75% { transform: translate(20%, 40%) scale(0.75, 1.45) rotate(165deg); }
 }
 
 @keyframes float4 {
-  0%, 100% { transform: translate(60%, 20%); }
-  33% { transform: translate(-10%, 60%); }
-  66% { transform: translate(30%, -20%); }
+  0%, 100% { transform: translate(60%, 20%) scale(0.7, 1.45) rotate(0deg); }
+  33% { transform: translate(-10%, 60%) scale(1.4, 0.7) rotate(-55deg); }
+  66% { transform: translate(30%, -20%) scale(0.75, 1.4) rotate(-120deg); }
 }
 
 @keyframes float5 {
-  0%, 100% { transform: translate(-10%, 50%); }
-  33% { transform: translate(70%, 10%); }
-  66% { transform: translate(40%, 70%); }
+  0%, 100% { transform: translate(-10%, 50%) scale(1.45, 0.65) rotate(0deg); }
+  33% { transform: translate(70%, 10%) scale(0.65, 1.45) rotate(60deg); }
+  66% { transform: translate(40%, 70%) scale(1.5, 0.6) rotate(120deg); }
 }
 
 @keyframes float6 {
-  0%, 100% { transform: translate(50%, -10%); }
-  50% { transform: translate(-20%, 60%); }
+  0%, 100% { transform: translate(50%, -10%) scale(0.65, 1.5) rotate(0deg); }
+  50% { transform: translate(-20%, 60%) scale(1.45, 0.65) rotate(-110deg); }
 }

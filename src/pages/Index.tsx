@@ -5,9 +5,9 @@ const Index = () => {
     <>
       <GradientBackground />
       <div className="relative flex min-h-screen items-center justify-center">
-        <div className="text-center space-y-6">
-          <h1 className="text-7xl md:text-9xl font-extralight tracking-tight text-foreground">
-            Lunivate
+        <div className="text-center space-y-4">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-normal text-white">
+            CrossMatic
           </h1>
           <p className="text-lg text-muted-foreground">
             Enhance Your Business with Custom Automation Solutions.
@@ -17,7 +17,7 @@ const Index = () => {
               href="#"
               className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-6 py-3 text-sm text-foreground backdrop-blur-sm transition-colors hover:bg-secondary/80"
             >
-              Download Our Automations
+              Termin vereinbaren
               <span>→</span>
             </a>
           </div>
