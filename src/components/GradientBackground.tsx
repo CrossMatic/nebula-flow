@@ -81,7 +81,7 @@ const orbs = [
 
 const GradientBackground = () => (
   <div
-    className="fixed inset-0 overflow-hidden"
+    className="absolute inset-0 overflow-hidden pointer-events-none"
     style={{
       background:
         "radial-gradient(circle at center, rgba(15, 23, 42, 0.15), transparent 60%), #02040a",
