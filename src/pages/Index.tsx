@@ -11,7 +11,7 @@ const Index = () => {
           <img
             src={crossmaticLogo}
             alt="CrossMatic"
-            className="h-16 md:h-24 mx-auto"
+            className="h-32 md:h-48 mx-auto"
           />
           <p className="text-lg text-muted-foreground">
             Automatisierte Lead-Generierung für B2B-Unternehmen
