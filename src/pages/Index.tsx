@@ -183,7 +183,22 @@ const Index = () => {
       <section ref={heroRef} id="hero" className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
         <GradientBackground active={heroInView} />
         <div className="relative z-10 text-center space-y-0">
-          <img src={crossmaticLogo} alt="CrossMatic" className="mx-auto h-80 w-auto -mb-24 md:h-[27.5rem] md:-mb-32" />
+          <div
+            role="img"
+            aria-label="CrossMatic"
+            className="mx-auto h-80 w-[min(94vw,64rem)] -mb-24 md:h-[27.5rem] md:-mb-32"
+            style={{
+              background: "linear-gradient(90deg, #ffffff 0%, #bfdbfe 54%, #60a5fa 100%)",
+              WebkitMaskImage: `url(${crossmaticLogo})`,
+              maskImage: `url(${crossmaticLogo})`,
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskPosition: "center",
+              maskPosition: "center",
+              WebkitMaskSize: "contain",
+              maskSize: "contain",
+            }}
+          />
           <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für B2B-Unternehmen</p>
           <div className="pt-4">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
