@@ -181,8 +181,8 @@ const Index = () => {
             triggerOnView
           />
           <p className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base">
-            Wir kombinieren datengetriebene Zielgruppenrecherche mit personalisierten, mehrstufigen E-Mail- und
-            LinkedIn-Kampagnen – komplett automatisiert, aber trotzdem individuell.
+            Von personalisierter Neukundengewinnung bis zur Automatisierung bestehender Kanäle – Ihr Partner für
+            planbare Kunden.
           </p>
         </div>
       </section>
