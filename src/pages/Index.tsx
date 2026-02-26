@@ -190,7 +190,7 @@ const Index = () => {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[#02040a]/70 to-[#02040a]" />
       </section>
 
-      <section className="w-full bg-[#02040a] px-4 pb-24 pt-44 md:px-8 md:pt-56 lg:px-16">
+      <section className="w-full bg-[#02040a] px-4 pb-24 pt-28 md:px-8 md:pt-36 lg:px-16">
         <div className="mx-auto max-w-4xl space-y-6">
           <WordFadeIn
             words="Kommunikation, die sich persönlich anfühlt, aber automatisch abläuft."
@@ -348,7 +348,7 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="w-full border-t border-white/10 px-4 py-14 md:px-8 lg:px-16">
+      <footer className="mt-16 w-full border-t border-white/10 px-4 py-14 md:mt-24 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:grid-cols-3">
             <div className="space-y-5">
