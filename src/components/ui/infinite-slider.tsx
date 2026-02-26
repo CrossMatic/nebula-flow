@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { useMotionValue, animate, motion } from 'framer-motion';
-import { useState, useEffect, type ReactNode } from 'react';
+import { Children, useState, useEffect, type ReactNode } from 'react';
 import useMeasure from 'react-use-measure';
 
 type InfiniteSliderProps = {
@@ -25,17 +25,19 @@ export function InfiniteSlider({
   className,
 }: InfiniteSliderProps) {
   const [currentDuration, setCurrentDuration] = useState(duration);
-  const [ref, { width, height }] = useMeasure();
+  const [measureRef, { width, height }] = useMeasure();
   const translation = useMotionValue(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [key, setKey] = useState(0);
+  const items = Children.toArray(children);
 
   useEffect(() => {
     let controls;
     const size = direction === 'horizontal' ? width : height;
     const contentSize = size + gap;
-    const from = reverse ? -contentSize / 2 : 0;
-    const to = reverse ? 0 : -contentSize / 2;
+    if (size === 0) return;
+    const from = reverse ? -contentSize : 0;
+    const to = reverse ? 0 : -contentSize;
 
     if (isTransitioning) {
       controls = animate(translation, [translation.get(), to], {
@@ -54,9 +56,6 @@ export function InfiniteSlider({
         repeat: Infinity,
         repeatType: 'loop',
         repeatDelay: 0,
-        onRepeat: () => {
-          translation.set(from);
-        },
       });
     }
 
@@ -97,14 +96,38 @@ export function InfiniteSlider({
           ...(direction === 'horizontal'
             ? { x: translation }
             : { y: translation }),
-          gap: `${gap}px`,
           flexDirection: direction === 'horizontal' ? 'row' : 'column',
+          willChange: 'transform',
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
         }}
-        ref={ref}
         {...hoverProps}
       >
-        {children}
-        {children}
+        <div
+          ref={measureRef}
+          className={cn(
+            'flex shrink-0',
+            direction === 'horizontal' ? 'flex-row items-center' : 'flex-col items-start',
+          )}
+          style={{ gap: `${gap}px` }}
+        >
+          {items}
+        </div>
+        <div
+          aria-hidden='true'
+          className={cn(
+            'flex shrink-0',
+            direction === 'horizontal' ? 'flex-row items-center' : 'flex-col items-start',
+          )}
+          style={{
+            gap: `${gap}px`,
+            ...(direction === 'horizontal'
+              ? { marginLeft: `${gap}px` }
+              : { marginTop: `${gap}px` }),
+          }}
+        >
+          {items}
+        </div>
       </motion.div>
     </div>
   );
