@@ -1,4 +1,5 @@
 import { GlassButton } from "@/components/ui/glass-button";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { useNavigate } from "react-router-dom";
 
 const BOOKING_URL = "https://cal.com/crossmatic/call";
@@ -22,7 +23,16 @@ const Termin = () => {
           </GlassButton>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+          <GlowingEffect
+            spread={36}
+            glow={false}
+            disabled={false}
+            proximity={84}
+            inactiveZone={0.22}
+            borderWidth={1}
+            variant="white"
+          />
           <iframe
             src={BOOKING_URL}
             title="CrossMatic Terminbuchung"

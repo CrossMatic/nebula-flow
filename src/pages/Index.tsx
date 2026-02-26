@@ -1,5 +1,6 @@
 import GradientBackground from "@/components/GradientBackground";
 import { GlassButton } from "@/components/ui/glass-button";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Timeline } from "@/components/ui/timeline";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
@@ -98,7 +99,16 @@ const Index = () => {
   const processTimelineData = processSteps.map((item) => ({
     title: `${item.step} ${item.title}`,
     content: (
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+      <div className="relative rounded-2xl border border-white/10 bg-white/5 p-5">
+        <GlowingEffect
+          spread={32}
+          glow={false}
+          disabled={false}
+          proximity={72}
+          inactiveZone={0.2}
+          borderWidth={1}
+          variant="white"
+        />
         <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10 shadow-[0_0_24px_rgba(59,130,246,0.3)]">
           {item.icon === "call" && <PhoneCall className="h-5 w-5 text-blue-200" />}
           {item.icon === "strategy" && <Target className="h-5 w-5 text-blue-200" />}
@@ -201,8 +211,17 @@ const Index = () => {
             {services.map((service) => (
               <article
                 key={service.title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-colors hover:border-blue-400/30"
+                className="relative rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-colors hover:border-blue-400/30"
               >
+                <GlowingEffect
+                  spread={34}
+                  glow={false}
+                  disabled={false}
+                  proximity={80}
+                  inactiveZone={0.2}
+                  borderWidth={1}
+                  variant="white"
+                />
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
                   {service.icon === "mail" ? (
                     <Mail className="h-5 w-5 text-blue-200" />
@@ -255,7 +274,16 @@ const Index = () => {
           </div>
           <div className="space-y-3">
             {faqs.map((faq) => (
-              <details key={faq.question} className="group rounded-xl border border-white/10 bg-white/5 p-5">
+              <details key={faq.question} className="group relative rounded-xl border border-white/10 bg-white/5 p-5">
+                <GlowingEffect
+                  spread={30}
+                  glow={false}
+                  disabled={false}
+                  proximity={72}
+                  inactiveZone={0.22}
+                  borderWidth={1}
+                  variant="white"
+                />
                 <summary className="cursor-pointer list-none text-left font-medium">
                   {faq.question}
                   <span className="ml-2 inline-block text-blue-300 transition-transform group-open:rotate-45">+</span>
@@ -268,7 +296,16 @@ const Index = () => {
       </section>
 
       <section id="kontakt" className="w-full px-4 py-20 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/5 p-8 text-center md:p-12">
+        <div className="relative mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/5 p-8 text-center md:p-12">
+          <GlowingEffect
+            spread={36}
+            glow={false}
+            disabled={false}
+            proximity={84}
+            inactiveZone={0.22}
+            borderWidth={1}
+            variant="white"
+          />
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Bereit für planbare B2B-Leads?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground md:text-base">
             Buche ein kurzes Strategiegespräch und wir zeigen dir, wie dein Outreach-Prozess automatisiert, messbar
