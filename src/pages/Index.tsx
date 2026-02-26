@@ -68,27 +68,27 @@ const faqs = [
   {
     question: "Wie schnell sehen wir erste Ergebnisse?",
     answer:
-      "In der Regel sehen wir innerhalb von 2-4 Wochen erste positive Signale wie Antworten und qualifizierte Gespräche.",
+      "Akquise-System: Braucht eine Aufbauzeit von mindestens 2 Wochen. Nach dem Launch der Kampagne kommen die ersten Anfragen typischerweise innerhalb weniger Tage.\n\nConversion-System: Erste Ergebnisse zeigen sich bereits 1-2 Wochen nach Implementierung - abhängig von Ihrer bestehenden Traffic- und Lead-Qualität.",
   },
   {
-    question: "Für welche Unternehmen ist das geeignet?",
+    question: "Was kostet das System?",
     answer:
-      "Besonders gut für B2B-Unternehmen mit erklärungsbedürftigem Angebot und klarem ICP im DACH- oder EU-Raum.",
+      "Wir arbeiten nicht mit Fixpreisen, da jedes System individuell auf Ihre Anforderungen zugeschnitten wird. Unsere Kunden sehen jedoch typischerweise bereits in den ersten 1-2 Monaten einen ROI von 200-400%.",
   },
   {
-    question: "Wie persönlich ist die Kommunikation wirklich?",
+    question: "Ist das komplett Done-for-You oder eine Zusammenarbeit?",
     answer:
-      "Jede Sequenz wird mit variablen Personalisierungsbausteinen aufgebaut, damit Nachrichten relevant statt generisch wirken.",
+      "Akquise-System: Zusammenarbeit - wir liefern qualifizierte Termine, Sie führen die Gespräche. Der Verkauf bleibt persönlich.\n\nConversion-System: Weitgehend automatisiert (95%+), abhängig von Ihren Kanälen. Je nach Setup komplett hands-off oder mit gemeinsamer Optimierung.",
   },
   {
-    question: "Ist das DSGVO-konform umsetzbar?",
+    question: "Ist das DSGVO-konform?",
     answer:
-      "Ja, wir arbeiten mit sauberen Prozessen, transparenten Datenquellen und konformen Outreach-Richtlinien.",
+      "Ja. Wir arbeiten mit DACH-fokussierten Lösungen, nutzen europäisches Hosting und bieten klare Opt-In/Opt-Out-Mechaniken sowie transparente Absenderangaben an.",
   },
   {
-    question: "Müssen wir intern viel Zeit investieren?",
+    question: "Kann ich CrossMatics System auch selber managen?",
     answer:
-      "Nein, nach dem initialen Briefing läuft der Großteil operativ über uns. Ihr gebt nur punktuell Feedback.",
+      "Absolut! Wir entwickeln unsere Systeme so, dass sie sich leicht in Ihre Konten integrieren lassen, und stehen Ihnen jederzeit mit Rat und Tat zur Seite. Wenn Sie es jedoch vorziehen, dass wir die Verwaltung übernehmen, sind wir nur einen Anruf entfernt und helfen Ihnen bei allen Fragen gerne weiter.",
   },
 ];
 
@@ -260,7 +260,7 @@ const Index = () => {
                   {faq.question}
                   <span className="ml-2 inline-block text-blue-300 transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 text-sm text-muted-foreground">{faq.answer}</p>
+                <p className="mt-3 whitespace-pre-line text-sm text-muted-foreground">{faq.answer}</p>
               </details>
             ))}
           </div>
