@@ -210,7 +210,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="w-full px-4 pb-16 md:px-8 lg:px-16">
+      <section className="w-full bg-[#02040a] px-4 pb-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-6">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Unterstützt durch</p>
           <div className="relative">
@@ -234,8 +234,6 @@ const Index = () => {
                 <img src={toolsStripeLogo} alt="Stripe" className="h-[7.5rem] w-auto object-contain" />
               </div>
             </InfiniteSlider>
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#02040a] to-transparent md:w-24" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#02040a] to-transparent md:w-24" />
           </div>
         </div>
       </section>
