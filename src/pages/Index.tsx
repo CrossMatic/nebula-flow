@@ -3,6 +3,7 @@ import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { Timeline } from "@/components/ui/timeline";
+import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import toolsAirtableLogo from "@/assets/tools-airtable-logo.png";
@@ -196,9 +197,12 @@ const Index = () => {
 
       <section className="w-full bg-[#02040a] px-4 pb-24 pt-44 md:px-8 md:pt-56 lg:px-16">
         <div className="mx-auto max-w-4xl space-y-6">
-          <h2 className="text-center text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl md:leading-tight">
-            Kommunikation, die sich persönlich anfühlt, aber automatisch abläuft.
-          </h2>
+          <WordFadeIn
+            words="Kommunikation, die sich persönlich anfühlt, aber automatisch abläuft."
+            className="text-white md:text-5xl"
+            delay={0.24}
+            triggerOnView
+          />
           <p className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base">
             Von personalisierter Neukundengewinnung bis zur Automatisierung bestehender Kanäle – Ihr Partner für
             planbare Kunden.
@@ -334,17 +338,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="kontakt" className="w-full px-4 py-20 md:px-8 lg:px-16">
-        <div className="relative mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/5 p-8 text-center md:p-12">
-          <GlowingEffect
-            spread={36}
-            glow={false}
-            disabled={false}
-            proximity={84}
-            inactiveZone={0.22}
-            borderWidth={1}
-            variant="white"
-          />
+      <section id="kontakt" className="w-full px-4 pb-20 pt-14 md:px-8 md:pt-16 lg:px-16">
+        <div className="mx-auto max-w-4xl p-8 text-center md:p-12">
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Bereit für planbare Neukunden?</h2>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
