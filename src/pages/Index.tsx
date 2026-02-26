@@ -210,7 +210,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="w-full bg-[#02040a] px-4 pb-16 md:px-8 lg:px-16">
+      <section className="relative z-10 w-full bg-[#02040a] px-4 pb-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-6">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Unterstützt durch</p>
           <div className="relative">

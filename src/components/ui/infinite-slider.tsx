@@ -86,10 +86,10 @@ export function InfiniteSlider({
     : {};
 
   return (
-    <div className={cn('overflow-hidden', className)}>
+    <div className={cn('overflow-hidden bg-transparent', className)}>
       <motion.div
         className={cn(
-          'flex w-max',
+          'flex w-max bg-transparent',
           direction === 'horizontal' ? 'items-center' : 'items-start',
         )}
         style={{
@@ -98,15 +98,13 @@ export function InfiniteSlider({
             : { y: translation }),
           flexDirection: direction === 'horizontal' ? 'row' : 'column',
           willChange: 'transform',
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
         }}
         {...hoverProps}
       >
         <div
           ref={measureRef}
           className={cn(
-            'flex shrink-0',
+            'flex shrink-0 bg-transparent',
             direction === 'horizontal' ? 'flex-row items-center' : 'flex-col items-start',
           )}
           style={{ gap: `${gap}px` }}
@@ -116,7 +114,7 @@ export function InfiniteSlider({
         <div
           aria-hidden='true'
           className={cn(
-            'flex shrink-0',
+            'flex shrink-0 bg-transparent',
             direction === 'horizontal' ? 'flex-row items-center' : 'flex-col items-start',
           )}
           style={{
