@@ -1,4 +1,15 @@
-const orbs = [
+type Orb = {
+  size: string;
+  bg: string;
+  blur: number;
+  animation: string;
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
+};
+
+const orbs: Orb[] = [
   // großer, heller Blob rechts (wie im Referenzbild)
   {
     size: "clamp(1350px, 88vw, 2600px)",
@@ -115,10 +126,10 @@ const GradientBackground = () => (
           filter: `blur(${orb.blur}px)`,
           animation: orb.animation,
           willChange: "transform",
-          top: (orb as any).top,
-          left: (orb as any).left,
-          right: (orb as any).right,
-          bottom: (orb as any).bottom,
+          top: orb.top,
+          left: orb.left,
+          right: orb.right,
+          bottom: orb.bottom,
           opacity: 0.96,
           mixBlendMode: "screen",
           borderRadius: "50% 60% 40% 70%",

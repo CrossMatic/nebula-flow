@@ -331,11 +331,7 @@ const Index = () => {
             borderWidth={1}
             variant="white"
           />
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Bereit für planbare B2B-Leads?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground md:text-base">
-            Buche ein kurzes Strategiegespräch und wir zeigen dir, wie dein Outreach-Prozess automatisiert, messbar
-            und skalierbar wird.
-          </p>
+          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Bereit für planbare Neukunden?</h2>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               Termin vereinbaren
@@ -363,7 +359,6 @@ const Index = () => {
               <div className="flex flex-col gap-3.5 text-sm text-slate-200/90">
                 <a href="#leistungen" className="transition-colors hover:text-white">Leistungen</a>
                 <a href="#prozess" className="transition-colors hover:text-white">Prozess</a>
-                <a href="#ergebnisse" className="transition-colors hover:text-white">Ergebnisse</a>
                 <a href="#faq" className="transition-colors hover:text-white">FAQ</a>
                 <a href="/termin" className="transition-colors hover:text-white">Termin buchen</a>
               </div>
@@ -400,8 +395,8 @@ const Index = () => {
           <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
             <p>© 2025 CrossMatic. Alle Rechte vorbehalten.</p>
             <div className="flex items-center gap-4">
-              <a href="#" className="transition-colors hover:text-white">Impressum</a>
-              <a href="#" className="transition-colors hover:text-white">Datenschutz</a>
+              <a href="/impressum" className="transition-colors hover:text-white">Impressum</a>
+              <a href="/datenschutz" className="transition-colors hover:text-white">Datenschutz</a>
             </div>
           </div>
         </div>

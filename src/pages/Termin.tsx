@@ -165,8 +165,8 @@ const Termin = () => {
           <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
             <p>© 2025 CrossMatic. Alle Rechte vorbehalten.</p>
             <div className="flex items-center gap-4">
-              <a href="#" className="transition-colors hover:text-white">Impressum</a>
-              <a href="#" className="transition-colors hover:text-white">Datenschutz</a>
+              <a href="/impressum" className="transition-colors hover:text-white">Impressum</a>
+              <a href="/datenschutz" className="transition-colors hover:text-white">Datenschutz</a>
             </div>
           </div>
         </div>
