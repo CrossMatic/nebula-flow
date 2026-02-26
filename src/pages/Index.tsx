@@ -7,7 +7,6 @@ import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import toolsAirtableLogo from "@/assets/tools-airtable-logo.png";
-import toolsLinkedInWhiteLogo from "@/assets/tools-linkedin-white-logo.png";
 import toolsMakeLogo from "@/assets/tools-make-logo.png";
 import toolsN8nLogo from "@/assets/tools-n8n-logo.png";
 import toolsOpenAiLogo from "@/assets/tools-openai-logo.png";
@@ -208,15 +207,18 @@ const Index = () => {
       <section className="w-full px-4 pb-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-6">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Unterstützt durch</p>
-          <InfiniteSlider gap={56} duration={20} className="w-full py-2">
-            <img src={toolsN8nLogo} alt="n8n" className="h-24 w-auto object-contain" />
-            <img src={toolsAirtableLogo} alt="Airtable" className="h-24 w-auto object-contain" />
-            <img src={toolsOpenAiLogo} alt="OpenAI" className="h-24 w-auto object-contain" />
-            <img src={toolsMakeLogo} alt="Make" className="h-24 w-auto object-contain" />
-            <img src={toolsLinkedInWhiteLogo} alt="LinkedIn" className="h-20 w-auto object-contain" />
-            <img src={toolsSlackLogo} alt="Slack" className="mt-6 h-10 w-auto object-contain" />
-            <img src={toolsStripeLogo} alt="Stripe" className="h-24 w-auto object-contain" />
-          </InfiniteSlider>
+          <div className="relative">
+            <InfiniteSlider gap={56} duration={20} className="w-full py-2">
+              <img src={toolsN8nLogo} alt="n8n" className="-mt-3 h-[7.5rem] w-auto object-contain" />
+              <img src={toolsAirtableLogo} alt="Airtable" className="h-24 w-auto object-contain" />
+              <img src={toolsOpenAiLogo} alt="OpenAI" className="-mt-3 h-[7.5rem] w-auto object-contain" />
+              <img src={toolsMakeLogo} alt="Make" className="h-24 w-auto object-contain" />
+              <img src={toolsSlackLogo} alt="Slack" className="mt-6 h-10 w-auto object-contain" />
+              <img src={toolsStripeLogo} alt="Stripe" className="h-24 w-auto object-contain" />
+            </InfiniteSlider>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#02040a] to-transparent md:w-24" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#02040a] to-transparent md:w-24" />
+          </div>
         </div>
       </section>
 
