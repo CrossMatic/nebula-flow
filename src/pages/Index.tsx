@@ -151,7 +151,7 @@ const Index = () => {
         <div className="mx-auto mt-4 w-[min(86%,920px)] rounded-xl border border-white/10 bg-[#02040a]/80 px-4 py-3 backdrop-blur-md md:px-6">
           <div className="flex items-center justify-between gap-4">
             <a href="#hero" className="inline-flex items-center">
-              <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-10 w-auto object-contain" />
+              <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-[3.125rem] w-auto object-contain" />
             </a>
             <nav className="hidden items-center gap-5 text-sm text-slate-200/90 md:flex">
               <a href="#leistungen" className="transition-colors hover:text-white">
@@ -178,7 +178,7 @@ const Index = () => {
       <section id="hero" className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
         <GradientBackground />
         <div className="relative z-10 text-center space-y-0">
-          <img src={crossmaticLogo} alt="CrossMatic" className="mx-auto h-64 w-auto -mb-24 md:h-[22rem] md:-mb-32" />
+          <img src={crossmaticLogo} alt="CrossMatic" className="mx-auto h-80 w-auto -mb-24 md:h-[27.5rem] md:-mb-32" />
           <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für B2B-Unternehmen</p>
           <div className="pt-4">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
@@ -209,12 +209,24 @@ const Index = () => {
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Unterstützt durch</p>
           <div className="relative">
             <InfiniteSlider gap={56} duration={20} className="w-full py-2">
-              <img src={toolsN8nLogo} alt="n8n" className="-mt-3 h-[7.5rem] w-auto object-contain" />
-              <img src={toolsAirtableLogo} alt="Airtable" className="h-24 w-auto object-contain" />
-              <img src={toolsOpenAiLogo} alt="OpenAI" className="-mt-3 h-[7.5rem] w-auto object-contain" />
-              <img src={toolsMakeLogo} alt="Make" className="h-24 w-auto object-contain" />
-              <img src={toolsSlackLogo} alt="Slack" className="mt-6 h-10 w-auto object-contain" />
-              <img src={toolsStripeLogo} alt="Stripe" className="h-24 w-auto object-contain" />
+              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
+                <img src={toolsN8nLogo} alt="n8n" className="h-[9.375rem] w-auto object-contain" />
+              </div>
+              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
+                <img src={toolsAirtableLogo} alt="Airtable" className="h-[7.5rem] w-auto object-contain" />
+              </div>
+              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
+                <img src={toolsOpenAiLogo} alt="OpenAI" className="h-[9.375rem] w-auto object-contain" />
+              </div>
+              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
+                <img src={toolsMakeLogo} alt="Make" className="h-[7.5rem] w-auto object-contain" />
+              </div>
+              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
+                <img src={toolsSlackLogo} alt="Slack" className="h-[3.125rem] w-auto object-contain" />
+              </div>
+              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
+                <img src={toolsStripeLogo} alt="Stripe" className="h-[7.5rem] w-auto object-contain" />
+              </div>
             </InfiniteSlider>
             <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#02040a] to-transparent md:w-24" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#02040a] to-transparent md:w-24" />
@@ -348,7 +360,7 @@ const Index = () => {
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:grid-cols-3">
             <div className="space-y-5">
-              <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-12 w-auto object-contain" />
+              <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-[3.75rem] w-auto object-contain" />
               <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
                 Automatisierte Lead-Generierung für B2B-Unternehmen.
               </p>
