@@ -3,7 +3,6 @@ import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { Timeline } from "@/components/ui/timeline";
-import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import toolsAirtableLogo from "@/assets/tools-airtable-logo.png";
@@ -197,11 +196,9 @@ const Index = () => {
 
       <section className="w-full bg-[#02040a] px-4 pb-24 pt-44 md:px-8 md:pt-56 lg:px-16">
         <div className="mx-auto max-w-4xl space-y-6">
-          <WordFadeIn
-            words="Kommunikation, die sich persönlich anfühlt, aber automatisch abläuft."
-            className="text-white md:text-5xl"
-            triggerOnView
-          />
+          <h2 className="text-center text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl md:leading-tight">
+            Kommunikation, die sich persönlich anfühlt, aber automatisch abläuft.
+          </h2>
           <p className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base">
             Von personalisierter Neukundengewinnung bis zur Automatisierung bestehender Kanäle – Ihr Partner für
             planbare Kunden.
