@@ -1,10 +1,18 @@
 import GradientBackground from "@/components/GradientBackground";
 import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { Timeline } from "@/components/ui/timeline";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
+import toolsAirtableLogo from "@/assets/tools-airtable-logo.png";
+import toolsLinkedInWhiteLogo from "@/assets/tools-linkedin-white-logo.png";
+import toolsMakeLogo from "@/assets/tools-make-logo.png";
+import toolsN8nLogo from "@/assets/tools-n8n-logo.png";
+import toolsOpenAiLogo from "@/assets/tools-openai-logo.png";
+import toolsSlackLogo from "@/assets/tools-slack-logo.png";
+import toolsStripeLogo from "@/assets/tools-stripe-logo.png";
 import { CalendarCheck2, Linkedin, Mail, MapPin, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -194,6 +202,21 @@ const Index = () => {
             Von personalisierter Neukundengewinnung bis zur Automatisierung bestehender Kanäle – Ihr Partner für
             planbare Kunden.
           </p>
+        </div>
+      </section>
+
+      <section className="w-full px-4 pb-16 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-6xl space-y-6">
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Unterstützt durch</p>
+          <InfiniteSlider gap={56} duration={20} className="w-full py-2">
+            <img src={toolsN8nLogo} alt="n8n" className="h-24 w-auto object-contain" />
+            <img src={toolsAirtableLogo} alt="Airtable" className="h-24 w-auto object-contain" />
+            <img src={toolsOpenAiLogo} alt="OpenAI" className="h-24 w-auto object-contain" />
+            <img src={toolsMakeLogo} alt="Make" className="h-24 w-auto object-contain" />
+            <img src={toolsLinkedInWhiteLogo} alt="LinkedIn" className="h-20 w-auto object-contain" />
+            <img src={toolsSlackLogo} alt="Slack" className="mt-6 h-10 w-auto object-contain" />
+            <img src={toolsStripeLogo} alt="Stripe" className="h-24 w-auto object-contain" />
+          </InfiniteSlider>
         </div>
       </section>
 
