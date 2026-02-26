@@ -4,7 +4,7 @@ import { Timeline } from "@/components/ui/timeline";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
-import { CalendarCheck2, Mail, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
+import { CalendarCheck2, Linkedin, Mail, MapPin, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -311,6 +311,65 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <footer className="w-full border-t border-white/10 px-4 py-14 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-12 md:grid-cols-3">
+            <div className="space-y-5">
+              <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-12 w-auto object-contain" />
+              <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
+                Automatisierte Lead-Generierung für B2B-Unternehmen.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Navigation</p>
+              <div className="flex flex-col gap-3.5 text-sm text-slate-200/90">
+                <a href="#leistungen" className="transition-colors hover:text-white">Leistungen</a>
+                <a href="#prozess" className="transition-colors hover:text-white">Prozess</a>
+                <a href="#ergebnisse" className="transition-colors hover:text-white">Ergebnisse</a>
+                <a href="#faq" className="transition-colors hover:text-white">FAQ</a>
+                <a href="/termin" className="transition-colors hover:text-white">Termin buchen</a>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Kontakt</p>
+              <div className="flex flex-col gap-3.5 text-sm text-slate-200/90">
+                <a href="mailto:joshua@getcrossmatic.com" className="inline-flex items-center gap-2 transition-colors hover:text-white">
+                  <Mail className="h-4 w-4 text-muted-foreground" />
+                  <span>joshua@getcrossmatic.com</span>
+                </a>
+                <a href="tel:+41787706058" className="inline-flex items-center gap-2 transition-colors hover:text-white">
+                  <PhoneCall className="h-4 w-4 text-muted-foreground" />
+                  <span>+41 78 770 60 58</span>
+                </a>
+                <p className="inline-flex items-center gap-2 text-slate-200/90">
+                  <MapPin className="h-4 w-4 text-muted-foreground" />
+                  <span>Basel, Schweiz</span>
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/joshua-st%C3%B6ckli-0a2862394/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 transition-colors hover:text-white"
+                >
+                  <Linkedin className="h-4 w-4 text-muted-foreground" />
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+            <p>© 2025 CrossMatic. Alle Rechte vorbehalten.</p>
+            <div className="flex items-center gap-4">
+              <a href="#" className="transition-colors hover:text-white">Impressum</a>
+              <a href="#" className="transition-colors hover:text-white">Datenschutz</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 };
