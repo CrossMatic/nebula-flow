@@ -228,7 +228,7 @@ const Index = () => {
                 <img src={toolsMakeLogo} alt="Make" className="h-[7.5rem] w-auto object-contain" />
               </div>
               <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
-                <img src={toolsSlackLogo} alt="Slack" className="h-[3.125rem] w-auto object-contain" />
+                <img src={toolsSlackLogo} alt="Slack" className="h-[2.35rem] w-auto object-contain" />
               </div>
               <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
                 <img src={toolsStripeLogo} alt="Stripe" className="h-[7.5rem] w-auto object-contain" />
