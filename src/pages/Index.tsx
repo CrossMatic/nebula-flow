@@ -143,9 +143,6 @@ const Index = () => {
               <a href="#prozess" className="transition-colors hover:text-white">
                 Prozess
               </a>
-              <a href="#ergebnisse" className="transition-colors hover:text-white">
-                Ergebnisse
-              </a>
               <a href="#faq" className="transition-colors hover:text-white">
                 FAQ
               </a>
@@ -247,29 +244,6 @@ const Index = () => {
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">So läuft die Zusammenarbeit ab</h2>
           </div>
           <Timeline data={processTimelineData} />
-        </div>
-      </section>
-
-      <section id="ergebnisse" className="w-full px-4 py-16 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-6xl space-y-10">
-          <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Ergebnisse</p>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Performance, die messbar ist</h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-              <p className="text-3xl font-bold text-blue-300">+42%</p>
-              <p className="mt-2 text-sm text-muted-foreground">Durchschnittliche Antwortquote nach Optimierung</p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-              <p className="text-3xl font-bold text-blue-300">3-6x</p>
-              <p className="mt-2 text-sm text-muted-foreground">Mehr qualifizierte Termine pro Monat</p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-              <p className="text-3xl font-bold text-blue-300">-70%</p>
-              <p className="mt-2 text-sm text-muted-foreground">Weniger manueller Aufwand im Outreach-Prozess</p>
-            </div>
-          </div>
         </div>
       </section>
 
