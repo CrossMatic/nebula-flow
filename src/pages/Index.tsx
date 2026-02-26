@@ -199,7 +199,7 @@ const Index = () => {
         <div className="mx-auto max-w-4xl space-y-6">
           <WordFadeIn
             words="Kommunikation, die sich persönlich anfühlt, aber automatisch abläuft."
-            className="text-white md:text-5xl"
+            className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent md:text-5xl"
             delay={0.24}
             triggerOnView
           />
@@ -244,7 +244,7 @@ const Index = () => {
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Leistungen</p>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Mehr Kunden durch Systeme statt Zufall</h2>
+            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">Mehr Kunden durch Systeme statt Zufall</h2>
             <p className="mx-auto max-w-3xl text-sm text-muted-foreground md:text-base">
               Jedes Unternehmen ist einzigartig - unsere Automatisierungssysteme werden speziell auf Ihre Ziele,
               Kunden und täglichen Abläufe zugeschnitten.
@@ -303,7 +303,7 @@ const Index = () => {
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Prozess</p>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">So läuft die Zusammenarbeit ab</h2>
+            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">So läuft die Zusammenarbeit ab</h2>
           </div>
           <Timeline data={processTimelineData} />
         </div>
@@ -313,7 +313,7 @@ const Index = () => {
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">FAQ</p>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Häufige Fragen</h2>
+            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">Häufige Fragen</h2>
           </div>
           <div className="space-y-3">
             {faqs.map((faq) => (
@@ -340,7 +340,7 @@ const Index = () => {
 
       <section id="kontakt" className="w-full px-4 pb-20 pt-14 md:px-8 md:pt-16 lg:px-16">
         <div className="mx-auto max-w-4xl p-8 text-center md:p-12">
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Bereit für planbare Neukunden?</h2>
+          <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">Bereit für planbare Neukunden?</h2>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               Termin vereinbaren

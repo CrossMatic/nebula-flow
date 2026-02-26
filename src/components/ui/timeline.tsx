@@ -28,11 +28,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#02040a] md:left-3">
                 <div className="h-4 w-4 rounded-full border border-blue-300/60 bg-blue-300/30" />
               </div>
-              <h3 className="hidden text-xl font-bold text-slate-400 md:block md:pl-20 md:text-4xl">{item.title}</h3>
+              <h3 className="hidden bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-xl font-bold text-transparent md:block md:pl-20 md:text-4xl">{item.title}</h3>
             </div>
 
             <div className="relative w-full pl-20 pr-4 md:pl-4">
-              <h3 className="mb-4 block text-left text-2xl font-bold text-slate-400 md:hidden">{item.title}</h3>
+              <h3 className="mb-4 block bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-left text-2xl font-bold text-transparent md:hidden">{item.title}</h3>
               {item.content}
             </div>
           </div>
