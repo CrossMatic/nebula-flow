@@ -3,6 +3,7 @@ type Orb = {
   bg: string;
   blur: number;
   animation: string;
+  blend?: boolean;
   top?: string;
   left?: string;
   right?: string;
@@ -16,6 +17,7 @@ const orbs: Orb[] = [
     bg: "radial-gradient(circle, rgba(56, 189, 248, 1), transparent 45%)",
     blur: 78,
     animation: "float2 26s ease-in-out infinite",
+    blend: true,
     top: "-6%",
     right: "-8%",
   },
@@ -25,6 +27,7 @@ const orbs: Orb[] = [
     bg: "radial-gradient(circle, rgba(59, 130, 246, 1), transparent 45%)",
     blur: 72,
     animation: "float1 30s ease-in-out infinite",
+    blend: true,
     top: "-12%",
     left: "-8%",
   },
@@ -34,6 +37,7 @@ const orbs: Orb[] = [
     bg: "radial-gradient(circle, rgba(37, 99, 235, 1), transparent 45%)",
     blur: 72,
     animation: "float3 32s ease-in-out infinite",
+    blend: true,
     bottom: "-10%",
     left: "-6%",
   },
@@ -43,6 +47,7 @@ const orbs: Orb[] = [
     bg: "radial-gradient(circle, rgba(56, 189, 248, 1), transparent 45%)",
     blur: 68,
     animation: "float4 34s ease-in-out infinite",
+    blend: true,
     bottom: "-9%",
     right: "-6%",
   },
@@ -106,13 +111,16 @@ const orbs: Orb[] = [
   },
 ];
 
-const GradientBackground = () => (
+const BLUR_FACTOR = 0.72;
+
+const GradientBackground = ({ active = true }: { active?: boolean }) => (
   <div
     className="absolute inset-0 overflow-hidden pointer-events-none"
     style={{
       background:
         "radial-gradient(circle at center, rgba(30, 64, 175, 0.12), transparent 58%), radial-gradient(circle at 50% 45%, rgba(15, 23, 42, 0.08), transparent 65%), #02040a",
       zIndex: -1,
+      contain: "paint",
     }}
   >
     {orbs.map((orb, i) => (
@@ -123,16 +131,18 @@ const GradientBackground = () => (
           width: orb.size,
           height: orb.size,
           background: orb.bg,
-          filter: `blur(${orb.blur}px)`,
-          animation: orb.animation,
-          willChange: "transform",
+          filter: `blur(${Math.round(orb.blur * BLUR_FACTOR)}px)`,
+          animation: active ? orb.animation : "none",
+          willChange: active ? "transform" : "auto",
           top: orb.top,
           left: orb.left,
           right: orb.right,
           bottom: orb.bottom,
-          opacity: 0.96,
-          mixBlendMode: "screen",
+          opacity: 0.9,
+          mixBlendMode: orb.blend ? "screen" : "normal",
           borderRadius: "50% 60% 40% 70%",
+          transform: "translateZ(0)",
+          backfaceVisibility: "hidden",
         }}
       />
     ))}

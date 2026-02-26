@@ -13,7 +13,7 @@ import toolsOpenAiLogo from "@/assets/tools-openai-logo.png";
 import toolsSlackLogo from "@/assets/tools-slack-logo.png";
 import toolsStripeLogo from "@/assets/tools-stripe-logo.png";
 import { CalendarCheck2, Linkedin, Mail, MapPin, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const services = [
@@ -102,6 +102,8 @@ const faqs = [
 
 const Index = () => {
   const [showNavbar, setShowNavbar] = useState(false);
+  const [heroInView, setHeroInView] = useState(true);
+  const heroRef = useRef<HTMLElement | null>(null);
   const navigate = useNavigate();
   const processTimelineData = processSteps.map((item) => ({
     title: `${item.step} ${item.title}`,
@@ -128,17 +130,20 @@ const Index = () => {
   }));
 
   useEffect(() => {
-    const onScroll = () => {
-      const hero = document.getElementById("hero");
-      if (!hero) return;
+    const hero = heroRef.current;
+    if (!hero) return;
 
-      const heroBottom = hero.getBoundingClientRect().bottom;
-      setShowNavbar(heroBottom <= 0);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const inView = entry.isIntersecting;
+        setHeroInView(inView);
+        setShowNavbar(!inView);
+      },
+      { threshold: 0.01 },
+    );
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    observer.observe(hero);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -175,8 +180,8 @@ const Index = () => {
         </div>
       </header>
 
-      <section id="hero" className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
-        <GradientBackground />
+      <section ref={heroRef} id="hero" className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
+        <GradientBackground active={heroInView} />
         <div className="relative z-10 text-center space-y-0">
           <img src={crossmaticLogo} alt="CrossMatic" className="mx-auto h-80 w-auto -mb-24 md:h-[27.5rem] md:-mb-32" />
           <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für B2B-Unternehmen</p>
