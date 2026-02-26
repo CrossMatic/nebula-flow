@@ -234,6 +234,8 @@ const Index = () => {
                 <img src={toolsStripeLogo} alt="Stripe" className="h-[7.5rem] w-auto object-contain" />
               </div>
             </InfiniteSlider>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#02040a] to-transparent md:w-24" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#02040a] to-transparent md:w-24" />
           </div>
         </div>
       </section>
