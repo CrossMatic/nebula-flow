@@ -14,7 +14,7 @@ import toolsSlackLogo from "@/assets/tools-slack-logo.png";
 import toolsStripeLogo from "@/assets/tools-stripe-logo.png";
 import caseAiAssistantImage from "@/assets/case-ai-assistant.png";
 import caseCoachMichaelImage from "@/assets/case-coach-michael.png";
-import { CalendarCheck2, CheckCircle2, Linkedin, Mail, MapPin, PhoneCall, Quote, Rocket, Settings2, Target } from "lucide-react";
+import { CalendarCheck2, Database, Instagram, Linkedin, Mail, MapPin, MessageSquare, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -385,9 +385,11 @@ const Index = () => {
                 <div className="space-y-3">
                   <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">Was wir gebaut haben</p>
                   <ul className="space-y-3">
-                    {caseStudy.built.map((item) => (
+                    {caseStudy.built.map((item, index) => (
                       <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-slate-100/90 md:text-base">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />
+                        {index === 0 && <MessageSquare className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                        {index === 1 && <Instagram className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                        {index === 2 && <Database className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
                         <span>{item}</span>
                       </li>
                     ))}
@@ -411,20 +413,21 @@ const Index = () => {
                 </div>
 
                 <div className="rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
-                  <div className="mb-4 flex items-start gap-3">
+                  <div className="flex items-start gap-4">
                     <img
                       src={caseCoachMichaelImage}
                       alt={caseStudy.author}
                       className="h-14 w-14 shrink-0 rounded-xl border border-white/15 object-cover"
                       loading="lazy"
                     />
-                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_24px_rgba(59,130,246,0.25)]">
-                      <Quote className="h-5 w-5 text-blue-200" />
+                    <div className="min-w-0 flex-1 space-y-3">
+                      <p className="text-sm italic leading-relaxed text-slate-100/95 md:text-base">{`"${caseStudy.quote}"`}</p>
+                      <div>
+                        <p className="text-sm font-medium text-blue-200">{caseStudy.author}</p>
+                        <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
+                      </div>
                     </div>
                   </div>
-                  <p className="text-sm leading-relaxed text-slate-100/95 md:text-base">"{caseStudy.quote}"</p>
-                  <p className="mt-4 text-sm font-medium text-blue-200">{caseStudy.author}</p>
-                  <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
                 </div>
 
               </div>
