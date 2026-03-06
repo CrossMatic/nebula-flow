@@ -12,7 +12,9 @@ import toolsN8nLogo from "@/assets/tools-n8n-logo.png";
 import toolsOpenAiLogo from "@/assets/tools-openai-logo.png";
 import toolsSlackLogo from "@/assets/tools-slack-logo.png";
 import toolsStripeLogo from "@/assets/tools-stripe-logo.png";
-import { CalendarCheck2, Linkedin, Mail, MapPin, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
+import caseAiAssistantImage from "@/assets/case-ai-assistant.png";
+import caseCoachMichaelImage from "@/assets/case-coach-michael.png";
+import { CalendarCheck2, CheckCircle2, Linkedin, Mail, MapPin, PhoneCall, Quote, Rocket, Settings2, Target } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -106,6 +108,25 @@ const faqs = [
   },
 ];
 
+const caseStudy = {
+  label: "Case Study - Coach Michael",
+  role: "Personal Trainer & Coaching, Zürich",
+  situation:
+    "Coach Michael hatte Website-Traffic und eine aktive Instagram-Präsenz, aber keine planbaren Anfragen. Viele Besucher kamen, informierten sich und gingen wieder, ohne Kontakt aufzunehmen.",
+  built: [
+    "KI-Assistent auf der Website, der Besucher proaktiv anspricht, qualifiziert und Kontaktdaten erfasst.",
+    "Instagram-Automatisierung, die neue Follower automatisch kontaktiert und bei definierten Keywords gezielt den Funnel startet.",
+    "Zentrales CRM, das Leads aus beiden Kanälen automatisch zusammenführt und bei jedem neuen Kontakt direkt benachrichtigt.",
+  ],
+  result:
+    "Statt unstrukturierter Einzelanfragen laufen beide Kanäle nun als System: kontinuierlich, qualifiziert und ohne zusätzlichen manuellen Aufwand im Tagesgeschäft.",
+  quote:
+    "Es wurde professionell und präzise auf mein Anliegen eingegangen. Das System war schnell aufgesetzt und funktioniert einwandfrei.",
+  author: "Coach Michael",
+  authorRole: "Personal Trainer & Gründer",
+  pillars: ["Website-KI-Assistant", "Instagram-Automation", "Zentrales CRM"],
+};
+
 const Index = () => {
   const [showNavbar, setShowNavbar] = useState(false);
   const [heroInView, setHeroInView] = useState(true);
@@ -139,17 +160,30 @@ const Index = () => {
     const hero = heroRef.current;
     if (!hero) return;
 
-    const observer = new IntersectionObserver(
+    const navbarObserver = new IntersectionObserver(
       ([entry]) => {
-        const inView = entry.isIntersecting;
-        setHeroInView(inView);
-        setShowNavbar(!inView);
+        const nextShowNavbar = !entry.isIntersecting;
+        setShowNavbar((prev) => (prev === nextShowNavbar ? prev : nextShowNavbar));
       },
-      { threshold: 0.01 },
+      { threshold: 0 },
     );
 
-    observer.observe(hero);
-    return () => observer.disconnect();
+    const animationObserver = new IntersectionObserver(
+      ([entry]) => {
+        // Start/stop animation with a buffer around hero to avoid jank at viewport edge.
+        const nextActive = entry.isIntersecting;
+        setHeroInView((prev) => (prev === nextActive ? prev : nextActive));
+      },
+      { threshold: 0, rootMargin: "320px 0px 320px 0px" },
+    );
+
+    navbarObserver.observe(hero);
+    animationObserver.observe(hero);
+
+    return () => {
+      navbarObserver.disconnect();
+      animationObserver.disconnect();
+    };
   }, []);
 
   return (
@@ -317,6 +351,85 @@ const Index = () => {
             </GlassButton>
           </div>
 
+        </div>
+      </section>
+
+      <section className="w-full px-4 py-16 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-6xl space-y-8">
+          <div className="space-y-3 text-center">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Social Proof</p>
+            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
+              {caseStudy.label}
+            </h2>
+            <p className="text-sm text-muted-foreground md:text-base">{caseStudy.role}</p>
+          </div>
+
+          <article className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:p-8">
+            <GlowingEffect
+              spread={34}
+              glow={false}
+              disabled={false}
+              proximity={84}
+              inactiveZone={0.2}
+              borderWidth={1}
+              variant="white"
+            />
+
+            <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">Ausgangssituation</p>
+                  <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
+                </div>
+
+                <div className="space-y-3">
+                  <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">Was wir gebaut haben</p>
+                  <ul className="space-y-3">
+                    {caseStudy.built.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-slate-100/90 md:text-base">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="space-y-2 border-t border-white/10 pt-4">
+                  <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">Resultat</p>
+                  <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
+                  <img
+                    src={caseAiAssistantImage}
+                    alt="KI-Assistent Workflow für Coach Michael"
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div className="rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
+                  <div className="mb-4 flex items-start gap-3">
+                    <img
+                      src={caseCoachMichaelImage}
+                      alt={caseStudy.author}
+                      className="h-14 w-14 shrink-0 rounded-xl border border-white/15 object-cover"
+                      loading="lazy"
+                    />
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_24px_rgba(59,130,246,0.25)]">
+                      <Quote className="h-5 w-5 text-blue-200" />
+                    </div>
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-100/95 md:text-base">"{caseStudy.quote}"</p>
+                  <p className="mt-4 text-sm font-medium text-blue-200">{caseStudy.author}</p>
+                  <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
+                </div>
+
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
