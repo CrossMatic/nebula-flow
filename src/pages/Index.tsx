@@ -253,9 +253,10 @@ const Index = () => {
       <section className="w-full bg-[#02040a] px-4 pb-24 pt-44 md:px-8 md:pt-56 lg:px-16">
         <div className="mx-auto max-w-4xl space-y-6">
           <WordFadeIn
-            words="Kommunikation, die sich persönlich anfühlt, aber automatisch abläuft."
+            words="Kommunikation, die sich persönlich anfühlt aber automatisch läuft"
             className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent md:text-5xl"
-            delay={0.24}
+            mode="char"
+            delay={0.03}
             triggerOnView
           />
           <p className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base">
