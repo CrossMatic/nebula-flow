@@ -15,6 +15,7 @@ import toolsStripeLogo from "@/assets/tools-stripe-logo.png";
 import caseAiAssistantImage from "@/assets/case-ai-assistant.png";
 import caseCoachMichaelImage from "@/assets/case-coach-michael.png";
 import { CalendarCheck2, Database, Instagram, Linkedin, Mail, MapPin, MessageSquare, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
+import { LeadMagnetForm } from "@/components/LeadMagnetForm";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -202,6 +203,9 @@ const Index = () => {
               <a href="#leistungen" className="transition-colors hover:text-white">
                 Leistungen
               </a>
+              <a href="#video-analyse" className="transition-colors hover:text-white">
+                Video-Analyse
+              </a>
               <a href="#prozess" className="transition-colors hover:text-white">
                 Prozess
               </a>
@@ -240,11 +244,16 @@ const Index = () => {
             }}
           />
           <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für B2B-Unternehmen</p>
-          <div className="pt-4">
+          <div className="flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               Termin vereinbaren
               <span>→</span>
             </GlassButton>
+            <a href="#video-analyse">
+              <GlassButton contentClassName="inline-flex items-center gap-2">
+                Kostenlose Video-Analyse
+              </GlassButton>
+            </a>
           </div>
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[#02040a]/70 to-[#02040a]" />
@@ -437,6 +446,22 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="video-analyse" className="w-full px-4 py-16 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-3xl space-y-8">
+          <div className="space-y-3 text-center">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Lead Magnet</p>
+            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
+              Kostenlose Video-Analyse Ihres Business
+            </h2>
+            <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
+              Beantworten Sie ein paar kurze Fragen – wir analysieren Ihr Unternehmen und zeigen Ihnen in einem
+              persönlichen Video, wo Sie Kunden verlieren und Potential verschenken.
+            </p>
+          </div>
+          <LeadMagnetForm />
+        </div>
+      </section>
+
       <section id="prozess" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
@@ -484,9 +509,11 @@ const Index = () => {
               Termin vereinbaren
               <span>→</span>
             </GlassButton>
-            <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
-              Kostenlose Analyse anfragen
-            </GlassButton>
+            <a href="#video-analyse">
+              <GlassButton contentClassName="inline-flex items-center gap-2">
+                Kostenlose Video-Analyse
+              </GlassButton>
+            </a>
           </div>
         </div>
       </section>
@@ -505,6 +532,7 @@ const Index = () => {
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Navigation</p>
               <div className="flex flex-col gap-3.5 text-sm text-slate-200/90">
                 <a href="#leistungen" className="transition-colors hover:text-white">Leistungen</a>
+                <a href="#video-analyse" className="transition-colors hover:text-white">Video-Analyse</a>
                 <a href="#prozess" className="transition-colors hover:text-white">Prozess</a>
                 <a href="#faq" className="transition-colors hover:text-white">FAQ</a>
                 <a href="/termin" className="transition-colors hover:text-white">Termin buchen</a>
