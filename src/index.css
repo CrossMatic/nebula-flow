@@ -66,8 +66,13 @@
     @apply border-border;
   }
 
+  html,
   body {
-    @apply bg-background text-foreground;
+    background-color: #02040a;
+  }
+
+  body {
+    @apply text-foreground;
   }
 }
 
@@ -108,6 +113,16 @@
 @keyframes float6 {
   0%, 100% { transform: translate(50%, -10%) scale(0.65, 1.5) rotate(0deg); }
   50% { transform: translate(-20%, 60%) scale(1.45, 0.65) rotate(-110deg); }
+}
+
+/* WordFadeIn - pure CSS to avoid compositing layer black flash */
+@keyframes fade-in-char {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in-char {
+  animation: fade-in-char 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* Glass button */

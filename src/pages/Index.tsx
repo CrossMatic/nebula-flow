@@ -3,7 +3,6 @@ import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { Timeline } from "@/components/ui/timeline";
-import { WordFadeIn } from "@/components/ui/word-fade-in";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import toolsAirtableLogo from "@/assets/tools-airtable-logo.png";
@@ -256,18 +255,14 @@ const Index = () => {
             </a>
           </div>
         </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[#02040a]/70 to-[#02040a]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent to-[#02040a]" />
       </section>
 
-      <section className="w-full bg-[#02040a] px-4 pb-24 pt-44 md:px-8 md:pt-56 lg:px-16">
-        <div className="mx-auto max-w-4xl space-y-6">
-          <WordFadeIn
-            words="Kommunikation, die sich persönlich anfühlt aber automatisch läuft"
-            className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent md:text-5xl"
-            mode="char"
-            delay={0.03}
-            triggerOnView
-          />
+      <section className="relative w-full bg-[#02040a] px-4 pb-24 pt-44 md:px-8 md:pt-56 lg:px-16">
+        <div className="relative mx-auto max-w-4xl space-y-6">
+          <h1 className="font-display text-center text-4xl font-bold tracking-[-0.02em] md:text-5xl md:leading-[5rem] bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent">
+            Kommunikation, die sich persönlich anfühlt aber automatisch läuft
+          </h1>
           <p className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base">
             Von personalisierter Neukundengewinnung bis zur Automatisierung bestehender Kanäle – Ihr Partner für
             planbare Kunden.

@@ -1,83 +1,94 @@
- "use client";
+"use client";
 
-import { motion, type Variants } from "framer-motion";
-
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface WordFadeInProps {
   words: string;
   className?: string;
   delay?: number;
-  variants?: Variants;
   triggerOnView?: boolean;
   mode?: "word" | "char";
 }
 
-function WordFadeIn({
+export function WordFadeIn({
   words,
-  delay = 0.15,
-  variants = {
-    hidden: { opacity: 0 },
-    visible: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: { delay: i * delay },
-    }),
-  },
-  triggerOnView = false,
-  mode = "word",
+  delay = 0.03,
+  triggerOnView = true,
+  mode = "char",
   className,
 }: WordFadeInProps) {
-  const _words = words.split(" ");
-  const letters = Array.from(words);
+  const ref = useRef<HTMLHeadingElement>(null);
+  const [isVisible, setIsVisible] = useState(!triggerOnView);
 
-  const containerVariants: Variants =
-    mode === "char"
-      ? {
-          hidden: { opacity: 1, y: 0 },
-          visible: { opacity: 1, y: 0 },
-        }
-      : variants;
-
-  const charVariants: Variants = {
-    hidden: { opacity: 0, y: 8 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * delay,
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1],
+  useEffect(() => {
+    if (!triggerOnView || !ref.current) return;
+    const el = ref.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
       },
-    }),
-  };
+      { threshold: 0.25, rootMargin: "0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [triggerOnView]);
+
+  const letters = Array.from(words);
+  const wordsArr = words.split(" ");
+
+  const gradientClass =
+    "bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent";
 
   return (
-    <motion.h1
-      variants={containerVariants}
-      initial="hidden"
-      animate={triggerOnView ? undefined : "visible"}
-      whileInView={triggerOnView ? "visible" : undefined}
-      viewport={triggerOnView ? { once: true, amount: 0.25 } : undefined}
+    <h1
+      ref={ref}
       className={cn(
-        "font-display text-center text-4xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem] bg-transparent",
-        className,
+        "font-display text-center text-4xl font-bold tracking-[-0.02em] md:text-7xl md:leading-[5rem]",
+        className
       )}
     >
       {mode === "char"
         ? letters.map((char, i) => (
-            <motion.span key={`${char}-${i}`} variants={charVariants} custom={i}>
+            <span
+              key={`${char}-${i}`}
+              className={cn(
+                "inline-block",
+                gradientClass,
+                isVisible && "animate-fade-in-char"
+              )}
+              style={
+                isVisible
+                  ? {
+                      animationDelay: `${i * delay}s`,
+                      animationFillMode: "both",
+                    }
+                  : { opacity: 0 }
+              }
+            >
               {char}
-            </motion.span>
+            </span>
           ))
-        : _words.map((word, i) => (
-            <motion.span key={`${word}-${i}`} variants={variants} custom={i}>
+        : wordsArr.map((word, i) => (
+            <span
+              key={`${word}-${i}`}
+              className={cn(
+                "inline-block",
+                gradientClass,
+                isVisible && "animate-fade-in-char"
+              )}
+              style={
+                isVisible
+                  ? {
+                      animationDelay: `${i * delay}s`,
+                      animationFillMode: "both",
+                    }
+                  : { opacity: 0 }
+              }
+            >
               {word}{" "}
-            </motion.span>
+            </span>
           ))}
-    </motion.h1>
+    </h1>
   );
 }
-
-export { WordFadeIn };
-
