@@ -182,11 +182,11 @@ export function LeadMagnetForm() {
 
   if (isSubmitted) {
     return (
-      <div className="relative rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm md:p-10">
+      <div className="relative rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
         <GlowingEffect
           spread={34}
           glow={false}
-          disabled={false}
+          disabled
           proximity={84}
           inactiveZone={0.2}
           borderWidth={1}
@@ -212,11 +212,11 @@ export function LeadMagnetForm() {
   }
 
   return (
-    <div className="relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:p-8">
+    <div className="relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
       <GlowingEffect
         spread={34}
         glow={false}
-        disabled={false}
+        disabled
         proximity={84}
         inactiveZone={0.2}
         borderWidth={1}

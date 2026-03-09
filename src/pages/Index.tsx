@@ -140,7 +140,7 @@ const Index = () => {
         <GlowingEffect
           spread={32}
           glow={false}
-          disabled={false}
+          disabled
           proximity={72}
           inactiveZone={0.2}
           borderWidth={1}
@@ -319,12 +319,12 @@ const Index = () => {
             {services.map((service) => (
               <article
                 key={service.title}
-                className="relative rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-colors hover:border-blue-400/30"
+                className="relative rounded-2xl border border-white/10 bg-white/5 p-7 transition-colors hover:border-blue-400/30"
               >
                 <GlowingEffect
                   spread={34}
                   glow={false}
-                  disabled={false}
+                  disabled
                   proximity={80}
                   inactiveZone={0.2}
                   borderWidth={1}
@@ -374,11 +374,11 @@ const Index = () => {
             <p className="text-sm text-muted-foreground md:text-base">{caseStudy.role}</p>
           </div>
 
-          <article className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:p-8">
+          <article className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
             <GlowingEffect
               spread={34}
               glow={false}
-              disabled={false}
+              disabled
               proximity={84}
               inactiveZone={0.2}
               borderWidth={1}
@@ -484,7 +484,7 @@ const Index = () => {
                 <GlowingEffect
                   spread={30}
                   glow={false}
-                  disabled={false}
+                  disabled
                   proximity={72}
                   inactiveZone={0.22}
                   borderWidth={1}
