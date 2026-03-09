@@ -147,7 +147,6 @@ const GradientBackground = ({ active = true }: { active?: boolean }) => {
         background:
           "radial-gradient(circle at center, rgba(30, 64, 175, 0.1), transparent 60%), radial-gradient(circle at 50% 45%, rgba(15, 23, 42, 0.08), transparent 67%), #02040a",
         zIndex: -1,
-        contain: "paint",
       }}
     >
       {visibleOrbs.map((orb, i) => (

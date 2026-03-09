@@ -188,7 +188,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="relative bg-[#02040a] text-white">
+    <main className="relative overflow-x-hidden bg-[#02040a] text-white">
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           showNavbar ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0 pointer-events-none"
