@@ -48,9 +48,7 @@ const formSchema = z.object({
 
 export type LeadMagnetFormValues = z.infer<typeof formSchema>;
 
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_LEAD_MAGNET_ID
-  ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_LEAD_MAGNET_ID}`
-  : null;
+const N8N_WEBHOOK_URL = "https://joshuaaa18.app.n8n.cloud/webhook-test/c9bfade9-5edc-4f21-9a41-482addad2ed9";
 
 const INDUSTRY_OPTIONS = [
   { value: "it-software", label: "IT & Software", icon: Code },
@@ -131,31 +129,25 @@ export function LeadMagnetForm() {
     setSubmitError(null);
     setIsSubmitting(true);
 
-    if (!FORMSPREE_ENDPOINT) {
-      setSubmitError(
-        "Formular ist noch nicht konfiguriert. Bitte setzen Sie VITE_FORMSPREE_LEAD_MAGNET_ID in Ihrer .env."
-      );
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      const formData = new FormData();
-      Object.entries(values).forEach(([key, value]) => {
-        if (value !== undefined && value !== "") {
-          formData.append(key, String(value));
-        }
-      });
+      const payload = {
+        industry: values.industry,
+        problem: values.problem,
+        company: values.company,
+        name: values.name,
+        email: values.email,
+        privacyConsent: values.privacyConsent,
+        submittedAt: new Date().toISOString(),
+      };
 
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(N8N_WEBHOOK_URL, {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
-        const data = await response.json().catch(() => ({}));
-        throw new Error(data.error || "Fehler beim Absenden. Bitte versuchen Sie es später erneut.");
+        throw new Error("Fehler beim Absenden. Bitte versuchen Sie es später erneut.");
       }
 
       setIsSubmitted(true);
