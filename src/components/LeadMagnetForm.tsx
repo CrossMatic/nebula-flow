@@ -47,7 +47,7 @@ const formSchema = z.object({
 
 export type LeadMagnetFormValues = z.infer<typeof formSchema>;
 
-const N8N_WEBHOOK_URL = "https://joshuaaa18.app.n8n.cloud/webhook-test/c9bfade9-5edc-4f21-9a41-482addad2ed9";
+const N8N_WEBHOOK_URL = "https://joshuaaa18.app.n8n.cloud/webhook/72b3fff9-0e98-46dc-99bc-cbb32f4e1bc6";
 
 const INDUSTRY_OPTIONS = [
   { value: "it-software", label: "IT & Software", icon: Code },
