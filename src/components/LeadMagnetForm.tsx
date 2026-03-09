@@ -1,6 +1,23 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Briefcase, Check, Globe, Video } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Building,
+  Check,
+  CircleDot,
+  ClipboardList,
+  Code,
+  Heart,
+  Megaphone,
+  Plug,
+  ShoppingCart,
+  Target,
+  Users,
+  UserPlus,
+  UsersRound,
+  Video,
+} from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -21,7 +38,7 @@ import { cn } from "@/lib/utils";
 const formSchema = z.object({
   industry: z.string().min(1, "Bitte wählen Sie eine Option."),
   problem: z.string().min(1, "Bitte wählen Sie eine Option."),
-  teamSize: z.string().min(1, "Bitte wählen Sie eine Option."),
+  company: z.string().min(2, "Bitte geben Sie Ihren Firmennamen ein."),
   name: z.string().min(2, "Bitte geben Sie Ihren Namen ein."),
   email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein."),
   privacyConsent: z.literal(true, {
@@ -36,27 +53,22 @@ const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_LEAD_MAGNET_ID
   : null;
 
 const INDUSTRY_OPTIONS = [
-  { value: "coaching", label: "Coaching & Beratung", icon: Briefcase },
-  { value: "it", label: "IT & Tech", icon: Globe },
-  { value: "finance", label: "Finanzen", icon: Briefcase },
-  { value: "healthcare", label: "Healthcare", icon: Briefcase },
-  { value: "logistics", label: "Logistik", icon: Globe },
-  { value: "ecommerce", label: "E-Commerce", icon: Globe },
-  { value: "other", label: "Sonstiges", icon: Briefcase },
+  { value: "it-software", label: "IT & Software", icon: Code },
+  { value: "beratung-coaching", label: "Beratung & Coaching", icon: Users },
+  { value: "gesundheit", label: "Gesundheit", icon: Heart },
+  { value: "immobilien-bau", label: "Immobilien & Bau", icon: Building },
+  { value: "marketing-agentur", label: "Marketing & Agentur", icon: Megaphone },
+  { value: "ecommerce", label: "E-Commerce", icon: ShoppingCart },
+  { value: "sonstiges", label: "Sonstiges", icon: CircleDot },
 ];
 
 const PROBLEM_OPTIONS = [
-  { value: "no-leads", label: "Wenig oder keine Leads" },
-  { value: "no-conversion", label: "Viele Leads, aber keine Conversion" },
-  { value: "manual", label: "Manuelle Prozesse & CRM-Sync" },
-  { value: "disconnected", label: "Disconnected Software-Tools" },
-  { value: "communication", label: "Fragmentierte Kommunikation" },
-];
-
-const TEAM_OPTIONS = [
-  { value: "1-10", label: "1–10 Mitarbeiter" },
-  { value: "11-50", label: "11–50 Mitarbeiter" },
-  { value: "51+", label: "51+ Mitarbeiter" },
+  { value: "zu-wenig-neukunden", label: "Zu wenig Neukunden", icon: UserPlus },
+  { value: "schlechte-conversion", label: "Genug Traffic, aber schlechte Conversion", icon: Target },
+  { value: "repetitive-aufgaben", label: "Repetitive Aufgaben fressen zu viel Zeit", icon: ClipboardList },
+  { value: "team-ueberlastet", label: "Team überlastet, zu wenig Kapazität", icon: UsersRound },
+  { value: "prozesse-tools-kosten", label: "Prozesse oder Tools kosten zu viel", icon: Plug },
+  { value: "sonstiges", label: "Sonstiges", icon: CircleDot },
 ];
 
 const STEPS = [
@@ -73,10 +85,10 @@ const STEPS = [
     options: PROBLEM_OPTIONS,
   },
   {
-    key: "teamSize" as const,
-    title: "Wie gross ist Ihr Team?",
-    type: "options" as const,
-    options: TEAM_OPTIONS,
+    key: "company" as const,
+    title: "Wie heisst Ihr Unternehmen?",
+    type: "text" as const,
+    placeholder: "Firmenname",
   },
   {
     key: "contact" as const,
@@ -105,7 +117,7 @@ export function LeadMagnetForm() {
     defaultValues: {
       industry: "",
       problem: "",
-      teamSize: "",
+      company: "",
       name: "",
       email: "",
       privacyConsent: false,
@@ -307,6 +319,31 @@ export function LeadMagnetForm() {
                           })}
                         </div>
                         <FormMessage className="text-red-300" />
+                      </FormItem>
+                    )}
+                  />
+                )}
+
+                {currentStepConfig.type === "text" && (
+                  <FormField
+                    control={form.control}
+                    name={currentStepConfig.key}
+                    render={({ field }) => (
+                      <FormItem>
+                        <div className="space-y-6">
+                          <h3 className="text-2xl font-semibold text-white md:text-3xl">
+                            {currentStepConfig.title}
+                          </h3>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              placeholder={currentStepConfig.placeholder}
+                              className="border-white/10 bg-black/20 py-4 text-lg text-white placeholder:text-slate-500 focus-visible:ring-blue-400/50"
+                              autoFocus
+                            />
+                          </FormControl>
+                          <FormMessage className="text-red-300" />
+                        </div>
                       </FormItem>
                     )}
                   />
