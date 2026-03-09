@@ -16,7 +16,7 @@ import {
   Users,
   UserPlus,
   UsersRound,
-  Video,
+  CheckCircle,
 } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -32,7 +32,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
@@ -75,28 +74,27 @@ const STEPS = [
     title: "In welcher Branche sind Sie?",
     type: "options" as const,
     options: INDUSTRY_OPTIONS,
+    autoAdvance: true,
   },
   {
     key: "problem" as const,
     title: "Was ist Ihr grösstes Problem?",
     type: "options" as const,
     options: PROBLEM_OPTIONS,
+    autoAdvance: true,
   },
   {
     key: "company" as const,
     title: "Wie heisst Ihr Unternehmen?",
     type: "text" as const,
     placeholder: "Firmenname",
+    autoAdvance: false,
   },
   {
     key: "contact" as const,
     title: "Kontaktdaten",
     type: "contact" as const,
-  },
-  {
-    key: "privacyConsent" as const,
-    title: "Einverständnis",
-    type: "checkbox" as const,
+    autoAdvance: false,
   },
 ] as const;
 
@@ -105,10 +103,11 @@ const TOTAL_STEPS = STEPS.length;
 export function LeadMagnetForm() {
   const [step, setStep] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedName, setSubmittedName] = useState<string>("");
+  const [submittedEmail, setSubmittedEmail] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [direction, setDirection] = useState<"forward" | "back">("forward");
-  const navigate = useNavigate();
 
   const form = useForm<LeadMagnetFormValues>({
     resolver: zodResolver(formSchema),
@@ -150,6 +149,8 @@ export function LeadMagnetForm() {
         throw new Error("Fehler beim Absenden. Bitte versuchen Sie es später erneut.");
       }
 
+      setSubmittedName(values.name);
+      setSubmittedEmail(values.email);
       setIsSubmitted(true);
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : "Ein unerwarteter Fehler ist aufgetreten.");
@@ -160,20 +161,8 @@ export function LeadMagnetForm() {
 
   function goNext() {
     const fieldKey = currentStepConfig.key;
-    if (fieldKey === "privacyConsent") {
-      form.handleSubmit(onSubmit)();
-      return;
-    }
-
     if (fieldKey === "contact") {
-      const nameOk = form.trigger("name");
-      const emailOk = form.trigger("email");
-      Promise.all([nameOk, emailOk]).then(([a, b]) => {
-        if (a && b) {
-          setDirection("forward");
-          setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
-        }
-      });
+      form.handleSubmit(onSubmit)();
       return;
     }
 
@@ -210,18 +199,13 @@ export function LeadMagnetForm() {
           className="relative z-10 space-y-6 text-center"
         >
           <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
-            <Video className="h-7 w-7 text-blue-200" />
+            <CheckCircle className="h-7 w-7 text-blue-200" />
           </div>
-          <h3 className="text-xl font-semibold text-white md:text-2xl">Analyse wird vorbereitet</h3>
+          <h3 className="text-xl font-semibold text-white md:text-2xl">Vielen Dank, {submittedName}!</h3>
           <p className="mx-auto max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-            Du erhältst sie innerhalb von 48 Stunden per Email.
+            Wir senden dir das Video in den nächsten 48 Stunden an{" "}
+            <span className="font-medium text-white">{submittedEmail}</span>.
           </p>
-          <div className="pt-2">
-            <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
-              Gespräch buchen
-              <span>→</span>
-            </GlassButton>
-          </div>
         </motion.div>
       </div>
     );
@@ -289,20 +273,29 @@ export function LeadMagnetForm() {
                           {currentStepConfig.options.map((opt) => {
                             const Icon = "icon" in opt && opt.icon ? opt.icon : null;
                             const isSelected = field.value === opt.value;
+                            const autoAdvance = currentStepConfig.autoAdvance === true;
                             return (
                               <button
                                 key={opt.value}
                                 type="button"
-                                onClick={() => field.onChange(opt.value)}
+                                onClick={() => {
+                                  field.onChange(opt.value);
+                                  if (autoAdvance) {
+                                    setDirection("forward");
+                                    setTimeout(() => {
+                                      setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
+                                    }, 0);
+                                  }
+                                }}
                                 className={cn(
-                                  "flex items-center gap-3 rounded-xl border px-4 py-4 text-left transition-all",
+                                  "group flex items-center gap-3 rounded-xl border px-4 py-4 text-left transition-all",
                                   isSelected
                                     ? "border-blue-400/60 bg-blue-500/20 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
-                                    : "border-white/10 bg-black/20 text-slate-200 hover:border-white/20 hover:bg-white/5"
+                                    : "border-white/10 bg-black/20 text-slate-200 hover:border-blue-400/60 hover:bg-blue-500/20 hover:text-white hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]"
                                 )}
                               >
                                 {Icon && (
-                                  <Icon className={cn("h-5 w-5 shrink-0", isSelected ? "text-blue-300" : "text-muted-foreground")} />
+                                  <Icon className={cn("h-5 w-5 shrink-0", isSelected ? "text-blue-300" : "text-muted-foreground group-hover:text-blue-300")} />
                                 )}
                                 <span className="flex-1 font-medium">{opt.label}</span>
                                 {isSelected && <Check className="h-5 w-5 shrink-0 text-blue-300" />}
@@ -385,31 +378,20 @@ export function LeadMagnetForm() {
                         )}
                       />
                     </div>
-                  </div>
-                )}
-
-                {currentStepConfig.type === "checkbox" && (
-                  <FormField
-                    control={form.control}
-                    name="privacyConsent"
-                    render={({ field }) => (
-                      <FormItem>
-                        <div className="space-y-6">
-                          <h3 className="text-2xl font-semibold text-white md:text-3xl">
-                            Fast geschafft
-                          </h3>
-                          <p className="text-muted-foreground">
-                            Zum Abschluss benötigen wir noch deine Einwilligung:
-                          </p>
-                          <div className="flex items-start gap-3 space-y-0">
+                    <FormField
+                      control={form.control}
+                      name="privacyConsent"
+                      render={({ field }) => (
+                        <FormItem>
+                          <div className="flex items-start gap-2.5 pt-2">
                             <FormControl>
                               <Checkbox
                                 checked={field.value}
                                 onCheckedChange={field.onChange}
-                                className="mt-0.5 border-white/30 data-[state=checked]:bg-blue-500 data-[state=checked]:text-white"
+                                className="mt-0.5 shrink-0 border-white/30 data-[state=checked]:bg-blue-500 data-[state=checked]:text-white"
                               />
                             </FormControl>
-                            <label className="cursor-pointer text-sm font-normal text-slate-200">
+                            <label className="cursor-pointer text-xs leading-relaxed text-muted-foreground">
                               Ich stimme der Verarbeitung meiner Daten zum Versand der Video-Analyse zu.{" "}
                               <a
                                 href="/datenschutz"
@@ -422,49 +404,53 @@ export function LeadMagnetForm() {
                             </label>
                           </div>
                           <FormMessage className="text-red-300" />
-                        </div>
-                      </FormItem>
-                    )}
-                  />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                 )}
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation buttons */}
-            <div className="mt-10 flex items-center justify-between gap-4">
-              <div className="w-24">
-                {step > 0 ? (
-                  <GlassButton
-                    type="button"
-                    onClick={goBack}
-                    contentClassName="inline-flex items-center gap-1"
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                    Zurück
-                  </GlassButton>
-                ) : null}
+            {/* Navigation buttons - hidden for auto-advance steps (Branche, Problem) */}
+            {(step > 0 || !currentStepConfig.autoAdvance) && (
+              <div className="mt-10 flex items-center justify-between gap-4">
+                <div className="w-24">
+                  {step > 0 ? (
+                    <GlassButton
+                      type="button"
+                      onClick={goBack}
+                      contentClassName="inline-flex items-center gap-1"
+                    >
+                      <ArrowLeft className="h-4 w-4" />
+                      Zurück
+                    </GlassButton>
+                  ) : null}
+                </div>
+                {!currentStepConfig.autoAdvance && (
+                  <div className="flex flex-1 justify-end">
+                    <GlassButton
+                      type="button"
+                      onClick={goNext}
+                      disabled={isSubmitting}
+                      contentClassName="inline-flex items-center gap-2"
+                    >
+                      {currentStepConfig.key === "contact" ? (
+                        <>
+                          {isSubmitting ? "Wird gesendet…" : "Absenden"}
+                          {!isSubmitting && <Check className="h-4 w-4" />}
+                        </>
+                      ) : (
+                        <>
+                          Weiter
+                          <ArrowRight className="h-4 w-4" />
+                        </>
+                      )}
+                    </GlassButton>
+                  </div>
+                )}
               </div>
-              <div className="flex flex-1 justify-end">
-                <GlassButton
-                  type="button"
-                  onClick={goNext}
-                  disabled={isSubmitting}
-                  contentClassName="inline-flex items-center gap-2"
-                >
-                  {currentStepConfig.key === "privacyConsent" ? (
-                    <>
-                      {isSubmitting ? "Wird gesendet…" : "Absenden"}
-                      {!isSubmitting && <Check className="h-4 w-4" />}
-                    </>
-                  ) : (
-                    <>
-                      Weiter
-                      <ArrowRight className="h-4 w-4" />
-                    </>
-                  )}
-                </GlassButton>
-              </div>
-            </div>
+            )}
           </form>
         </Form>
       </div>
