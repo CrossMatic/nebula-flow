@@ -242,7 +242,7 @@ const Index = () => {
               maskSize: "contain",
             }}
           />
-          <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für B2B-Unternehmen</p>
+          <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für Schweizer Unternehmen</p>
           <div className="flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               Termin vereinbaren
