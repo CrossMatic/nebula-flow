@@ -109,10 +109,10 @@ const faqs = [
 ];
 
 const caseStudy = {
-  label: "Case Study - Coach Michael",
+  label: "Case Study - Michael Bachman",
   role: "Personal Trainer & Coaching, Zürich",
   situation:
-    "Coach Michael hatte Website-Traffic und eine aktive Instagram-Präsenz, aber keine planbaren Anfragen. Viele Besucher kamen, informierten sich und gingen wieder, ohne Kontakt aufzunehmen.",
+    "Michael hatte Website-Traffic und eine aktive Instagram-Präsenz, aber keine planbaren Anfragen. Viele Besucher kamen, informierten sich und gingen wieder, ohne Kontakt aufzunehmen.",
   built: [
     "KI-Assistent auf der Website, der Besucher proaktiv anspricht, qualifiziert und Kontaktdaten erfasst.",
     "Instagram-Automatisierung, die neue Follower automatisch kontaktiert und bei definierten Keywords gezielt den Funnel startet.",
@@ -122,7 +122,7 @@ const caseStudy = {
     "Statt unstrukturierter Einzelanfragen laufen beide Kanäle nun als System: kontinuierlich, qualifiziert und ohne zusätzlichen manuellen Aufwand im Tagesgeschäft.",
   quote:
     "Es wurde professionell und präzise auf mein Anliegen eingegangen. Das System war schnell aufgesetzt und funktioniert einwandfrei.",
-  author: "Coach Michael",
+  author: "Michael Bachman",
   authorRole: "Personal Trainer & Gründer",
   pillars: ["Website-KI-Assistant", "Instagram-Automation", "Zentrales CRM"],
 };
@@ -411,7 +411,7 @@ const Index = () => {
                 <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
                   <img
                     src={caseAiAssistantImage}
-                    alt="KI-Assistent Workflow für Coach Michael"
+                    alt="KI-Assistent Workflow für Michael Bachman"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
