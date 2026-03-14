@@ -444,7 +444,7 @@ const Index = () => {
       <section id="video-analyse" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-3xl space-y-8">
           <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Lead Magnet</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Video-Analyse</p>
             <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
               Kostenlose Video-Analyse Ihres Business
             </h2>
