@@ -13,7 +13,8 @@ import toolsSlackLogo from "@/assets/tools-slack-logo.png";
 import toolsStripeLogo from "@/assets/tools-stripe-logo.png";
 import caseAiAssistantImage from "@/assets/case-ai-assistant.png";
 import caseCoachMichaelImage from "@/assets/case-coach-michael.png";
-import { CalendarCheck2, Database, Instagram, Linkedin, Mail, MapPin, MessageSquare, PhoneCall, Rocket, Settings2, Target } from "lucide-react";
+import caseGianBessetImage from "@/assets/case-gian-besset.png";
+import { ArrowRight, CalendarCheck2, CheckCircle2, Clock3, Database, Instagram, Linkedin, Mail, MapPin, MessageSquare, PhoneCall, Rocket, SendHorizontal, Settings2, Target } from "lucide-react";
 import { LeadMagnetForm } from "@/components/LeadMagnetForm";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -108,24 +109,67 @@ const faqs = [
   },
 ];
 
-const caseStudy = {
-  label: "Case Study - Michael Bachman",
-  role: "Personal Trainer & Coaching, Zürich",
-  situation:
-    "Michael hatte Website-Traffic und eine aktive Instagram-Präsenz, aber keine planbaren Anfragen. Viele Besucher kamen, informierten sich und gingen wieder, ohne Kontakt aufzunehmen.",
-  built: [
-    "KI-Assistent auf der Website, der Besucher proaktiv anspricht, qualifiziert und Kontaktdaten erfasst.",
-    "Instagram-Automatisierung, die neue Follower automatisch kontaktiert und bei definierten Keywords gezielt den Funnel startet.",
-    "Zentrales CRM, das Leads aus beiden Kanälen automatisch zusammenführt und bei jedem neuen Kontakt direkt benachrichtigt.",
-  ],
-  result:
-    "Statt unstrukturierter Einzelanfragen laufen beide Kanäle nun als System: kontinuierlich, qualifiziert und ohne zusätzlichen manuellen Aufwand im Tagesgeschäft.",
-  quote:
-    "Es wurde professionell und präzise auf mein Anliegen eingegangen. Das System war schnell aufgesetzt und funktioniert einwandfrei.",
-  author: "Michael Bachman",
-  authorRole: "Personal Trainer & Gründer",
-  pillars: ["Website-KI-Assistant", "Instagram-Automation", "Zentrales CRM"],
-};
+const caseStudies = [
+  {
+    type: "outbound",
+    hook: "5 Gespräche in 2 Wochen durch personalisierte E-Mail-Akquise",
+    label: "Case Study - Gian Besset",
+    role: "Grafik & Webdesign, Basel",
+    kpis: [
+      { value: "2 Wochen", label: "Laufzeit", icon: "time" },
+      { value: "5 Gespräche", label: "Gebuchte Termine", icon: "meetings" },
+      { value: "CH Zielgruppe", label: "Physio- & Tierarztpraxen", icon: "market" },
+    ],
+    situation:
+      "Gian Besset wollte planbar neue Kunden gewinnen - unabhängig von Empfehlungen und ohne manuellen Aufwand.",
+    built: [
+      "Aufbau eines automatisierten E-Mail-Akquise-Systems fokussiert auf Physiopraxen und Tierarztpraxen in der Schweiz.",
+      "Jede Nachricht wurde individuell personalisiert - auf die jeweilige Praxis zugeschnitten.",
+    ],
+    madeLabel: "Was wir gemacht haben",
+    resultLabel: "Resultat nach 2 Wochen",
+    result:
+      "Zahlreiche positive Rückmeldungen und 5 gebuchte Gespräche mit potenziellen Kunden. Die Kampagne wurde nach zwei Wochen pausiert - nicht wegen mangelnder Performance, sondern weil die eingehenden Anfragen die verfügbare Kapazität überstiegen.",
+    outcomeCards: [
+      "Zahlreiche positive Rückmeldungen",
+      "5 gebuchte Gespräche in 2 Wochen",
+      "Kampagne wegen Kapazitätsgrenze pausiert",
+    ],
+    pipeline: ["Lead-Liste", "Personalisierte E-Mail", "Antwort", "Gebuchtes Gespräch"],
+    personalizationSnippets: [
+      'Betreff mit Praxisname: "Kurze Idee für {{Praxisname}}"',
+      "Opener mit Fachbereich und lokalem Kontext",
+      "CTA passend zur jeweiligen Praxis-Situation",
+    ],
+    quote:
+      "Die Zusammenarbeit war sehr einfach, direkt und unkompliziert. Die Resultate haben meine Erwartungen übertroffen.",
+    author: "Gian Besset",
+    authorRole: "Gründer Gian Besset Brand Design",
+    avatar: caseGianBessetImage,
+  },
+  {
+    type: "conversion",
+    label: "Case Study - Michael Bachman",
+    role: "Personal Trainer & Coaching, Zürich",
+    situation:
+      "Michael hatte Website-Traffic und eine aktive Instagram-Präsenz, aber keine planbaren Anfragen. Viele Besucher kamen, informierten sich und gingen wieder, ohne Kontakt aufzunehmen.",
+    built: [
+      "KI-Assistent auf der Website, der Besucher proaktiv anspricht, qualifiziert und Kontaktdaten erfasst.",
+      "Instagram-Automatisierung, die neue Follower automatisch kontaktiert und bei definierten Keywords gezielt den Funnel startet.",
+      "Zentrales CRM, das Leads aus beiden Kanälen automatisch zusammenführt und bei jedem neuen Kontakt direkt benachrichtigt.",
+    ],
+    resultLabel: "Resultat",
+    result:
+      "Statt unstrukturierter Einzelanfragen laufen beide Kanäle nun als System: kontinuierlich, qualifiziert und ohne zusätzlichen manuellen Aufwand im Tagesgeschäft.",
+    quote:
+      "Es wurde professionell und präzise auf mein Anliegen eingegangen. Das System war schnell aufgesetzt und funktioniert einwandfrei.",
+    author: "Michael Bachman",
+    authorRole: "Personal Trainer & Gründer",
+    image: caseAiAssistantImage,
+    imageAlt: "KI-Assistent Workflow für Michael Bachman",
+    avatar: caseCoachMichaelImage,
+  },
+];
 
 const Index = () => {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -361,83 +405,163 @@ const Index = () => {
 
       <section className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
-          <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Social Proof</p>
-            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
-              {caseStudy.label}
-            </h2>
-            <p className="text-sm text-muted-foreground md:text-base">{caseStudy.role}</p>
-          </div>
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Social Proof</p>
 
-          <article className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
-            <GlowingEffect
-              spread={34}
-              glow={false}
-              disabled
-              proximity={84}
-              inactiveZone={0.2}
-              borderWidth={1}
-              variant="white"
-            />
-
-            <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">Ausgangssituation</p>
-                  <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
+          {caseStudies.map((caseStudy) => (
+            <article key={caseStudy.label} className="space-y-8">
+              {caseStudy.hook && (
+                <div className="mx-auto max-w-3xl rounded-2xl border border-blue-300/20 bg-blue-500/5 p-4 text-center shadow-[0_0_32px_rgba(59,130,246,0.15)]">
+                  <p className="text-sm font-medium text-blue-100 md:text-base">{caseStudy.hook}</p>
                 </div>
+              )}
 
-                <div className="space-y-3">
-                  <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">Was wir gebaut haben</p>
-                  <ul className="space-y-3">
-                    {caseStudy.built.map((item, index) => (
-                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-slate-100/90 md:text-base">
-                        {index === 0 && <MessageSquare className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                        {index === 1 && <Instagram className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                        {index === 2 && <Database className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="space-y-2 border-t border-white/10 pt-4">
-                  <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">Resultat</p>
-                  <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
-                </div>
+              <div className="space-y-3 text-center">
+                <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
+                  {caseStudy.label}
+                </h2>
+                <p className="text-sm text-muted-foreground md:text-base">{caseStudy.role}</p>
               </div>
 
-              <div className="space-y-4">
-                <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
-                  <img
-                    src={caseAiAssistantImage}
-                    alt="KI-Assistent Workflow für Michael Bachman"
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
+              {caseStudy.kpis && (
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {caseStudy.kpis.map((kpi) => (
+                    <div
+                      key={kpi.label}
+                      className="group rounded-xl border border-blue-300/20 bg-white/[0.03] p-4 transition-all hover:-translate-y-0.5 hover:border-blue-300/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.2)]"
+                    >
+                      <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10">
+                        {kpi.icon === "time" && <Clock3 className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "meetings" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "market" && <Target className="h-4 w-4 text-blue-200" />}
+                      </div>
+                      <p className="text-base font-semibold text-slate-100 md:text-lg">{kpi.value}</p>
+                      <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{kpi.label}</p>
+                    </div>
+                  ))}
                 </div>
+              )}
 
-                <div className="rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
-                  <div className="flex items-start gap-4">
-                    <img
-                      src={caseCoachMichaelImage}
-                      alt={caseStudy.author}
-                      className="h-14 w-14 shrink-0 rounded-xl border border-white/15 object-cover"
-                      loading="lazy"
-                    />
-                    <div className="min-w-0 flex-1 space-y-3">
-                      <p className="text-sm italic leading-relaxed text-slate-100/95 md:text-base">{`"${caseStudy.quote}"`}</p>
-                      <div>
-                        <p className="text-sm font-medium text-blue-200">{caseStudy.author}</p>
-                        <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
+                <GlowingEffect
+                  spread={34}
+                  glow={false}
+                  disabled
+                  proximity={84}
+                  inactiveZone={0.2}
+                  borderWidth={1}
+                  variant="white"
+                />
+
+                <div className={`grid gap-6 ${caseStudy.type === "outbound" ? "md:grid-cols-[1.2fr_0.8fr]" : "md:grid-cols-[1.1fr_0.9fr]"}`}>
+                  <div className="space-y-6">
+                    <div className="space-y-2">
+                      <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">Ausgangssituation</p>
+                      <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">
+                        {caseStudy.madeLabel ?? "Was wir gebaut haben"}
+                      </p>
+                      <ul className="space-y-3">
+                        {caseStudy.built.map((item, index) => (
+                          <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-slate-100/90 md:text-base">
+                            {caseStudy.type === "outbound" && index === 0 && <SendHorizontal className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                            {caseStudy.type === "outbound" && index === 1 && <Mail className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                            {caseStudy.type === "conversion" && index === 0 && <MessageSquare className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                            {caseStudy.type === "conversion" && index === 1 && <Instagram className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                            {caseStudy.type === "conversion" && index >= 2 && <Database className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="space-y-2 border-t border-white/10 pt-4">
+                      <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{caseStudy.resultLabel}</p>
+                      <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
+                      {caseStudy.outcomeCards && (
+                        <div className="grid gap-2 pt-3 sm:grid-cols-3">
+                          {caseStudy.outcomeCards.map((item) => (
+                            <div key={item} className="rounded-lg border border-blue-300/20 bg-blue-500/5 p-3">
+                              <div className="mb-1 inline-flex items-center gap-1 text-blue-200">
+                                <CheckCircle2 className="h-3.5 w-3.5" />
+                                <span className="text-[0.65rem] uppercase tracking-[0.12em]">Outcome</span>
+                              </div>
+                              <p className="text-xs leading-relaxed text-slate-100/90">{item}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    {caseStudy.pipeline && (
+                      <div className="rounded-2xl border border-blue-300/20 bg-black/30 p-4">
+                        <p className="mb-3 text-xs uppercase tracking-[0.16em] text-blue-200/90">Akquise-System</p>
+                        <div className="space-y-2">
+                          {caseStudy.pipeline.map((step, index) => (
+                            <div key={step} className="flex items-center gap-2">
+                              <div className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-blue-300/30 bg-blue-500/10 text-xs text-blue-100">
+                                {index + 1}
+                              </div>
+                              <p className="text-sm text-slate-100/90">{step}</p>
+                              {index < caseStudy.pipeline.length - 1 && <ArrowRight className="ml-auto h-3.5 w-3.5 text-blue-300/70" />}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {caseStudy.personalizationSnippets && (
+                      <div className="rounded-2xl border border-blue-300/20 bg-blue-500/5 p-4">
+                        <p className="mb-3 text-xs uppercase tracking-[0.16em] text-blue-200/90">So wurde personalisiert</p>
+                        <div className="space-y-2">
+                          {caseStudy.personalizationSnippets.map((snippet) => (
+                            <div key={snippet} className="rounded-lg border border-white/10 bg-black/25 p-2.5">
+                              <p className="text-xs leading-relaxed text-slate-100/90">{snippet}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {caseStudy.image && (
+                      <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
+                        <img
+                          src={caseStudy.image}
+                          alt={caseStudy.imageAlt}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+
+                    <div className="rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
+                      <div className="flex items-start gap-4">
+                        {caseStudy.avatar && (
+                          <img
+                            src={caseStudy.avatar}
+                            alt={caseStudy.author}
+                            className="h-14 w-14 shrink-0 rounded-xl border border-white/15 object-cover"
+                            loading="lazy"
+                          />
+                        )}
+                        <div className="min-w-0 flex-1 space-y-3">
+                          <p className="text-sm italic leading-relaxed text-slate-100/95 md:text-base">{`"${caseStudy.quote}"`}</p>
+                          <div>
+                            <p className="text-sm font-medium text-blue-200">{caseStudy.author}</p>
+                            <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
               </div>
-            </div>
-          </article>
+            </article>
+          ))}
         </div>
       </section>
 
