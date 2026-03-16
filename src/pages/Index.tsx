@@ -14,7 +14,8 @@ import toolsStripeLogo from "@/assets/tools-stripe-logo.png";
 import caseAiAssistantImage from "@/assets/case-ai-assistant.png";
 import caseCoachMichaelImage from "@/assets/case-coach-michael.png";
 import caseGianBessetImage from "@/assets/case-gian-besset.png";
-import { ArrowRight, CalendarCheck2, CheckCircle2, Clock3, Database, Instagram, Linkedin, Mail, MapPin, MessageSquare, PhoneCall, Rocket, SendHorizontal, Settings2, Target } from "lucide-react";
+import caseGianReportingImage from "@/assets/case-gian-reporting.png";
+import { CalendarCheck2, Clock3, Database, Instagram, Linkedin, Mail, MapPin, MessageSquare, PhoneCall, Rocket, SendHorizontal, Settings2, Target } from "lucide-react";
 import { LeadMagnetForm } from "@/components/LeadMagnetForm";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -146,6 +147,9 @@ const caseStudies = [
     author: "Gian Besset",
     authorRole: "Gründer Gian Besset Brand Design",
     avatar: caseGianBessetImage,
+    image: caseGianReportingImage,
+    imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
+    reportingCaption: "Reporting-Ausschnitt aus Woche 2 der Kampagne",
   },
   {
     type: "conversion",
@@ -480,54 +484,27 @@ const Index = () => {
                     <div className="space-y-2 border-t border-white/10 pt-4">
                       <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{caseStudy.resultLabel}</p>
                       <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
-                      {caseStudy.outcomeCards && (
-                        <div className="grid gap-2 pt-3 sm:grid-cols-3">
-                          {caseStudy.outcomeCards.map((item) => (
-                            <div key={item} className="rounded-lg border border-blue-300/20 bg-blue-500/5 p-3">
-                              <div className="mb-1 inline-flex items-center gap-1 text-blue-200">
-                                <CheckCircle2 className="h-3.5 w-3.5" />
-                                <span className="text-[0.65rem] uppercase tracking-[0.12em]">Outcome</span>
-                              </div>
-                              <p className="text-xs leading-relaxed text-slate-100/90">{item}</p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    {caseStudy.pipeline && (
-                      <div className="rounded-2xl border border-blue-300/20 bg-black/30 p-4">
-                        <p className="mb-3 text-xs uppercase tracking-[0.16em] text-blue-200/90">Akquise-System</p>
-                        <div className="space-y-2">
-                          {caseStudy.pipeline.map((step, index) => (
-                            <div key={step} className="flex items-center gap-2">
-                              <div className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-blue-300/30 bg-blue-500/10 text-xs text-blue-100">
-                                {index + 1}
-                              </div>
-                              <p className="text-sm text-slate-100/90">{step}</p>
-                              {index < caseStudy.pipeline.length - 1 && <ArrowRight className="ml-auto h-3.5 w-3.5 text-blue-300/70" />}
-                            </div>
-                          ))}
-                        </div>
+                    {caseStudy.type === "outbound" && caseStudy.image && (
+                      <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
+                        <img
+                          src={caseStudy.image}
+                          alt={caseStudy.imageAlt}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                        {caseStudy.reportingCaption && (
+                          <p className="border-t border-white/10 px-3 py-2 text-[11px] tracking-[0.02em] text-slate-300/90">
+                            {caseStudy.reportingCaption}
+                          </p>
+                        )}
                       </div>
                     )}
 
-                    {caseStudy.personalizationSnippets && (
-                      <div className="rounded-2xl border border-blue-300/20 bg-blue-500/5 p-4">
-                        <p className="mb-3 text-xs uppercase tracking-[0.16em] text-blue-200/90">So wurde personalisiert</p>
-                        <div className="space-y-2">
-                          {caseStudy.personalizationSnippets.map((snippet) => (
-                            <div key={snippet} className="rounded-lg border border-white/10 bg-black/25 p-2.5">
-                              <p className="text-xs leading-relaxed text-slate-100/90">{snippet}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {caseStudy.image && (
+                    {caseStudy.image && caseStudy.type !== "outbound" && (
                       <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
                         <img
                           src={caseStudy.image}
