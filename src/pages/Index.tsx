@@ -410,9 +410,9 @@ const Index = () => {
       <section className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Social Proof</p>
-
-          {caseStudies.map((caseStudy) => (
-            <article key={caseStudy.label} className="space-y-8">
+          <div className="space-y-14">
+            {caseStudies.map((caseStudy, index) => (
+              <article key={caseStudy.label} className={`space-y-8 ${index > 0 ? "pt-10 md:pt-14" : ""}`}>
               <div className="space-y-3 text-center">
                 <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
                   {caseStudy.label}
@@ -530,8 +530,9 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
