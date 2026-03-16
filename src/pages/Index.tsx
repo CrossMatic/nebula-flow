@@ -117,9 +117,10 @@ const caseStudies = [
     label: "Case Study - Gian Besset",
     role: "Grafik & Webdesign, Basel",
     kpis: [
-      { value: "2 Wochen", label: "Laufzeit", icon: "time" },
-      { value: "5 Gespräche", label: "Gebuchte Termine", icon: "meetings" },
-      { value: "CH Zielgruppe", label: "Physio- & Tierarztpraxen", icon: "market" },
+      { value: "Automatisiertes Akquise-System", label: "System", icon: "system" },
+      { value: "18 generierte Interessenten in 2 Wochen", label: "Interessenten", icon: "leads" },
+      { value: "5 gebuchte Verkaufsgespräche in 2 Wochen", label: "Gespräche", icon: "calls" },
+      { value: "Physio- & Tierarztpraxen, Schweiz", label: "Zielgruppe", icon: "audience" },
     ],
     situation:
       "Gian Besset wollte planbar neue Kunden gewinnen - unabhängig von Empfehlungen und ohne manuellen Aufwand.",
@@ -412,12 +413,6 @@ const Index = () => {
 
           {caseStudies.map((caseStudy) => (
             <article key={caseStudy.label} className="space-y-8">
-              {caseStudy.hook && (
-                <div className="mx-auto max-w-3xl rounded-2xl border border-blue-300/20 bg-blue-500/5 p-4 text-center shadow-[0_0_32px_rgba(59,130,246,0.15)]">
-                  <p className="text-sm font-medium text-blue-100 md:text-base">{caseStudy.hook}</p>
-                </div>
-              )}
-
               <div className="space-y-3 text-center">
                 <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
                   {caseStudy.label}
@@ -426,19 +421,23 @@ const Index = () => {
               </div>
 
               {caseStudy.kpis && (
-                <div className="grid gap-3 sm:grid-cols-3">
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {caseStudy.kpis.map((kpi) => (
                     <div
                       key={kpi.label}
-                      className="group rounded-xl border border-blue-300/20 bg-white/[0.03] p-4 transition-all hover:-translate-y-0.5 hover:border-blue-300/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.2)]"
+                      className="group flex h-full flex-col rounded-xl border border-blue-300/20 bg-white/[0.03] p-4 transition-all hover:-translate-y-0.5 hover:border-blue-300/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.2)]"
                     >
                       <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10">
+                        {kpi.icon === "system" && <Settings2 className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "leads" && <SendHorizontal className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "calls" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "audience" && <Target className="h-4 w-4 text-blue-200" />}
                         {kpi.icon === "time" && <Clock3 className="h-4 w-4 text-blue-200" />}
                         {kpi.icon === "meetings" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
                         {kpi.icon === "market" && <Target className="h-4 w-4 text-blue-200" />}
                       </div>
-                      <p className="text-base font-semibold text-slate-100 md:text-lg">{kpi.value}</p>
-                      <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{kpi.label}</p>
+                      <p className="text-sm font-semibold leading-relaxed text-slate-100 md:text-base">{kpi.value}</p>
+                      <p className="mt-auto pt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">{kpi.label}</p>
                     </div>
                   ))}
                 </div>
