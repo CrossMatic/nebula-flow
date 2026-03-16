@@ -149,7 +149,6 @@ const caseStudies = [
     avatar: caseGianBessetImage,
     image: caseGianReportingImage,
     imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
-    reportingCaption: "Reporting-Ausschnitt aus Woche 2 der Kampagne",
   },
   {
     type: "conversion",
@@ -496,11 +495,6 @@ const Index = () => {
                           className="h-full w-full object-cover"
                           loading="lazy"
                         />
-                        {caseStudy.reportingCaption && (
-                          <p className="border-t border-white/10 px-3 py-2 text-[11px] tracking-[0.02em] text-slate-300/90">
-                            {caseStudy.reportingCaption}
-                          </p>
-                        )}
                       </div>
                     )}
 
