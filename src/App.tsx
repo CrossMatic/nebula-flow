@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/language";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
 import Index from "./pages/Index";
@@ -15,6 +15,12 @@ const Datenschutz = lazy(() => import("./pages/Datenschutz"));
 
 const queryClient = new QueryClient();
 
+const FloatingLanguageSwitch = () => {
+  const { pathname } = useLocation();
+  if (pathname === "/") return null;
+  return <LanguageSwitch variant="floating" />;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -22,7 +28,7 @@ const App = () => (
       <Sonner />
       <LanguageProvider>
         <BrowserRouter>
-          <LanguageSwitch />
+          <FloatingLanguageSwitch />
           <Suspense fallback={<div className="min-h-screen bg-[#02040a]" />}>
             <Routes>
               <Route path="/" element={<Index />} />

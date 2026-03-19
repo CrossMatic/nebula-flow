@@ -17,6 +17,7 @@ import caseGianBessetImage from "@/assets/case-gian-besset.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
 import { CalendarCheck2, Clock3, Database, Instagram, Linkedin, Mail, MapPin, MessageSquare, PhoneCall, Rocket, SendHorizontal, Settings2, Target } from "lucide-react";
 import { LeadMagnetForm } from "@/components/LeadMagnetForm";
+import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/i18n/language";
@@ -482,13 +483,18 @@ const Index = () => {
                 {t.navFaq}
               </a>
             </nav>
-            <GlassButton
-              size="sm"
-              onClick={() => navigate("/termin")}
-              contentClassName="inline-flex items-center gap-2"
-            >
-              {t.bookCall}
-            </GlassButton>
+            <div className="flex items-center gap-2">
+              <div className="hidden md:block">
+                <LanguageSwitch variant="inline" compact />
+              </div>
+              <GlassButton
+                size="sm"
+                onClick={() => navigate("/termin")}
+                contentClassName="inline-flex items-center gap-2"
+              >
+                {t.bookCall}
+              </GlassButton>
+            </div>
           </div>
         </div>
       </header>
