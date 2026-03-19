@@ -484,7 +484,7 @@ const Index = () => {
               </a>
             </nav>
             <div className="flex items-center justify-end gap-2">
-              <div className="hidden md:block">
+              <div className="block">
                 <LanguageSwitch variant="inline" compact />
               </div>
             </div>
