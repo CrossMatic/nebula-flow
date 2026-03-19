@@ -118,26 +118,61 @@ const GradientBackground = ({ active = true }: { active?: boolean }) => {
   useEffect(() => {
     const mqReduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const mqTabletDown = window.matchMedia("(max-width: 1024px)");
+    let isDisposed = false;
+    let rafId = 0;
 
-    const applyQuality = () => {
+    const detectLowFps = () =>
+      new Promise<boolean>((resolve) => {
+        const start = performance.now();
+        let frames = 0;
+
+        const tick = (now: number) => {
+          frames += 1;
+          if (now - start >= 650) {
+            const fps = (frames * 1000) / (now - start);
+            resolve(fps < 50);
+            return;
+          }
+          rafId = requestAnimationFrame(tick);
+        };
+
+        rafId = requestAnimationFrame(tick);
+      });
+
+    const applyQualityFast = () => {
       const lowerPowerCpu = navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 6;
+      const memory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 0;
+      const lowerMemory = memory > 0 && memory <= 8;
       setReducedMotion(mqReduced.matches);
-      setIsLiteMode(mqTabletDown.matches || lowerPowerCpu || mqReduced.matches);
+      setIsLiteMode(mqTabletDown.matches || lowerPowerCpu || lowerMemory || mqReduced.matches);
     };
 
-    applyQuality();
-    mqReduced.addEventListener("change", applyQuality);
-    mqTabletDown.addEventListener("change", applyQuality);
+    const applyQualityAdaptive = async () => {
+      const lowerPowerCpu = navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 6;
+      const memory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 0;
+      const lowerMemory = memory > 0 && memory <= 8;
+      const lowFps = mqReduced.matches ? false : await detectLowFps();
+      if (isDisposed) return;
+      setReducedMotion(mqReduced.matches);
+      setIsLiteMode(mqTabletDown.matches || lowerPowerCpu || lowerMemory || mqReduced.matches || lowFps);
+    };
+
+    applyQualityFast();
+    applyQualityAdaptive();
+    mqReduced.addEventListener("change", applyQualityFast);
+    mqTabletDown.addEventListener("change", applyQualityFast);
 
     return () => {
-      mqReduced.removeEventListener("change", applyQuality);
-      mqTabletDown.removeEventListener("change", applyQuality);
+      isDisposed = true;
+      cancelAnimationFrame(rafId);
+      mqReduced.removeEventListener("change", applyQualityFast);
+      mqTabletDown.removeEventListener("change", applyQualityFast);
     };
   }, []);
 
   const visibleOrbs = useMemo(() => {
-    if (!isLiteMode) return orbs;
-    return orbs.filter((_, index) => index < 6);
+    if (!isLiteMode) return orbs.slice(0, 10);
+    return orbs.slice(0, 4);
   }, [isLiteMode]);
 
   return (
@@ -158,13 +193,13 @@ const GradientBackground = ({ active = true }: { active?: boolean }) => {
             height: orb.size,
             background: orb.bg,
             animation: active && !reducedMotion ? orb.animation : "none",
-            willChange: active && !reducedMotion ? "transform" : "auto",
+            willChange: active && !reducedMotion && i < 4 ? "transform" : "auto",
             top: orb.top,
             left: orb.left,
             right: orb.right,
             bottom: orb.bottom,
             opacity: orb.opacity ?? 0.82,
-            mixBlendMode: orb.blend ? "screen" : "normal",
+            mixBlendMode: orb.blend && !isLiteMode ? "screen" : "normal",
             borderRadius: "50% 60% 40% 70%",
             transform: "translateZ(0)",
             backfaceVisibility: "hidden",
