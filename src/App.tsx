@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LanguageProvider } from "@/i18n/language";
+import { LanguageSwitch } from "@/components/LanguageSwitch";
 import Index from "./pages/Index";
 
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -18,18 +20,21 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Suspense fallback={<div className="min-h-screen bg-[#02040a]" />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/termin" element={<Termin />} />
-            <Route path="/impressum" element={<Impressum />} />
-            <Route path="/datenschutz" element={<Datenschutz />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+      <LanguageProvider>
+        <BrowserRouter>
+          <LanguageSwitch />
+          <Suspense fallback={<div className="min-h-screen bg-[#02040a]" />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/termin" element={<Termin />} />
+              <Route path="/impressum" element={<Impressum />} />
+              <Route path="/datenschutz" element={<Datenschutz />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

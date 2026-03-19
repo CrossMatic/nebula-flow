@@ -9,6 +9,7 @@ import { StaticRouter } from "react-router-dom/server";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Routes, Route } from "react-router-dom";
+import { LanguageProvider } from "@/i18n/language";
 import Index from "./pages/Index";
 import Termin from "./pages/Termin";
 import Impressum from "./pages/Impressum";
@@ -23,15 +24,17 @@ function AppForPrerender({ location }: { location: string }) {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <StaticRouter location={location}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/termin" element={<Termin />} />
-            <Route path="/impressum" element={<Impressum />} />
-            <Route path="/datenschutz" element={<Datenschutz />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </StaticRouter>
+        <LanguageProvider>
+          <StaticRouter location={location}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/termin" element={<Termin />} />
+              <Route path="/impressum" element={<Impressum />} />
+              <Route path="/datenschutz" element={<Datenschutz />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </StaticRouter>
+        </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

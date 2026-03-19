@@ -18,7 +18,7 @@ import {
   UsersRound,
   CheckCircle,
 } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { GlassButton } from "@/components/ui/glass-button";
@@ -33,19 +33,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/i18n/language";
 
-const formSchema = z.object({
-  industry: z.string().min(1, "Bitte wählen Sie eine Option."),
-  problem: z.string().min(1, "Bitte wählen Sie eine Option."),
-  company: z.string().min(2, "Bitte geben Sie Ihren Firmennamen ein."),
-  name: z.string().min(2, "Bitte geben Sie Ihren Namen ein."),
-  email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein."),
-  privacyConsent: z.literal(true, {
-    errorMap: () => ({ message: "Bitte stimmen Sie der Datenverarbeitung zu." }),
-  }),
-});
-
-export type LeadMagnetFormValues = z.infer<typeof formSchema>;
+export type LeadMagnetFormValues = {
+  industry: string;
+  problem: string;
+  company: string;
+  name: string;
+  email: string;
+  privacyConsent: true;
+};
 
 const N8N_WEBHOOK_URL = "https://joshuaaa18.app.n8n.cloud/webhook/72b3fff9-0e98-46dc-99bc-cbb32f4e1bc6";
 
@@ -98,9 +95,8 @@ const STEPS = [
   },
 ] as const;
 
-const TOTAL_STEPS = STEPS.length;
-
 export function LeadMagnetForm() {
+  const { language } = useLanguage();
   const [step, setStep] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState<string>("");
@@ -108,6 +104,105 @@ export function LeadMagnetForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [direction, setDirection] = useState<"forward" | "back">("forward");
+
+  const t = language === "de"
+    ? {
+        thankYou: "Vielen Dank",
+        sentTo: "Wir senden dir das Video in den nächsten 48 Stunden an",
+        step: "Schritt",
+        of: "von",
+        whereToSend: "Wohin sollen wir deine Video-Analyse senden?",
+        yourName: "Dein Name",
+        privacy: "Ich stimme der Verarbeitung meiner Daten zum Versand der Video-Analyse zu.",
+        privacyLink: "Datenschutzerklärung",
+        back: "Zurück",
+        sending: "Wird gesendet…",
+        submit: "Absenden",
+        next: "Weiter",
+        chooseOption: "Bitte wählen Sie eine Option.",
+        enterCompany: "Bitte geben Sie Ihren Firmennamen ein.",
+        enterName: "Bitte geben Sie Ihren Namen ein.",
+        enterEmail: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        consent: "Bitte stimmen Sie der Datenverarbeitung zu.",
+        submitError: "Fehler beim Absenden. Bitte versuchen Sie es später erneut.",
+        unexpected: "Ein unerwarteter Fehler ist aufgetreten.",
+        contactTitle: "Kontaktdaten",
+        companyTitle: "Wie heisst Ihr Unternehmen?",
+        companyPlaceholder: "Firmenname",
+        industryTitle: "In welcher Branche sind Sie?",
+        problemTitle: "Was ist Ihr grösstes Problem?",
+      }
+    : {
+        thankYou: "Thank you",
+        sentTo: "We will send the video within the next 48 hours to",
+        step: "Step",
+        of: "of",
+        whereToSend: "Where should we send your video analysis?",
+        yourName: "Your name",
+        privacy: "I agree to the processing of my data for sending the video analysis.",
+        privacyLink: "Privacy Policy",
+        back: "Back",
+        sending: "Sending…",
+        submit: "Submit",
+        next: "Next",
+        chooseOption: "Please select an option.",
+        enterCompany: "Please enter your company name.",
+        enterName: "Please enter your name.",
+        enterEmail: "Please enter a valid email address.",
+        consent: "Please agree to data processing.",
+        submitError: "Error while submitting. Please try again later.",
+        unexpected: "An unexpected error occurred.",
+        contactTitle: "Contact details",
+        companyTitle: "What is your company name?",
+        companyPlaceholder: "Company name",
+        industryTitle: "What industry are you in?",
+        problemTitle: "What is your biggest problem?",
+      };
+
+  const formSchema = useMemo(
+    () =>
+      z.object({
+        industry: z.string().min(1, t.chooseOption),
+        problem: z.string().min(1, t.chooseOption),
+        company: z.string().min(2, t.enterCompany),
+        name: z.string().min(2, t.enterName),
+        email: z.string().email(t.enterEmail),
+        privacyConsent: z.literal(true, {
+          errorMap: () => ({ message: t.consent }),
+        }),
+      }),
+    [t]
+  );
+
+  const industryOptions = language === "de"
+    ? INDUSTRY_OPTIONS
+    : [
+        { value: "it-software", label: "IT & Software", icon: Code },
+        { value: "beratung-coaching", label: "Consulting & Coaching", icon: Users },
+        { value: "gesundheit", label: "Healthcare", icon: Heart },
+        { value: "immobilien-bau", label: "Real Estate & Construction", icon: Building },
+        { value: "marketing-agentur", label: "Marketing & Agency", icon: Megaphone },
+        { value: "ecommerce", label: "E-Commerce", icon: ShoppingCart },
+        { value: "sonstiges", label: "Other", icon: CircleDot },
+      ];
+
+  const problemOptions = language === "de"
+    ? PROBLEM_OPTIONS
+    : [
+        { value: "zu-wenig-neukunden", label: "Too few new clients", icon: UserPlus },
+        { value: "schlechte-conversion", label: "Enough traffic, but poor conversion", icon: Target },
+        { value: "repetitive-aufgaben", label: "Repetitive tasks take too much time", icon: ClipboardList },
+        { value: "team-ueberlastet", label: "Team overloaded, not enough capacity", icon: UsersRound },
+        { value: "prozesse-tools-kosten", label: "Processes or tools are too expensive", icon: Plug },
+        { value: "sonstiges", label: "Other", icon: CircleDot },
+      ];
+
+  const stepConfigs = [
+    { ...STEPS[0], title: t.industryTitle, options: industryOptions },
+    { ...STEPS[1], title: t.problemTitle, options: problemOptions },
+    { ...STEPS[2], title: t.companyTitle, placeholder: t.companyPlaceholder },
+    { ...STEPS[3], title: t.contactTitle },
+  ] as const;
 
   const form = useForm<LeadMagnetFormValues>({
     resolver: zodResolver(formSchema),
@@ -121,8 +216,8 @@ export function LeadMagnetForm() {
     },
   });
 
-  const currentStepConfig = STEPS[step];
-  const progressPercent = ((step + 1) / TOTAL_STEPS) * 100;
+  const currentStepConfig = stepConfigs[step];
+  const progressPercent = ((step + 1) / stepConfigs.length) * 100;
 
   async function onSubmit(values: LeadMagnetFormValues) {
     setSubmitError(null);
@@ -146,14 +241,14 @@ export function LeadMagnetForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Fehler beim Absenden. Bitte versuchen Sie es später erneut.");
+        throw new Error(t.submitError);
       }
 
       setSubmittedName(values.name);
       setSubmittedEmail(values.email);
       setIsSubmitted(true);
     } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : "Ein unerwarteter Fehler ist aufgetreten.");
+      setSubmitError(err instanceof Error ? err.message : t.unexpected);
     } finally {
       setIsSubmitting(false);
     }
@@ -170,7 +265,7 @@ export function LeadMagnetForm() {
     isValid.then((ok) => {
       if (ok) {
         setDirection("forward");
-        setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
+                                    setStep((s) => Math.min(s + 1, stepConfigs.length - 1));
       }
     });
   }
@@ -201,9 +296,9 @@ export function LeadMagnetForm() {
           <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
             <CheckCircle className="h-7 w-7 text-blue-200" />
           </div>
-          <h3 className="text-xl font-semibold text-white md:text-2xl">Vielen Dank, {submittedName}!</h3>
+          <h3 className="text-xl font-semibold text-white md:text-2xl">{t.thankYou}, {submittedName}!</h3>
           <p className="mx-auto max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-            Wir senden dir das Video in den nächsten 48 Stunden an{" "}
+            {t.sentTo}{" "}
             <span className="font-medium text-white">{submittedEmail}</span>.
           </p>
         </motion.div>
@@ -227,7 +322,7 @@ export function LeadMagnetForm() {
         {/* Progress bar */}
         <div className="mb-8">
           <p className="mb-2 text-xs uppercase tracking-wider text-blue-300/90">
-            Schritt {step + 1} von {TOTAL_STEPS}
+            {t.step} {step + 1} {t.of} {stepConfigs.length}
           </p>
           <div className="h-1 overflow-hidden rounded-full bg-white/10">
             <motion.div
@@ -283,7 +378,7 @@ export function LeadMagnetForm() {
                                   if (autoAdvance) {
                                     setDirection("forward");
                                     setTimeout(() => {
-                                      setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
+                                      setStep((s) => Math.min(s + 1, stepConfigs.length - 1));
                                     }, 0);
                                   }
                                 }}
@@ -340,7 +435,7 @@ export function LeadMagnetForm() {
                       {currentStepConfig.title}
                     </h3>
                     <p className="text-muted-foreground">
-                      Wohin sollen wir deine Video-Analyse senden?
+                      {t.whereToSend}
                     </p>
                     <div className="space-y-4">
                       <FormField
@@ -351,7 +446,7 @@ export function LeadMagnetForm() {
                             <FormControl>
                               <Input
                                 {...field}
-                                placeholder="Dein Name"
+                                placeholder={t.yourName}
                                 className="border-white/10 bg-black/20 py-4 text-lg text-white placeholder:text-slate-500 focus-visible:ring-blue-400/50"
                                 autoFocus
                               />
@@ -392,14 +487,14 @@ export function LeadMagnetForm() {
                               />
                             </FormControl>
                             <label className="cursor-pointer text-xs leading-relaxed text-muted-foreground">
-                              Ich stimme der Verarbeitung meiner Daten zum Versand der Video-Analyse zu.{" "}
+                              {t.privacy}{" "}
                               <a
                                 href="/datenschutz"
                                 className="underline hover:text-blue-300"
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
-                                Datenschutzerklärung
+                                {t.privacyLink}
                               </a>
                             </label>
                           </div>
@@ -423,7 +518,7 @@ export function LeadMagnetForm() {
                       contentClassName="inline-flex items-center gap-1"
                     >
                       <ArrowLeft className="h-4 w-4" />
-                      Zurück
+                      {t.back}
                     </GlassButton>
                   ) : null}
                 </div>
@@ -437,12 +532,12 @@ export function LeadMagnetForm() {
                     >
                       {currentStepConfig.key === "contact" ? (
                         <>
-                          {isSubmitting ? "Wird gesendet…" : "Absenden"}
+                          {isSubmitting ? t.sending : t.submit}
                           {!isSubmitting && <Check className="h-4 w-4" />}
                         </>
                       ) : (
                         <>
-                          Weiter
+                          {t.next}
                           <ArrowRight className="h-4 w-4" />
                         </>
                       )}

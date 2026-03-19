@@ -19,6 +19,8 @@ import { CalendarCheck2, Clock3, Database, Instagram, Linkedin, Mail, MapPin, Me
 import { LeadMagnetForm } from "@/components/LeadMagnetForm";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/i18n/language";
+import { useSeo } from "@/seo/useSeo";
 
 const services = [
   {
@@ -176,11 +178,231 @@ const caseStudies = [
 ];
 
 const Index = () => {
+  const { language } = useLanguage();
+  const isDe = language === "de";
   const [showNavbar, setShowNavbar] = useState(false);
   const [heroInView, setHeroInView] = useState(true);
   const heroRef = useRef<HTMLElement | null>(null);
   const navigate = useNavigate();
-  const processTimelineData = processSteps.map((item) => ({
+  const t = isDe
+    ? {
+        navServices: "Leistungen",
+        navVideo: "Video-Analyse",
+        navProcess: "Prozess",
+        navFaq: "FAQ",
+        bookCall: "Gespräch buchen",
+        heroSub: "Automatisierte Lead-Generierung für Schweizer Unternehmen",
+        heroCta: "Termin vereinbaren",
+        heroFree: "Kostenlose Video-Analyse",
+        supportBy: "Unterstützt durch",
+        sectionTitle: "Kommunikation, die sich persönlich anfühlt aber automatisch läuft",
+        sectionSub:
+          "Von personalisierter Neukundengewinnung bis zur Automatisierung bestehender Kanäle – Ihr Partner für planbare Kunden.",
+        servicesTag: "Leistungen",
+        servicesTitle: "Mehr Kunden durch Systeme statt Zufall",
+        servicesSub:
+          "Jedes Unternehmen ist einzigartig - unsere Automatisierungssysteme werden speziell auf Ihre Ziele, Kunden und täglichen Abläufe zugeschnitten.",
+        socialProof: "Social Proof",
+        videoTag: "Video-Analyse",
+        videoTitle: "Kostenlose Video-Analyse Ihres Business",
+        videoSub:
+          "Beantworten Sie ein paar kurze Fragen – wir analysieren Ihr Unternehmen und zeigen Ihnen in einem persönlichen Video, wo Sie Kunden verlieren und Potential verschenken.",
+        caseSituation: "Ausgangssituation",
+        processTag: "Prozess",
+        processTitle: "So läuft die Zusammenarbeit ab",
+        faqTag: "FAQ",
+        faqTitle: "Häufige Fragen",
+        contactTitle: "Bereit für planbare Neukunden?",
+        footerTagline: "Automatisierte Lead-Generierung für B2B-Unternehmen.",
+        footerNav: "Navigation",
+        footerContact: "Kontakt",
+        footerBook: "Termin buchen",
+        imprint: "Impressum",
+        privacy: "Datenschutz",
+        rights: "© 2025 CrossMatic. Alle Rechte vorbehalten.",
+        city: "Basel, Schweiz",
+      }
+    : {
+        navServices: "Services",
+        navVideo: "Video Analysis",
+        navProcess: "Process",
+        navFaq: "FAQ",
+        bookCall: "Book a Call",
+        heroSub: "Automated lead generation for Swiss businesses",
+        heroCta: "Schedule a Call",
+        heroFree: "Free Video Analysis",
+        supportBy: "Powered by",
+        sectionTitle: "Communication that feels personal but runs automatically",
+        sectionSub:
+          "From personalized lead generation to automation of existing channels – your partner for predictable customer growth.",
+        servicesTag: "Services",
+        servicesTitle: "More customers through systems, not chance",
+        servicesSub:
+          "Every business is unique - our automation systems are tailored specifically to your goals, customers, and daily workflows.",
+        socialProof: "Social Proof",
+        videoTag: "Video Analysis",
+        videoTitle: "Free Video Analysis for Your Business",
+        videoSub:
+          "Answer a few short questions – we analyze your business and show you in a personal video where you lose customers and leave potential untapped.",
+        caseSituation: "Initial Situation",
+        processTag: "Process",
+        processTitle: "How we work together",
+        faqTag: "FAQ",
+        faqTitle: "Frequently Asked Questions",
+        contactTitle: "Ready for predictable new customers?",
+        footerTagline: "Automated lead generation for B2B companies.",
+        footerNav: "Navigation",
+        footerContact: "Contact",
+        footerBook: "Book a Call",
+        imprint: "Legal Notice",
+        privacy: "Privacy Policy",
+        rights: "© 2025 CrossMatic. All rights reserved.",
+        city: "Basel, Switzerland",
+      };
+
+  const localizedServices = isDe
+    ? services
+    : [
+        {
+          ...services[0],
+          title: "Lead Generation",
+          subtitle: "Automated outreach campaigns",
+          description:
+            "A customized outreach system that predictably brings qualified conversations into your calendar.",
+          benefits: [
+            "ICP-based lead generation",
+            "Highly personalized messages",
+            "Multi-channel follow-up sequences",
+            "Weekly first meetings",
+            "Full CRM & calendar integration",
+            "Performance analytics & reporting",
+          ],
+          footer: "Ideal for: B2B companies with a clear ICP that want to scale predictably.",
+        },
+        {
+          ...services[1],
+          title: "Conversion Automation",
+          subtitle: "Lead-to-customer systems",
+          description:
+            "Automated website and social media processes to generate more inbound inquiries.",
+          benefits: [
+            "Proactive visitor engagement (24/7)",
+            "Real-time lead qualification",
+            "Intelligent contact capture",
+            "Automated follow-up sequences",
+            "CRM & calendar integration",
+            "Performance tracking & analytics",
+          ],
+          footer:
+            "Ideal for: companies with existing traffic that want to get more from their current channels.",
+        },
+      ];
+
+  const localizedProcessSteps = isDe
+    ? processSteps
+    : [
+        { ...processSteps[0], title: "Free Intro Call", text: "In this call, you tell us more about your business and current processes, and we suggest areas where AI and automation can help." },
+        { ...processSteps[1], title: "Planning & Strategy Session", text: "If it is a fit, we start planning after the intro call. We schedule a strategy session to align on next steps and fine-tune the plan where needed." },
+        { ...processSteps[2], title: "Implementation", text: "Once we align on strategy and action plan, we start building your new automation solutions." },
+        { ...processSteps[3], title: "Launch + Optimization", text: "When development is complete, we deploy the system and continuously optimize it." },
+      ];
+
+  const localizedFaqs = isDe
+    ? faqs
+    : [
+        {
+          question: "How quickly can we expect first results?",
+          answer:
+            "Acquisition system: Requires a setup period of at least 2 weeks. After launch, first inquiries typically come in within a few days.\n\nConversion system: First results usually appear 1-2 weeks after implementation, depending on your existing traffic and lead quality.",
+        },
+        {
+          question: "How much does the system cost?",
+          answer:
+            "We do not work with fixed pricing because each system is tailored to your needs. Our clients typically see an ROI of 200-400% within the first 1-2 months.",
+        },
+        {
+          question: "Is it fully done-for-you or collaborative?",
+          answer:
+            "Acquisition system: Collaborative - we deliver qualified meetings, you run the sales calls.\n\nConversion system: Largely automated (95%+), depending on your channels.",
+        },
+        {
+          question: "Is it GDPR-compliant?",
+          answer:
+            "Yes. We use DACH-focused solutions, European hosting, clear opt-in/opt-out mechanics, and transparent sender details.",
+        },
+        {
+          question: "Can I manage the system myself?",
+          answer:
+            "Absolutely. We build systems that integrate smoothly into your accounts and remain easy to manage, while still supporting you whenever needed.",
+        },
+      ];
+
+  const localizedCaseStudies = isDe
+    ? caseStudies
+    : [
+        {
+          ...caseStudies[0],
+          label: "Case Study - Gian Besset",
+          role: "Graphic & Web Design, Basel",
+          hook: "5 sales calls in 2 weeks through personalized email outreach",
+          kpis: [
+            { value: "Automated acquisition system", label: "System", icon: "system" },
+            { value: "18 generated prospects in 2 weeks", label: "Prospects", icon: "leads" },
+            { value: "5 booked sales calls in 2 weeks", label: "Calls", icon: "calls" },
+            { value: "Physio & veterinary clinics, Switzerland", label: "Target Group", icon: "audience" },
+          ],
+          situation:
+            "Gian Besset wanted predictable new clients - independent of referrals and without manual effort.",
+          built: [
+            "Built an automated email outreach system focused on physiotherapy and veterinary clinics in Switzerland.",
+            "Each message was individually personalized for the specific clinic.",
+          ],
+          madeLabel: "What we did",
+          resultLabel: "Result after 2 weeks",
+          result:
+            "Numerous positive responses and 5 booked calls with potential clients. The campaign was paused after two weeks - not due to weak performance, but because incoming demand exceeded available capacity.",
+          quote:
+            "The collaboration was very easy, direct, and uncomplicated. The results exceeded my expectations.",
+          authorRole: "Founder, Gian Besset Brand Design",
+        },
+        {
+          ...caseStudies[1],
+          label: "Case Study - Michael Bachman",
+          role: "Personal Trainer & Coaching, Zurich",
+          situation:
+            "Michael had website traffic and an active Instagram presence, but no predictable inquiries. Many visitors came, informed themselves, and left without contacting him.",
+          built: [
+            "AI assistant on the website that proactively engages visitors, qualifies them, and captures contact details.",
+            "Instagram automation that contacts new followers automatically and starts the funnel based on defined keywords.",
+            "Central CRM that merges leads from both channels and notifies instantly on every new contact.",
+          ],
+          madeLabel: "What we built",
+          resultLabel: "Result",
+          result:
+            "Instead of unstructured individual inquiries, both channels now run as one system: continuous, qualified, and without additional manual effort in day-to-day operations.",
+          quote:
+            "My request was handled professionally and precisely. The system was set up quickly and works flawlessly.",
+          authorRole: "Personal Trainer & Founder",
+        },
+      ];
+
+  useSeo({
+    title: isDe
+      ? "CrossMatic | Automatisierte Lead-Generierung für Schweizer Unternehmen"
+      : "CrossMatic | Automated Lead Generation for Swiss Businesses",
+    description: isDe
+      ? "CrossMatic hilft Schweizer Unternehmen bei planbarer Neukundengewinnung durch personalisierte Akquise und Conversion-Automatisierung."
+      : "CrossMatic helps Swiss businesses generate predictable new customers through personalized outreach and conversion automation.",
+    ogTitle: isDe ? "CrossMatic | Automatisierte Lead-Generierung" : "CrossMatic | Automated Lead Generation",
+    ogDescription: isDe
+      ? "Von personalisierter Neukundengewinnung bis zur Automatisierung bestehender Kanäle."
+      : "From personalized lead generation to automation of existing channels.",
+    twitterTitle: isDe ? "CrossMatic | Automatisierte Lead-Generierung" : "CrossMatic | Automated Lead Generation",
+    twitterDescription: isDe
+      ? "Planbare Neukundengewinnung und Conversion-Automatisierung für Schweizer Unternehmen."
+      : "Predictable lead generation and conversion automation for Swiss businesses.",
+  });
+  const processTimelineData = localizedProcessSteps.map((item) => ({
     title: `${item.step} ${item.title}`,
     content: (
       <div className="relative rounded-2xl border border-white/10 bg-white/5 p-5">
@@ -248,16 +470,16 @@ const Index = () => {
             </a>
             <nav className="hidden items-center gap-5 text-sm text-slate-200/90 md:flex">
               <a href="#leistungen" className="transition-colors hover:text-white">
-                Leistungen
+                {t.navServices}
               </a>
               <a href="#video-analyse" className="transition-colors hover:text-white">
-                Video-Analyse
+                {t.navVideo}
               </a>
               <a href="#prozess" className="transition-colors hover:text-white">
-                Prozess
+                {t.navProcess}
               </a>
               <a href="#faq" className="transition-colors hover:text-white">
-                FAQ
+                {t.navFaq}
               </a>
             </nav>
             <GlassButton
@@ -265,7 +487,7 @@ const Index = () => {
               onClick={() => navigate("/termin")}
               contentClassName="inline-flex items-center gap-2"
             >
-              Gespräch buchen
+              {t.bookCall}
             </GlassButton>
           </div>
         </div>
@@ -290,15 +512,15 @@ const Index = () => {
               maskSize: "contain",
             }}
           />
-          <p className="text-lg text-muted-foreground">Automatisierte Lead-Generierung für Schweizer Unternehmen</p>
+          <p className="text-lg text-muted-foreground">{t.heroSub}</p>
           <div className="flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
-              Termin vereinbaren
+              {t.heroCta}
               <span>→</span>
             </GlassButton>
             <a href="#video-analyse">
               <GlassButton contentClassName="inline-flex items-center gap-2">
-                Kostenlose Video-Analyse
+                {t.heroFree}
               </GlassButton>
             </a>
           </div>
@@ -309,18 +531,17 @@ const Index = () => {
       <section className="relative w-full bg-[#02040a] px-4 pb-24 pt-44 md:px-8 md:pt-56 lg:px-16">
         <div className="relative mx-auto max-w-4xl space-y-6">
           <h1 className="font-display text-center text-4xl font-bold tracking-[-0.02em] md:text-5xl md:leading-[5rem] bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent">
-            Kommunikation, die sich persönlich anfühlt aber automatisch läuft
+            {t.sectionTitle}
           </h1>
           <p className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base">
-            Von personalisierter Neukundengewinnung bis zur Automatisierung bestehender Kanäle – Ihr Partner für
-            planbare Kunden.
+            {t.sectionSub}
           </p>
         </div>
       </section>
 
       <section className="relative z-10 w-full bg-[#02040a] px-4 pb-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-6">
-          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Unterstützt durch</p>
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.supportBy}</p>
           <div className="relative">
             <InfiniteSlider gap={56} duration={20} className="w-full py-2">
               <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
@@ -351,15 +572,14 @@ const Index = () => {
       <section id="leistungen" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Leistungen</p>
-            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">Mehr Kunden durch Systeme statt Zufall</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.servicesTag}</p>
+            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.servicesTitle}</h2>
             <p className="mx-auto max-w-3xl text-sm text-muted-foreground md:text-base">
-              Jedes Unternehmen ist einzigartig - unsere Automatisierungssysteme werden speziell auf Ihre Ziele,
-              Kunden und täglichen Abläufe zugeschnitten.
+              {t.servicesSub}
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
-            {services.map((service) => (
+            {localizedServices.map((service) => (
               <article
                 key={service.title}
                 className="relative rounded-2xl border border-white/10 bg-white/5 p-7 transition-colors hover:border-blue-400/30"
@@ -399,7 +619,7 @@ const Index = () => {
           </div>
           <div className="pt-2 text-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
-              Gespräch buchen
+              {t.bookCall}
               <span>→</span>
             </GlassButton>
           </div>
@@ -409,9 +629,9 @@ const Index = () => {
 
       <section className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
-          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">Social Proof</p>
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.socialProof}</p>
           <div className="space-y-14">
-            {caseStudies.map((caseStudy, index) => (
+            {localizedCaseStudies.map((caseStudy, index) => (
               <article key={caseStudy.label} className={`space-y-8 ${index > 0 ? "pt-10 md:pt-14" : ""}`}>
               <div className="space-y-3 text-center">
                 <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
@@ -457,7 +677,7 @@ const Index = () => {
                 <div className={`grid gap-6 ${caseStudy.type === "outbound" ? "md:grid-cols-[1.2fr_0.8fr]" : "md:grid-cols-[1.1fr_0.9fr]"}`}>
                   <div className="space-y-6">
                     <div className="space-y-2">
-                      <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">Ausgangssituation</p>
+                      <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{t.caseSituation}</p>
                       <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
                     </div>
 
@@ -539,13 +759,12 @@ const Index = () => {
       <section id="video-analyse" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-3xl space-y-8">
           <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Video-Analyse</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.videoTag}</p>
             <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
-              Kostenlose Video-Analyse Ihres Business
+              {t.videoTitle}
             </h2>
             <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
-              Beantworten Sie ein paar kurze Fragen – wir analysieren Ihr Unternehmen und zeigen Ihnen in einem
-              persönlichen Video, wo Sie Kunden verlieren und Potential verschenken.
+              {t.videoSub}
             </p>
           </div>
           <LeadMagnetForm />
@@ -555,8 +774,8 @@ const Index = () => {
       <section id="prozess" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Prozess</p>
-            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">So läuft die Zusammenarbeit ab</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.processTag}</p>
+            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.processTitle}</h2>
           </div>
           <Timeline data={processTimelineData} />
         </div>
@@ -565,11 +784,11 @@ const Index = () => {
       <section id="faq" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">FAQ</p>
-            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">Häufige Fragen</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.faqTag}</p>
+            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.faqTitle}</h2>
           </div>
           <div className="space-y-3">
-            {faqs.map((faq) => (
+            {localizedFaqs.map((faq) => (
               <details key={faq.question} className="group relative rounded-xl border border-white/10 bg-white/5 p-5">
                 <GlowingEffect
                   spread={30}
@@ -593,15 +812,15 @@ const Index = () => {
 
       <section id="kontakt" className="w-full px-4 pb-20 pt-14 md:px-8 md:pt-16 lg:px-16">
         <div className="mx-auto max-w-4xl p-8 text-center md:p-12">
-          <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">Bereit für planbare Neukunden?</h2>
+          <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.contactTitle}</h2>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
-              Termin vereinbaren
+              {t.heroCta}
               <span>→</span>
             </GlassButton>
             <a href="#video-analyse">
               <GlassButton contentClassName="inline-flex items-center gap-2">
-                Kostenlose Video-Analyse
+                {t.heroFree}
               </GlassButton>
             </a>
           </div>
@@ -614,23 +833,23 @@ const Index = () => {
             <div className="space-y-5">
               <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-[3.75rem] w-auto object-contain" />
               <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-                Automatisierte Lead-Generierung für B2B-Unternehmen.
+                {t.footerTagline}
               </p>
             </div>
 
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Navigation</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.footerNav}</p>
               <div className="flex flex-col gap-3.5 text-sm text-slate-200/90">
-                <a href="#leistungen" className="transition-colors hover:text-white">Leistungen</a>
-                <a href="#video-analyse" className="transition-colors hover:text-white">Video-Analyse</a>
-                <a href="#prozess" className="transition-colors hover:text-white">Prozess</a>
-                <a href="#faq" className="transition-colors hover:text-white">FAQ</a>
-                <a href="/termin" className="transition-colors hover:text-white">Termin buchen</a>
+                <a href="#leistungen" className="transition-colors hover:text-white">{t.navServices}</a>
+                <a href="#video-analyse" className="transition-colors hover:text-white">{t.navVideo}</a>
+                <a href="#prozess" className="transition-colors hover:text-white">{t.navProcess}</a>
+                <a href="#faq" className="transition-colors hover:text-white">{t.navFaq}</a>
+                <a href="/termin" className="transition-colors hover:text-white">{t.footerBook}</a>
               </div>
             </div>
 
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Kontakt</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.footerContact}</p>
               <div className="flex flex-col gap-3.5 text-sm text-slate-200/90">
                 <a href="mailto:joshua@getcrossmatic.com" className="inline-flex items-center gap-2 transition-colors hover:text-white">
                   <Mail className="h-4 w-4 text-muted-foreground" />
@@ -642,7 +861,7 @@ const Index = () => {
                 </a>
                 <p className="inline-flex items-center gap-2 text-slate-200/90">
                   <MapPin className="h-4 w-4 text-muted-foreground" />
-                  <span>Basel, Schweiz</span>
+                  <span>{t.city}</span>
                 </p>
                 <a
                   href="https://www.linkedin.com/in/joshua-st%C3%B6ckli-0a2862394/"
@@ -658,10 +877,10 @@ const Index = () => {
           </div>
 
           <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-            <p>© 2025 CrossMatic. Alle Rechte vorbehalten.</p>
+            <p>{t.rights}</p>
             <div className="flex items-center gap-4">
-              <a href="/impressum" className="transition-colors hover:text-white">Impressum</a>
-              <a href="/datenschutz" className="transition-colors hover:text-white">Datenschutz</a>
+              <a href="/impressum" className="transition-colors hover:text-white">{t.imprint}</a>
+              <a href="/datenschutz" className="transition-colors hover:text-white">{t.privacy}</a>
             </div>
           </div>
         </div>
