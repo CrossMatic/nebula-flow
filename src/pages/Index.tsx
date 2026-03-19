@@ -465,11 +465,11 @@ const Index = () => {
         }`}
       >
         <div className="mx-auto mt-4 w-[min(86%,920px)] rounded-xl border border-white/10 bg-[#02040a]/80 px-4 py-3 backdrop-blur-md md:px-6">
-          <div className="flex items-center justify-between gap-4">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 md:grid-cols-[10rem_1fr_10rem]">
             <a href="#hero" className="inline-flex items-center">
               <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-[3.125rem] w-auto object-contain" />
             </a>
-            <nav className="hidden items-center gap-5 text-sm text-slate-200/90 md:flex">
+            <nav className="hidden items-center justify-center gap-5 text-sm text-slate-200/90 md:flex">
               <a href="#leistungen" className="transition-colors hover:text-white">
                 {t.navServices}
               </a>
@@ -483,17 +483,10 @@ const Index = () => {
                 {t.navFaq}
               </a>
             </nav>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-end gap-2">
               <div className="hidden md:block">
                 <LanguageSwitch variant="inline" compact />
               </div>
-              <GlassButton
-                size="sm"
-                onClick={() => navigate("/termin")}
-                contentClassName="inline-flex items-center gap-2"
-              >
-                {t.bookCall}
-              </GlassButton>
             </div>
           </div>
         </div>
