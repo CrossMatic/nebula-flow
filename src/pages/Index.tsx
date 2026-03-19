@@ -3,6 +3,7 @@ import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { Timeline } from "@/components/ui/timeline";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import crossmaticLogo from "@/assets/crossmatic-logo.png";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import toolsAirtableLogo from "@/assets/tools-airtable-logo.png";
@@ -662,6 +663,7 @@ const Index = () => {
                 </div>
               )}
 
+              <ContainerScroll>
               <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
                 <GlowingEffect
                   spread={34}
@@ -749,6 +751,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+              </ContainerScroll>
               </article>
             ))}
           </div>
@@ -880,9 +883,9 @@ const Index = () => {
             <div className="flex items-center gap-4">
               <a href="/impressum" className="transition-colors hover:text-white">{t.imprint}</a>
               <a href="/datenschutz" className="transition-colors hover:text-white">{t.privacy}</a>
-            </div>
           </div>
         </div>
+      </div>
       </footer>
     </main>
   );
