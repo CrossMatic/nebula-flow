@@ -147,7 +147,7 @@ const Termin = () => {
           </GlassButton>
         </div>
 
-        <div id="buchungskalender" className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+        <div id="buchungskalender" className="surface-glow-hover relative overflow-hidden rounded-2xl border border-white/10 bg-black/30">
           <GlowingEffect
             spread={36}
             glow={false}
@@ -182,7 +182,7 @@ const Termin = () => {
           </div>
           <div className="space-y-3">
             {faqs.map((faq) => (
-              <details key={faq.question} className="group relative rounded-xl border border-white/10 bg-white/5 p-5">
+              <details key={faq.question} className="group surface-glow-hover relative rounded-xl border border-white/10 bg-white/5 p-5">
                 <GlowingEffect
                   spread={30}
                   glow={false}

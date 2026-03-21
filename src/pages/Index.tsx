@@ -407,7 +407,7 @@ const Index = () => {
   const processTimelineData = localizedProcessSteps.map((item) => ({
     title: `${item.step} ${item.title}`,
     content: (
-      <div className="relative rounded-2xl border border-white/10 bg-white/5 p-5">
+      <div className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-5">
         <GlowingEffect
           spread={32}
           glow={false}
@@ -465,7 +465,7 @@ const Index = () => {
           showNavbar ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="mx-auto mt-4 w-[min(86%,920px)] rounded-xl border border-white/10 bg-[#02040a]/80 px-4 py-3 backdrop-blur-md md:px-6">
+        <div className="surface-glow-hover mx-auto mt-4 w-[min(86%,920px)] rounded-xl border border-white/10 bg-[#02040a]/80 px-4 py-3 backdrop-blur-md md:px-6">
           <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 md:grid-cols-[10rem_1fr_10rem]">
             <a href="#hero" className="inline-flex items-center">
               <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-[3.125rem] w-auto object-contain" />
@@ -582,7 +582,7 @@ const Index = () => {
             {localizedServices.map((service) => (
               <article
                 key={service.title}
-                className="relative rounded-2xl border border-white/10 bg-white/5 p-7 transition-colors hover:border-blue-400/30"
+                className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-7"
               >
                 <GlowingEffect
                   spread={34}
@@ -640,12 +640,13 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground md:text-base">{caseStudy.role}</p>
               </div>
 
+              <ContainerScroll>
               {caseStudy.kpis && (
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {caseStudy.kpis.map((kpi) => (
                     <div
                       key={kpi.label}
-                      className="group flex h-full flex-col rounded-xl border border-blue-300/20 bg-white/[0.03] p-4 transition-all hover:-translate-y-0.5 hover:border-blue-300/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.2)]"
+                      className="group flex h-full flex-col rounded-xl border border-blue-300/20 bg-white/[0.03] p-4 transition-all hover:border-blue-300/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.2)]"
                     >
                       <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10">
                         {kpi.icon === "system" && <Settings2 className="h-4 w-4 text-blue-200" />}
@@ -663,8 +664,7 @@ const Index = () => {
                 </div>
               )}
 
-              <ContainerScroll>
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
+              <div className="surface-glow-hover relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
                 <GlowingEffect
                   spread={34}
                   glow={false}
@@ -708,7 +708,7 @@ const Index = () => {
 
                   <div className="space-y-4">
                     {caseStudy.type === "outbound" && caseStudy.image && (
-                      <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
+                      <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
                         <img
                           src={caseStudy.image}
                           alt={caseStudy.imageAlt}
@@ -719,7 +719,7 @@ const Index = () => {
                     )}
 
                     {caseStudy.image && caseStudy.type !== "outbound" && (
-                      <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
+                      <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
                         <img
                           src={caseStudy.image}
                           alt={caseStudy.imageAlt}
@@ -729,7 +729,7 @@ const Index = () => {
                       </div>
                     )}
 
-                    <div className="rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
+                    <div className="surface-glow-hover rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
                       <div className="flex items-start gap-4">
                         {caseStudy.avatar && (
                           <img
@@ -791,7 +791,7 @@ const Index = () => {
           </div>
           <div className="space-y-3">
             {localizedFaqs.map((faq) => (
-              <details key={faq.question} className="group relative rounded-xl border border-white/10 bg-white/5 p-5">
+              <details key={faq.question} className="group surface-glow-hover relative rounded-xl border border-white/10 bg-white/5 p-5">
                 <GlowingEffect
                   spread={30}
                   glow={false}

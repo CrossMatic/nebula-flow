@@ -277,7 +277,7 @@ export function LeadMagnetForm() {
 
   if (isSubmitted) {
     return (
-      <div className="relative rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
+      <div className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
         <GlowingEffect
           spread={34}
           glow={false}
@@ -307,7 +307,7 @@ export function LeadMagnetForm() {
   }
 
   return (
-    <div className="relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+    <div className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
       <GlowingEffect
         spread={34}
         glow={false}
@@ -383,10 +383,10 @@ export function LeadMagnetForm() {
                                   }
                                 }}
                                 className={cn(
-                                  "group flex items-center gap-3 rounded-xl border px-4 py-4 text-left transition-all",
+                                  "group flex items-center gap-3 rounded-xl border px-4 py-4 text-left",
                                   isSelected
-                                    ? "border-blue-400/60 bg-blue-500/20 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
-                                    : "border-white/10 bg-black/20 text-slate-200 hover:border-blue-400/60 hover:bg-blue-500/20 hover:text-white hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+                                    ? "border-blue-400/60 bg-blue-500/20 text-white shadow-[0_0_24px_rgba(59,130,246,0.2)]"
+                                    : "surface-glow-hover border-white/10 bg-black/20 text-slate-200 hover:bg-blue-500/20 hover:text-white"
                                 )}
                               >
                                 {Icon && (

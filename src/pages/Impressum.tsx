@@ -29,7 +29,7 @@ const Impressum = () => {
       <div className="mx-auto max-w-4xl space-y-6">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.legal}</p>
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{t.title}</h1>
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm leading-relaxed text-slate-200/90">
+        <div className="surface-glow-hover rounded-2xl border border-white/10 bg-white/5 p-6 text-sm leading-relaxed text-slate-200/90">
           <p>CrossMatic</p>
           <p>{language === "de" ? "Basel, Schweiz" : "Basel, Switzerland"}</p>
           <p>
