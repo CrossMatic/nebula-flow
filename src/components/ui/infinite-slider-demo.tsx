@@ -1,44 +1,22 @@
-import { InfiniteSlider } from '@/components/ui/infinite-slider';
+import { InfiniteSlider } from "@/components/ui/infinite-slider";
+import { Sparkles } from "lucide-react";
 
+/**
+ * Lokale Demo ohne externe Asset-URLs (keine Drittanbieter-Requests beim Laden).
+ * Wird aktuell von keiner Produktionsseite importiert.
+ */
 function InfiniteSliderBasic() {
   return (
-    <InfiniteSlider
-      gap={24}
-      reverse
-      className='w-full h-full'
-      duration={28}
-      durationOnHover={42}
-    >
-      <img
-        src='https://motion-primitives.com/apple_music_logo.svg'
-        alt='Apple Music logo'
-        className='h-12 w-auto opacity-80'
-      />
-      <img
-        src='https://motion-primitives.com/chrome_logo.svg'
-        alt='Chrome logo'
-        className='h-12 w-auto opacity-80'
-      />
-      <img
-        src='https://motion-primitives.com/strava_logo.svg'
-        alt='Strava logo'
-        className='h-12 w-auto opacity-80'
-      />
-      <img
-        src='https://motion-primitives.com/nintendo_logo.svg'
-        alt='Nintendo logo'
-        className='h-12 w-auto opacity-80'
-      />
-      <img
-        src='https://motion-primitives.com/jquery_logo.svg'
-        alt='Jquery logo'
-        className='h-12 w-auto opacity-80'
-      />
-      <img
-        src='https://motion-primitives.com/prada_logo.svg'
-        alt='Prada logo'
-        className='h-12 w-auto opacity-80'
-      />
+    <InfiniteSlider gap={24} reverse className="h-full w-full" duration={28} durationOnHover={42}>
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div
+          key={i}
+          className="flex h-12 w-24 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5"
+          aria-hidden
+        >
+          <Sparkles className="h-7 w-7 text-blue-300/60" />
+        </div>
+      ))}
     </InfiniteSlider>
   );
 }
@@ -46,4 +24,3 @@ function InfiniteSliderBasic() {
 export default {
   InfiniteSliderBasic,
 };
-

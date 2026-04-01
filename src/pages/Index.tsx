@@ -16,7 +16,22 @@ import caseAiAssistantImage from "@/assets/case-ai-assistant.png";
 import caseCoachMichaelImage from "@/assets/case-coach-michael.png";
 import caseGianBessetImage from "@/assets/case-gian-besset.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
-import { CalendarCheck2, Clock3, Database, Instagram, Linkedin, Mail, MapPin, MessageSquare, PhoneCall, Rocket, SendHorizontal, Settings2, Target } from "lucide-react";
+import {
+  CalendarCheck2,
+  Clock3,
+  Database,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageSquare,
+  PhoneCall,
+  Rocket,
+  ScanSearch,
+  SendHorizontal,
+  Settings2,
+  Target,
+} from "lucide-react";
 import { LeadMagnetForm } from "@/components/LeadMagnetForm";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { useEffect, useRef, useState } from "react";
@@ -56,6 +71,24 @@ const services = [
     ],
     footer: "Ideal für: Unternehmen mit vorhandenem Traffic, die mehr aus ihren bestehenden Kanälen rausholen wollen.",
     icon: "calendar",
+  },
+  {
+    title: "AI Lead Scout",
+    subtitle: "Präzisions-Recherche durch KI-Agenten",
+    description:
+      'Identifizieren Sie die „Nadel im Heuhaufen". Unsere KI-Agenten durchsuchen tausende Datenpunkte, um Leads mit echtem Bedarf und höchster Abschlusswahrscheinlichkeit zu finden.',
+    benefits: [
+      "Multichannel Deep-Research: KI-Agenten analysieren Websites, News, Finanzberichte und Social Media in Echtzeit.",
+      "Trigger-Event Detection: Identifikation von Leads basierend auf Ereignissen (Expansion, Finanzierung, technischer Bedarf).",
+      "High-Ticket Fokus: Ideal für komplexe Projekte und Unternehmen, die auf Qualität statt Masse setzen.",
+      "Exklusives Lead-Dashboard: Erhalten Sie Zugriff auf ein Dashboard mit allen Lead-Details und direkten Ansprechpartnern.",
+      "Full Context Delivery: Wir liefern nicht nur E-Mails, sondern den kompletten Recherche-Kontext für Ihren perfekten Pitch.",
+    ],
+    footer:
+      "Ideal für: Unternehmen im Bereich Engineering, spezialisierter B2B-Handel oder Agenturen, die High-Value-Projekte jagen und die Akquise persönlich führen wollen.",
+    icon: "scout",
+    dashboardNote: "Inklusive Zugang zu Ihrem persönlichen Lead-Intelligence-Dashboard.",
+    cardCta: "Lead-Potenzial prüfen →",
   },
 ];
 
@@ -297,6 +330,24 @@ const Index = () => {
           ],
           footer:
             "Ideal for: companies with existing traffic that want to get more from their current channels.",
+        },
+        {
+          ...services[2],
+          title: "AI Lead Scout",
+          subtitle: "Precision research powered by AI agents",
+          description:
+            'Find the needle in the haystack. Our AI agents scan thousands of data points to surface leads with real intent and the highest likelihood to close.',
+          benefits: [
+            "Multichannel deep research: AI agents analyze websites, news, financial reports, and social media in real time.",
+            "Trigger-event detection: Identify leads based on events (expansion, funding, technical need).",
+            "High-ticket focus: Built for complex deals and teams that prioritize quality over volume.",
+            "Exclusive lead dashboard: Access a dashboard with full lead details and direct contacts.",
+            "Full context delivery: We deliver more than email addresses—the full research context for your pitch.",
+          ],
+          footer:
+            "Ideal for: engineering firms, specialized B2B trade, or agencies chasing high-value projects and running outreach personally.",
+          dashboardNote: "Includes access to your personal lead intelligence dashboard.",
+          cardCta: "Check lead potential →",
         },
       ];
 
@@ -578,11 +629,11 @@ const Index = () => {
               {t.servicesSub}
             </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {localizedServices.map((service) => (
               <article
                 key={service.title}
-                className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-7"
+                className="surface-glow-hover relative flex flex-col rounded-2xl border border-white/10 bg-white/5 p-7"
               >
                 <GlowingEffect
                   spread={34}
@@ -596,6 +647,8 @@ const Index = () => {
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
                   {service.icon === "mail" ? (
                     <Mail className="h-5 w-5 text-blue-200" />
+                  ) : service.icon === "scout" ? (
+                    <ScanSearch className="h-5 w-5 text-blue-200" />
                   ) : (
                     <CalendarCheck2 className="h-5 w-5 text-blue-200" />
                   )}
@@ -613,7 +666,22 @@ const Index = () => {
                     ))}
                   </ul>
                 </div>
+                {"dashboardNote" in service && service.dashboardNote ? (
+                  <p className="mt-4 rounded-lg border border-blue-300/15 bg-blue-500/5 px-3 py-2 text-xs leading-relaxed text-blue-200/90">
+                    {service.dashboardNote}
+                  </p>
+                ) : null}
                 <p className="mt-5 border-t border-white/10 pt-4 text-sm text-muted-foreground">{service.footer}</p>
+                {"cardCta" in service && service.cardCta ? (
+                  <div className="mt-5">
+                    <GlassButton
+                      onClick={() => navigate("/termin")}
+                      contentClassName="inline-flex w-full items-center justify-center gap-2 sm:w-auto"
+                    >
+                      {service.cardCta}
+                    </GlassButton>
+                  </div>
+                ) : null}
               </article>
             ))}
           </div>
