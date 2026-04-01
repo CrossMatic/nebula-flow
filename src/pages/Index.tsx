@@ -76,7 +76,7 @@ const services = [
     title: "AI Lead Scout",
     subtitle: "Präzisions-Recherche durch KI-Agenten",
     description:
-      "KI-Agenten finden Leads mit echtem Bedarf und höchster Abschlusswahrscheinlichkeit.",
+      'Identifizieren Sie die „Nadel im Heuhaufen". Unsere KI-Agenten durchsuchen tausende Datenpunkte, um Leads mit echtem Bedarf und höchster Abschlusswahrscheinlichkeit zu finden.',
     benefits: [
       "Multichannel Deep-Research (Echtzeit)",
       "Trigger-Event Detection",
