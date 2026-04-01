@@ -666,22 +666,7 @@ const Index = () => {
                     ))}
                   </ul>
                 </div>
-                {"dashboardNote" in service && service.dashboardNote ? (
-                  <p className="mt-4 rounded-lg border border-blue-300/15 bg-blue-500/5 px-3 py-2 text-xs leading-relaxed text-blue-200/90">
-                    {service.dashboardNote}
-                  </p>
-                ) : null}
                 <p className="mt-5 border-t border-white/10 pt-4 text-sm text-muted-foreground">{service.footer}</p>
-                {"cardCta" in service && service.cardCta ? (
-                  <div className="mt-5">
-                    <GlassButton
-                      onClick={() => navigate("/termin")}
-                      contentClassName="inline-flex w-full items-center justify-center gap-2 sm:w-auto"
-                    >
-                      {service.cardCta}
-                    </GlassButton>
-                  </div>
-                ) : null}
               </article>
             ))}
           </div>
