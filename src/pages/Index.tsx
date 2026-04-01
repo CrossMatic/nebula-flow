@@ -76,16 +76,15 @@ const services = [
     title: "AI Lead Scout",
     subtitle: "Präzisions-Recherche durch KI-Agenten",
     description:
-      'Identifizieren Sie die „Nadel im Heuhaufen". Unsere KI-Agenten durchsuchen tausende Datenpunkte, um Leads mit echtem Bedarf und höchster Abschlusswahrscheinlichkeit zu finden.',
+      "KI-Agenten finden Leads mit echtem Bedarf und höchster Abschlusswahrscheinlichkeit.",
     benefits: [
-      "Multichannel Deep-Research: KI-Agenten analysieren Websites, News, Finanzberichte und Social Media in Echtzeit.",
-      "Trigger-Event Detection: Identifikation von Leads basierend auf Ereignissen (Expansion, Finanzierung, technischer Bedarf).",
-      "High-Ticket Fokus: Ideal für komplexe Projekte und Unternehmen, die auf Qualität statt Masse setzen.",
-      "Exklusives Lead-Dashboard: Erhalten Sie Zugriff auf ein Dashboard mit allen Lead-Details und direkten Ansprechpartnern.",
-      "Full Context Delivery: Wir liefern nicht nur E-Mails, sondern den kompletten Recherche-Kontext für Ihren perfekten Pitch.",
+      "Multichannel Deep-Research (Echtzeit)",
+      "Trigger-Event Detection",
+      "High-Ticket Fokus",
+      "Exklusives Lead-Dashboard",
+      "Full Context Delivery",
     ],
-    footer:
-      "Ideal für: Unternehmen im Bereich Engineering, spezialisierter B2B-Handel oder Agenturen, die High-Value-Projekte jagen und die Akquise persönlich führen wollen.",
+    footer: "Ideal für: B2B-Unternehmen, die auf Qualität statt Masse setzen.",
     icon: "scout",
     dashboardNote: "Inklusive Zugang zu Ihrem persönlichen Lead-Intelligence-Dashboard.",
     cardCta: "Lead-Potenzial prüfen →",
