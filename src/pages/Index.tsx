@@ -41,6 +41,23 @@ import { useSeo } from "@/seo/useSeo";
 
 const services = [
   {
+    title: "AI Lead Scout",
+    subtitle: "Präzisions-Recherche durch KI-Agenten",
+    description:
+      'Identifizieren Sie die „Nadel im Heuhaufen". Unsere KI-Agenten durchsuchen tausende Datenpunkte, um Leads mit echtem Bedarf und höchster Abschlusswahrscheinlichkeit zu finden.',
+    benefits: [
+      "Multichannel Deep-Research (Echtzeit)",
+      "Trigger-Event Detection",
+      "High-Ticket Fokus",
+      "Exklusives Lead-Dashboard",
+      "Full Context Delivery",
+    ],
+    footer: "Ideal für: B2B-Unternehmen, die auf Qualität statt Masse setzen.",
+    icon: "scout",
+    dashboardNote: "Inklusive Zugang zu Ihrem persönlichen Lead-Intelligence-Dashboard.",
+    cardCta: "Lead-Potenzial prüfen →",
+  },
+  {
     title: "Neukundengewinnung",
     subtitle: "Automatisierte Akquise-Kampagnen",
     description:
@@ -71,23 +88,6 @@ const services = [
     ],
     footer: "Ideal für: Unternehmen mit vorhandenem Traffic, die mehr aus ihren bestehenden Kanälen rausholen wollen.",
     icon: "calendar",
-  },
-  {
-    title: "AI Lead Scout",
-    subtitle: "Präzisions-Recherche durch KI-Agenten",
-    description:
-      'Identifizieren Sie die „Nadel im Heuhaufen". Unsere KI-Agenten durchsuchen tausende Datenpunkte, um Leads mit echtem Bedarf und höchster Abschlusswahrscheinlichkeit zu finden.',
-    benefits: [
-      "Multichannel Deep-Research (Echtzeit)",
-      "Trigger-Event Detection",
-      "High-Ticket Fokus",
-      "Exklusives Lead-Dashboard",
-      "Full Context Delivery",
-    ],
-    footer: "Ideal für: B2B-Unternehmen, die auf Qualität statt Masse setzen.",
-    icon: "scout",
-    dashboardNote: "Inklusive Zugang zu Ihrem persönlichen Lead-Intelligence-Dashboard.",
-    cardCta: "Lead-Potenzial prüfen →",
   },
 ];
 
