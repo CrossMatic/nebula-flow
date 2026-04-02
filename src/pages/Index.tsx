@@ -652,7 +652,7 @@ const Index = () => {
                 <h3 className="text-2xl font-semibold">{service.title}</h3>
                 <p className="mt-1 text-sm font-medium text-blue-300">{service.subtitle}</p>
                 <p className="mt-4 text-sm text-muted-foreground md:text-base">{service.description}</p>
-                <div className="mt-5">
+                <div className="mt-5 flex-1">
                   <ul className="space-y-2">
                     {service.benefits.map((benefit) => (
                       <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90">
@@ -662,7 +662,7 @@ const Index = () => {
                     ))}
                   </ul>
                 </div>
-                <p className="mt-auto border-t border-white/10 pt-4 text-sm text-muted-foreground">{service.footer}</p>
+                <p className="mt-6 border-t border-white/10 pt-4 text-sm text-muted-foreground">{service.footer}</p>
               </article>
             ))}
           </div>
