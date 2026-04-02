@@ -298,7 +298,22 @@ const Index = () => {
     ? services
     : [
         {
-          ...services[0],
+          icon: "scout",
+          title: "AI Lead Scout",
+          subtitle: "Precision research powered by AI agents",
+          description:
+            'Find the needle in the haystack. Our AI agents scan thousands of data points to surface leads with real intent and the highest likelihood to close.',
+          benefits: [
+            "Multichannel deep research (real-time)",
+            "Trigger-event detection",
+            "High-ticket focus",
+            "Exclusive lead dashboard",
+            "Full context delivery",
+          ],
+          footer: "Ideal for: B2B companies that prioritize quality over volume.",
+        },
+        {
+          icon: "mail",
           title: "Lead Generation",
           subtitle: "Automated outreach campaigns",
           description:
@@ -314,7 +329,7 @@ const Index = () => {
           footer: "Ideal for: B2B companies with a clear ICP that want to scale predictably.",
         },
         {
-          ...services[1],
+          icon: "calendar",
           title: "Conversion Automation",
           subtitle: "Lead-to-customer systems",
           description:
@@ -329,24 +344,6 @@ const Index = () => {
           ],
           footer:
             "Ideal for: companies with existing traffic that want to get more from their current channels.",
-        },
-        {
-          ...services[2],
-          title: "AI Lead Scout",
-          subtitle: "Precision research powered by AI agents",
-          description:
-            'Find the needle in the haystack. Our AI agents scan thousands of data points to surface leads with real intent and the highest likelihood to close.',
-          benefits: [
-            "Multichannel deep research: AI agents analyze websites, news, financial reports, and social media in real time.",
-            "Trigger-event detection: Identify leads based on events (expansion, funding, technical need).",
-            "High-ticket focus: Built for complex deals and teams that prioritize quality over volume.",
-            "Exclusive lead dashboard: Access a dashboard with full lead details and direct contacts.",
-            "Full context delivery: We deliver more than email addresses—the full research context for your pitch.",
-          ],
-          footer:
-            "Ideal for: engineering firms, specialized B2B trade, or agencies chasing high-value projects and running outreach personally.",
-          dashboardNote: "Includes access to your personal lead intelligence dashboard.",
-          cardCta: "Check lead potential →",
         },
       ];
 
@@ -665,7 +662,7 @@ const Index = () => {
                     ))}
                   </ul>
                 </div>
-                <p className="mt-5 border-t border-white/10 pt-4 text-sm text-muted-foreground">{service.footer}</p>
+                <p className="mt-auto border-t border-white/10 pt-4 text-sm text-muted-foreground">{service.footer}</p>
               </article>
             ))}
           </div>
