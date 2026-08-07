@@ -192,19 +192,25 @@ const caseStudies = [
   },
   {
     type: "outbound",
-    label: "Case Study - Gian Besset",
-    role: "Grafik & Webdesign, Basel",
+    label: "Case Study - Arlicon",
+    role: "3D-Visualisierung, Luxusuhren & Juweliere",
     contentEmpty: true,
     video: "/case-arlicon.mp4",
     kpis: [
-      { label: "System", icon: "system" },
-      { label: "Interessenten", icon: "leads" },
-      { label: "Gespräche", icon: "calls" },
-      { label: "Zielgruppe", icon: "audience" },
+      { value: "E-Mail-Akquise-System", label: "System", icon: "system" },
+      { value: "400+ Entscheider kontaktiert", label: "Kontaktiert", icon: "leads" },
+      { value: "15 positive Rückmeldungen", label: "Interessenten", icon: "calls" },
+      { value: "Luxus Uhrengeschäfte & Juweliere, Schweiz", label: "Zielgruppe", icon: "audience" },
     ],
     madeLabel: "Was wir gemacht haben",
     resultLabel: "Resultat",
     built: ["", ""],
+    situation:
+      "Ralf suchte nach einer Lösung, um Marketing und Vertrieb zu automatisieren – sodass er sich ausschliesslich auf Gespräche und Abschlüsse konzentrieren kann.",
+    builtText:
+      "Aufbau eines automatisierten E-Mail-Akquise-Systems für den Schweizer Luxusmarkt. 400 Uhrengeschäfte und Juweliere wurden individuell und personalisiert angesprochen.",
+    result:
+      "Direkter Zugang zu einem der exklusivsten Märkte der Schweiz – 15 positive Rückmeldungen und 11 engere Konversationen mit Entscheidern, die über klassische Kanäle kaum erreichbar sind.",
   },
 ];
 
@@ -523,15 +529,21 @@ const Index = () => {
         },
         {
           ...caseStudies[1],
-          role: "Graphic & Web Design, Basel",
+          role: "3D Visualization, Luxury Watches & Jewelers",
           madeLabel: "What we built",
           resultLabel: "Result",
           kpis: [
-            { label: "System", icon: "system" },
-            { label: "Prospects", icon: "leads" },
-            { label: "Calls", icon: "calls" },
-            { label: "Target Group", icon: "audience" },
+            { value: "Email outreach system", label: "System", icon: "system" },
+            { value: "400+ decision-makers contacted", label: "Contacted", icon: "leads" },
+            { value: "15 positive responses", label: "Prospects", icon: "calls" },
+            { value: "Luxury watch stores & jewelers, Switzerland", label: "Target Group", icon: "audience" },
           ],
+          situation:
+            "Ralf was looking for a way to automate marketing and sales - so he could focus exclusively on conversations and closing deals.",
+          builtText:
+            "Built an automated email outreach system for the Swiss luxury market. 400 watch stores and jewelers were approached individually and personally.",
+          result:
+            "Direct access to one of Switzerland's most exclusive markets - 15 positive responses and 11 in-depth conversations with decision-makers who are hard to reach through classic channels.",
         },
       ];
 
@@ -790,7 +802,7 @@ const Index = () => {
               </div>
 
               <ContainerScroll disableTilt={Boolean(caseStudy.video)}>
-              {caseStudy.kpis && !caseStudy.contentEmpty && (
+              {caseStudy.kpis && caseStudy.kpis.some((kpi) => kpi.value) && (
                 <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {caseStudy.kpis.map((kpi) => (
                     <div
@@ -827,7 +839,27 @@ const Index = () => {
                 />
 
                 {caseStudy.contentEmpty && caseStudy.video ? (
-                  <CaseStudyVideoPlayer src={caseStudy.video} />
+                  <div className="space-y-6">
+                    <CaseStudyVideoPlayer src={caseStudy.video} />
+                    {(caseStudy.situation || caseStudy.builtText || caseStudy.result) && (
+                      <div className="grid gap-6 sm:grid-cols-3">
+                        <div className="space-y-2">
+                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{t.caseSituation}</p>
+                          <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">
+                            {caseStudy.madeLabel ?? "Was wir gebaut haben"}
+                          </p>
+                          <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.builtText}</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{caseStudy.resultLabel}</p>
+                          <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 ) : (
                   <div className={`grid gap-6 ${caseStudy.type === "outbound" ? "md:grid-cols-[1.2fr_0.8fr]" : "md:grid-cols-[1.1fr_0.9fr]"}`}>
                     <div className="space-y-6">
