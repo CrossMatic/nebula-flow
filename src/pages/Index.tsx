@@ -187,43 +187,18 @@ const caseStudies = [
   },
   {
     type: "outbound",
-    hook: "5 Gespräche in 2 Wochen durch personalisierte E-Mail-Akquise",
     label: "Case Study - Gian Besset",
     role: "Grafik & Webdesign, Basel",
+    contentEmpty: true,
     kpis: [
-      { value: "Automatisiertes Akquise-System", label: "System", icon: "system" },
-      { value: "18 generierte Interessenten in 2 Wochen", label: "Interessenten", icon: "leads" },
-      { value: "5 gebuchte Verkaufsgespräche in 2 Wochen", label: "Gespräche", icon: "calls" },
-      { value: "Physio- & Tierarztpraxen, Schweiz", label: "Zielgruppe", icon: "audience" },
-    ],
-    situation:
-      "Gian Besset wollte planbar neue Kunden gewinnen - unabhängig von Empfehlungen und ohne manuellen Aufwand.",
-    built: [
-      "Aufbau eines automatisierten E-Mail-Akquise-Systems fokussiert auf Physiopraxen und Tierarztpraxen in der Schweiz.",
-      "Jede Nachricht wurde individuell personalisiert - auf die jeweilige Praxis zugeschnitten.",
+      { label: "System", icon: "system" },
+      { label: "Interessenten", icon: "leads" },
+      { label: "Gespräche", icon: "calls" },
+      { label: "Zielgruppe", icon: "audience" },
     ],
     madeLabel: "Was wir gemacht haben",
-    resultLabel: "Resultat nach 2 Wochen",
-    result:
-      "Zahlreiche positive Rückmeldungen und 5 gebuchte Gespräche mit potenziellen Kunden. Die Kampagne wurde nach zwei Wochen pausiert - nicht wegen mangelnder Performance, sondern weil die eingehenden Anfragen die verfügbare Kapazität überstiegen.",
-    outcomeCards: [
-      "Zahlreiche positive Rückmeldungen",
-      "5 gebuchte Gespräche in 2 Wochen",
-      "Kampagne wegen Kapazitätsgrenze pausiert",
-    ],
-    pipeline: ["Lead-Liste", "Personalisierte E-Mail", "Antwort", "Gebuchtes Gespräch"],
-    personalizationSnippets: [
-      'Betreff mit Praxisname: "Kurze Idee für {{Praxisname}}"',
-      "Opener mit Fachbereich und lokalem Kontext",
-      "CTA passend zur jeweiligen Praxis-Situation",
-    ],
-    quote:
-      "Die Zusammenarbeit war sehr einfach, direkt und unkompliziert. Die Resultate haben meine Erwartungen übertroffen.",
-    author: "Gian Besset",
-    authorRole: "Gründer Gian Besset Brand Design",
-    avatar: caseGianBessetImage,
-    image: caseGianReportingImage,
-    imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
+    resultLabel: "Resultat",
+    built: ["", ""],
   },
 ];
 
@@ -432,28 +407,15 @@ const Index = () => {
         },
         {
           ...caseStudies[1],
-          label: "Case Study - Gian Besset",
           role: "Graphic & Web Design, Basel",
-          hook: "5 sales calls in 2 weeks through personalized email outreach",
+          madeLabel: "What we built",
+          resultLabel: "Result",
           kpis: [
-            { value: "Automated acquisition system", label: "System", icon: "system" },
-            { value: "18 generated prospects in 2 weeks", label: "Prospects", icon: "leads" },
-            { value: "5 booked sales calls in 2 weeks", label: "Calls", icon: "calls" },
-            { value: "Physio & veterinary clinics, Switzerland", label: "Target Group", icon: "audience" },
+            { label: "System", icon: "system" },
+            { label: "Prospects", icon: "leads" },
+            { label: "Calls", icon: "calls" },
+            { label: "Target Group", icon: "audience" },
           ],
-          situation:
-            "Gian Besset wanted predictable new clients - independent of referrals and without manual effort.",
-          built: [
-            "Built an automated email outreach system focused on physiotherapy and veterinary clinics in Switzerland.",
-            "Each message was individually personalized for the specific clinic.",
-          ],
-          madeLabel: "What we did",
-          resultLabel: "Result after 2 weeks",
-          result:
-            "Numerous positive responses and 5 booked calls with potential clients. The campaign was paused after two weeks - not due to weak performance, but because incoming demand exceeded available capacity.",
-          quote:
-            "The collaboration was very easy, direct, and uncomplicated. The results exceeded my expectations.",
-          authorRole: "Founder, Gian Besset Brand Design",
         },
       ];
 
@@ -720,16 +682,25 @@ const Index = () => {
                       className="group flex h-full flex-col rounded-xl border border-blue-300/20 bg-white/[0.03] p-4 transition-all hover:border-blue-300/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.2)]"
                     >
                       <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10">
-                        {kpi.icon === "system" && <Settings2 className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "leads" && <SendHorizontal className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "calls" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "audience" && <Target className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "time" && <Clock3 className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "meetings" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "market" && <Target className="h-4 w-4 text-blue-200" />}
+                        {!caseStudy.contentEmpty && (
+                          <>
+                            {kpi.icon === "system" && <Settings2 className="h-4 w-4 text-blue-200" />}
+                            {kpi.icon === "leads" && <SendHorizontal className="h-4 w-4 text-blue-200" />}
+                            {kpi.icon === "calls" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
+                            {kpi.icon === "audience" && <Target className="h-4 w-4 text-blue-200" />}
+                            {kpi.icon === "time" && <Clock3 className="h-4 w-4 text-blue-200" />}
+                            {kpi.icon === "meetings" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
+                            {kpi.icon === "market" && <Target className="h-4 w-4 text-blue-200" />}
+                          </>
+                        )}
                       </div>
-                      <p className="text-sm font-semibold leading-relaxed text-slate-100 md:text-base">{kpi.value}</p>
-                      <p className="mt-auto pt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">{kpi.label}</p>
+                      {!caseStudy.contentEmpty && kpi.value && (
+                        <p className="text-sm font-semibold leading-relaxed text-slate-100 md:text-base">{kpi.value}</p>
+                      )}
+                      {!caseStudy.contentEmpty && (
+                        <p className="mt-auto pt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">{kpi.label}</p>
+                      )}
+                      {caseStudy.contentEmpty && <div className="mt-auto min-h-[2.5rem]" />}
                     </div>
                   ))}
                 </div>
@@ -749,47 +720,65 @@ const Index = () => {
                 <div className={`grid gap-6 ${caseStudy.type === "outbound" ? "md:grid-cols-[1.2fr_0.8fr]" : "md:grid-cols-[1.1fr_0.9fr]"}`}>
                   <div className="space-y-6">
                     <div className="space-y-2">
-                      <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{t.caseSituation}</p>
-                      <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
+                      {!caseStudy.contentEmpty && (
+                        <>
+                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{t.caseSituation}</p>
+                          <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
+                        </>
+                      )}
+                      {caseStudy.contentEmpty && <div className="min-h-[4.5rem]" />}
                     </div>
 
                     <div className="space-y-3">
-                      <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">
-                        {caseStudy.madeLabel ?? "Was wir gebaut haben"}
-                      </p>
-                      <ul className="space-y-3">
-                        {caseStudy.built.map((item, index) => (
-                          <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-slate-100/90 md:text-base">
-                            {caseStudy.type === "outbound" && index === 0 && <SendHorizontal className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                            {caseStudy.type === "outbound" && index === 1 && <Mail className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                            {caseStudy.type === "conversion" && index === 0 && <MessageSquare className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                            {caseStudy.type === "conversion" && index === 1 && <Instagram className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                            {caseStudy.type === "conversion" && index >= 2 && <Database className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      {!caseStudy.contentEmpty && (
+                        <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">
+                          {caseStudy.madeLabel ?? "Was wir gebaut haben"}
+                        </p>
+                      )}
+                      {!caseStudy.contentEmpty ? (
+                        <ul className="space-y-3">
+                          {caseStudy.built?.map((item, builtIndex) => (
+                            <li key={`built-${builtIndex}`} className="flex items-start gap-3 text-sm leading-relaxed text-slate-100/90 md:text-base">
+                              {caseStudy.type === "outbound" && builtIndex === 0 && <SendHorizontal className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                              {caseStudy.type === "outbound" && builtIndex === 1 && <Mail className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                              {caseStudy.type === "conversion" && builtIndex === 0 && <MessageSquare className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                              {caseStudy.type === "conversion" && builtIndex === 1 && <Instagram className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                              {caseStudy.type === "conversion" && builtIndex >= 2 && <Database className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <div className="min-h-[5rem]" />
+                      )}
                     </div>
 
                     <div className="space-y-2 border-t border-white/10 pt-4">
-                      <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{caseStudy.resultLabel}</p>
-                      <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
+                      {!caseStudy.contentEmpty && (
+                        <>
+                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{caseStudy.resultLabel}</p>
+                          <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
+                        </>
+                      )}
+                      {caseStudy.contentEmpty && <div className="min-h-[4.5rem]" />}
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    {caseStudy.type === "outbound" && caseStudy.image && (
-                      <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
-                        <img
-                          src={caseStudy.image}
-                          alt={caseStudy.imageAlt}
-                          className="h-full w-full object-cover"
-                          loading="lazy"
-                        />
+                    {(caseStudy.type === "outbound" || caseStudy.contentEmpty) && (
+                      <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30 min-h-[220px] md:min-h-[280px]">
+                        {!caseStudy.contentEmpty && caseStudy.image && (
+                          <img
+                            src={caseStudy.image}
+                            alt={caseStudy.imageAlt}
+                            className="block w-full"
+                            loading="lazy"
+                          />
+                        )}
                       </div>
                     )}
 
-                    {caseStudy.image && caseStudy.type !== "outbound" && (
+                    {!caseStudy.contentEmpty && caseStudy.image && caseStudy.type !== "outbound" && (
                       <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
                         <img
                           src={caseStudy.image}
@@ -802,20 +791,27 @@ const Index = () => {
 
                     <div className="surface-glow-hover rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
                       <div className="flex items-start gap-4">
-                        {caseStudy.avatar && (
+                        {!caseStudy.contentEmpty && caseStudy.avatar ? (
                           <img
                             src={caseStudy.avatar}
                             alt={caseStudy.author}
                             className="h-14 w-14 shrink-0 rounded-xl border border-white/15 object-cover"
                             loading="lazy"
                           />
+                        ) : (
+                          <div className="h-14 w-14 shrink-0 rounded-xl border border-white/15 bg-white/5" />
                         )}
                         <div className="min-w-0 flex-1 space-y-3">
-                          <p className="text-sm italic leading-relaxed text-slate-100/95 md:text-base">{`"${caseStudy.quote}"`}</p>
-                          <div>
-                            <p className="text-sm font-medium text-blue-200">{caseStudy.author}</p>
-                            <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
-                          </div>
+                          {!caseStudy.contentEmpty && (
+                            <>
+                              <p className="text-sm italic leading-relaxed text-slate-100/95 md:text-base">{`"${caseStudy.quote}"`}</p>
+                              <div>
+                                <p className="text-sm font-medium text-blue-200">{caseStudy.author}</p>
+                                <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
+                              </div>
+                            </>
+                          )}
+                          {caseStudy.contentEmpty && <div className="min-h-[5rem]" />}
                         </div>
                       </div>
                     </div>
