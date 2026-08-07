@@ -22,13 +22,18 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  Maximize,
   MessageSquare,
+  Pause,
   PhoneCall,
+  Play,
   Rocket,
   ScanSearch,
   SendHorizontal,
   Settings2,
   Target,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import { LeadMagnetForm } from "@/components/LeadMagnetForm";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
@@ -190,6 +195,7 @@ const caseStudies = [
     label: "Case Study - Gian Besset",
     role: "Grafik & Webdesign, Basel",
     contentEmpty: true,
+    video: "/case-arlicon.mp4",
     kpis: [
       { label: "System", icon: "system" },
       { label: "Interessenten", icon: "leads" },
@@ -201,6 +207,116 @@ const caseStudies = [
     built: ["", ""],
   },
 ];
+
+const formatVideoTime = (seconds: number) => {
+  if (!Number.isFinite(seconds)) return "0:00";
+  const minutes = Math.floor(seconds / 60);
+  const remaining = Math.floor(seconds % 60);
+  return `${minutes}:${remaining.toString().padStart(2, "0")}`;
+};
+
+const CaseStudyVideoPlayer = ({ src }: { src: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  };
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  };
+
+  const toggleFullscreen = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      video.requestFullscreen?.();
+    }
+  };
+
+  const handleSeek = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const video = videoRef.current;
+    if (!video || !duration) return;
+    const time = (Number(event.target.value) / 100) * duration;
+    video.currentTime = time;
+    setCurrentTime(time);
+  };
+
+  const progress = duration ? (currentTime / duration) * 100 : 0;
+
+  return (
+    <div className="surface-glow-hover group relative overflow-hidden rounded-2xl border border-blue-300/20 bg-black">
+      <video
+        ref={videoRef}
+        src={src}
+        className="block aspect-video w-full cursor-pointer"
+        autoPlay
+        muted
+        loop
+        playsInline
+        onClick={togglePlay}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
+        onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
+      />
+      <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-4 py-3">
+        <button
+          type="button"
+          onClick={togglePlay}
+          aria-label={isPlaying ? "Pause" : "Play"}
+          className="shrink-0 text-white/90 transition-colors hover:text-white"
+        >
+          {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+        </button>
+        <span className="shrink-0 text-xs tabular-nums text-white/80">
+          {formatVideoTime(currentTime)} / {formatVideoTime(duration)}
+        </span>
+        <input
+          type="range"
+          min={0}
+          max={100}
+          step={0.1}
+          value={progress}
+          onChange={handleSeek}
+          aria-label="Video-Fortschritt"
+          className="h-1 flex-1 cursor-pointer accent-blue-400"
+        />
+        <button
+          type="button"
+          onClick={toggleMute}
+          aria-label={isMuted ? "Ton an" : "Stumm schalten"}
+          className="shrink-0 text-white/90 transition-colors hover:text-white"
+        >
+          {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+        </button>
+        <button
+          type="button"
+          onClick={toggleFullscreen}
+          aria-label="Vollbild"
+          className="shrink-0 text-white/90 transition-colors hover:text-white"
+        >
+          <Maximize className="h-5 w-5" />
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const Index = () => {
   const { language } = useLanguage();
@@ -673,8 +789,8 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground md:text-base">{caseStudy.role}</p>
               </div>
 
-              <ContainerScroll>
-              {caseStudy.kpis && (
+              <ContainerScroll disableTilt={Boolean(caseStudy.video)}>
+              {caseStudy.kpis && !caseStudy.contentEmpty && (
                 <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {caseStudy.kpis.map((kpi) => (
                     <div
@@ -682,25 +798,18 @@ const Index = () => {
                       className="group flex h-full flex-col rounded-xl border border-blue-300/20 bg-white/[0.03] p-4 transition-all hover:border-blue-300/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.2)]"
                     >
                       <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10">
-                        {!caseStudy.contentEmpty && (
-                          <>
-                            {kpi.icon === "system" && <Settings2 className="h-4 w-4 text-blue-200" />}
-                            {kpi.icon === "leads" && <SendHorizontal className="h-4 w-4 text-blue-200" />}
-                            {kpi.icon === "calls" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
-                            {kpi.icon === "audience" && <Target className="h-4 w-4 text-blue-200" />}
-                            {kpi.icon === "time" && <Clock3 className="h-4 w-4 text-blue-200" />}
-                            {kpi.icon === "meetings" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
-                            {kpi.icon === "market" && <Target className="h-4 w-4 text-blue-200" />}
-                          </>
-                        )}
+                        {kpi.icon === "system" && <Settings2 className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "leads" && <SendHorizontal className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "calls" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "audience" && <Target className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "time" && <Clock3 className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "meetings" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
+                        {kpi.icon === "market" && <Target className="h-4 w-4 text-blue-200" />}
                       </div>
-                      {!caseStudy.contentEmpty && kpi.value && (
+                      {kpi.value && (
                         <p className="text-sm font-semibold leading-relaxed text-slate-100 md:text-base">{kpi.value}</p>
                       )}
-                      {!caseStudy.contentEmpty && (
-                        <p className="mt-auto pt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">{kpi.label}</p>
-                      )}
-                      {caseStudy.contentEmpty && <div className="mt-auto min-h-[2.5rem]" />}
+                      <p className="mt-auto pt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">{kpi.label}</p>
                     </div>
                   ))}
                 </div>
@@ -717,106 +826,109 @@ const Index = () => {
                   variant="white"
                 />
 
-                <div className={`grid gap-6 ${caseStudy.type === "outbound" ? "md:grid-cols-[1.2fr_0.8fr]" : "md:grid-cols-[1.1fr_0.9fr]"}`}>
-                  <div className="space-y-6">
-                    <div className="space-y-2">
-                      {!caseStudy.contentEmpty && (
-                        <>
-                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{t.caseSituation}</p>
-                          <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
-                        </>
-                      )}
-                      {caseStudy.contentEmpty && <div className="min-h-[4.5rem]" />}
+                {caseStudy.contentEmpty && caseStudy.video ? (
+                  <CaseStudyVideoPlayer src={caseStudy.video} />
+                ) : (
+                  <div className={`grid gap-6 ${caseStudy.type === "outbound" ? "md:grid-cols-[1.2fr_0.8fr]" : "md:grid-cols-[1.1fr_0.9fr]"}`}>
+                    <div className="space-y-6">
+                      <div className="space-y-2">
+                        {!caseStudy.contentEmpty && (
+                          <>
+                            <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{t.caseSituation}</p>
+                            <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
+                          </>
+                        )}
+                        {caseStudy.contentEmpty && <div className="min-h-[4.5rem]" />}
+                      </div>
+
+                      <div className="space-y-3">
+                        {!caseStudy.contentEmpty && (
+                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">
+                            {caseStudy.madeLabel ?? "Was wir gebaut haben"}
+                          </p>
+                        )}
+                        {!caseStudy.contentEmpty ? (
+                          <ul className="space-y-3">
+                            {caseStudy.built?.map((item, builtIndex) => (
+                              <li key={`built-${builtIndex}`} className="flex items-start gap-3 text-sm leading-relaxed text-slate-100/90 md:text-base">
+                                {caseStudy.type === "outbound" && builtIndex === 0 && <SendHorizontal className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                                {caseStudy.type === "outbound" && builtIndex === 1 && <Mail className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                                {caseStudy.type === "conversion" && builtIndex === 0 && <MessageSquare className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                                {caseStudy.type === "conversion" && builtIndex === 1 && <Instagram className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                                {caseStudy.type === "conversion" && builtIndex >= 2 && <Database className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <div className="min-h-[5rem]" />
+                        )}
+                      </div>
+
+                      <div className={`space-y-2 ${!caseStudy.contentEmpty ? "border-t border-white/10 pt-4" : ""}`}>
+                        {!caseStudy.contentEmpty && (
+                          <>
+                            <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{caseStudy.resultLabel}</p>
+                            <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
+                          </>
+                        )}
+                        {caseStudy.contentEmpty && <div className="min-h-[4.5rem]" />}
+                      </div>
                     </div>
 
-                    <div className="space-y-3">
-                      {!caseStudy.contentEmpty && (
-                        <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">
-                          {caseStudy.madeLabel ?? "Was wir gebaut haben"}
-                        </p>
-                      )}
-                      {!caseStudy.contentEmpty ? (
-                        <ul className="space-y-3">
-                          {caseStudy.built?.map((item, builtIndex) => (
-                            <li key={`built-${builtIndex}`} className="flex items-start gap-3 text-sm leading-relaxed text-slate-100/90 md:text-base">
-                              {caseStudy.type === "outbound" && builtIndex === 0 && <SendHorizontal className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                              {caseStudy.type === "outbound" && builtIndex === 1 && <Mail className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                              {caseStudy.type === "conversion" && builtIndex === 0 && <MessageSquare className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                              {caseStudy.type === "conversion" && builtIndex === 1 && <Instagram className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                              {caseStudy.type === "conversion" && builtIndex >= 2 && <Database className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <div className="min-h-[5rem]" />
-                      )}
-                    </div>
-
-                    <div className="space-y-2 border-t border-white/10 pt-4">
-                      {!caseStudy.contentEmpty && (
-                        <>
-                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{caseStudy.resultLabel}</p>
-                          <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
-                        </>
-                      )}
-                      {caseStudy.contentEmpty && <div className="min-h-[4.5rem]" />}
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    {(caseStudy.type === "outbound" || caseStudy.contentEmpty) && (
-                      <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30 min-h-[220px] md:min-h-[280px]">
-                        {!caseStudy.contentEmpty && caseStudy.image && (
+                    <div className="space-y-4">
+                      {caseStudy.type === "outbound" && !caseStudy.contentEmpty && caseStudy.image && (
+                        <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
                           <img
                             src={caseStudy.image}
                             alt={caseStudy.imageAlt}
                             className="block w-full"
                             loading="lazy"
                           />
-                        )}
-                      </div>
-                    )}
+                        </div>
+                      )}
 
-                    {!caseStudy.contentEmpty && caseStudy.image && caseStudy.type !== "outbound" && (
-                      <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
-                        <img
-                          src={caseStudy.image}
-                          alt={caseStudy.imageAlt}
-                          className="h-full w-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
+                      {caseStudy.video && <CaseStudyVideoPlayer src={caseStudy.video} />}
 
-                    <div className="surface-glow-hover rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
-                      <div className="flex items-start gap-4">
-                        {!caseStudy.contentEmpty && caseStudy.avatar ? (
+                      {!caseStudy.contentEmpty && caseStudy.image && caseStudy.type !== "outbound" && (
+                        <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
                           <img
-                            src={caseStudy.avatar}
-                            alt={caseStudy.author}
-                            className="h-14 w-14 shrink-0 rounded-xl border border-white/15 object-cover"
+                            src={caseStudy.image}
+                            alt={caseStudy.imageAlt}
+                            className="h-full w-full object-cover"
                             loading="lazy"
                           />
-                        ) : (
-                          <div className="h-14 w-14 shrink-0 rounded-xl border border-white/15 bg-white/5" />
-                        )}
-                        <div className="min-w-0 flex-1 space-y-3">
-                          {!caseStudy.contentEmpty && (
-                            <>
+                        </div>
+                      )}
+
+                      {caseStudy.contentEmpty ? (
+                        <div className="min-h-[5rem]" />
+                      ) : (
+                        <div className="surface-glow-hover rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
+                          <div className="flex items-start gap-4">
+                            {caseStudy.avatar ? (
+                              <img
+                                src={caseStudy.avatar}
+                                alt={caseStudy.author}
+                                className="h-14 w-14 shrink-0 rounded-xl border border-white/15 object-cover"
+                                loading="lazy"
+                              />
+                            ) : (
+                              <div className="h-14 w-14 shrink-0 rounded-xl border border-white/15 bg-white/5" />
+                            )}
+                            <div className="min-w-0 flex-1 space-y-3">
                               <p className="text-sm italic leading-relaxed text-slate-100/95 md:text-base">{`"${caseStudy.quote}"`}</p>
                               <div>
                                 <p className="text-sm font-medium text-blue-200">{caseStudy.author}</p>
                                 <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
                               </div>
-                            </>
-                          )}
-                          {caseStudy.contentEmpty && <div className="min-h-[5rem]" />}
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </div>
-                </div>
+                )}
               </div>
               </ContainerScroll>
               </article>

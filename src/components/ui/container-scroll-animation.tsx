@@ -7,6 +7,7 @@ type ContainerScrollProps = {
   children: React.ReactNode;
   className?: string;
   cardClassName?: string;
+  disableTilt?: boolean;
 };
 
 export function ContainerScroll({
@@ -14,6 +15,7 @@ export function ContainerScroll({
   children,
   className,
   cardClassName,
+  disableTilt = false,
 }: ContainerScrollProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -24,6 +26,15 @@ export function ContainerScroll({
   const rotate = useTransform(scrollYProgress, [0, 1], [8, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [0.985, 1]);
   const translateY = useTransform(scrollYProgress, [0, 1], [24, 0]);
+
+  if (disableTilt) {
+    return (
+      <div className={cn("relative py-1 md:py-2", className)}>
+        {titleComponent ? <div className="max-w-5xl mx-auto text-center">{titleComponent}</div> : null}
+        <div className={cn("origin-center", cardClassName)}>{children}</div>
+      </div>
+    );
+  }
 
   return (
     <div ref={containerRef} className={cn("relative py-1 md:py-2", className)}>
