@@ -12,8 +12,6 @@ import toolsN8nLogo from "@/assets/tools-n8n-logo.png";
 import toolsOpenAiLogo from "@/assets/tools-openai-logo.png";
 import toolsSlackLogo from "@/assets/tools-slack-logo.png";
 import toolsStripeLogo from "@/assets/tools-stripe-logo.png";
-import caseAiAssistantImage from "@/assets/case-ai-assistant.png";
-import caseCoachMichaelImage from "@/assets/case-coach-michael.png";
 import caseGianBessetImage from "@/assets/case-gian-besset.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
 import {
@@ -188,26 +186,44 @@ const caseStudies = [
     imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
   },
   {
-    type: "conversion",
-    label: "Case Study - Michael Bachman",
-    role: "Personal Trainer & Coaching, Zürich",
-    situation:
-      "Michael hatte Website-Traffic und eine aktive Instagram-Präsenz, aber keine planbaren Anfragen. Viele Besucher kamen, informierten sich und gingen wieder, ohne Kontakt aufzunehmen.",
-    built: [
-      "KI-Assistent auf der Website, der Besucher proaktiv anspricht, qualifiziert und Kontaktdaten erfasst.",
-      "Instagram-Automatisierung, die neue Follower automatisch kontaktiert und bei definierten Keywords gezielt den Funnel startet.",
-      "Zentrales CRM, das Leads aus beiden Kanälen automatisch zusammenführt und bei jedem neuen Kontakt direkt benachrichtigt.",
+    type: "outbound",
+    hook: "5 Gespräche in 2 Wochen durch personalisierte E-Mail-Akquise",
+    label: "Case Study - Gian Besset",
+    role: "Grafik & Webdesign, Basel",
+    kpis: [
+      { value: "Automatisiertes Akquise-System", label: "System", icon: "system" },
+      { value: "18 generierte Interessenten in 2 Wochen", label: "Interessenten", icon: "leads" },
+      { value: "5 gebuchte Verkaufsgespräche in 2 Wochen", label: "Gespräche", icon: "calls" },
+      { value: "Physio- & Tierarztpraxen, Schweiz", label: "Zielgruppe", icon: "audience" },
     ],
-    resultLabel: "Resultat",
+    situation:
+      "Gian Besset wollte planbar neue Kunden gewinnen - unabhängig von Empfehlungen und ohne manuellen Aufwand.",
+    built: [
+      "Aufbau eines automatisierten E-Mail-Akquise-Systems fokussiert auf Physiopraxen und Tierarztpraxen in der Schweiz.",
+      "Jede Nachricht wurde individuell personalisiert - auf die jeweilige Praxis zugeschnitten.",
+    ],
+    madeLabel: "Was wir gemacht haben",
+    resultLabel: "Resultat nach 2 Wochen",
     result:
-      "Statt unstrukturierter Einzelanfragen laufen beide Kanäle nun als System: kontinuierlich, qualifiziert und ohne zusätzlichen manuellen Aufwand im Tagesgeschäft.",
+      "Zahlreiche positive Rückmeldungen und 5 gebuchte Gespräche mit potenziellen Kunden. Die Kampagne wurde nach zwei Wochen pausiert - nicht wegen mangelnder Performance, sondern weil die eingehenden Anfragen die verfügbare Kapazität überstiegen.",
+    outcomeCards: [
+      "Zahlreiche positive Rückmeldungen",
+      "5 gebuchte Gespräche in 2 Wochen",
+      "Kampagne wegen Kapazitätsgrenze pausiert",
+    ],
+    pipeline: ["Lead-Liste", "Personalisierte E-Mail", "Antwort", "Gebuchtes Gespräch"],
+    personalizationSnippets: [
+      'Betreff mit Praxisname: "Kurze Idee für {{Praxisname}}"',
+      "Opener mit Fachbereich und lokalem Kontext",
+      "CTA passend zur jeweiligen Praxis-Situation",
+    ],
     quote:
-      "Es wurde professionell und präzise auf mein Anliegen eingegangen. Das System war schnell aufgesetzt und funktioniert einwandfrei.",
-    author: "Michael Bachman",
-    authorRole: "Personal Trainer & Gründer",
-    image: caseAiAssistantImage,
-    imageAlt: "KI-Assistent Workflow für Michael Bachman",
-    avatar: caseCoachMichaelImage,
+      "Die Zusammenarbeit war sehr einfach, direkt und unkompliziert. Die Resultate haben meine Erwartungen übertroffen.",
+    author: "Gian Besset",
+    authorRole: "Gründer Gian Besset Brand Design",
+    avatar: caseGianBessetImage,
+    image: caseGianReportingImage,
+    imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
   },
 ];
 
@@ -416,22 +432,28 @@ const Index = () => {
         },
         {
           ...caseStudies[1],
-          label: "Case Study - Michael Bachman",
-          role: "Personal Trainer & Coaching, Zurich",
-          situation:
-            "Michael had website traffic and an active Instagram presence, but no predictable inquiries. Many visitors came, informed themselves, and left without contacting him.",
-          built: [
-            "AI assistant on the website that proactively engages visitors, qualifies them, and captures contact details.",
-            "Instagram automation that contacts new followers automatically and starts the funnel based on defined keywords.",
-            "Central CRM that merges leads from both channels and notifies instantly on every new contact.",
+          label: "Case Study - Gian Besset",
+          role: "Graphic & Web Design, Basel",
+          hook: "5 sales calls in 2 weeks through personalized email outreach",
+          kpis: [
+            { value: "Automated acquisition system", label: "System", icon: "system" },
+            { value: "18 generated prospects in 2 weeks", label: "Prospects", icon: "leads" },
+            { value: "5 booked sales calls in 2 weeks", label: "Calls", icon: "calls" },
+            { value: "Physio & veterinary clinics, Switzerland", label: "Target Group", icon: "audience" },
           ],
-          madeLabel: "What we built",
-          resultLabel: "Result",
+          situation:
+            "Gian Besset wanted predictable new clients - independent of referrals and without manual effort.",
+          built: [
+            "Built an automated email outreach system focused on physiotherapy and veterinary clinics in Switzerland.",
+            "Each message was individually personalized for the specific clinic.",
+          ],
+          madeLabel: "What we did",
+          resultLabel: "Result after 2 weeks",
           result:
-            "Instead of unstructured individual inquiries, both channels now run as one system: continuous, qualified, and without additional manual effort in day-to-day operations.",
+            "Numerous positive responses and 5 booked calls with potential clients. The campaign was paused after two weeks - not due to weak performance, but because incoming demand exceeded available capacity.",
           quote:
-            "My request was handled professionally and precisely. The system was set up quickly and works flawlessly.",
-          authorRole: "Personal Trainer & Founder",
+            "The collaboration was very easy, direct, and uncomplicated. The results exceeded my expectations.",
+          authorRole: "Founder, Gian Besset Brand Design",
         },
       ];
 
@@ -681,7 +703,7 @@ const Index = () => {
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.socialProof}</p>
           <div className="space-y-14">
             {localizedCaseStudies.map((caseStudy, index) => (
-              <article key={caseStudy.label} className={`space-y-8 ${index > 0 ? "pt-10 md:pt-14" : ""}`}>
+              <article key={`case-study-${index}`} className={`space-y-8 ${index > 0 ? "pt-10 md:pt-14" : ""}`}>
               <div className="space-y-3 text-center">
                 <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
                   {caseStudy.label}
