@@ -677,11 +677,6 @@ const Index = () => {
               {t.heroCta}
               <span>→</span>
             </GlassButton>
-            <a href="#video-analyse">
-              <GlassButton contentClassName="inline-flex items-center gap-2">
-                {t.heroFree}
-              </GlassButton>
-            </a>
           </div>
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent to-[#02040a]" />
