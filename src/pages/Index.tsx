@@ -270,7 +270,7 @@ const CaseStudyVideoPlayer = ({ src }: { src: string }) => {
       <video
         ref={videoRef}
         src={src}
-        className="block aspect-video w-full cursor-pointer"
+        className="block w-full cursor-pointer"
         autoPlay
         muted
         loop
