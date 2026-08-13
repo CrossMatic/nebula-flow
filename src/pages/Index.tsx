@@ -1,16 +1,9 @@
 import GradientBackground from "@/components/GradientBackground";
 import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { Timeline } from "@/components/ui/timeline";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
-import toolsAirtableLogo from "@/assets/tools-airtable-logo.png";
-import toolsMakeLogo from "@/assets/tools-make-logo.png";
-import toolsN8nLogo from "@/assets/tools-n8n-logo.png";
-import toolsOpenAiLogo from "@/assets/tools-openai-logo.png";
-import toolsSlackLogo from "@/assets/tools-slack-logo.png";
-import toolsStripeLogo from "@/assets/tools-stripe-logo.png";
 import caseGianBessetImage from "@/assets/case-gian-besset.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
 import {
@@ -343,10 +336,6 @@ const Index = () => {
         heroCta: "Termin vereinbaren",
         heroMainCta: "Kostenloses Erstgespräch buchen",
         heroFree: "Kostenlose Video-Analyse",
-        supportBy: "Unterstützt durch",
-        sectionTitle: "Kommunikation, die sich persönlich anfühlt aber automatisch läuft",
-        sectionSub:
-          "Von personalisierter Neukundengewinnung bis zur Automatisierung bestehender Kanäle – Ihr Partner für planbare Kunden.",
         servicesTag: "Leistungen",
         servicesTitle: "Mehr Kunden durch Systeme statt Zufall",
         servicesSub:
@@ -383,10 +372,6 @@ const Index = () => {
         heroCta: "Schedule a Call",
         heroMainCta: "Book a Free Intro Call",
         heroFree: "Free Video Analysis",
-        supportBy: "Powered by",
-        sectionTitle: "Communication that feels personal but runs automatically",
-        sectionSub:
-          "From personalized lead generation to automation of existing channels – your partner for predictable customer growth.",
         servicesTag: "Services",
         servicesTitle: "More customers through systems, not chance",
         servicesSub:
@@ -673,47 +658,6 @@ const Index = () => {
           </div>
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent to-[#02040a]" />
-      </section>
-
-      <section className="relative w-full bg-[#02040a] px-4 pb-24 pt-44 md:px-8 md:pt-56 lg:px-16">
-        <div className="relative mx-auto max-w-4xl space-y-6">
-          <h1 className="font-display text-center text-4xl font-bold tracking-[-0.02em] md:text-5xl md:leading-[5rem] bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent">
-            {t.sectionTitle}
-          </h1>
-          <p className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base">
-            {t.sectionSub}
-          </p>
-        </div>
-      </section>
-
-      <section className="relative z-10 w-full bg-[#02040a] px-4 pb-16 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-6xl space-y-6">
-          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.supportBy}</p>
-          <div className="relative">
-            <InfiniteSlider gap={56} duration={20} className="w-full py-2">
-              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
-                <img src={toolsN8nLogo} alt="n8n" className="h-[9.375rem] w-auto object-contain" />
-              </div>
-              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
-                <img src={toolsAirtableLogo} alt="Airtable" className="h-[7.5rem] w-auto object-contain" />
-              </div>
-              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
-                <img src={toolsOpenAiLogo} alt="OpenAI" className="h-[9.375rem] w-auto object-contain" />
-              </div>
-              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
-                <img src={toolsMakeLogo} alt="Make" className="h-[7.5rem] w-auto object-contain" />
-              </div>
-              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
-                <img src={toolsSlackLogo} alt="Slack" className="h-[2.35rem] w-auto object-contain" />
-              </div>
-              <div className="flex h-[10rem] w-[11rem] shrink-0 items-center justify-center">
-                <img src={toolsStripeLogo} alt="Stripe" className="h-[7.5rem] w-auto object-contain" />
-              </div>
-            </InfiniteSlider>
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#02040a] to-transparent md:w-24" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#02040a] to-transparent md:w-24" />
-          </div>
-        </div>
       </section>
 
       <section id="leistungen" className="w-full px-4 py-16 md:px-8 lg:px-16">
