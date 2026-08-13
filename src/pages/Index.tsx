@@ -341,6 +341,7 @@ const Index = () => {
         heroHeadline: "Wir finden die Kunden, die gerade jetzt kaufen wollen",
         heroSub: "Über 30 vermittelte Erstgespräche für Schweizer Dienstleister.",
         heroCta: "Termin vereinbaren",
+        heroMainCta: "Kostenloses Erstgespräch buchen",
         heroFree: "Kostenlose Video-Analyse",
         supportBy: "Unterstützt durch",
         sectionTitle: "Kommunikation, die sich persönlich anfühlt aber automatisch läuft",
@@ -380,6 +381,7 @@ const Index = () => {
         heroHeadline: "We find the customers who are ready to buy right now",
         heroSub: "Over 30 booked first calls for Swiss service providers.",
         heroCta: "Schedule a Call",
+        heroMainCta: "Book a Free Intro Call",
         heroFree: "Free Video Analysis",
         supportBy: "Powered by",
         sectionTitle: "Communication that feels personal but runs automatically",
@@ -665,7 +667,7 @@ const Index = () => {
           <p className="text-lg text-muted-foreground">{t.heroSub}</p>
           <div className="flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
-              {t.heroCta}
+              {t.heroMainCta}
               <span>→</span>
             </GlassButton>
           </div>
