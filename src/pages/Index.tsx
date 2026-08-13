@@ -210,7 +210,7 @@ const caseStudies = [
     builtText:
       "Aufbau eines automatisierten E-Mail-Akquise-Systems für den Schweizer Luxusmarkt. 400 Uhrengeschäfte und Juweliere wurden individuell und personalisiert angesprochen.",
     result:
-      "Direkter Zugang zu einem der exklusivsten Märkte der Schweiz – 15 positive Rückmeldungen und 11 engere Konversationen mit Entscheidern, die über klassische Kanäle kaum erreichbar sind.",
+      "Direkter Zugang zu einem der exklusivsten Märkte der Schweiz – 15 positive Rückmeldungen und 11 engere Konversationen mit Entscheidern.",
   },
 ];
 
@@ -543,7 +543,7 @@ const Index = () => {
           builtText:
             "Built an automated email outreach system for the Swiss luxury market. 400 watch stores and jewelers were approached individually and personally.",
           result:
-            "Direct access to one of Switzerland's most exclusive markets - 15 positive responses and 11 in-depth conversations with decision-makers who are hard to reach through classic channels.",
+            "Direct access to one of Switzerland's most exclusive markets - 15 positive responses and 11 in-depth conversations with decision-makers.",
         },
       ];
 
@@ -801,7 +801,7 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground md:text-base">{caseStudy.role}</p>
               </div>
 
-              <ContainerScroll disableTilt={Boolean(caseStudy.video)}>
+              <ContainerScroll disableTilt>
               {caseStudy.kpis && caseStudy.kpis.some((kpi) => kpi.value) && (
                 <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {caseStudy.kpis.map((kpi) => (
