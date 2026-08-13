@@ -4,7 +4,6 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { Timeline } from "@/components/ui/timeline";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import crossmaticLogo from "@/assets/crossmatic-logo.png";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import toolsAirtableLogo from "@/assets/tools-airtable-logo.png";
 import toolsMakeLogo from "@/assets/tools-make-logo.png";
@@ -338,7 +337,9 @@ const Index = () => {
         navProcess: "Prozess",
         navFaq: "FAQ",
         bookCall: "Gespräch buchen",
-        heroSub: "Automatisierte Lead-Generierung für Schweizer Unternehmen",
+        heroKicker: "Für Agenturen, Beratungen und Immobilienunternehmen in der Schweiz",
+        heroHeadline: "Wir finden die Kunden, die gerade jetzt kaufen wollen",
+        heroSub: "Über 30 vermittelte Erstgespräche für Schweizer Dienstleister.",
         heroCta: "Termin vereinbaren",
         heroFree: "Kostenlose Video-Analyse",
         supportBy: "Unterstützt durch",
@@ -375,7 +376,9 @@ const Index = () => {
         navProcess: "Process",
         navFaq: "FAQ",
         bookCall: "Book a Call",
-        heroSub: "Automated lead generation for Swiss businesses",
+        heroKicker: "For agencies, consultancies, and real estate companies in Switzerland",
+        heroHeadline: "We find the customers who are ready to buy right now",
+        heroSub: "Over 30 booked first calls for Swiss service providers.",
         heroCta: "Schedule a Call",
         heroFree: "Free Video Analysis",
         supportBy: "Powered by",
@@ -654,23 +657,11 @@ const Index = () => {
 
       <section ref={heroRef} id="hero" className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
         <GradientBackground active={heroInView} />
-        <div className="relative z-10 text-center space-y-0">
-          <div
-            role="img"
-            aria-label="CrossMatic"
-            className="mx-auto h-80 w-[min(94vw,64rem)] -mb-24 md:h-[27.5rem] md:-mb-32"
-            style={{
-              background: "linear-gradient(90deg, #ffffff 0%, #bfdbfe 54%, #60a5fa 100%)",
-              WebkitMaskImage: `url(${crossmaticLogo})`,
-              maskImage: `url(${crossmaticLogo})`,
-              WebkitMaskRepeat: "no-repeat",
-              maskRepeat: "no-repeat",
-              WebkitMaskPosition: "center",
-              maskPosition: "center",
-              WebkitMaskSize: "contain",
-              maskSize: "contain",
-            }}
-          />
+        <div className="relative z-10 mx-auto max-w-4xl space-y-5 text-center">
+          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">{t.heroKicker}</p>
+          <h1 className="font-display text-4xl font-bold tracking-[-0.02em] md:text-6xl md:leading-[1.1] bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent">
+            {t.heroHeadline}
+          </h1>
           <p className="text-lg text-muted-foreground">{t.heroSub}</p>
           <div className="flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
