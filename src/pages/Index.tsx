@@ -44,7 +44,7 @@ const services = [
     title: "AI Lead Scout",
     subtitle: "Ihr Markt-Radar",
     description:
-      "Jede Woche 3 bis 5 Dossiers zu Unternehmen, bei denen gerade jetzt ein Anlass besteht: ein Führungswechsel, eine Expansion, ein neues Projekt, eine Finanzierungsrunde. Kein Kontaktdatensatz, sondern eine ausgearbeitete Ausgangslage. Sie wissen vor dem ersten Kontakt, was passiert ist, wer entscheidet und warum Sie gerade jetzt relevant sind.",
+      "Jede Woche erhalten Sie 3 bis 5 Dossiers zu Unternehmen, bei denen gerade jetzt ein Anlass besteht: ein Führungswechsel, eine Expansion, ein neues Projekt, eine Finanzierungsrunde. Kein Kontaktdatensatz, sondern eine ausgearbeitete Ausgangslage. Sie wissen vor dem ersten Kontakt, was passiert ist, wer entscheidet und warum Sie gerade jetzt relevant sind.",
     benefits: [
       "Konkreter Anlass mit Datum und offengelegten Quellen",
       "Entscheider namentlich, mit direkten Kontaktdaten",
@@ -52,6 +52,7 @@ const services = [
       "Begründung, warum Ihr Angebot zu diesem Fall passt",
       "Fertiger Aufhänger für die Erstansprache",
       "Prüfhinweise: wir kennzeichnen, was nicht gesichert ist",
+      "Laufende Lieferung, monatlich kündbar",
     ],
     footer: "Ideal für: Unternehmen mit eigenem Vertrieb, die wissen wollen, wo sich der Aufwand lohnt.",
     icon: "scout",
@@ -60,7 +61,7 @@ const services = [
   },
   {
     title: "Gespräche auf Bestellung",
-    subtitle: "Persönliche Ansprache in einer Menge, die von Hand nicht geht",
+    subtitle: "E-Mail und LinkedIn, persönlich statt generisch",
     description:
       "Normalerweise muss man sich entscheiden: entweder zwanzig sorgfältig recherchierte Nachrichten pro Woche, oder fünfhundert generische. Wir bauen den Weg dazwischen. Jedes Unternehmen wird einzeln recherchiert, jede Nachricht bezieht sich auf dessen konkrete Situation, und das über E-Mail und LinkedIn hinweg in einem Volumen, das planbar Gespräche bringt.",
     benefits: [
@@ -439,7 +440,7 @@ const Index = () => {
           title: "AI Lead Scout",
           subtitle: "Your market radar",
           description:
-            "Every week, 3 to 5 dossiers on companies where a trigger exists right now: a change in leadership, an expansion, a new project, a funding round. Not a contact record, but a fully worked-out starting point. Before the first contact, you know what happened, who decides, and why you're relevant right now.",
+            "Every week you receive 3 to 5 dossiers on companies where a trigger exists right now: a change in leadership, an expansion, a new project, a funding round. Not a contact record, but a fully worked-out starting point. Before the first contact, you know what happened, who decides, and why you're relevant right now.",
           benefits: [
             "Concrete trigger with date and disclosed sources",
             "Decision-makers by name, with direct contact details",
@@ -447,13 +448,14 @@ const Index = () => {
             "Rationale for why your offer fits this case",
             "Ready-made hook for the first outreach",
             "Verification notes: we flag what isn't confirmed",
+            "Ongoing delivery, cancel monthly",
           ],
           footer: "Ideal for: companies with their own sales team who want to know where the effort pays off.",
         },
         {
           icon: "mail",
           title: "Conversations on Demand",
-          subtitle: "Personal outreach at a volume that's not possible by hand",
+          subtitle: "Email and LinkedIn, personal instead of generic",
           description:
             "Normally you have to choose: either twenty carefully researched messages a week, or five hundred generic ones. We build the path in between. Every company is researched individually, every message references its specific situation, across email and LinkedIn, at a volume that predictably brings conversations.",
           benefits: [
@@ -744,11 +746,11 @@ const Index = () => {
               {t.servicesSub}
             </p>
           </div>
-          <div className="mx-auto grid max-w-4xl gap-4 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
             {localizedServices.map((service) => (
               <article
                 key={service.title}
-                className="surface-glow-hover relative flex flex-col rounded-2xl border border-white/10 bg-white/5 p-7"
+                className="surface-glow-hover relative flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-8"
               >
                 <GlowingEffect
                   spread={34}
