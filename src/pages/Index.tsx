@@ -4,6 +4,11 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Timeline } from "@/components/ui/timeline";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
+import farnerLogo from "@/assets/client-logos/farner.svg";
+import arliconLogo from "@/assets/client-logos/arlicon.svg";
+import bueroHaeberliLogo from "@/assets/client-logos/buero-haeberli.svg";
+import gianBessetLogo from "@/assets/client-logos/gian-besset-brand-design.png";
+import saschaVoelkiLogo from "@/assets/client-logos/sascha-voelki.png";
 import caseGianBessetImage from "@/assets/case-gian-besset.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
 import {
@@ -675,12 +680,22 @@ const Index = () => {
         <div className="mx-auto max-w-6xl space-y-8">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.trustedByTitle}</p>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16">
-            {[1, 2, 3, 4, 5].map((slot) => (
-              <div key={slot} className="flex w-28 flex-col items-center gap-2">
+            {[
+              { name: "Farner", logo: farnerLogo },
+              { name: "Arlicon", logo: arliconLogo },
+              { name: "Büro Häberli", logo: bueroHaeberliLogo },
+              { name: "Gian Besset", logo: gianBessetLogo },
+              { name: "Sascha Völki", logo: saschaVoelkiLogo },
+            ].map((client, index) => (
+              <div key={index} className="flex w-28 flex-col items-center gap-2">
                 <div className="flex h-14 w-28 items-center justify-center rounded-lg border border-dashed border-blue-300/20 bg-white/[0.02]">
-                  <span className="text-xs text-muted-foreground/50">Logo {slot}</span>
+                  {client.logo ? (
+                    <img src={client.logo} alt={client.name ?? "Client logo"} className="h-full w-full object-contain p-2" />
+                  ) : (
+                    <span className="text-xs text-muted-foreground/50">Logo {index + 1}</span>
+                  )}
                 </div>
-                <span className="text-xs text-muted-foreground/70">Firmenname</span>
+                <span className="text-xs text-muted-foreground/70">{client.name ?? "Firmenname"}</span>
               </div>
             ))}
           </div>
