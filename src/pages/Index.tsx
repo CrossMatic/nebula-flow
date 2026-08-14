@@ -347,6 +347,18 @@ const Index = () => {
           "Das eine findet die Unternehmen, bei denen gerade jetzt ein Anlass besteht. Das andere bringt Sie ins Gespräch. Beide werden auf Ihre Zielgruppe und Ihr Angebot zugeschnitten.",
         socialProof: "Ergebnisse",
         caseSituation: "Ausgangssituation",
+        aboutTag: "Über CrossMatic",
+        aboutTitle: "Ich habe dieses System zuerst für mich selbst gebaut",
+        aboutParagraphs: [
+          "Ich bin Joshua Stöckli und führe CrossMatic aus Riehen bei Basel.",
+          "Angefangen hat es damit, dass ich selbst Kunden brauchte. Ich hatte kein Netzwerk, keine Empfehlungen und keinen Namen, auf den jemand reagiert hätte. Also habe ich mir ein System gebaut, um an Unternehmer heranzukommen, die mich nicht kannten.",
+          "Nach einigen Monaten war klar: Dieses System funktionierte besser als alles andere, was ich anbot. Und das Problem dahinter hatten meine Kunden genauso — die Abhängigkeit von Empfehlungen, das Warten darauf, dass etwas hereinkommt. Seitdem ist das mein Geschäft.",
+          "Was daraus geworden ist, sehen Sie oben auf dieser Seite. Diese Kunden kamen nicht über Beziehungen. Sie kamen über die Systeme, die ich heute für andere baue.",
+          "Ich nehme bewusst nur wenige Kunden gleichzeitig an. Sie sprechen mit der Person, die Ihre Kampagne aufbaut, Ihre Nachrichten schreibt und Ihre Zahlen kennt — nicht mit einem anonymen Team. Wenn etwas nicht funktioniert, erfahren Sie es von mir, bevor Sie danach fragen.",
+        ],
+        aboutName: "Joshua Stöckli",
+        aboutRole: "Gründer, CrossMatic",
+        aboutLinkedin: "LinkedIn",
         processTag: "Prozess",
         processTitle: "So läuft die Zusammenarbeit ab",
         faqTag: "FAQ",
@@ -399,6 +411,18 @@ const Index = () => {
           "One finds the companies where a trigger exists right now. The other gets you into the conversation. Both are tailored to your target audience and your offering.",
         socialProof: "Results",
         caseSituation: "Initial Situation",
+        aboutTag: "About CrossMatic",
+        aboutTitle: "I built this system for myself first",
+        aboutParagraphs: [
+          "I'm Joshua Stöckli, and I run CrossMatic from Riehen near Basel.",
+          "It started because I needed clients myself. I had no network, no referrals, and no name anyone would respond to. So I built a system to reach business owners who didn't know me.",
+          "After a few months it was clear: this system worked better than anything else I offered. And my clients had exactly the same problem behind it — the dependency on referrals, waiting for something to come in. It's been my business ever since.",
+          "What came out of it, you can see above on this page. Those clients didn't come through connections. They came through the systems I now build for others.",
+          "I deliberately take on only a few clients at a time. You talk to the person who builds your campaign, writes your messages, and knows your numbers — not an anonymous team. If something isn't working, you hear it from me before you have to ask.",
+        ],
+        aboutName: "Joshua Stöckli",
+        aboutRole: "Founder, CrossMatic",
+        aboutLinkedin: "LinkedIn",
         processTag: "Process",
         processTitle: "How we work together",
         faqTag: "FAQ",
@@ -949,6 +973,48 @@ const Index = () => {
               </ContainerScroll>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="ueber-crossmatic" className="w-full px-4 py-16 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-start">
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.aboutTag}</p>
+                <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
+                  {t.aboutTitle}
+                </h2>
+              </div>
+              <div className="space-y-4">
+                {t.aboutParagraphs.map((paragraph, index) => (
+                  <p key={index} className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+            <div className="surface-glow-hover relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="flex flex-col items-center gap-3 text-center">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full border border-blue-300/30 bg-blue-500/10 text-2xl font-semibold text-blue-200">
+                  JS
+                </div>
+                <div>
+                  <p className="text-base font-semibold text-white">{t.aboutName}</p>
+                  <p className="text-sm text-muted-foreground">{t.aboutRole}</p>
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/joshua-st%C3%B6ckli-0a2862394/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-blue-300 transition-colors hover:text-blue-200"
+                >
+                  <Linkedin className="h-4 w-4" />
+                  <span>{t.aboutLinkedin}</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
