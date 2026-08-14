@@ -679,7 +679,7 @@ const Index = () => {
       <section className="w-full bg-[#02040a] px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.trustedByTitle}</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16">
+          <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 md:gap-x-20">
             {[
               { name: "Farner", logo: farnerLogo },
               { name: "Arlicon", logo: arliconLogo },
@@ -687,10 +687,10 @@ const Index = () => {
               { name: "Gian Besset", logo: gianBessetLogo },
               { name: "Sascha Völki", logo: saschaVoelkiLogo },
             ].map((client, index) => (
-              <div key={index} className="flex w-28 flex-col items-center gap-2">
-                <div className="flex h-14 w-28 items-center justify-center rounded-lg border border-dashed border-blue-300/20 bg-white/[0.02]">
+              <div key={index} className="flex w-56 flex-col items-center gap-3">
+                <div className="flex h-28 w-56 items-center justify-center">
                   {client.logo ? (
-                    <img src={client.logo} alt={client.name ?? "Client logo"} className="h-full w-full object-contain p-2" />
+                    <img src={client.logo} alt={client.name ?? "Client logo"} className="h-full w-full object-contain" />
                   ) : (
                     <span className="text-xs text-muted-foreground/50">Logo {index + 1}</span>
                   )}
