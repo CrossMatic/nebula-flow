@@ -175,25 +175,20 @@ const caseStudies = [
   },
   {
     type: "outbound",
-    label: "Zugang zu einem Markt, der normalerweise verschlossen ist",
+    label: "Zugang zu einem Markt, der sich normalerweise nicht öffnet",
     role: "Arlicon AG · 3D-Visualisierung für Luxusuhren und Juweliere",
     contentEmpty: true,
     video: "/case-arlicon.mp4",
-    kpis: [
-      { value: "E-Mail-Akquise-System", label: "System", icon: "system" },
-      { value: "400+ Entscheider kontaktiert", label: "Kontaktiert", icon: "leads" },
-      { value: "15 positive Rückmeldungen", label: "Interessenten", icon: "calls" },
-      { value: "Luxus Uhrengeschäfte & Juweliere, Schweiz", label: "Zielgruppe", icon: "audience" },
-    ],
+    kpis: [],
     madeLabel: "Was wir gemacht haben",
     resultLabel: "Resultat",
     built: ["", ""],
     situation:
-      "Ralf suchte nach einer Lösung, um Marketing und Vertrieb zu automatisieren – sodass er sich ausschliesslich auf Gespräche und Abschlüsse konzentrieren kann.",
+      "Ralf suchte einen Weg, den Schweizer Luxusmarkt systematisch zu erschliessen — Boutiquen und Juweliere, die auf Standardanfragen kaum reagieren.",
     builtText:
-      "Aufbau eines automatisierten E-Mail-Akquise-Systems für den Schweizer Luxusmarkt. 400 Uhrengeschäfte und Juweliere wurden individuell und personalisiert angesprochen.",
+      "Individuell recherchierte E-Mail-Ansprache für 400 Boutiquen und Juweliere in der Deutschschweiz, zugeschnitten auf das jeweilige Haus und Sortiment.",
     result:
-      "Direkter Zugang zu einem der exklusivsten Märkte der Schweiz – 15 positive Rückmeldungen und 11 engere Konversationen mit Entscheidern.",
+      "Direkter Kontakt zu Inhabern und Geschäftsführern in einem Markt, der über normale Kanäle praktisch verschlossen ist.",
   },
 ];
 
@@ -539,22 +534,17 @@ const Index = () => {
         },
         {
           ...caseStudies[1],
-          label: "Access to a market that's normally closed off",
+          label: "Access to a market that doesn't normally open up",
           role: "Arlicon AG · 3D visualization for luxury watches and jewelers",
-          madeLabel: "What we built",
+          madeLabel: "What we did",
           resultLabel: "Result",
-          kpis: [
-            { value: "Email outreach system", label: "System", icon: "system" },
-            { value: "400+ decision-makers contacted", label: "Contacted", icon: "leads" },
-            { value: "15 positive responses", label: "Prospects", icon: "calls" },
-            { value: "Luxury watch stores & jewelers, Switzerland", label: "Target Group", icon: "audience" },
-          ],
+          kpis: [],
           situation:
-            "Ralf was looking for a way to automate marketing and sales - so he could focus exclusively on conversations and closing deals.",
+            "Ralf was looking for a way to systematically break into the Swiss luxury market — boutiques and jewelers that barely respond to standard outreach.",
           builtText:
-            "Built an automated email outreach system for the Swiss luxury market. 400 watch stores and jewelers were approached individually and personally.",
+            "Individually researched email outreach to 400 boutiques and jewelers across German-speaking Switzerland, tailored to each house and product range.",
           result:
-            "Direct access to one of Switzerland's most exclusive markets - 15 positive responses and 11 in-depth conversations with decision-makers.",
+            "Direct contact with owners and managing directors in a market that's practically closed off through normal channels.",
         },
       ];
 
