@@ -73,22 +73,6 @@ const services = [
     footer: "Ideal für: B2B-Unternehmen mit klarem ICP, die planbar skalieren wollen.",
     icon: "mail",
   },
-  {
-    title: "Conversion-Automatisierung",
-    subtitle: "Lead-zu-Kunde-Systeme",
-    description:
-      "Automatische Prozesse auf der Website und Social Media um mehr Anfragen zu generieren.",
-    benefits: [
-      "Proaktive Besucher-Ansprache (24/7)",
-      "Echtzeit Lead-Qualifizierung",
-      "Intelligente Kontakterfassung",
-      "Automatische Follow-up Sequenzen",
-      "CRM & Kalender-Integration",
-      "Performance-Tracking & Analytics",
-    ],
-    footer: "Ideal für: Unternehmen mit vorhandenem Traffic, die mehr aus ihren bestehenden Kanälen rausholen wollen.",
-    icon: "calendar",
-  },
 ];
 
 const processSteps = [
@@ -480,23 +464,6 @@ const Index = () => {
           ],
           footer: "Ideal for: B2B companies with a clear ICP that want to scale predictably.",
         },
-        {
-          icon: "calendar",
-          title: "Conversion Automation",
-          subtitle: "Lead-to-customer systems",
-          description:
-            "Automated website and social media processes to generate more inbound inquiries.",
-          benefits: [
-            "Proactive visitor engagement (24/7)",
-            "Real-time lead qualification",
-            "Intelligent contact capture",
-            "Automated follow-up sequences",
-            "CRM & calendar integration",
-            "Performance tracking & analytics",
-          ],
-          footer:
-            "Ideal for: companies with existing traffic that want to get more from their current channels.",
-        },
       ];
 
   const localizedProcessSteps = isDe
@@ -775,7 +742,7 @@ const Index = () => {
               {t.servicesSub}
             </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-4xl gap-4 md:grid-cols-2">
             {localizedServices.map((service) => (
               <article
                 key={service.title}
