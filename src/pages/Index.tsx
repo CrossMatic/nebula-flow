@@ -324,13 +324,13 @@ const Index = () => {
   const t = isDe
     ? {
         navServices: "Leistungen",
+        navResults: "Ergebnisse",
+        navAbout: "Über mich",
         navProcess: "Prozess",
         navFaq: "FAQ",
-        bookCall: "Gespräch buchen",
         heroKicker: "Für Agenturen, Beratungen und Kreativdienstleister in der Schweiz",
         heroHeadline: "Wir finden die Kunden, die gerade jetzt kaufen wollen",
         heroSub: "Über 50 vermittelte Erstgespräche für Schweizer Dienstleister.",
-        heroCta: "Termin vereinbaren",
         heroMainCta: "Kostenloses Erstgespräch buchen",
         heroServices: "Unsere Leistungen ↓",
         trustedByTitle: "Vertraut von",
@@ -377,24 +377,26 @@ const Index = () => {
         faqTag: "FAQ",
         faqTitle: "Häufige Fragen",
         contactTitle: "Bereit für planbare Neukunden?",
-        footerTagline: "Automatisierte Lead-Generierung für B2B-Unternehmen.",
+        contactSub:
+          "30 Minuten, kostenlos, kein Verkaufsgespräch. Wir schauen uns Ihre Zielgruppe an und ich sage Ihnen ehrlich, ob eines der Systeme bei Ihnen Sinn ergibt.",
+        footerTagline: "Akquise-Systeme für Agenturen, Beratungen und Kreativdienstleister in der Schweiz.",
         footerNav: "Navigation",
         footerContact: "Kontakt",
         footerBook: "Termin buchen",
         imprint: "Impressum",
         privacy: "Datenschutz",
-        rights: "© 2025 CrossMatic. Alle Rechte vorbehalten.",
+        rights: "© 2026 CrossMatic. Alle Rechte vorbehalten.",
         city: "Basel, Schweiz",
       }
     : {
         navServices: "Services",
+        navResults: "Results",
+        navAbout: "About me",
         navProcess: "Process",
         navFaq: "FAQ",
-        bookCall: "Book a Call",
         heroKicker: "For agencies, consultancies, and creative service providers in Switzerland",
         heroHeadline: "We find the customers who are ready to buy right now",
         heroSub: "Over 50 booked first calls for Swiss service providers.",
-        heroCta: "Schedule a Call",
         heroMainCta: "Book a Free Intro Call",
         heroServices: "Our Services ↓",
         trustedByTitle: "Trusted by",
@@ -441,13 +443,15 @@ const Index = () => {
         faqTag: "FAQ",
         faqTitle: "Frequently Asked Questions",
         contactTitle: "Ready for predictable new customers?",
-        footerTagline: "Automated lead generation for B2B companies.",
+        contactSub:
+          "30 minutes, free, no sales pitch. We look at your target audience and I'll tell you honestly whether one of the systems makes sense for you.",
+        footerTagline: "Acquisition systems for agencies, consultancies, and creative service providers in Switzerland.",
         footerNav: "Navigation",
         footerContact: "Contact",
         footerBook: "Book a Call",
         imprint: "Legal Notice",
         privacy: "Privacy Policy",
-        rights: "© 2025 CrossMatic. All rights reserved.",
+        rights: "© 2026 CrossMatic. All rights reserved.",
         city: "Basel, Switzerland",
       };
 
@@ -712,6 +716,12 @@ const Index = () => {
               <a href="#leistungen" className="transition-colors hover:text-white">
                 {t.navServices}
               </a>
+              <a href="#ergebnisse" className="transition-colors hover:text-white">
+                {t.navResults}
+              </a>
+              <a href="#ueber-crossmatic" className="transition-colors hover:text-white">
+                {t.navAbout}
+              </a>
               <a href="#prozess" className="transition-colors hover:text-white">
                 {t.navProcess}
               </a>
@@ -855,7 +865,7 @@ const Index = () => {
           </div>
           <div className="pt-2 text-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
-              {t.bookCall}
+              {t.heroMainCta}
               <span>→</span>
             </GlassButton>
           </div>
@@ -863,7 +873,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="w-full px-4 py-16 md:px-8 lg:px-16">
+      <section id="ergebnisse" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.socialProof}</p>
           <div className="space-y-14">
@@ -1125,19 +1135,20 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="kontakt" className="w-full px-4 pb-20 pt-14 md:px-8 md:pt-16 lg:px-16">
+      <section id="kontakt" className="w-full px-4 pb-8 pt-14 md:px-8 md:pb-10 md:pt-16 lg:px-16">
         <div className="mx-auto max-w-4xl p-8 text-center md:p-12">
           <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.contactTitle}</h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-base">{t.contactSub}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
-              {t.heroCta}
+              {t.heroMainCta}
               <span>→</span>
             </GlassButton>
           </div>
         </div>
       </section>
 
-      <footer className="mt-16 w-full border-t border-white/10 px-4 py-14 md:mt-24 md:px-8 lg:px-16">
+      <footer className="mt-4 w-full border-t border-white/10 px-4 py-14 md:mt-6 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:grid-cols-3">
             <div className="space-y-5">
@@ -1151,6 +1162,8 @@ const Index = () => {
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.footerNav}</p>
               <div className="flex flex-col gap-3.5 text-sm text-slate-200/90">
                 <a href="#leistungen" className="transition-colors hover:text-white">{t.navServices}</a>
+                <a href="#ergebnisse" className="transition-colors hover:text-white">{t.navResults}</a>
+                <a href="#ueber-crossmatic" className="transition-colors hover:text-white">{t.navAbout}</a>
                 <a href="#prozess" className="transition-colors hover:text-white">{t.navProcess}</a>
                 <a href="#faq" className="transition-colors hover:text-white">{t.navFaq}</a>
                 <a href="/termin" className="transition-colors hover:text-white">{t.footerBook}</a>
