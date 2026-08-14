@@ -136,8 +136,8 @@ const caseStudies = [
   {
     type: "outbound",
     hook: "5 Gespräche in 2 Wochen durch personalisierte E-Mail-Akquise",
-    label: "Case Study - Gian Besset",
-    role: "Grafik & Webdesign, Basel",
+    label: "5 gebuchte Gespräche in 2 Wochen. Dann mussten wir pausieren.",
+    role: "Gian Besset Brand Design · Grafik & Webdesign, Basel",
     kpis: [
       { value: "Automatisiertes Akquise-System", label: "System", icon: "system" },
       { value: "18 generierte Interessenten in 2 Wochen", label: "Interessenten", icon: "leads" },
@@ -175,8 +175,8 @@ const caseStudies = [
   },
   {
     type: "outbound",
-    label: "Case Study - Arlicon",
-    role: "3D-Visualisierung, Luxusuhren & Juweliere",
+    label: "Zugang zu einem Markt, der normalerweise verschlossen ist",
+    role: "Arlicon AG · 3D-Visualisierung für Luxusuhren und Juweliere",
     contentEmpty: true,
     video: "/case-arlicon.mp4",
     kpis: [
@@ -514,8 +514,8 @@ const Index = () => {
     : [
         {
           ...caseStudies[0],
-          label: "Case Study - Gian Besset",
-          role: "Graphic & Web Design, Basel",
+          label: "5 booked calls in 2 weeks. Then we had to pause.",
+          role: "Gian Besset Brand Design · Graphic & Web Design, Basel",
           hook: "5 sales calls in 2 weeks through personalized email outreach",
           kpis: [
             { value: "Automated acquisition system", label: "System", icon: "system" },
@@ -539,7 +539,8 @@ const Index = () => {
         },
         {
           ...caseStudies[1],
-          role: "3D Visualization, Luxury Watches & Jewelers",
+          label: "Access to a market that's normally closed off",
+          role: "Arlicon AG · 3D visualization for luxury watches and jewelers",
           madeLabel: "What we built",
           resultLabel: "Result",
           kpis: [
