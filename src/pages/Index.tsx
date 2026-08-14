@@ -688,7 +688,7 @@ const Index = () => {
               { name: "Sascha Völki – Büro für visuelle Konzepte", logo: saschaVoelkiLogo },
             ].map((client, index) => (
               <div key={index} className="flex w-24 shrink-0 flex-col items-center gap-2 sm:w-32 md:w-36">
-                <div className="flex h-16 w-16 items-center justify-center sm:h-20 sm:w-20 md:h-24 md:w-24">
+                <div className="flex h-[3.2rem] w-[3.2rem] items-center justify-center sm:h-16 sm:w-16 md:h-[4.8rem] md:w-[4.8rem]">
                   {client.logo ? (
                     <img src={client.logo} alt={client.name ?? "Client logo"} className="h-full w-full object-contain" />
                   ) : (
