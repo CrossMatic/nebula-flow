@@ -337,6 +337,7 @@ const Index = () => {
         heroMainCta: "Kostenloses Erstgespräch buchen",
         heroServices: "Unsere Leistungen ↓",
         heroFree: "Kostenlose Video-Analyse",
+        trustedByTitle: "Vertraut von",
         servicesTag: "Leistungen",
         servicesTitle: "Mehr Kunden durch Systeme statt Zufall",
         servicesSub:
@@ -374,6 +375,7 @@ const Index = () => {
         heroMainCta: "Book a Free Intro Call",
         heroServices: "Our Services ↓",
         heroFree: "Free Video Analysis",
+        trustedByTitle: "Trusted by",
         servicesTag: "Services",
         servicesTitle: "More customers through systems, not chance",
         servicesSub:
@@ -667,6 +669,22 @@ const Index = () => {
           </div>
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent to-[#02040a]" />
+      </section>
+
+      <section className="w-full bg-[#02040a] px-4 py-16 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-6xl space-y-8">
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.trustedByTitle}</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16">
+            {[1, 2, 3, 4, 5].map((slot) => (
+              <div key={slot} className="flex w-28 flex-col items-center gap-2">
+                <div className="flex h-14 w-28 items-center justify-center rounded-lg border border-dashed border-blue-300/20 bg-white/[0.02]">
+                  <span className="text-xs text-muted-foreground/50">Logo {slot}</span>
+                </div>
+                <span className="text-xs text-muted-foreground/70">Firmenname</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section id="leistungen" className="w-full px-4 py-16 md:px-8 lg:px-16">
