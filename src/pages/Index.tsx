@@ -108,29 +108,39 @@ const processSteps = [
 
 const faqs = [
   {
-    question: "Wie schnell sehen wir erste Ergebnisse?",
+    question: "Was kostet das?",
     answer:
-      "Akquise-System: Braucht eine Aufbauzeit von mindestens 2 Wochen. Nach dem Launch der Kampagne kommen die ersten Anfragen typischerweise innerhalb weniger Tage.\n\nConversion-System: Erste Ergebnisse zeigen sich bereits 1-2 Wochen nach Implementierung - abhängig von Ihrer bestehenden Traffic- und Lead-Qualität.",
+      "Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Der AI Lead Scout läuft ab CHF 800 pro Monat. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch — ohne dass Sie sich zu etwas verpflichten.",
   },
   {
-    question: "Was kostet das System?",
+    question: "Welches der beiden Systeme passt zu mir?",
     answer:
-      "Wir arbeiten nicht mit Fixpreisen, da jedes System individuell auf Ihre Anforderungen zugeschnitten wird. Unsere Kunden sehen jedoch typischerweise bereits in den ersten 1-2 Monaten einen ROI von 200-400%.",
+      "Wenn Sie oder Ihr Team bereits Gespräche führen und nur nicht wissen, bei wem sich der Aufwand lohnt, ist der AI Lead Scout richtig. Wenn Sie neue Gespräche brauchen, aber niemanden haben, der aktiv akquiriert, ist es das Akquise-System. Beides zusammen ergibt Sinn, wenn Sie systematisch wachsen wollen. Im Erstgespräch klären wir das in wenigen Minuten.",
   },
   {
-    question: "Ist das komplett Done-for-You oder eine Zusammenarbeit?",
+    question: "Was, wenn es nicht funktioniert?",
     answer:
-      "Akquise-System: Zusammenarbeit - wir liefern qualifizierte Termine, Sie führen die Gespräche. Der Verkauf bleibt persönlich.\n\nConversion-System: Weitgehend automatisiert (95%+), abhängig von Ihren Kanälen. Je nach Setup komplett hands-off oder mit gemeinsamer Optimierung.",
+      "Das kann vorkommen. Wenn eine Zielgruppe nicht reagiert, sagen wir das offen und passen an: Ansprache, Segment oder Kanal. Was wir nicht machen, ist eine Kampagne weiterlaufen zu lassen, die keine Ergebnisse liefert, nur weil sie bezahlt ist. Und wir arbeiten grundsätzlich mit einer Vereinbarung, die das Risiko für Sie begrenzt — wie die aussieht, hängt vom Projekt ab und besprechen wir vor der Zusammenarbeit.",
+  },
+  {
+    question: "Wie persönlich sind die Nachrichten wirklich?",
+    answer:
+      "Jedes Unternehmen wird einzeln recherchiert, und jede Nachricht bezieht sich auf dessen konkrete Situation — nicht auf ein Segment oder eine Branche. Sie geben alle Texte frei, bevor die erste Nachricht rausgeht, und sehen damit genau, was in Ihrem Namen verschickt wird.",
+  },
+  {
+    question: "Wie viel Zeit kostet mich das?",
+    answer:
+      "Vor dem Start brauchen wir wenig von Ihnen: das Erstgespräch, einen kurzen Abgleich zur Zielgruppe und Ihre Freigabe der Texte. Sobald die Kampagne läuft, kommen die Antworten direkt bei Ihnen an. Sie führen die Konversation weiter und vereinbaren die Termine selbst. Das ist Absicht, denn ab diesem Punkt kauft man von Ihnen und nicht von einem Dienstleister. Rechnen Sie mit etwa einer Stunde pro Woche.\n\nBeim AI Lead Scout ist der Aufwand noch geringer: Sie erhalten die fertigen Dossiers und entscheiden, wen Sie ansprechen. Die Recherche, die Sie sonst selbst machen müssten, entfällt.",
   },
   {
     question: "Ist das DSGVO-konform?",
     answer:
-      "Ja. Wir arbeiten mit DACH-fokussierten Lösungen, nutzen europäisches Hosting und bieten klare Opt-In/Opt-Out-Mechaniken sowie transparente Absenderangaben an.",
+      "E-Mail-Akquise führen wir ausschliesslich für die Schweiz und den englischsprachigen Raum durch. Für Deutschland und Österreich arbeiten wir über LinkedIn, weil Cold E-Mail dort rechtlich nicht sauber umsetzbar ist. Wir sagen Ihnen lieber vorher, was nicht geht, als Sie in ein Risiko laufen zu lassen. Alle Kampagnen laufen mit transparenten Absenderangaben und funktionierender Abmeldemöglichkeit.",
   },
   {
-    question: "Kann ich CrossMatics System auch selber managen?",
+    question: "Kann ich das System später selbst übernehmen?",
     answer:
-      "Absolut! Wir entwickeln unsere Systeme so, dass sie sich leicht in Ihre Konten integrieren lassen, und stehen Ihnen jederzeit mit Rat und Tat zur Seite. Wenn Sie es jedoch vorziehen, dass wir die Verwaltung übernehmen, sind wir nur einen Anruf entfernt und helfen Ihnen bei allen Fragen gerne weiter.",
+      "Ja. Alle Systeme laufen auf Ihren eigenen Konten und Zugängen, Sie sind zu keinem Zeitpunkt bei uns eingesperrt. Wenn Sie den Betrieb später intern übernehmen wollen, übergeben wir sauber und erklären Ihrem Team, wie es funktioniert.",
   },
 ];
 
@@ -512,29 +522,39 @@ const Index = () => {
     ? faqs
     : [
         {
-          question: "How quickly can we expect first results?",
+          question: "What does it cost?",
           answer:
-            "Acquisition system: Requires a setup period of at least 2 weeks. After launch, first inquiries typically come in within a few days.\n\nConversion system: First results usually appear 1-2 weeks after implementation, depending on your existing traffic and lead quality.",
+            "The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. AI Lead Scout runs from CHF 800 per month. What it costs in your specific case, we'll tell you in the intro call — without any obligation on your part.",
         },
         {
-          question: "How much does the system cost?",
+          question: "Which of the two systems fits me?",
           answer:
-            "We do not work with fixed pricing because each system is tailored to your needs. Our clients typically see an ROI of 200-400% within the first 1-2 months.",
+            "If you or your team are already having conversations and just don't know who's worth the effort, AI Lead Scout is the right fit. If you need new conversations but don't have anyone actively doing outreach, it's the acquisition system. Combining both makes sense if you want to grow systematically. We'll figure this out together in a few minutes during the intro call.",
         },
         {
-          question: "Is it fully done-for-you or collaborative?",
+          question: "What if it doesn't work?",
           answer:
-            "Acquisition system: Collaborative - we deliver qualified meetings, you run the sales calls.\n\nConversion system: Largely automated (95%+), depending on your channels.",
+            "That can happen. If a target audience doesn't respond, we say so openly and adjust: messaging, segment, or channel. What we don't do is keep a campaign running that isn't delivering results just because it's paid for. And we generally work with an agreement that limits the risk for you - what that looks like depends on the project, and we discuss it before we start working together.",
+        },
+        {
+          question: "How personal are the messages, really?",
+          answer:
+            "Every company is researched individually, and every message refers to its specific situation - not to a segment or an industry. You approve every text before the first message goes out, so you see exactly what's being sent in your name.",
+        },
+        {
+          question: "How much time will this take me?",
+          answer:
+            "Before the start, we need little from you: the intro call, a short alignment on your target audience, and your approval of the texts. Once the campaign is live, replies come straight to you. You continue the conversation and schedule the meetings yourself. That's intentional, because from that point on, people are buying from you, not from a service provider. Expect to spend around an hour a week.\n\nWith AI Lead Scout, the effort is even lower: you receive the finished dossiers and decide who to reach out to. The research you'd otherwise have to do yourself is no longer necessary.",
         },
         {
           question: "Is it GDPR-compliant?",
           answer:
-            "Yes. We use DACH-focused solutions, European hosting, clear opt-in/opt-out mechanics, and transparent sender details.",
+            "We run email outreach exclusively for Switzerland and the English-speaking world. For Germany and Austria, we work via LinkedIn, because cold email isn't legally clean there. We'd rather tell you upfront what won't work than let you run into a risk. All campaigns run with transparent sender details and a working opt-out.",
         },
         {
-          question: "Can I manage the system myself?",
+          question: "Can I take over the system myself later?",
           answer:
-            "Absolutely. We build systems that integrate smoothly into your accounts and remain easy to manage, while still supporting you whenever needed.",
+            "Yes. All systems run on your own accounts and access, so you're never locked in with us. If you want to take over operations internally later, we hand it over cleanly and walk your team through how it works.",
         },
       ];
 
