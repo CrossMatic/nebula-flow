@@ -364,9 +364,9 @@ const Index = () => {
         problemClosing:
           "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die die Anlässe findet, und Ansprache, die dazu passt.",
         servicesTag: "Leistungen",
-        servicesTitle: "Mehr Kunden durch Systeme statt Zufall",
+        servicesTitle: "Zwei Systeme, ein Ziel:\ndas richtige Gespräch zum richtigen Zeitpunkt",
         servicesSub:
-          "Jedes Unternehmen ist einzigartig - unsere Automatisierungssysteme werden speziell auf Ihre Ziele, Kunden und täglichen Abläufe zugeschnitten.",
+          "Das eine findet die Unternehmen, bei denen gerade jetzt ein Anlass besteht. Das andere bringt Sie ins Gespräch. Beide werden auf Ihre Zielgruppe und Ihr Angebot zugeschnitten.",
         socialProof: "Social Proof",
         videoTag: "Video-Analyse",
         videoTitle: "Kostenlose Video-Analyse Ihres Business",
@@ -422,9 +422,9 @@ const Index = () => {
         problemClosing:
           "We make sure you're visible at the right moment: with research that finds the triggers, and outreach that fits.",
         servicesTag: "Services",
-        servicesTitle: "More customers through systems, not chance",
+        servicesTitle: "Two systems, one goal: the right conversation at the right time",
         servicesSub:
-          "Every business is unique - our automation systems are tailored specifically to your goals, customers, and daily workflows.",
+          "One finds the companies where a trigger exists right now. The other gets you into the conversation. Both are tailored to your target audience and your offering.",
         socialProof: "Social Proof",
         videoTag: "Video Analysis",
         videoTitle: "Free Video Analysis for Your Business",
@@ -770,7 +770,7 @@ const Index = () => {
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.servicesTag}</p>
-            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.servicesTitle}</h2>
+            <h2 className="whitespace-pre-line bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.servicesTitle}</h2>
             <p className="mx-auto max-w-3xl text-sm text-muted-foreground md:text-base">
               {t.servicesSub}
             </p>
