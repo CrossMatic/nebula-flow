@@ -79,19 +79,20 @@ const services = [
 const processSteps = [
   {
     step: "01",
-    title: "Erstgespräch, 30 Minuten",
-    text: "Wir schauen uns Ihre Zielgruppe und Ihre bisherige Kundengewinnung an. Ich sage Ihnen ehrlich, ob und welches System bei Ihnen Sinn ergibt. Wenn nicht, sage ich das auch.",
+    title: "Erstgespräch",
+    text: "30 Minuten, kostenlos. Wir schauen uns Ihre Zielgruppe und Ihre bisherige Kundengewinnung an. Ich sage Ihnen ehrlich, ob und welches System bei Ihnen Sinn ergibt. Wenn nicht, sage ich das auch.",
     icon: "call",
   },
   {
     step: "02",
-    title: "Woche 1 und 2: Aufbau im Hintergrund",
+    title: "Aufbau & Vorbereitung",
     text: "Die Absender-Domains werden aufgewärmt, damit Ihre Nachrichten zuverlässig ankommen und nicht im Spam landen. Parallel baue ich Ihre Zielliste auf und schreibe die Nachrichten. Sie geben alle Texte frei, bevor etwas rausgeht.",
+    extra: "Beim AI Lead Scout geht es schneller: Nach einem kurzen Fragebogen erhalten Sie das erste Dossier bereits in der Woche darauf.",
     icon: "build",
   },
   {
     step: "03",
-    title: "Ab Woche 3: Die Kampagne läuft",
+    title: "Kampagne läuft",
     text: "Erste Antworten kommen meist innerhalb weniger Tage. Sie erhalten wöchentlich die Zahlen, ich optimiere laufend nach.",
     icon: "launch",
   },
@@ -355,10 +356,6 @@ const Index = () => {
         aboutLinkedin: "LinkedIn",
         processTag: "Prozess",
         processTitle: "In zwei Wochen von der Zusage zur laufenden Kampagne",
-        processHint1:
-          "AI Lead Scout: Hier geht es schneller. Sie beantworten einen kurzen Fragebogen, mit dem ich das System auf Ihre Zielgruppe kalibriere. Das erste Dossier erhalten Sie in der Woche darauf.",
-        processHint2:
-          "LinkedIn: Der Start hängt davon ab, wie aktiv Ihr Profil bisher genutzt wurde. Ist es etabliert, können wir sofort beginnen. Bei einem neuen oder länger ruhenden Profil bauen wir das Volumen über einige Wochen langsam auf, damit es nicht eingeschränkt wird.",
         faqTag: "FAQ",
         faqTitle: "Häufige Fragen",
         contactTitle: "Bereit für planbare Neukunden?",
@@ -423,10 +420,6 @@ const Index = () => {
         aboutLinkedin: "LinkedIn",
         processTag: "Process",
         processTitle: "From yes to a running campaign in two weeks",
-        processHint1:
-          "AI Lead Scout: This one moves faster. You fill out a short questionnaire, which I use to calibrate the system to your target audience. You get the first dossier the week after.",
-        processHint2:
-          "LinkedIn: The starting pace depends on how active your profile has been. If it's well-established, we can start right away. For a new or long-dormant profile, we ramp up volume gradually over a few weeks so it doesn't get restricted.",
         faqTag: "FAQ",
         faqTitle: "Frequently Asked Questions",
         contactTitle: "Ready for predictable new customers?",
@@ -483,17 +476,18 @@ const Index = () => {
     : [
         {
           ...processSteps[0],
-          title: "Intro call, 30 minutes",
-          text: "We look at your target audience and how you've won customers so far. I'll tell you honestly whether - and which - system makes sense for you. If not, I'll say that too.",
+          title: "Intro call",
+          text: "30 minutes, free. We look at your target audience and how you've won customers so far. I'll tell you honestly whether - and which - system makes sense for you. If not, I'll say that too.",
         },
         {
           ...processSteps[1],
-          title: "Weeks 1 and 2: Setup in the background",
+          title: "Setup & Preparation",
           text: "The sender domains get warmed up so your messages reliably arrive and don't land in spam. In parallel, I build your target list and write the messages. You approve every text before anything goes out.",
+          extra: "With AI Lead Scout, it's faster: after a short questionnaire, you get the first dossier as early as the following week.",
         },
         {
           ...processSteps[2],
-          title: "From week 3: The campaign is live",
+          title: "Campaign live",
           text: "First replies usually come in within a few days. You get the numbers weekly, and I keep optimizing along the way.",
         },
       ];
@@ -589,7 +583,7 @@ const Index = () => {
       : "Predictable lead generation and conversion automation for Swiss businesses.",
   });
   const processTimelineData = localizedProcessSteps.map((item) => ({
-    title: `${item.step} ${item.title}`,
+    title: item.title,
     content: (
       <div className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-5">
         <GlowingEffect
@@ -608,6 +602,9 @@ const Index = () => {
           {item.icon === "launch" && <Rocket className="h-5 w-5 text-blue-200" />}
         </div>
         <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{item.text}</p>
+        {item.extra && (
+          <p className="mt-3 text-xs leading-relaxed text-muted-foreground/60">{item.extra}</p>
+        )}
       </div>
     ),
   }));
@@ -1039,10 +1036,6 @@ const Index = () => {
             <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.processTitle}</h2>
           </div>
           <Timeline data={processTimelineData} />
-          <div className="mx-auto max-w-3xl space-y-2 pt-2">
-            <p className="text-xs leading-relaxed text-muted-foreground/60">{t.processHint1}</p>
-            <p className="text-xs leading-relaxed text-muted-foreground/60">{t.processHint2}</p>
-          </div>
         </div>
       </section>
 
