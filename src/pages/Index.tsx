@@ -343,6 +343,26 @@ const Index = () => {
         heroServices: "Unsere Leistungen ↓",
         heroFree: "Kostenlose Video-Analyse",
         trustedByTitle: "Vertraut von",
+        problemTag: "Das Problem",
+        problemTitle: "Ihre besten Kunden entscheiden gerade. Ohne Sie.",
+        problemIntro:
+          "In Ihrem Markt entstehen ständig konkrete Anlässe: ein Führungswechsel, eine Expansion, ein neues Projekt, eine Finanzierungsrunde. In genau diesen Momenten wird über Budgets und Partner entschieden. Die meisten Unternehmen erfahren davon erst, wenn die Entscheidung längst gefallen ist.",
+        problemPoints: [
+          {
+            title: "Sie erfahren es zu spät",
+            body: "Wenn eine Ausschreibung öffentlich ist oder jemand aktiv sucht, sind Sie einer von vielen. Der interessante Moment liegt Wochen davor und bleibt unsichtbar, wenn niemand danach sucht.",
+          },
+          {
+            title: "Ohne Signale ist jeder Kontakt gleich viel wert",
+            body: "Wenn man nicht weiss, bei wem gerade etwas ansteht, behandelt man alle gleich. Die Ansprache bleibt allgemein, die guten Adressen gehen in der Masse unter, und die wenigen mit echtem Bedarf merken nicht, dass sie gemeint sind.",
+          },
+          {
+            title: "Recherche frisst die Zeit, die verkauft werden sollte",
+            body: "Wer seinen Markt wirklich beobachten will, verbringt Stunden mit Suchen, Lesen und Notieren. Zeit, die im Gespräch mit Kunden deutlich mehr wert wäre.",
+          },
+        ],
+        problemClosing:
+          "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die den Anlass findet, und Ansprache, die dazu passt.",
         servicesTag: "Leistungen",
         servicesTitle: "Mehr Kunden durch Systeme statt Zufall",
         servicesSub:
@@ -381,6 +401,26 @@ const Index = () => {
         heroServices: "Our Services ↓",
         heroFree: "Free Video Analysis",
         trustedByTitle: "Trusted by",
+        problemTag: "The Problem",
+        problemTitle: "Your best customers are deciding right now. Without you.",
+        problemIntro:
+          "Concrete triggers are constantly emerging in your market: a change in leadership, an expansion, a new project, a funding round. These are exactly the moments when budgets and partners get decided. Most companies only find out once the decision has already been made.",
+        problemPoints: [
+          {
+            title: "You find out too late",
+            body: "By the time a tender is public or someone is actively searching, you're one of many. The interesting moment is weeks earlier and stays invisible if no one is looking for it.",
+          },
+          {
+            title: "Without signals, every contact is worth the same",
+            body: "If you don't know who has something coming up, you treat everyone the same. Outreach stays generic, good leads get lost in the noise, and the few with real need don't notice they're the ones being addressed.",
+          },
+          {
+            title: "Research eats the time that should be spent selling",
+            body: "Anyone who truly wants to watch their market spends hours searching, reading, and taking notes. Time that would be worth far more in conversation with customers.",
+          },
+        ],
+        problemClosing:
+          "We make sure you're visible at the right moment: with research that finds the trigger, and outreach that fits.",
         servicesTag: "Services",
         servicesTitle: "More customers through systems, not chance",
         servicesSub:
@@ -699,6 +739,30 @@ const Index = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="problem" className="w-full px-4 py-20 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-6xl space-y-16">
+          <div className="mx-auto max-w-2xl space-y-4 text-center">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.problemTag}</p>
+            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
+              {t.problemTitle}
+            </h2>
+            <p className="mx-auto max-w-xl text-sm text-muted-foreground md:text-base">{t.problemIntro}</p>
+          </div>
+          <div className="grid gap-10 md:grid-cols-3 md:gap-12">
+            {t.problemPoints.map((point, index) => (
+              <div key={point.title} className="space-y-3 text-center md:text-left">
+                <span className="text-sm font-semibold text-blue-300">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="text-lg font-bold text-white">{point.title}</h3>
+                <p className="text-sm text-muted-foreground">{point.body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mx-auto max-w-2xl text-center text-base font-medium text-blue-200 md:text-lg">
+            {t.problemClosing}
+          </p>
         </div>
       </section>
 
