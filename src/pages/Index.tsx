@@ -353,16 +353,16 @@ const Index = () => {
             body: "Wenn eine Ausschreibung öffentlich ist oder jemand aktiv sucht, sind Sie einer von vielen. Der interessante Moment liegt Wochen davor und bleibt unsichtbar, wenn niemand danach sucht.",
           },
           {
-            title: "Ohne Signale ist jeder Kontakt gleich viel wert",
-            body: "Wenn man nicht weiss, bei wem gerade etwas ansteht, behandelt man alle gleich. Die Ansprache bleibt allgemein, die guten Adressen gehen in der Masse unter, und die wenigen mit echtem Bedarf merken nicht, dass sie gemeint sind.",
+            title: "Ohne Signale trifft man ins Leere",
+            body: "Wer nicht weiss, bei wem gerade etwas ansteht, spricht alle gleich an. Die Nachricht bleibt allgemein, und wer wirklich Bedarf hat, merkt nicht, dass er gemeint ist.",
           },
           {
-            title: "Recherche frisst die Zeit, die verkauft werden sollte",
-            body: "Wer seinen Markt wirklich beobachten will, verbringt Stunden mit Suchen, Lesen und Notieren. Zeit, die im Gespräch mit Kunden deutlich mehr wert wäre.",
+            title: "Recherche kostet die falsche Zeit",
+            body: "Wer seinen Markt wirklich beobachten will, verbringt Stunden mit Suchen und Lesen. Zeit, die im Gespräch mit Kunden mehr wert wäre.",
           },
         ],
         problemClosing:
-          "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die den Anlass findet, und Ansprache, die dazu passt.",
+          "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die die Anlässe findet, und Ansprache, die dazu passt.",
         servicesTag: "Leistungen",
         servicesTitle: "Mehr Kunden durch Systeme statt Zufall",
         servicesSub:
@@ -411,16 +411,16 @@ const Index = () => {
             body: "By the time a tender is public or someone is actively searching, you're one of many. The interesting moment is weeks earlier and stays invisible if no one is looking for it.",
           },
           {
-            title: "Without signals, every contact is worth the same",
-            body: "If you don't know who has something coming up, you treat everyone the same. Outreach stays generic, good leads get lost in the noise, and the few with real need don't notice they're the ones being addressed.",
+            title: "Without signals, outreach misses the mark",
+            body: "If you don't know who has something coming up, you address everyone the same way. The message stays generic, and the ones who actually have a need don't notice it's meant for them.",
           },
           {
-            title: "Research eats the time that should be spent selling",
-            body: "Anyone who truly wants to watch their market spends hours searching, reading, and taking notes. Time that would be worth far more in conversation with customers.",
+            title: "Research eats the wrong kind of time",
+            body: "Anyone who truly wants to watch their market spends hours searching and reading. Time that would be worth more in conversation with customers.",
           },
         ],
         problemClosing:
-          "We make sure you're visible at the right moment: with research that finds the trigger, and outreach that fits.",
+          "We make sure you're visible at the right moment: with research that finds the triggers, and outreach that fits.",
         servicesTag: "Services",
         servicesTitle: "More customers through systems, not chance",
         servicesSub:
@@ -742,7 +742,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="problem" className="w-full px-4 py-20 md:px-8 lg:px-16">
+      <section id="problem" className="w-full px-4 pb-20 pt-28 md:px-8 md:pt-36 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-16">
           <div className="mx-auto max-w-2xl space-y-4 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.problemTag}</p>
@@ -760,7 +760,7 @@ const Index = () => {
               </div>
             ))}
           </div>
-          <p className="mx-auto max-w-2xl text-center text-base font-medium text-blue-200 md:text-lg">
+          <p className="mx-auto max-w-2xl text-center text-base font-medium text-white md:text-lg">
             {t.problemClosing}
           </p>
         </div>
