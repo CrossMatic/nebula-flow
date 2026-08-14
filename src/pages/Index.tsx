@@ -679,23 +679,23 @@ const Index = () => {
       <section className="w-full bg-[#02040a] px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.trustedByTitle}</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 md:gap-x-20">
+          <div className="flex flex-nowrap items-center justify-center gap-x-4 overflow-x-auto sm:gap-x-6 md:gap-x-10">
             {[
-              { name: "Farner", logo: farnerLogo },
-              { name: "Arlicon", logo: arliconLogo },
+              { name: "Farner Consulting AG", logo: farnerLogo },
+              { name: "Arlicon AG", logo: arliconLogo },
               { name: "Büro Häberli", logo: bueroHaeberliLogo },
-              { name: "Gian Besset", logo: gianBessetLogo },
-              { name: "Sascha Völki", logo: saschaVoelkiLogo },
+              { name: "Gian Besset Brand Design", logo: gianBessetLogo },
+              { name: "Sascha Völki – Büro für visuelle Konzepte", logo: saschaVoelkiLogo },
             ].map((client, index) => (
-              <div key={index} className="flex w-56 flex-col items-center gap-3">
-                <div className="flex h-28 w-56 items-center justify-center">
+              <div key={index} className="flex w-24 shrink-0 flex-col items-center gap-2 sm:w-32 md:w-36">
+                <div className="flex h-16 w-16 items-center justify-center sm:h-20 sm:w-20 md:h-24 md:w-24">
                   {client.logo ? (
                     <img src={client.logo} alt={client.name ?? "Client logo"} className="h-full w-full object-contain" />
                   ) : (
                     <span className="text-xs text-muted-foreground/50">Logo {index + 1}</span>
                   )}
                 </div>
-                <span className="text-xs text-muted-foreground/70">{client.name ?? "Firmenname"}</span>
+                <span className="text-center text-[11px] leading-tight text-muted-foreground/70 sm:text-xs">{client.name ?? "Firmenname"}</span>
               </div>
             ))}
           </div>
