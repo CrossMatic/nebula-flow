@@ -679,7 +679,7 @@ const Index = () => {
       <section className="w-full bg-[#02040a] px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.trustedByTitle}</p>
-          <div className="flex flex-nowrap items-center justify-center gap-x-4 overflow-x-auto sm:gap-x-6 md:gap-x-10">
+          <div className="flex flex-nowrap items-start justify-center gap-x-4 overflow-x-auto sm:gap-x-6 md:gap-x-10">
             {[
               { name: "Farner Consulting AG", logo: farnerLogo },
               { name: "Arlicon AG", logo: arliconLogo },
@@ -695,7 +695,7 @@ const Index = () => {
                     <span className="text-xs text-muted-foreground/50">Logo {index + 1}</span>
                   )}
                 </div>
-                <span className="text-center text-[11px] leading-tight text-muted-foreground/70 sm:text-xs">{client.name ?? "Firmenname"}</span>
+                <span className="flex min-h-[2.4em] items-start justify-center text-center text-[11px] leading-tight text-muted-foreground/70 sm:text-xs">{client.name ?? "Firmenname"}</span>
               </div>
             ))}
           </div>
