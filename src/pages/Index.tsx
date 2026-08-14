@@ -79,26 +79,20 @@ const services = [
 const processSteps = [
   {
     step: "01",
-    title: "Kostenloses Erstgespräch",
-    text: "In diesem Gespräch teilen Sie uns mehr über Ihr Unternehmen mit, Ihre aktuellen Prozesse und wir schlagen Bereiche vor, in denen KI und Automatisierung Ihnen helfen kann.",
+    title: "Erstgespräch, 30 Minuten",
+    text: "Wir schauen uns Ihre Zielgruppe und Ihre bisherige Kundengewinnung an. Ich sage Ihnen ehrlich, ob und welches System bei Ihnen Sinn ergibt. Wenn nicht, sage ich das auch.",
     icon: "call",
   },
   {
     step: "02",
-    title: "Planung & Strategie-Session",
-    text: "Wenn es passt, starten wir nach dem Erstgespräch mit der Planung. Wir vereinbaren einen Strategie-Termin, in dem wir die nächsten Schritte besprechen und den Plan bei Bedarf anpassen.",
-    icon: "strategy",
-  },
-  {
-    step: "03",
-    title: "Umsetzung",
-    text: "Sobald wir uns auf die Strategie und den Aktionsplan geeinigt haben, beginnen wir mit der Entwicklung Ihrer neuen Automatisierungslösungen.",
+    title: "Woche 1 und 2: Aufbau im Hintergrund",
+    text: "Die Absender-Domains werden aufgewärmt, damit Ihre Nachrichten zuverlässig ankommen und nicht im Spam landen. Parallel baue ich Ihre Zielliste auf und schreibe die Nachrichten. Sie geben alle Texte frei, bevor etwas rausgeht.",
     icon: "build",
   },
   {
-    step: "04",
-    title: "Launch + Optimierung",
-    text: "Sobald die Entwicklung abgeschlossen ist, setzten wir das System auf und suchen kontinuierlich nach Verbesserungsmöglichkeiten.",
+    step: "03",
+    title: "Ab Woche 3: Die Kampagne läuft",
+    text: "Erste Antworten kommen meist innerhalb weniger Tage. Sie erhalten wöchentlich die Zahlen, ich optimiere laufend nach.",
     icon: "launch",
   },
 ];
@@ -360,7 +354,11 @@ const Index = () => {
         aboutRole: "Gründer, CrossMatic",
         aboutLinkedin: "LinkedIn",
         processTag: "Prozess",
-        processTitle: "So läuft die Zusammenarbeit ab",
+        processTitle: "In zwei Wochen von der Zusage zur laufenden Kampagne",
+        processHint1:
+          "AI Lead Scout: Hier geht es schneller. Sie beantworten einen kurzen Fragebogen, mit dem ich das System auf Ihre Zielgruppe kalibriere. Das erste Dossier erhalten Sie in der Woche darauf.",
+        processHint2:
+          "LinkedIn: Der Start hängt davon ab, wie aktiv Ihr Profil bisher genutzt wurde. Ist es etabliert, können wir sofort beginnen. Bei einem neuen oder länger ruhenden Profil bauen wir das Volumen über einige Wochen langsam auf, damit es nicht eingeschränkt wird.",
         faqTag: "FAQ",
         faqTitle: "Häufige Fragen",
         contactTitle: "Bereit für planbare Neukunden?",
@@ -424,7 +422,11 @@ const Index = () => {
         aboutRole: "Founder, CrossMatic",
         aboutLinkedin: "LinkedIn",
         processTag: "Process",
-        processTitle: "How we work together",
+        processTitle: "From yes to a running campaign in two weeks",
+        processHint1:
+          "AI Lead Scout: This one moves faster. You fill out a short questionnaire, which I use to calibrate the system to your target audience. You get the first dossier the week after.",
+        processHint2:
+          "LinkedIn: The starting pace depends on how active your profile has been. If it's well-established, we can start right away. For a new or long-dormant profile, we ramp up volume gradually over a few weeks so it doesn't get restricted.",
         faqTag: "FAQ",
         faqTitle: "Frequently Asked Questions",
         contactTitle: "Ready for predictable new customers?",
@@ -479,10 +481,21 @@ const Index = () => {
   const localizedProcessSteps = isDe
     ? processSteps
     : [
-        { ...processSteps[0], title: "Free Intro Call", text: "In this call, you tell us more about your business and current processes, and we suggest areas where AI and automation can help." },
-        { ...processSteps[1], title: "Planning & Strategy Session", text: "If it is a fit, we start planning after the intro call. We schedule a strategy session to align on next steps and fine-tune the plan where needed." },
-        { ...processSteps[2], title: "Implementation", text: "Once we align on strategy and action plan, we start building your new automation solutions." },
-        { ...processSteps[3], title: "Launch + Optimization", text: "When development is complete, we deploy the system and continuously optimize it." },
+        {
+          ...processSteps[0],
+          title: "Intro call, 30 minutes",
+          text: "We look at your target audience and how you've won customers so far. I'll tell you honestly whether - and which - system makes sense for you. If not, I'll say that too.",
+        },
+        {
+          ...processSteps[1],
+          title: "Weeks 1 and 2: Setup in the background",
+          text: "The sender domains get warmed up so your messages reliably arrive and don't land in spam. In parallel, I build your target list and write the messages. You approve every text before anything goes out.",
+        },
+        {
+          ...processSteps[2],
+          title: "From week 3: The campaign is live",
+          text: "First replies usually come in within a few days. You get the numbers weekly, and I keep optimizing along the way.",
+        },
       ];
 
   const localizedFaqs = isDe
@@ -1026,6 +1039,10 @@ const Index = () => {
             <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.processTitle}</h2>
           </div>
           <Timeline data={processTimelineData} />
+          <div className="mx-auto max-w-3xl space-y-2 pt-2">
+            <p className="text-xs leading-relaxed text-muted-foreground/60">{t.processHint1}</p>
+            <p className="text-xs leading-relaxed text-muted-foreground/60">{t.processHint2}</p>
+          </div>
         </div>
       </section>
 
