@@ -32,7 +32,6 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react";
-import { LeadMagnetForm } from "@/components/LeadMagnetForm";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -141,7 +140,7 @@ const caseStudies = [
     kpis: [
       { value: "Automatisiertes Akquise-System", label: "System", icon: "system" },
       { value: "18 generierte Interessenten in 2 Wochen", label: "Interessenten", icon: "leads" },
-      { value: "5 gebuchte Verkaufsgespräche in 2 Wochen", label: "Gespräche", icon: "calls" },
+      { value: "2 Wochen bis zur Pausierung", label: "Laufzeit", icon: "time" },
       { value: "Physio- & Tierarztpraxen, Schweiz", label: "Zielgruppe", icon: "audience" },
     ],
     situation:
@@ -184,7 +183,7 @@ const caseStudies = [
     resultLabel: "Resultat",
     built: ["", ""],
     situation:
-      "Ralf suchte einen Weg, den Schweizer Luxusmarkt systematisch zu erschliessen — Boutiquen und Juweliere, die auf Standardanfragen kaum reagieren.",
+      "Ralf suchte einen Weg, den Schweizer Luxusmarkt systematisch zu erschliessen: Boutiquen und Juweliere, die auf Standardanfragen kaum reagieren.",
     builtText:
       "Individuell recherchierte E-Mail-Ansprache für 400 Boutiquen und Juweliere in der Deutschschweiz, zugeschnitten auf das jeweilige Haus und Sortiment.",
     result:
@@ -312,7 +311,6 @@ const Index = () => {
   const t = isDe
     ? {
         navServices: "Leistungen",
-        navVideo: "Video-Analyse",
         navProcess: "Prozess",
         navFaq: "FAQ",
         bookCall: "Gespräch buchen",
@@ -322,7 +320,6 @@ const Index = () => {
         heroCta: "Termin vereinbaren",
         heroMainCta: "Kostenloses Erstgespräch buchen",
         heroServices: "Unsere Leistungen ↓",
-        heroFree: "Kostenlose Video-Analyse",
         trustedByTitle: "Vertraut von",
         problemTag: "Das Problem",
         problemTitle: "Ihre besten Kunden entscheiden gerade. Ohne Sie.",
@@ -348,11 +345,7 @@ const Index = () => {
         servicesTitle: "Zwei Systeme, ein Ziel:\ndas richtige Gespräch zum richtigen Zeitpunkt",
         servicesSub:
           "Das eine findet die Unternehmen, bei denen gerade jetzt ein Anlass besteht. Das andere bringt Sie ins Gespräch. Beide werden auf Ihre Zielgruppe und Ihr Angebot zugeschnitten.",
-        socialProof: "Social Proof",
-        videoTag: "Video-Analyse",
-        videoTitle: "Kostenlose Video-Analyse Ihres Business",
-        videoSub:
-          "Beantworten Sie ein paar kurze Fragen – wir analysieren Ihr Unternehmen und zeigen Ihnen in einem persönlichen Video, wo Sie Kunden verlieren und Potential verschenken.",
+        socialProof: "Ergebnisse",
         caseSituation: "Ausgangssituation",
         processTag: "Prozess",
         processTitle: "So läuft die Zusammenarbeit ab",
@@ -370,7 +363,6 @@ const Index = () => {
       }
     : {
         navServices: "Services",
-        navVideo: "Video Analysis",
         navProcess: "Process",
         navFaq: "FAQ",
         bookCall: "Book a Call",
@@ -380,7 +372,6 @@ const Index = () => {
         heroCta: "Schedule a Call",
         heroMainCta: "Book a Free Intro Call",
         heroServices: "Our Services ↓",
-        heroFree: "Free Video Analysis",
         trustedByTitle: "Trusted by",
         problemTag: "The Problem",
         problemTitle: "Your best customers are deciding right now. Without you.",
@@ -406,11 +397,7 @@ const Index = () => {
         servicesTitle: "Two systems, one goal: the right conversation at the right time",
         servicesSub:
           "One finds the companies where a trigger exists right now. The other gets you into the conversation. Both are tailored to your target audience and your offering.",
-        socialProof: "Social Proof",
-        videoTag: "Video Analysis",
-        videoTitle: "Free Video Analysis for Your Business",
-        videoSub:
-          "Answer a few short questions – we analyze your business and show you in a personal video where you lose customers and leave potential untapped.",
+        socialProof: "Results",
         caseSituation: "Initial Situation",
         processTag: "Process",
         processTitle: "How we work together",
@@ -515,7 +502,7 @@ const Index = () => {
           kpis: [
             { value: "Automated acquisition system", label: "System", icon: "system" },
             { value: "18 generated prospects in 2 weeks", label: "Prospects", icon: "leads" },
-            { value: "5 booked sales calls in 2 weeks", label: "Calls", icon: "calls" },
+            { value: "2 weeks until paused", label: "Duration", icon: "time" },
             { value: "Physio & veterinary clinics, Switzerland", label: "Target Group", icon: "audience" },
           ],
           situation:
@@ -540,7 +527,7 @@ const Index = () => {
           resultLabel: "Result",
           kpis: [],
           situation:
-            "Ralf was looking for a way to systematically break into the Swiss luxury market — boutiques and jewelers that barely respond to standard outreach.",
+            "Ralf was looking for a way to systematically break into the Swiss luxury market: boutiques and jewelers that barely respond to standard outreach.",
           builtText:
             "Individually researched email outreach to 400 boutiques and jewelers across German-speaking Switzerland, tailored to each house and product range.",
           result:
@@ -633,9 +620,6 @@ const Index = () => {
             <nav className="hidden items-center justify-center gap-5 text-sm text-slate-200/90 md:flex">
               <a href="#leistungen" className="transition-colors hover:text-white">
                 {t.navServices}
-              </a>
-              <a href="#video-analyse" className="transition-colors hover:text-white">
-                {t.navVideo}
               </a>
               <a href="#prozess" className="transition-colors hover:text-white">
                 {t.navProcess}
@@ -969,21 +953,6 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="video-analyse" className="w-full px-4 py-16 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-3xl space-y-8">
-          <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.videoTag}</p>
-            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
-              {t.videoTitle}
-            </h2>
-            <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
-              {t.videoSub}
-            </p>
-          </div>
-          <LeadMagnetForm />
-        </div>
-      </section>
-
       <section id="prozess" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
@@ -1031,11 +1000,6 @@ const Index = () => {
               {t.heroCta}
               <span>→</span>
             </GlassButton>
-            <a href="#video-analyse">
-              <GlassButton contentClassName="inline-flex items-center gap-2">
-                {t.heroFree}
-              </GlassButton>
-            </a>
           </div>
         </div>
       </section>
@@ -1054,7 +1018,6 @@ const Index = () => {
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.footerNav}</p>
               <div className="flex flex-col gap-3.5 text-sm text-slate-200/90">
                 <a href="#leistungen" className="transition-colors hover:text-white">{t.navServices}</a>
-                <a href="#video-analyse" className="transition-colors hover:text-white">{t.navVideo}</a>
                 <a href="#prozess" className="transition-colors hover:text-white">{t.navProcess}</a>
                 <a href="#faq" className="transition-colors hover:text-white">{t.navFaq}</a>
                 <a href="/termin" className="transition-colors hover:text-white">{t.footerBook}</a>
