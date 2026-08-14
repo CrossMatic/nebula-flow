@@ -85,15 +85,23 @@ const processSteps = [
   },
   {
     step: "02",
-    title: "Aufbau & Vorbereitung",
-    text: "Die Absender-Domains werden aufgewärmt, damit Ihre Nachrichten zuverlässig ankommen und nicht im Spam landen. Parallel baue ich Ihre Zielliste auf und schreibe die Nachrichten. Sie geben alle Texte frei, bevor etwas rausgeht.",
-    extra: "Beim AI Lead Scout geht es schneller: Nach einem kurzen Fragebogen erhalten Sie das erste Dossier bereits in der Woche darauf.",
+    title: "Aufbau",
+    paragraphs: [
+      {
+        lead: "Akquise-System:",
+        text: " Zwei Wochen. Die Absender-Domains werden aufgewärmt, damit Ihre Nachrichten zuverlässig ankommen und nicht im Spam landen. Bei LinkedIn bauen wir das Volumen schrittweise auf, damit Ihr Profil nicht eingeschränkt wird. Parallel entsteht Ihre Zielliste und ich schreibe die Nachrichten. Sie geben alle Texte frei, bevor etwas rausgeht.",
+      },
+      {
+        lead: "AI Lead Scout:",
+        text: " Eine Woche. Sie beantworten einen kurzen Fragebogen, mit dem ich das System auf Ihre Zielgruppe kalibriere.",
+      },
+    ],
     icon: "build",
   },
   {
     step: "03",
-    title: "Kampagne läuft",
-    text: "Erste Antworten kommen meist innerhalb weniger Tage. Sie erhalten wöchentlich die Zahlen, ich optimiere laufend nach.",
+    title: "Laufender Betrieb",
+    text: "Erste Antworten kommen meist innerhalb weniger Tage, Dossiers erhalten Sie wöchentlich. Sie bekommen regelmässig die Zahlen, ich optimiere laufend nach.",
     icon: "launch",
   },
 ];
@@ -355,7 +363,7 @@ const Index = () => {
         aboutRole: "Gründer, CrossMatic",
         aboutLinkedin: "LinkedIn",
         processTag: "Prozess",
-        processTitle: "In zwei Wochen von der Zusage zur laufenden Kampagne",
+        processTitle: "In zwei Wochen von der Zusage zum laufenden System",
         faqTag: "FAQ",
         faqTitle: "Häufige Fragen",
         contactTitle: "Bereit für planbare Neukunden?",
@@ -419,7 +427,7 @@ const Index = () => {
         aboutRole: "Founder, CrossMatic",
         aboutLinkedin: "LinkedIn",
         processTag: "Process",
-        processTitle: "From yes to a running campaign in two weeks",
+        processTitle: "From yes to a running system in two weeks",
         faqTag: "FAQ",
         faqTitle: "Frequently Asked Questions",
         contactTitle: "Ready for predictable new customers?",
@@ -481,14 +489,22 @@ const Index = () => {
         },
         {
           ...processSteps[1],
-          title: "Setup & Preparation",
-          text: "The sender domains get warmed up so your messages reliably arrive and don't land in spam. In parallel, I build your target list and write the messages. You approve every text before anything goes out.",
-          extra: "With AI Lead Scout, it's faster: after a short questionnaire, you get the first dossier as early as the following week.",
+          title: "Setup",
+          paragraphs: [
+            {
+              lead: "Acquisition system:",
+              text: " Two weeks. The sender domains get warmed up so your messages reliably arrive and don't land in spam. For LinkedIn, we ramp up volume gradually so your profile doesn't get restricted. In parallel, your target list is built and I write the messages. You approve every text before anything goes out.",
+            },
+            {
+              lead: "AI Lead Scout:",
+              text: " One week. You fill out a short questionnaire, which I use to calibrate the system to your target audience.",
+            },
+          ],
         },
         {
           ...processSteps[2],
-          title: "Campaign live",
-          text: "First replies usually come in within a few days. You get the numbers weekly, and I keep optimizing along the way.",
+          title: "Ongoing operation",
+          text: "First replies usually come in within a few days, and dossiers arrive weekly. You get the numbers regularly, and I keep optimizing along the way.",
         },
       ];
 
@@ -582,8 +598,20 @@ const Index = () => {
       ? "Planbare Neukundengewinnung und Conversion-Automatisierung für Schweizer Unternehmen."
       : "Predictable lead generation and conversion automation for Swiss businesses.",
   });
-  const processTimelineData = localizedProcessSteps.map((item) => ({
-    title: item.title,
+  const processTimelineData = localizedProcessSteps.map((item) => {
+    const titleWords = item.title.split(" ");
+    const timelineTitle =
+      titleWords.length > 1 ? (
+        <>
+          {item.step} {titleWords[0]}
+          <br />
+          <span className="pl-[2.3ch]">{titleWords.slice(1).join(" ")}</span>
+        </>
+      ) : (
+        `${item.step} ${item.title}`
+      );
+    return {
+    title: timelineTitle,
     content: (
       <div className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-5">
         <GlowingEffect
@@ -601,13 +629,22 @@ const Index = () => {
           {item.icon === "build" && <Settings2 className="h-5 w-5 text-blue-200" />}
           {item.icon === "launch" && <Rocket className="h-5 w-5 text-blue-200" />}
         </div>
-        <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{item.text}</p>
-        {item.extra && (
-          <p className="mt-3 text-xs leading-relaxed text-muted-foreground/60">{item.extra}</p>
+        {item.paragraphs ? (
+          <div className="space-y-3">
+            {item.paragraphs.map((paragraph, paragraphIndex) => (
+              <p key={paragraphIndex} className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                <em className="font-medium italic">{paragraph.lead}</em>
+                {paragraph.text}
+              </p>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{item.text}</p>
         )}
       </div>
     ),
-  }));
+    };
+  });
 
   useEffect(() => {
     const hero = heroRef.current;
