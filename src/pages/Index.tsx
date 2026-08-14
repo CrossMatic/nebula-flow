@@ -330,11 +330,12 @@ const Index = () => {
         navProcess: "Prozess",
         navFaq: "FAQ",
         bookCall: "Gespräch buchen",
-        heroKicker: "Für Agenturen, Beratungen und Immobilienunternehmen in der Schweiz",
+        heroKicker: "Für Agenturen, Beratungen und Kreativdienstleister in der Schweiz",
         heroHeadline: "Wir finden die Kunden, die gerade jetzt kaufen wollen",
-        heroSub: "Über 30 vermittelte Erstgespräche für Schweizer Dienstleister.",
+        heroSub: "Über 50 vermittelte Erstgespräche für Schweizer Dienstleister.",
         heroCta: "Termin vereinbaren",
         heroMainCta: "Kostenloses Erstgespräch buchen",
+        heroServices: "Unsere Leistungen ↓",
         heroFree: "Kostenlose Video-Analyse",
         servicesTag: "Leistungen",
         servicesTitle: "Mehr Kunden durch Systeme statt Zufall",
@@ -366,11 +367,12 @@ const Index = () => {
         navProcess: "Process",
         navFaq: "FAQ",
         bookCall: "Book a Call",
-        heroKicker: "For agencies, consultancies, and real estate companies in Switzerland",
+        heroKicker: "For agencies, consultancies, and creative service providers in Switzerland",
         heroHeadline: "We find the customers who are ready to buy right now",
-        heroSub: "Over 30 booked first calls for Swiss service providers.",
+        heroSub: "Over 50 booked first calls for Swiss service providers.",
         heroCta: "Schedule a Call",
         heroMainCta: "Book a Free Intro Call",
+        heroServices: "Our Services ↓",
         heroFree: "Free Video Analysis",
         servicesTag: "Services",
         servicesTitle: "More customers through systems, not chance",
@@ -655,6 +657,13 @@ const Index = () => {
               {t.heroMainCta}
               <span>→</span>
             </GlassButton>
+            <button
+              type="button"
+              onClick={() => document.getElementById("leistungen")?.scrollIntoView({ behavior: "smooth" })}
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {t.heroServices}
+            </button>
           </div>
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent to-[#02040a]" />
