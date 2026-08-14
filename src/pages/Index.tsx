@@ -80,7 +80,7 @@ const processSteps = [
   {
     step: "01",
     title: "Erstgespräch",
-    text: "30 Minuten, kostenlos. Wir schauen uns Ihre Zielgruppe und Ihre bisherige Kundengewinnung an. Ich sage Ihnen ehrlich, ob und welches System bei Ihnen Sinn ergibt. Wenn nicht, sage ich das auch.",
+    text: "In einem kostenlosen Gespräch von rund 30 Minuten schauen wir uns Ihre Zielgruppe und Ihre bisherige Kundengewinnung an. Ich sage Ihnen ehrlich, ob und welches der beiden Systeme bei Ihnen Sinn ergibt. Und wenn keines passt, sage ich Ihnen das genauso.",
     icon: "call",
   },
   {
@@ -89,11 +89,11 @@ const processSteps = [
     paragraphs: [
       {
         lead: "Akquise-System:",
-        text: " Zwei Wochen. Die Absender-Domains werden aufgewärmt, damit Ihre Nachrichten zuverlässig ankommen und nicht im Spam landen. Bei LinkedIn bauen wir das Volumen schrittweise auf, damit Ihr Profil nicht eingeschränkt wird. Parallel entsteht Ihre Zielliste und ich schreibe die Nachrichten. Sie geben alle Texte frei, bevor etwas rausgeht.",
+        text: " Bis zur ersten versendeten Nachricht vergehen etwa zwei Wochen. Diese Zeit brauchen wir, weil die Absender-Domains schrittweise aufgewärmt werden müssen, damit Ihre Nachrichten zuverlässig im Postfach landen und nicht im Spam. Bei LinkedIn gilt dasselbe Prinzip: Wir steigern das Volumen langsam, damit Ihr Profil nicht eingeschränkt wird. Diese zwei Wochen nutzen wir parallel, um Ihre Zielliste aufzubauen und die Nachrichten zu schreiben. Sie geben alle Texte frei, bevor die erste rausgeht.",
       },
       {
         lead: "AI Lead Scout:",
-        text: " Eine Woche. Sie beantworten einen kurzen Fragebogen, mit dem ich das System auf Ihre Zielgruppe kalibriere.",
+        text: " Hier geht es deutlich schneller, weil keine Infrastruktur aufgewärmt werden muss. Sie beantworten einen kurzen Fragebogen zu Ihrer Zielgruppe und Ihrem Angebot, damit ich das System darauf kalibriere. Das erste Dossier erhalten Sie in der Woche darauf.",
       },
     ],
     icon: "build",
@@ -101,7 +101,7 @@ const processSteps = [
   {
     step: "03",
     title: "Laufender Betrieb",
-    text: "Erste Antworten kommen meist innerhalb weniger Tage, Dossiers erhalten Sie wöchentlich. Sie bekommen regelmässig die Zahlen, ich optimiere laufend nach.",
+    text: "Sobald die Kampagne läuft, kommen erste Antworten meist innerhalb weniger Tage. Beim Lead Scout erhalten Sie jede Woche neue Dossiers. In beiden Fällen bekommen Sie regelmässig die Zahlen zu sehen, und ich passe laufend an, was sich verbessern lässt.",
     icon: "launch",
   },
 ];
@@ -485,7 +485,7 @@ const Index = () => {
         {
           ...processSteps[0],
           title: "Intro call",
-          text: "30 minutes, free. We look at your target audience and how you've won customers so far. I'll tell you honestly whether - and which - system makes sense for you. If not, I'll say that too.",
+          text: "In a free call of around 30 minutes, we look at your target audience and how you've won customers so far. I'll tell you honestly whether - and which - of the two systems makes sense for you. And if neither fits, I'll tell you that too.",
         },
         {
           ...processSteps[1],
@@ -493,18 +493,18 @@ const Index = () => {
           paragraphs: [
             {
               lead: "Acquisition system:",
-              text: " Two weeks. The sender domains get warmed up so your messages reliably arrive and don't land in spam. For LinkedIn, we ramp up volume gradually so your profile doesn't get restricted. In parallel, your target list is built and I write the messages. You approve every text before anything goes out.",
+              text: " It takes about two weeks until the first message goes out. We need this time because the sender domains have to be warmed up gradually so your messages reliably land in the inbox and not in spam. The same principle applies to LinkedIn: we increase volume slowly so your profile doesn't get restricted. We use these two weeks in parallel to build your target list and write the messages. You approve every text before the first one goes out.",
             },
             {
               lead: "AI Lead Scout:",
-              text: " One week. You fill out a short questionnaire, which I use to calibrate the system to your target audience.",
+              text: " This one is much faster, because no infrastructure needs to be warmed up. You fill out a short questionnaire about your target audience and offering, so I can calibrate the system to it. You get the first dossier the following week.",
             },
           ],
         },
         {
           ...processSteps[2],
           title: "Ongoing operation",
-          text: "First replies usually come in within a few days, and dossiers arrive weekly. You get the numbers regularly, and I keep optimizing along the way.",
+          text: "Once the campaign is live, first replies usually come in within a few days. With Lead Scout, you get new dossiers every week. In both cases, you get to see the numbers regularly, and I continuously adjust what can be improved.",
         },
       ];
 
