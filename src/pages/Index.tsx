@@ -1,3 +1,4 @@
+import { DarkGradientBg } from "@/components/ui/dark-gradient-bg";
 import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Timeline } from "@/components/ui/timeline";
@@ -788,7 +789,8 @@ const Index = () => {
         </div>
       </header>
 
-      <section ref={heroRef} id="hero" className="flex min-h-screen items-center justify-center px-4">
+      <section ref={heroRef} id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
+        <DarkGradientBg />
         <div className="relative z-10 mx-auto max-w-4xl space-y-5 text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
             <AnimatedWords text={t.heroKicker} baseDelay={0} />
