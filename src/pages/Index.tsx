@@ -706,19 +706,19 @@ const Index = () => {
           </p>
           <h1
             className="animate-hero-rise-in font-display text-4xl font-bold tracking-[-0.02em] md:text-6xl md:leading-[1.1] bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent"
-            style={{ animationDelay: "120ms" }}
+            style={{ animationDelay: "280ms" }}
           >
             {t.heroHeadline}
           </h1>
           <p
             className="animate-hero-rise-in text-lg text-muted-foreground"
-            style={{ animationDelay: "240ms" }}
+            style={{ animationDelay: "560ms" }}
           >
             {t.heroSub}
           </p>
           <div
             className="animate-hero-rise-in flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center"
-            style={{ animationDelay: "360ms" }}
+            style={{ animationDelay: "840ms" }}
           >
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
