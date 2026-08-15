@@ -85,20 +85,20 @@ const processSteps = [
   },
   {
     step: "02",
-    title: "Woche 1: Zielgruppe und Nachrichten",
-    text: "Wir definieren gemeinsam, wen Sie erreichen wollen. Ich baue die Zielliste auf und schreibe die Nachrichten. Sie geben alles frei, bevor etwas rausgeht.",
+    title: "Woche 1",
+    text: "Zielgruppe und Nachrichten. Wir definieren gemeinsam, wen Sie erreichen wollen. Ich baue die Zielliste auf und schreibe die Nachrichten. Sie geben alles frei, bevor etwas rausgeht.",
     icon: "strategy",
   },
   {
     step: "03",
-    title: "Woche 2: Technischer Aufbau",
-    text: "Absender-Domains und LinkedIn-Profil werden schrittweise aufgewärmt, damit Ihre Nachrichten ankommen und Ihr Profil nicht eingeschränkt wird. Beim AI Lead Scout entfällt dieser Schritt.",
+    title: "Woche 2",
+    text: "Technischer Aufbau. Absender-Domains und LinkedIn-Profil werden schrittweise aufgewärmt, damit Ihre Nachrichten ankommen und Ihr Profil nicht eingeschränkt wird. Beim AI Lead Scout entfällt dieser Schritt.",
     icon: "build",
   },
   {
     step: "04",
-    title: "Ab Woche 3: Der Betrieb läuft",
-    text: "Erste Antworten kommen meist innerhalb weniger Tage, Dossiers erhalten Sie wöchentlich. Sie sehen laufend die Zahlen, ich optimiere nach.",
+    title: "Ab Woche 3",
+    text: "Der Betrieb läuft. Erste Antworten kommen meist innerhalb weniger Tage, Dossiers erhalten Sie wöchentlich. Sie sehen laufend die Zahlen, ich optimiere nach.",
     icon: "launch",
   },
 ];
@@ -500,18 +500,18 @@ const Index = () => {
         },
         {
           ...processSteps[1],
-          title: "Week 1: Target Audience & Messaging",
-          text: "We define together who you want to reach. I build the target list and write the messages. You approve everything before it goes out.",
+          title: "Week 1",
+          text: "Target audience & messaging. We define together who you want to reach. I build the target list and write the messages. You approve everything before it goes out.",
         },
         {
           ...processSteps[2],
-          title: "Week 2: Technical Setup",
-          text: "Sender domains and LinkedIn profile are gradually warmed up so your messages get delivered and your profile doesn't get restricted. This step is skipped with AI Lead Scout.",
+          title: "Week 2",
+          text: "Technical setup. Sender domains and LinkedIn profile are gradually warmed up so your messages get delivered and your profile doesn't get restricted. This step is skipped with AI Lead Scout.",
         },
         {
           ...processSteps[3],
-          title: "From Week 3: Operations Are Running",
-          text: "First replies usually come in within a few days, and you receive dossiers weekly. You see the numbers continuously, and I keep optimizing.",
+          title: "From Week 3",
+          text: "Operations are running. First replies usually come in within a few days, and you receive dossiers weekly. You see the numbers continuously, and I keep optimizing.",
         },
       ];
 
@@ -616,26 +616,8 @@ const Index = () => {
       : "Predictable lead generation and conversion automation for Swiss businesses.",
   });
   const processTimelineData = localizedProcessSteps.map((item) => {
-    const colonIndex = item.title.indexOf(": ");
-    const titleWords = item.title.split(" ");
-    const timelineTitle =
-      colonIndex !== -1 ? (
-        <>
-          {item.step} {item.title.slice(0, colonIndex + 1)}
-          <br />
-          <span className="block pl-[2.3ch]">{item.title.slice(colonIndex + 2)}</span>
-        </>
-      ) : titleWords.length > 1 ? (
-        <>
-          {item.step} {titleWords[0]}
-          <br />
-          <span className="block pl-[2.3ch]">{titleWords.slice(1).join(" ")}</span>
-        </>
-      ) : (
-        `${item.step} ${item.title}`
-      );
     return {
-    title: timelineTitle,
+    title: `${item.step} ${item.title}`,
     content: (
       <div className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-5">
         <GlowingEffect
