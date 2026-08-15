@@ -55,7 +55,7 @@ const AnimatedWords = ({
       {words.map((word, i) => (
         <span
           key={`${word}-${i}`}
-          className={`animate-word-rise-in ${wordClassName}`}
+          className={`animate-word-fade-in ${wordClassName}`}
           style={{ animationDelay: `${baseDelay + i * step}ms` }}
         >
           {word}

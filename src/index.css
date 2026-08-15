@@ -155,13 +155,25 @@
   animation: hero-rise-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.animate-word-rise-in {
-  animation: hero-rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+/* Opacity-only word fade: no transform, so inline word spans can't visually
+   overlap/reorder on browsers (notably iOS Safari) that apply transforms to
+   inline elements despite the spec. */
+@keyframes word-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-word-fade-in {
+  animation: word-fade-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-hero-rise-in,
-  .animate-word-rise-in {
+  .animate-word-fade-in {
     animation: none;
     opacity: 1;
     transform: none;
