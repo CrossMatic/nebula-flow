@@ -80,28 +80,25 @@ const processSteps = [
   {
     step: "01",
     title: "Erstgespräch",
-    text: "In einem kostenlosen Gespräch von rund 30 Minuten schauen wir uns Ihre Zielgruppe und Ihre bisherige Kundengewinnung an. Ich sage Ihnen ehrlich, ob und welches der beiden Systeme bei Ihnen Sinn ergibt. Und wenn keines passt, sage ich Ihnen das genauso.",
+    text: "30 Minuten, kostenlos. Wir schauen uns Ihre Zielgruppe an und klären, welches System bei Ihnen Sinn ergibt. Oder ob keines passt.",
     icon: "call",
   },
   {
     step: "02",
-    title: "Aufbau",
-    paragraphs: [
-      {
-        lead: "Akquise-System:",
-        text: " Bis zur ersten versendeten Nachricht vergehen etwa zwei Wochen. Diese Zeit brauchen wir, weil die Absender-Domains schrittweise aufgewärmt werden müssen, damit Ihre Nachrichten zuverlässig im Postfach landen und nicht im Spam. Bei LinkedIn gilt dasselbe Prinzip: Wir steigern das Volumen langsam, damit Ihr Profil nicht eingeschränkt wird. Diese zwei Wochen nutzen wir parallel, um Ihre Zielliste aufzubauen und die Nachrichten zu schreiben. Sie geben alle Texte frei, bevor die erste rausgeht.",
-      },
-      {
-        lead: "AI Lead Scout:",
-        text: " Hier geht es deutlich schneller, weil keine Infrastruktur aufgewärmt werden muss. Sie beantworten einen kurzen Fragebogen zu Ihrer Zielgruppe und Ihrem Angebot, damit ich das System darauf kalibriere. Das erste Dossier erhalten Sie in der Woche darauf.",
-      },
-    ],
-    icon: "build",
+    title: "Woche 1: Zielgruppe und Nachrichten",
+    text: "Wir definieren gemeinsam, wen Sie erreichen wollen. Ich baue die Zielliste auf und schreibe die Nachrichten. Sie geben alles frei, bevor etwas rausgeht.",
+    icon: "strategy",
   },
   {
     step: "03",
-    title: "Laufender Betrieb",
-    text: "Sobald die Kampagne läuft, kommen erste Antworten meist innerhalb weniger Tage. Beim Lead Scout erhalten Sie jede Woche neue Dossiers. In beiden Fällen bekommen Sie regelmässig die Zahlen zu sehen, und ich passe laufend an, was sich verbessern lässt.",
+    title: "Woche 2: Technischer Aufbau",
+    text: "Absender-Domains und LinkedIn-Profil werden schrittweise aufgewärmt, damit Ihre Nachrichten ankommen und Ihr Profil nicht eingeschränkt wird. Beim AI Lead Scout entfällt dieser Schritt.",
+    icon: "build",
+  },
+  {
+    step: "04",
+    title: "Ab Woche 3: Der Betrieb läuft",
+    text: "Erste Antworten kommen meist innerhalb weniger Tage, Dossiers erhalten Sie wöchentlich. Sie sehen laufend die Zahlen, ich optimiere nach.",
     icon: "launch",
   },
 ];
@@ -499,26 +496,22 @@ const Index = () => {
         {
           ...processSteps[0],
           title: "Intro call",
-          text: "In a free call of around 30 minutes, we look at your target audience and how you've won customers so far. I'll tell you honestly whether - and which - of the two systems makes sense for you. And if neither fits, I'll tell you that too.",
+          text: "30 minutes, free. We look at your target audience and clarify which system makes sense for you. Or whether neither does.",
         },
         {
           ...processSteps[1],
-          title: "Setup",
-          paragraphs: [
-            {
-              lead: "Acquisition system:",
-              text: " It takes about two weeks until the first message goes out. We need this time because the sender domains have to be warmed up gradually so your messages reliably land in the inbox and not in spam. The same principle applies to LinkedIn: we increase volume slowly so your profile doesn't get restricted. We use these two weeks in parallel to build your target list and write the messages. You approve every text before the first one goes out.",
-            },
-            {
-              lead: "AI Lead Scout:",
-              text: " This one is much faster, because no infrastructure needs to be warmed up. You fill out a short questionnaire about your target audience and offering, so I can calibrate the system to it. You get the first dossier the following week.",
-            },
-          ],
+          title: "Week 1: Target Audience & Messaging",
+          text: "We define together who you want to reach. I build the target list and write the messages. You approve everything before it goes out.",
         },
         {
           ...processSteps[2],
-          title: "Ongoing operation",
-          text: "Once the campaign is live, first replies usually come in within a few days. With Lead Scout, you get new dossiers every week. In both cases, you get to see the numbers regularly, and I continuously adjust what can be improved.",
+          title: "Week 2: Technical Setup",
+          text: "Sender domains and LinkedIn profile are gradually warmed up so your messages get delivered and your profile doesn't get restricted. This step is skipped with AI Lead Scout.",
+        },
+        {
+          ...processSteps[3],
+          title: "From Week 3: Operations Are Running",
+          text: "First replies usually come in within a few days, and you receive dossiers weekly. You see the numbers continuously, and I keep optimizing.",
         },
       ];
 
@@ -623,13 +616,20 @@ const Index = () => {
       : "Predictable lead generation and conversion automation for Swiss businesses.",
   });
   const processTimelineData = localizedProcessSteps.map((item) => {
+    const colonIndex = item.title.indexOf(": ");
     const titleWords = item.title.split(" ");
     const timelineTitle =
-      titleWords.length > 1 ? (
+      colonIndex !== -1 ? (
+        <>
+          {item.step} {item.title.slice(0, colonIndex + 1)}
+          <br />
+          <span className="block pl-[2.3ch]">{item.title.slice(colonIndex + 2)}</span>
+        </>
+      ) : titleWords.length > 1 ? (
         <>
           {item.step} {titleWords[0]}
           <br />
-          <span className="pl-[2.3ch]">{titleWords.slice(1).join(" ")}</span>
+          <span className="block pl-[2.3ch]">{titleWords.slice(1).join(" ")}</span>
         </>
       ) : (
         `${item.step} ${item.title}`
@@ -653,18 +653,7 @@ const Index = () => {
           {item.icon === "build" && <Settings2 className="h-5 w-5 text-blue-200" />}
           {item.icon === "launch" && <Rocket className="h-5 w-5 text-blue-200" />}
         </div>
-        {item.paragraphs ? (
-          <div className="space-y-3">
-            {item.paragraphs.map((paragraph, paragraphIndex) => (
-              <p key={paragraphIndex} className="text-sm leading-relaxed text-muted-foreground md:text-base">
-                <em className="font-medium italic">{paragraph.lead}</em>
-                {paragraph.text}
-              </p>
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{item.text}</p>
-        )}
+        <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{item.text}</p>
       </div>
     ),
     };
