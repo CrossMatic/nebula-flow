@@ -37,6 +37,34 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/i18n/language";
 import { useSeo } from "@/seo/useSeo";
 
+const AnimatedWords = ({
+  text,
+  baseDelay,
+  step = 70,
+  wordClassName = "",
+}: {
+  text: string;
+  baseDelay: number;
+  step?: number;
+  wordClassName?: string;
+}) => {
+  const words = text.split(" ");
+  return (
+    <>
+      {words.map((word, i) => (
+        <span
+          key={`${word}-${i}`}
+          className={`inline-block animate-word-rise-in ${wordClassName}`}
+          style={{ animationDelay: `${baseDelay + i * step}ms` }}
+        >
+          {word}
+          {i < words.length - 1 ? " " : ""}
+        </span>
+      ))}
+    </>
+  );
+};
+
 const services = [
   {
     title: "AI Lead Scout",
@@ -698,27 +726,22 @@ const Index = () => {
 
       <section ref={heroRef} id="hero" className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
         <div className="relative z-10 mx-auto max-w-4xl space-y-5 text-center">
-          <p
-            className="animate-hero-rise-in text-sm uppercase tracking-[0.2em] text-muted-foreground"
-            style={{ animationDelay: "0ms" }}
-          >
-            {t.heroKicker}
+          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
+            <AnimatedWords text={t.heroKicker} baseDelay={0} />
           </p>
-          <h1
-            className="animate-hero-rise-in font-display text-4xl font-bold tracking-[-0.02em] md:text-6xl md:leading-[1.1] bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent"
-            style={{ animationDelay: "280ms" }}
-          >
-            {t.heroHeadline}
+          <h1 className="font-display text-4xl font-bold tracking-[-0.02em] md:text-6xl md:leading-[1.1]">
+            <AnimatedWords
+              text={t.heroHeadline}
+              baseDelay={500}
+              wordClassName="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent"
+            />
           </h1>
-          <p
-            className="animate-hero-rise-in text-lg text-muted-foreground"
-            style={{ animationDelay: "560ms" }}
-          >
-            {t.heroSub}
+          <p className="text-lg text-muted-foreground">
+            <AnimatedWords text={t.heroSub} baseDelay={1300} />
           </p>
           <div
             className="animate-hero-rise-in flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center"
-            style={{ animationDelay: "840ms" }}
+            style={{ animationDelay: "2200ms" }}
           >
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
