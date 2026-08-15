@@ -33,7 +33,7 @@ import {
   VolumeX,
 } from "lucide-react";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/i18n/language";
 import { useSeo } from "@/seo/useSeo";
@@ -63,70 +63,6 @@ const AnimatedWords = ({
         </span>
       ))}
     </>
-  );
-};
-
-const HEADLINE_GRADIENT = "linear-gradient(to right, #ffffff, #bfdbfe, #60a5fa)";
-
-const GradientFadeWords = ({
-  text,
-  baseDelay,
-  step = 70,
-  className = "",
-}: {
-  text: string;
-  baseDelay: number;
-  step?: number;
-  className?: string;
-}) => {
-  const containerRef = useRef<HTMLHeadingElement>(null);
-  const [layout, setLayout] = useState<{ width: number; lefts: number[] } | null>(null);
-  const words = text.split(" ");
-
-  useLayoutEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-
-    const measure = () => {
-      const spans = Array.from(el.querySelectorAll<HTMLSpanElement>("[data-word]"));
-      setLayout({
-        width: el.clientWidth,
-        lefts: spans.map((span) => span.offsetLeft),
-      });
-    };
-
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [text]);
-
-  return (
-    <h1 ref={containerRef} className={className}>
-      {words.map((word, i) => {
-        const style: CSSProperties = {
-          animationDelay: `${baseDelay + i * step}ms`,
-        };
-        if (layout) {
-          style.backgroundImage = HEADLINE_GRADIENT;
-          style.backgroundSize = `${layout.width}px 100%`;
-          style.backgroundPositionX = `-${layout.lefts[i] ?? 0}px`;
-          style.WebkitBackgroundClip = "text";
-          style.backgroundClip = "text";
-        }
-        return (
-          <span
-            key={`${word}-${i}`}
-            data-word
-            className="animate-word-rise-in text-transparent"
-            style={style}
-          >
-            {word}
-            {i < words.length - 1 ? " " : ""}
-          </span>
-        );
-      })}
-    </h1>
   );
 };
 
@@ -795,12 +731,9 @@ const Index = () => {
           <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
             <AnimatedWords text={t.heroKicker} baseDelay={0} step={110} />
           </p>
-          <GradientFadeWords
-            text={t.heroHeadline}
-            baseDelay={550}
-            step={110}
-            className="font-display text-4xl font-bold tracking-[-0.02em] md:text-6xl md:leading-[1.1]"
-          />
+          <h1 className="font-display text-4xl font-bold tracking-[-0.02em] text-white md:text-6xl md:leading-[1.1]">
+            <AnimatedWords text={t.heroHeadline} baseDelay={550} step={110} />
+          </h1>
           <p className="text-lg text-muted-foreground">
             <AnimatedWords text={t.heroSub} baseDelay={1300} />
           </p>
