@@ -54,11 +54,11 @@ const AnimatedWords = ({
       {words.map((word, i) => (
         <span
           key={`${word}-${i}`}
-          className={`inline-block animate-word-rise-in ${wordClassName}`}
+          className={`animate-word-rise-in ${wordClassName}`}
           style={{ animationDelay: `${baseDelay + i * step}ms` }}
         >
           {word}
-          {i < words.length - 1 ? " " : ""}
+          {i < words.length - 1 ? " " : ""}
         </span>
       ))}
     </>
@@ -724,17 +724,13 @@ const Index = () => {
         </div>
       </header>
 
-      <section ref={heroRef} id="hero" className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
+      <section ref={heroRef} id="hero" className="flex min-h-screen items-center justify-center px-4">
         <div className="relative z-10 mx-auto max-w-4xl space-y-5 text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
             <AnimatedWords text={t.heroKicker} baseDelay={0} />
           </p>
-          <h1 className="font-display text-4xl font-bold tracking-[-0.02em] md:text-6xl md:leading-[1.1]">
-            <AnimatedWords
-              text={t.heroHeadline}
-              baseDelay={500}
-              wordClassName="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent"
-            />
+          <h1 className="font-display bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-4xl font-bold tracking-[-0.02em] text-transparent md:text-6xl md:leading-[1.1]">
+            <AnimatedWords text={t.heroHeadline} baseDelay={500} />
           </h1>
           <p className="text-lg text-muted-foreground">
             <AnimatedWords text={t.heroSub} baseDelay={1300} />
