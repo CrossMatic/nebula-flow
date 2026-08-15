@@ -628,19 +628,23 @@ const Index = () => {
 
   useSeo({
     title: isDe
-      ? "CrossMatic | Automatisierte Lead-Generierung für Schweizer Unternehmen"
-      : "CrossMatic | Automated Lead Generation for Swiss Businesses",
+      ? "CrossMatic | Akquise-Systeme für Agenturen, Beratungen & Kreativdienstleister in der Schweiz"
+      : "CrossMatic | Outbound Systems for Agencies, Consultancies & Creative Service Providers in Switzerland",
     description: isDe
-      ? "CrossMatic hilft Schweizer Unternehmen bei planbarer Neukundengewinnung durch personalisierte Akquise und Conversion-Automatisierung."
-      : "CrossMatic helps Swiss businesses generate predictable new customers through personalized outreach and conversion automation.",
-    ogTitle: isDe ? "CrossMatic | Automatisierte Lead-Generierung" : "CrossMatic | Automated Lead Generation",
+      ? "Wir finden die Unternehmen, bei denen gerade jetzt ein Anlass besteht, und sprechen die Entscheider persönlich an. Über 30 vermittelte Erstgespräche für Schweizer Dienstleister."
+      : "We find the companies with a real reason to act right now, and reach out to decision-makers directly. Over 30 booked intro calls for Swiss service providers.",
+    ogTitle: isDe
+      ? "CrossMatic | Akquise-Systeme für Agenturen, Beratungen & Kreativdienstleister"
+      : "CrossMatic | Outbound Systems for Agencies, Consultancies & Creative Service Providers",
     ogDescription: isDe
-      ? "Von personalisierter Neukundengewinnung bis zur Automatisierung bestehender Kanäle."
-      : "From personalized lead generation to automation of existing channels.",
-    twitterTitle: isDe ? "CrossMatic | Automatisierte Lead-Generierung" : "CrossMatic | Automated Lead Generation",
+      ? "Über 30 vermittelte Erstgespräche für Schweizer Dienstleister."
+      : "Over 30 booked intro calls for Swiss service providers.",
+    twitterTitle: isDe
+      ? "CrossMatic | Akquise-Systeme für Agenturen, Beratungen & Kreativdienstleister"
+      : "CrossMatic | Outbound Systems for Agencies, Consultancies & Creative Service Providers",
     twitterDescription: isDe
-      ? "Planbare Neukundengewinnung und Conversion-Automatisierung für Schweizer Unternehmen."
-      : "Predictable lead generation and conversion automation for Swiss businesses.",
+      ? "Über 30 vermittelte Erstgespräche für Schweizer Dienstleister."
+      : "Over 30 booked intro calls for Swiss service providers.",
   });
   const processTimelineData = localizedProcessSteps.map((item) => {
     return {
