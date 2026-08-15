@@ -1,4 +1,3 @@
-import GradientBackground from "@/components/GradientBackground";
 import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Timeline } from "@/components/ui/timeline";
@@ -315,7 +314,6 @@ const Index = () => {
   const { language } = useLanguage();
   const isDe = language === "de";
   const [showNavbar, setShowNavbar] = useState(false);
-  const [heroInView, setHeroInView] = useState(true);
   const heroRef = useRef<HTMLElement | null>(null);
   const navigate = useNavigate();
   const t = isDe
@@ -653,21 +651,10 @@ const Index = () => {
       { threshold: 0 },
     );
 
-    const animationObserver = new IntersectionObserver(
-      ([entry]) => {
-        // Start/stop animation with a buffer around hero to avoid jank at viewport edge.
-        const nextActive = entry.isIntersecting;
-        setHeroInView((prev) => (prev === nextActive ? prev : nextActive));
-      },
-      { threshold: 0, rootMargin: "320px 0px 320px 0px" },
-    );
-
     navbarObserver.observe(hero);
-    animationObserver.observe(hero);
 
     return () => {
       navbarObserver.disconnect();
-      animationObserver.disconnect();
     };
   }, []);
 
@@ -710,14 +697,29 @@ const Index = () => {
       </header>
 
       <section ref={heroRef} id="hero" className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4">
-        <GradientBackground active={heroInView} />
         <div className="relative z-10 mx-auto max-w-4xl space-y-5 text-center">
-          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">{t.heroKicker}</p>
-          <h1 className="font-display text-4xl font-bold tracking-[-0.02em] md:text-6xl md:leading-[1.1] bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent">
+          <p
+            className="animate-hero-rise-in text-sm uppercase tracking-[0.2em] text-muted-foreground"
+            style={{ animationDelay: "0ms" }}
+          >
+            {t.heroKicker}
+          </p>
+          <h1
+            className="animate-hero-rise-in font-display text-4xl font-bold tracking-[-0.02em] md:text-6xl md:leading-[1.1] bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent"
+            style={{ animationDelay: "120ms" }}
+          >
             {t.heroHeadline}
           </h1>
-          <p className="text-lg text-muted-foreground">{t.heroSub}</p>
-          <div className="flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center">
+          <p
+            className="animate-hero-rise-in text-lg text-muted-foreground"
+            style={{ animationDelay: "240ms" }}
+          >
+            {t.heroSub}
+          </p>
+          <div
+            className="animate-hero-rise-in flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center"
+            style={{ animationDelay: "360ms" }}
+          >
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
               <span>→</span>
@@ -731,7 +733,6 @@ const Index = () => {
             </button>
           </div>
         </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent to-[#02040a]" />
       </section>
 
       <section className="w-full bg-[#02040a] px-4 py-16 md:px-8 lg:px-16">
