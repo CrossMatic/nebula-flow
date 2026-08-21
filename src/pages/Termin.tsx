@@ -19,7 +19,7 @@ const Termin = () => {
           {
             question: "Was kostet das?",
             answer:
-              "Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Der AI Lead Scout läuft ab CHF 800 pro Monat. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch — ohne dass Sie sich zu etwas verpflichten.",
+              "Das Akquise-System startet bei CHF 2'500 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Der AI Lead Scout läuft ab CHF 1'200 pro Monat. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch — ohne dass Sie sich zu etwas verpflichten.",
           },
           {
             question: "Welches der beiden Systeme passt zu mir?",
@@ -56,7 +56,7 @@ const Termin = () => {
           {
             question: "What does it cost?",
             answer:
-              "The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. AI Lead Scout runs from CHF 800 per month. What it costs in your specific case, we'll tell you in the intro call — without any obligation on your part.",
+              "The acquisition system starts at CHF 2,500 for setup, depending on target audience size and channels. AI Lead Scout runs from CHF 1,200 per month. What it costs in your specific case, we'll tell you in the intro call — without any obligation on your part.",
           },
           {
             question: "Which of the two systems fits me?",
