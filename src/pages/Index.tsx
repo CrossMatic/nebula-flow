@@ -886,7 +886,7 @@ const Index = () => {
 
               <ContainerScroll disableTilt>
               {caseStudy.kpis && caseStudy.kpis.some((kpi) => kpi.value) && (
-                <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="mb-6 hidden gap-3 sm:grid-cols-2 md:grid lg:grid-cols-4">
                   {caseStudy.kpis.map((kpi) => (
                     <div
                       key={kpi.label}
