@@ -388,7 +388,7 @@ const Index = () => {
         aboutTag: "Über CrossMatic",
         aboutTitle: "Ich habe dieses System zuerst für mich selbst gebaut",
         aboutParagraphs: [
-          "Ich bin Joshua Stöckli und führe CrossMatic aus Riehen bei Basel.",
+          "Ich bin Joshua Stöckli und führe CrossMatic aus Basel.",
           "Angefangen hat es damit, dass ich selbst Kunden brauchte. Ich hatte kein Netzwerk, keine Empfehlungen und keinen Namen, auf den jemand reagiert hätte. Also habe ich mir ein System gebaut, um an Unternehmer heranzukommen, die mich nicht kannten.",
           "Nach einigen Monaten war klar: Dieses System funktionierte besser als alles andere, was ich anbot. Und das Problem dahinter hatten meine Kunden genauso — die Abhängigkeit von Empfehlungen, das Warten darauf, dass etwas hereinkommt. Seitdem ist das mein Geschäft.",
           "Was daraus geworden ist, sehen Sie oben auf dieser Seite. Diese Kunden kamen nicht über Beziehungen. Sie kamen über die Systeme, die ich heute für andere baue.",
@@ -454,7 +454,7 @@ const Index = () => {
         aboutTag: "About CrossMatic",
         aboutTitle: "I built this system for myself first",
         aboutParagraphs: [
-          "I'm Joshua Stöckli, and I run CrossMatic from Riehen near Basel.",
+          "I'm Joshua Stöckli, and I run CrossMatic from Basel.",
           "It started because I needed clients myself. I had no network, no referrals, and no name anyone would respond to. So I built a system to reach business owners who didn't know me.",
           "After a few months it was clear: this system worked better than anything else I offered. And my clients had exactly the same problem behind it — the dependency on referrals, waiting for something to come in. It's been my business ever since.",
           "What came out of it, you can see above on this page. Those clients didn't come through connections. They came through the systems I now build for others.",
