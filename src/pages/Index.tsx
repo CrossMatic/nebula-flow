@@ -11,6 +11,7 @@ import gianBessetLogo from "@/assets/client-logos/gian-besset-brand-design.png";
 import saschaVoelkiLogo from "@/assets/client-logos/sascha-voelki.png";
 import caseGianBessetImage from "@/assets/case-gian-besset.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
+import joshuaPortrait from "@/assets/joshua-stoeckli-portrait.jpg";
 import {
   CalendarCheck2,
   Clock3,
@@ -1069,25 +1070,12 @@ const Index = () => {
                 ))}
               </div>
             </div>
-            <div className="surface-glow-hover relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="flex flex-col items-center gap-3 text-center">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border border-blue-300/30 bg-blue-500/10 text-2xl font-semibold text-blue-200">
-                  JS
-                </div>
-                <div>
-                  <p className="text-base font-semibold text-white">{t.aboutName}</p>
-                  <p className="text-sm text-muted-foreground">{t.aboutRole}</p>
-                </div>
-                <a
-                  href="https://www.linkedin.com/in/joshua-st%C3%B6ckli-0a2862394/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-blue-300 transition-colors hover:text-blue-200"
-                >
-                  <Linkedin className="h-4 w-4" />
-                  <span>{t.aboutLinkedin}</span>
-                </a>
-              </div>
+            <div className="surface-glow-hover relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+              <img
+                src={joshuaPortrait}
+                alt={t.aboutName}
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </div>
