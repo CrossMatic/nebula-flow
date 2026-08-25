@@ -1070,7 +1070,11 @@ const Index = () => {
                 ))}
               </div>
             </div>
-            <div className="surface-glow-hover relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+            <div
+              className={`surface-glow-hover relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 ${
+                isDe ? "md:mt-16" : ""
+              }`}
+            >
               <img
                 src={joshuaPortrait}
                 alt={t.aboutName}
