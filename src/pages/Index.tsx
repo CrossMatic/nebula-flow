@@ -72,7 +72,7 @@ const services = [
     title: "AI Lead Scout",
     subtitle: "Ihr Markt-Radar",
     description:
-      "Jede Woche erhalten Sie 3 bis 5 Dossiers zu Unternehmen, bei denen gerade jetzt ein Anlass besteht: ein Führungswechsel, eine Expansion, ein neues Projekt, eine Finanzierungsrunde. Kein Kontaktdatensatz, sondern eine ausgearbeitete Ausgangslage. Sie wissen vor dem ersten Kontakt, was passiert ist, wer entscheidet und warum Sie gerade jetzt relevant sind.",
+      "Jede Woche erhalten Sie bis zu drei Dossiers zu Unternehmen, bei denen gerade jetzt ein Anlass besteht: ein Führungswechsel, eine Expansion, ein neues Projekt, eine Finanzierungsrunde. Kein Kontaktdatensatz, sondern eine ausgearbeitete Ausgangslage. Sie wissen vor dem ersten Kontakt, was passiert ist, wer entscheidet und warum Sie gerade jetzt relevant sind.",
     benefits: [
       "Konkreter Anlass mit Datum und offengelegten Quellen",
       "Entscheider namentlich, mit direkten Kontaktdaten",
@@ -80,9 +80,9 @@ const services = [
       "Begründung, warum Ihr Angebot zu diesem Fall passt",
       "Fertiger Aufhänger für die Erstansprache",
       "Prüfhinweise: wir kennzeichnen, was nicht gesichert ist",
-      "Laufende Lieferung, monatlich kündbar",
+      "Wöchentliche Lieferung, nach drei Monaten monatlich kündbar",
     ],
-    footer: "Ideal für: Unternehmen mit eigenem Vertrieb, die wissen wollen, wo sich der Aufwand lohnt.",
+    footer: "Ideal für: Beratungen, Agenturen und Kreativdienstleister, die gezielt akquirieren wollen und wissen möchten, bei wem sich der Aufwand gerade lohnt. Ob Sie die Dossiers selbst nutzen oder an Ihr Team weitergeben.",
     icon: "scout",
     dashboardNote: "Inklusive Zugang zu Ihrem persönlichen Lead-Intelligence-Dashboard.",
     cardCta: "Lead-Potenzial prüfen →",
@@ -121,7 +121,7 @@ const processSteps = [
   {
     step: "03",
     title: "Woche 2",
-    text: "Technischer Aufbau. Absender-Domains und LinkedIn-Profil werden schrittweise aufgewärmt, damit Ihre Nachrichten ankommen und Ihr Profil nicht eingeschränkt wird. Beim AI Lead Scout entfällt dieser Schritt.",
+    text: "Technischer Aufbau. Absender-Domains und LinkedIn-Profil werden schrittweise aufgewärmt, damit Ihre Nachrichten ankommen und Ihr Profil nicht eingeschränkt wird. Beim AI Lead Scout laufen in dieser Zeit zwei bis drei Testläufe, mit denen wir die Suche gemeinsam schärfen.",
     icon: "build",
   },
   {
@@ -136,7 +136,7 @@ const faqs = [
   {
     question: "Was kostet das?",
     answer:
-      "Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Der AI Lead Scout läuft ab CHF 1'000 pro Monat. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch — ohne dass Sie sich zu etwas verpflichten.",
+      "Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Der AI Lead Scout läuft ab CHF 500 pro Monat, mit drei Monaten Erstlaufzeit. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch — ohne dass Sie sich zu etwas verpflichten.",
   },
   {
     question: "Welches der beiden Systeme passt zu mir?",
@@ -146,7 +146,7 @@ const faqs = [
   {
     question: "Was, wenn es nicht funktioniert?",
     answer:
-      "Das kann vorkommen. Wenn eine Zielgruppe nicht reagiert, sagen wir das offen und passen an: Ansprache, Segment oder Kanal. Was wir nicht machen, ist eine Kampagne weiterlaufen zu lassen, die keine Ergebnisse liefert, nur weil sie bezahlt ist. Und wir arbeiten grundsätzlich mit einer Vereinbarung, die das Risiko für Sie begrenzt — wie die aussieht, hängt vom Projekt ab und besprechen wir vor der Zusammenarbeit.",
+      "Das kann vorkommen. Wenn eine Zielgruppe nicht reagiert, sagen wir das offen und passen an: Ansprache, Segment oder Kanal. Was wir nicht machen, ist eine Kampagne weiterlaufen zu lassen, die keine Ergebnisse liefert, nur weil sie bezahlt ist. Und wir arbeiten grundsätzlich mit einer Vereinbarung, die das Risiko für Sie begrenzt — wie die aussieht, hängt vom Projekt ab und besprechen wir vor der Zusammenarbeit.\n\nBeim AI Lead Scout gilt zusätzlich: Liefern wir im ersten Monat kein einziges Dossier, das dem gemeinsam festgelegten Suchprofil entspricht, erstatten wir den ersten Monatsbeitrag.",
   },
   {
     question: "Wie persönlich sind die Nachrichten wirklich?",
@@ -166,7 +166,7 @@ const faqs = [
   {
     question: "Kann ich das System später selbst übernehmen?",
     answer:
-      "Ja. Alle Systeme laufen auf Ihren eigenen Konten und Zugängen, Sie sind zu keinem Zeitpunkt bei uns eingesperrt. Wenn Sie den Betrieb später intern übernehmen wollen, übergeben wir sauber und erklären Ihrem Team, wie es funktioniert.",
+      "Bei den Akquise-Systemen ja: Sie laufen auf Ihren eigenen Konten und Zugängen, und wir übergeben sauber, wenn Sie den Betrieb intern übernehmen wollen. Beim AI Lead Scout gehören Ihnen alle gelieferten Dossiers. Sie können sie jederzeit exportieren und behalten sie auch nach Ende der Zusammenarbeit.",
   },
 ];
 
@@ -488,7 +488,7 @@ const Index = () => {
           title: "AI Lead Scout",
           subtitle: "Your market radar",
           description:
-            "Every week you receive 3 to 5 dossiers on companies where a trigger exists right now: a change in leadership, an expansion, a new project, a funding round. Not a contact record, but a fully worked-out starting point. Before the first contact, you know what happened, who decides, and why you're relevant right now.",
+            "Every week you receive up to three dossiers on companies where a trigger exists right now: a change in leadership, an expansion, a new project, a funding round. Not a contact record, but a fully worked-out starting point. Before the first contact, you know what happened, who decides, and why you're relevant right now.",
           benefits: [
             "Concrete trigger with date and disclosed sources",
             "Decision-makers by name, with direct contact details",
@@ -496,9 +496,9 @@ const Index = () => {
             "Rationale for why your offer fits this case",
             "Ready-made hook for the first outreach",
             "Verification notes: we flag what isn't confirmed",
-            "Ongoing delivery, cancel monthly",
+            "Weekly delivery, cancel monthly after three months",
           ],
-          footer: "Ideal for: companies with their own sales team who want to know where the effort pays off.",
+          footer: "Ideal for: consultancies, agencies and creative service providers who want to do targeted outreach and know who is worth the effort right now. Whether you use the dossiers yourself or pass them on to your team.",
         },
         {
           icon: "mail",
@@ -534,7 +534,7 @@ const Index = () => {
         {
           ...processSteps[2],
           title: "Week 2",
-          text: "Technical setup. Sender domains and LinkedIn profile are gradually warmed up so your messages get delivered and your profile doesn't get restricted. This step is skipped with AI Lead Scout.",
+          text: "Technical setup. Sender domains and LinkedIn profile are gradually warmed up so your messages get delivered and your profile doesn't get restricted. With AI Lead Scout, we run two to three test runs during this time to sharpen the search together.",
         },
         {
           ...processSteps[3],
@@ -549,7 +549,7 @@ const Index = () => {
         {
           question: "What does it cost?",
           answer:
-            "The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. AI Lead Scout runs from CHF 1,000 per month. What it costs in your specific case, we'll tell you in the intro call — without any obligation on your part.",
+            "The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. AI Lead Scout runs from CHF 500 per month, with an initial term of three months. What it costs in your specific case, we'll tell you in the intro call — without any obligation on your part.",
         },
         {
           question: "Which of the two systems fits me?",
@@ -559,7 +559,7 @@ const Index = () => {
         {
           question: "What if it doesn't work?",
           answer:
-            "That can happen. If a target audience doesn't respond, we say so openly and adjust: messaging, segment, or channel. What we don't do is keep a campaign running that isn't delivering results just because it's paid for. And we generally work with an agreement that limits the risk for you - what that looks like depends on the project, and we discuss it before we start working together.",
+            "That can happen. If a target audience doesn't respond, we say so openly and adjust: messaging, segment, or channel. What we don't do is keep a campaign running that isn't delivering results just because it's paid for. And we generally work with an agreement that limits the risk for you - what that looks like depends on the project, and we discuss it before we start working together.\n\nFor AI Lead Scout, the following also applies: if we don't deliver a single dossier in the first month that matches the search profile we defined together, we refund the first monthly fee.",
         },
         {
           question: "How personal are the messages, really?",
@@ -579,7 +579,7 @@ const Index = () => {
         {
           question: "Can I take over the system myself later?",
           answer:
-            "Yes. All systems run on your own accounts and access, so you're never locked in with us. If you want to take over operations internally later, we hand it over cleanly and walk your team through how it works.",
+            "For the acquisition systems, yes: they run on your own accounts and access, and we hand over cleanly if you want to take over operations internally. With AI Lead Scout, all delivered dossiers belong to you. You can export them at any time and keep them even after our collaboration ends.",
         },
       ];
 
