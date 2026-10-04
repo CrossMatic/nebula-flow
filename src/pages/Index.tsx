@@ -296,7 +296,7 @@ const caseStudiesDe: CaseStudy[] = [
     title: "5 gebuchte Gespräche in 2 Wochen",
     role: "Gian Besset Brand Design · Grafik & Webdesign, Basel",
     text: "Gian Besset wollte planbar neue Kunden gewinnen, unabhängig von Empfehlungen. Wir bauten ein automatisiertes E-Mail-System für Physio- und Tierarztpraxen in der Schweiz, jede Nachricht auf die einzelne Praxis zugeschnitten. Nach zwei Wochen wurde die Kampagne pausiert, nicht wegen mangelnder Ergebnisse, sondern weil die Anfragen die Kapazität überstiegen.",
-    metrics: ["18 Interessenten", "2 Wochen Laufzeit", "14 % Antwortrate"],
+    metrics: ["18 Interessenten", "4 Wochen Laufzeit", "14 % Antwortrate"],
     image: caseGianReportingImage,
     imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
     quote:
@@ -320,7 +320,7 @@ const caseStudiesEn: CaseStudy[] = [
     title: "5 booked calls in 2 weeks",
     role: "Gian Besset Brand Design · Graphic & Web Design, Basel",
     text: "Gian Besset wanted to win new clients predictably, independent of referrals. We built an automated email system for physiotherapy and veterinary clinics in Switzerland, with every message tailored to the individual clinic. After two weeks the campaign was paused, not for lack of results, but because demand exceeded capacity.",
-    metrics: ["18 prospects", "2 weeks runtime", "14% reply rate"],
+    metrics: ["18 prospects", "4 weeks runtime", "14% reply rate"],
     imageAlt: "Reporting excerpt from Gian Besset's email outreach campaign",
     quote:
       "The collaboration was very easy, direct, and uncomplicated. The results exceeded my expectations.",
