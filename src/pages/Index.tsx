@@ -10,6 +10,7 @@ import gianBessetLogo from "@/assets/client-logos/gian-besset-brand-design.png";
 import saschaVoelkiLogo from "@/assets/client-logos/sascha-voelki.png";
 import caseGianBessetImage from "@/assets/case-gian-besset.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
+import caseHaeberliReportingImage from "@/assets/case-haeberli-reporting.png";
 import joshuaPortrait from "@/assets/joshua-stoeckli-portrait.jpg";
 import leadScoutDossierImage from "@/assets/lead-scout-dossier.png";
 import leadScoutCaseDatabaseImage from "@/assets/lead-scout-falldatenbank.png";
@@ -311,7 +312,8 @@ const caseStudiesDe: CaseStudy[] = [
     role: "Büro Haeberli · Agentur für Grafik und Web, Zürich",
     text: "Büro Haeberli wollte gezielt Architekturbüros in der Deutschschweiz erreichen, eine Zielgruppe, die auf Standardanfragen kaum reagiert. Wir recherchierten jedes Büro einzeln und schrieben 308 davon persönlich an. Schon in den ersten drei Tagen kamen drei Gespräche zustande.",
     metrics: ["308 angeschriebene Büros", "19 % Antwortrate", "17 Interessenten"],
-    imagePlaceholder: "Screenshot: Reporting-Ausschnitt",
+    image: caseHaeberliReportingImage,
+    imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Büro Haeberli",
   },
 ];
 
@@ -333,7 +335,7 @@ const caseStudiesEn: CaseStudy[] = [
     role: "Büro Haeberli · Graphic and Web Agency, Zurich",
     text: "Büro Haeberli wanted to reach architecture firms in German-speaking Switzerland, an audience that barely responds to standard outreach. We researched every firm individually and contacted 308 of them personally. Three conversations came about within the first three days.",
     metrics: ["308 firms contacted", "19% reply rate", "17 prospects"],
-    imagePlaceholder: "Screenshot: reporting excerpt",
+    imageAlt: "Reporting excerpt from Büro Haeberli's email outreach campaign",
   },
 ];
 
