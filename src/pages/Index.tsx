@@ -105,6 +105,117 @@ const services = [
   },
 ];
 
+type LeadScoutStep = {
+  label: string;
+  title: string;
+  paragraphs: string[];
+  image?: string;
+  imageAlt?: string;
+  imagePlaceholder?: string;
+};
+
+const leadScoutStepsDe: LeadScoutStep[] = [
+  {
+    label: "Kalibrierung",
+    title: "Zuerst klären wir, wonach wir suchen",
+    paragraphs: [
+      "Bevor der erste Lauf startet, legen wir gemeinsam fest, was in Ihrem Markt überhaupt ein Anlass ist. Bei einer Beratung kann das ein Führungswechsel sein, bei einem Designbüro ein Jubiläum oder ein neuer Auftritt, bei einem technischen Dienstleister ein Bauprojekt oder eine anstehende Sanierung.",
+      "Dazu kommen Ihre Grenzen: welche Regionen, welche Organisationsgrössen, welche Branchen, und welche Unternehmen als Bestandskunden ausgeschlossen bleiben.",
+      "Diese Kalibrierung ist die Grundlage für alles Weitere. Sie dauert rund zwei Wochen, in denen wir zwei bis drei Testläufe machen und gemeinsam nachschärfen.",
+    ],
+  },
+  {
+    label: "Recherche",
+    title: "Jede Woche mehrere",
+    paragraphs: [
+      "Für jeden Lauf arbeiten mehrere spezialisierte Rechercheprozesse parallel. Jeder davon deckt einen anderen Quellentyp ab: Handelsregister und Amtsblätter, Ausschreibungen und Baugesuche, Jahresberichte und Geschäftszahlen, Verbandspublikationen, Fachmedien, Regionalzeitungen.",
+      "Der Schwerpunkt liegt dabei auf Schweizer Primärquellen. Also dort, wo ein Signal entsteht, bevor es zur Nachricht wird. Wenn etwas in der überregionalen Presse steht, ist es für eine Erstansprache meist schon zu spät.",
+    ],
+  },
+  {
+    label: "Prüfung",
+    title: "Was nicht überzeugt, fliegt raus",
+    paragraphs: [
+      "Die Ergebnisse werden zusammengeführt und gegen Ihre Kriterien getestet. Ist der Anlass aktuell und datiert? Passt die Organisation ins Profil? Gibt es einen erreichbaren Entscheider? Arbeitet dort bereits ein Mitbewerber?",
+      "Was diese Prüfung nicht besteht, erscheint nicht im Bericht. Dafür steht am Ende jeder Ausgabe, was geprüft und warum verworfen wurde.",
+      "Jede Angabe ist belegt, jede Quelle verlinkt mit Datum. Kontaktdaten stammen aus offiziellen Unternehmensseiten oder aus dem Handelsregister, nie aus Adressdatenbanken. Was sich nicht belegen lässt, kennzeichnen wir als ungesichert, statt es wegzulassen.",
+      "Es gibt bewusst keine garantierte Anzahl Dossiers. Gibt eine Woche nichts her, sagen wir das offen. Zwei Fälle, bei denen das Gespräch von selbst läuft, sind mehr wert als fünf, die niemand anruft.",
+    ],
+    imagePlaceholder: "Screenshot: Dossier-Übersicht",
+  },
+  {
+    label: "Ihr Portal",
+    title: "Alles an einem Ort, nicht als Datei im Postfach",
+    paragraphs: [
+      "Sie erhalten einen eigenen Arbeitsbereich. Darin liegt pro Woche eine Ausgabe mit einer kurzen Übersicht und den vollständigen Dossiers.",
+      "Darüber liegt eine Falldatenbank, in der alle Fälle zusammenlaufen. Filterbar nach Region, Anlass und Stand. Sie sehen auf einen Blick, was offen ist, was Sie bereits kontaktiert haben und was daraus geworden ist.",
+      "Jede Woche prüfen wir zusätzlich die bestehenden Fälle auf Veränderungen: Ist ein Verfahren weitergegangen, wurde eine Frist verschoben, wurde eine andere Agentur beauftragt. So geht kein Fall verloren. Eine Organisation, die im Frühling noch nicht so weit war, taucht im Herbst wieder auf, wenn der Zeitpunkt passt.",
+    ],
+    imagePlaceholder: "Screenshot: Falldatenbank",
+  },
+  {
+    label: "Das Gedächtnis",
+    title: "Das System lernt Ihren Markt",
+    paragraphs: [
+      "Ein übliches KI-Werkzeug beginnt bei jeder Anfrage von vorne. Es sucht, antwortet und vergisst danach wieder. Beim nächsten Mal macht es dieselben Fehler und schlägt dieselben Organisationen vor.",
+      "Der Lead Scout führt für jeden Kunden ein eigenes Gedächtnis. Nach jedem Lauf wird festgehalten, welche Organisationen geprüft wurden und mit welchem Ergebnis, welche Anlässe zu Gesprächen geführt haben und was Sie abgelehnt haben und warum. Dieses Wissen fliesst in den nächsten Lauf ein.",
+      "Das hat drei Folgen. Keine Organisation wird zweimal geprüft. Fälle, die zu früh kamen, werden zum richtigen Zeitpunkt wieder aufgegriffen. Und das System trifft mit jedem Monat genauer, weil es Ihren Markt besser kennt. Nach einigen Monaten ist Ihr Marktausschnitt erfasst. Der Scout sucht dann nicht mehr den ganzen Markt ab, sondern das, was sich verändert hat.",
+    ],
+    imagePlaceholder: "Screenshot: Wissens-Graph",
+  },
+];
+
+const leadScoutStepsEn: LeadScoutStep[] = [
+  {
+    label: "Calibration",
+    title: "First, we clarify what we're looking for",
+    paragraphs: [
+      "Before the first run starts, we define together what actually counts as a trigger in your market. For a consultancy, that might be a change in leadership; for a design studio, an anniversary or a new brand presence; for a technical service provider, a construction project or an upcoming renovation.",
+      "Then come your boundaries: which regions, which organisation sizes, which industries, and which companies stay excluded as existing clients.",
+      "This calibration is the foundation for everything that follows. It takes about two weeks, during which we run two to three test runs and refine together.",
+    ],
+  },
+  {
+    label: "Research",
+    title: "Several every week",
+    paragraphs: [
+      "For each run, several specialised research processes work in parallel. Each one covers a different type of source: commercial registers and official gazettes, tenders and building permits, annual reports and financials, association publications, trade media, regional newspapers.",
+      "The focus is on Swiss primary sources. That is, where a signal emerges before it becomes news. Once something is in the national press, it's usually too late for a first approach.",
+    ],
+  },
+  {
+    label: "Review",
+    title: "What doesn't hold up gets cut",
+    paragraphs: [
+      "The results are merged and tested against your criteria. Is the trigger current and dated? Does the organisation fit the profile? Is there a reachable decision-maker? Is a competitor already working there?",
+      "Whatever fails this review doesn't appear in the report. Instead, the end of each edition lists what was checked and why it was discarded.",
+      "Every statement is backed up, every source linked with a date. Contact details come from official company websites or the commercial register, never from address databases. What can't be verified, we flag as unconfirmed rather than leaving it out.",
+      "There is deliberately no guaranteed number of dossiers. If a week turns up nothing, we say so openly. Two cases where the conversation flows naturally are worth more than five that nobody calls.",
+    ],
+    imagePlaceholder: "Screenshot: dossier overview",
+  },
+  {
+    label: "Your portal",
+    title: "Everything in one place, not as a file in your inbox",
+    paragraphs: [
+      "You get your own workspace. Each week, it holds an edition with a short overview and the complete dossiers.",
+      "Above that sits a case database where all cases come together. Filterable by region, trigger, and status. At a glance you see what's open, what you've already contacted, and what came of it.",
+      "Every week we also check existing cases for changes: has a procedure moved forward, has a deadline shifted, has another agency been hired. That way no case gets lost. An organisation that wasn't ready in spring resurfaces in autumn, when the timing is right.",
+    ],
+    imagePlaceholder: "Screenshot: case database",
+  },
+  {
+    label: "The memory",
+    title: "The system learns your market",
+    paragraphs: [
+      "A typical AI tool starts from scratch with every request. It searches, answers, and then forgets. Next time, it makes the same mistakes and suggests the same organisations.",
+      "Lead Scout keeps a dedicated memory for each client. After every run, it records which organisations were checked and with what result, which triggers led to conversations, and what you turned down and why. This knowledge feeds into the next run.",
+      "That has three consequences. No organisation is checked twice. Cases that came too early are picked up again at the right time. And the system gets more accurate every month, because it knows your market better. After a few months, your segment of the market is mapped. The Scout then no longer searches the whole market, but only what has changed.",
+    ],
+    imagePlaceholder: "Screenshot: knowledge graph",
+  },
+];
+
 const processSteps = [
   {
     step: "01",
@@ -381,6 +492,10 @@ const Index = () => {
           "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die die Anlässe findet, und Ansprache, die dazu passt.",
         servicesTitle: "Unsere Leistungen",
         servicesSub: "Zwei Wege zum richtigen Gespräch – unser Hauptprodukt ist der Lead Scout.",
+        howTitle: "So funktioniert der Lead Scout",
+        howSub: "Vom ersten Gespräch bis zur wöchentlichen Lieferung. Und warum die Treffer mit jedem Monat besser werden.",
+        howClosing:
+          "Das ist der Unterschied zu einer Recherche, die bei null beginnt: Nach einem halben Jahr kennt der Lead Scout Ihren Markt besser, als es eine einzelne Suche je könnte.",
         outreachResults: "Ergebnisse aus Akquise-Projekten",
         caseSituation: "Ausgangssituation",
         aboutTag: "Über CrossMatic",
@@ -445,6 +560,10 @@ const Index = () => {
           "We make sure you're visible at the right moment: with research that finds the triggers, and outreach that fits.",
         servicesTitle: "Our Services",
         servicesSub: "Two ways to the right conversation – our core product is the Lead Scout.",
+        howTitle: "How Lead Scout works",
+        howSub: "From the first conversation to the weekly delivery. And why the hits get better every month.",
+        howClosing:
+          "That's the difference from research that starts at zero: after six months, Lead Scout knows your market better than any single search ever could.",
         outreachResults: "Results from outreach projects",
         caseSituation: "Initial Situation",
         aboutTag: "About CrossMatic",
@@ -515,6 +634,7 @@ const Index = () => {
       ];
 
   const [leadScout, outreach] = localizedServices;
+  const leadScoutSteps = isDe ? leadScoutStepsDe : leadScoutStepsEn;
 
   const renderServiceCard = (service: (typeof localizedServices)[number]) => (
     <article className="surface-glow-hover relative flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
@@ -848,7 +968,61 @@ const Index = () => {
             {renderServiceCard(leadScout)}
             {renderServiceCard(outreach)}
           </div>
-          <div className="pt-2 text-center">
+        </div>
+      </section>
+
+      <section id="so-funktionierts" className="w-full px-4 py-16 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-6xl space-y-14">
+          <div className="space-y-3 text-center">
+            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
+              {t.howTitle}
+            </h2>
+            <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">{t.howSub}</p>
+          </div>
+          <div className="grid gap-10 md:grid-cols-2 md:gap-12">
+            {leadScoutSteps.slice(0, 2).map((step, index) => (
+              <div key={step.label} className="space-y-3">
+                <p className="text-sm font-semibold text-blue-300">
+                  {String(index + 1).padStart(2, "0")} · {step.label}
+                </p>
+                <h3 className="text-xl font-semibold text-white md:text-2xl">{step.title}</h3>
+                {step.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            ))}
+          </div>
+          {leadScoutSteps.slice(2).map((step, index) => (
+            <div key={step.label} className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+              <div className={`space-y-3 ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                <p className="text-sm font-semibold text-blue-300">
+                  {String(index + 3).padStart(2, "0")} · {step.label}
+                </p>
+                <h3 className="text-xl font-semibold text-white md:text-2xl">{step.title}</h3>
+                {step.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              {step.image ? (
+                <img
+                  src={step.image}
+                  alt={step.imageAlt ?? step.title}
+                  className="w-full rounded-2xl border border-white/10 object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex aspect-[16/10] w-full items-center justify-center rounded-2xl border border-dashed border-white/15 bg-white/[0.03] p-6 text-center text-xs uppercase tracking-[0.16em] text-muted-foreground/60">
+                  {step.imagePlaceholder}
+                </div>
+              )}
+            </div>
+          ))}
+          <p className="mx-auto max-w-3xl text-center text-base font-medium text-white md:text-lg">{t.howClosing}</p>
+          <div className="text-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
               <span>→</span>
