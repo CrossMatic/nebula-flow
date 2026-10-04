@@ -380,10 +380,11 @@ const Index = () => {
         problemClosing:
           "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die die Anlässe findet, und Ansprache, die dazu passt.",
         servicesTag: "Leistungen",
-        servicesTitle: "Zwei Systeme, ein Ziel:\ndas richtige Gespräch zum richtigen Zeitpunkt",
-        servicesSub:
-          "Das eine findet die Unternehmen, bei denen gerade jetzt ein Anlass besteht. Das andere bringt Sie ins Gespräch. Beide werden auf Ihre Zielgruppe und Ihr Angebot zugeschnitten.",
-        socialProof: "Ergebnisse",
+        servicesTitle: "Der AI Lead Scout: Ihr wöchentlicher Markt-Radar",
+        sampleDossier:
+          "Auf Anfrage erstellen wir Ihnen vorab ein kostenloses Beispiel-Dossier aus Ihrem Markt, damit Sie sehen, was Sie erhalten.",
+        outreachTitle: "Sie wollen nicht selbst ansprechen? Das übernehmen wir auch.",
+        outreachResults: "Ergebnisse aus Akquise-Projekten",
         caseSituation: "Ausgangssituation",
         aboutTag: "Über CrossMatic",
         aboutTitle: "Ich habe dieses System zuerst für mich selbst gebaut",
@@ -446,10 +447,11 @@ const Index = () => {
         problemClosing:
           "We make sure you're visible at the right moment: with research that finds the triggers, and outreach that fits.",
         servicesTag: "Services",
-        servicesTitle: "Two systems, one goal: the right conversation at the right time",
-        servicesSub:
-          "One finds the companies where a trigger exists right now. The other gets you into the conversation. Both are tailored to your target audience and your offering.",
-        socialProof: "Results",
+        servicesTitle: "The AI Lead Scout: your weekly market radar",
+        sampleDossier:
+          "On request, we'll create a free sample dossier from your market in advance, so you can see what you'll receive.",
+        outreachTitle: "Don't want to do the outreach yourself? We handle that too.",
+        outreachResults: "Results from outreach projects",
         caseSituation: "Initial Situation",
         aboutTag: "About CrossMatic",
         aboutTitle: "I built this system for myself first",
@@ -517,6 +519,8 @@ const Index = () => {
           footer: "Ideal for: companies that need predictable new conversations without doing the outreach themselves.",
         },
       ];
+
+  const [leadScout, outreach] = localizedServices;
 
   const localizedProcessSteps = isDe
     ? processSteps
@@ -816,64 +820,83 @@ const Index = () => {
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.servicesTag}</p>
             <h2 className="whitespace-pre-line bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.servicesTitle}</h2>
-            <p className="mx-auto max-w-3xl text-sm text-muted-foreground md:text-base">
-              {t.servicesSub}
-            </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
-            {localizedServices.map((service) => (
-              <article
-                key={service.title}
-                className="surface-glow-hover relative flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-8"
-              >
-                <GlowingEffect
-                  spread={34}
-                  glow={false}
-                  disabled
-                  proximity={80}
-                  inactiveZone={0.2}
-                  borderWidth={1}
-                  variant="white"
-                />
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
-                  {service.icon === "mail" ? (
-                    <Mail className="h-5 w-5 text-blue-200" />
-                  ) : service.icon === "scout" ? (
-                    <ScanSearch className="h-5 w-5 text-blue-200" />
-                  ) : (
-                    <CalendarCheck2 className="h-5 w-5 text-blue-200" />
-                  )}
-                </div>
-                <h3 className="text-2xl font-semibold">{service.title}</h3>
-                <p className="mt-1 text-sm font-medium text-blue-300">{service.subtitle}</p>
-                <p className="mt-4 text-sm text-muted-foreground md:text-base">{service.description}</p>
-                <div className="mt-5 flex-1">
-                  <ul className="space-y-2">
-                    {service.benefits.map((benefit) => (
-                      <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90">
-                        <span className="mt-[2px] text-blue-300">✓</span>
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <p className="mt-6 border-t border-white/10 pt-4 text-sm text-muted-foreground">{service.footer}</p>
-              </article>
-            ))}
-          </div>
+          <article className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
+            <GlowingEffect
+              spread={34}
+              glow={false}
+              disabled
+              proximity={80}
+              inactiveZone={0.2}
+              borderWidth={1}
+              variant="white"
+            />
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
+              <ScanSearch className="h-5 w-5 text-blue-200" />
+            </div>
+            <h3 className="text-2xl font-semibold">{leadScout.title}</h3>
+            <p className="mt-1 text-sm font-medium text-blue-300">{leadScout.subtitle}</p>
+            <div className="mt-6 grid gap-8 md:grid-cols-2 md:gap-12">
+              <div className="space-y-4">
+                <p className="text-sm text-muted-foreground md:text-base">{leadScout.description}</p>
+                <p className="text-sm md:text-base">
+                  <a
+                    href="mailto:joshua@getcrossmatic.com?subject=Beispiel-Dossier"
+                    className="text-blue-300 underline decoration-blue-300/40 underline-offset-4 transition-colors hover:text-blue-200"
+                  >
+                    {t.sampleDossier}
+                  </a>
+                </p>
+              </div>
+              <ul className="space-y-2">
+                {leadScout.benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90 md:text-base">
+                    <span className="mt-[2px] text-blue-300">✓</span>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="mt-8 border-t border-white/10 pt-4 text-sm text-muted-foreground">{leadScout.footer}</p>
+          </article>
           <div className="pt-2 text-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
               <span>→</span>
             </GlassButton>
           </div>
-
         </div>
       </section>
 
-      <section id="ergebnisse" className="w-full px-4 py-16 md:px-8 lg:px-16">
+      <section id="akquise" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
-          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.socialProof}</p>
+          <div className="mx-auto max-w-4xl space-y-6">
+            <h2 className="text-center text-2xl font-semibold tracking-tight text-white md:text-3xl">{t.outreachTitle}</h2>
+            <div className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+              <div className="flex items-center gap-3">
+                <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10">
+                  <Mail className="h-4 w-4 text-blue-200" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">{outreach.title}</h3>
+                  <p className="text-sm text-blue-300">{outreach.subtitle}</p>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground">{outreach.description}</p>
+              <ul className="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+                {outreach.benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90">
+                    <span className="mt-[2px] text-blue-300">✓</span>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 border-t border-white/10 pt-3 text-sm text-muted-foreground">{outreach.footer}</p>
+            </div>
+          </div>
+          <p id="ergebnisse" className="scroll-mt-28 pt-8 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            {t.outreachResults}
+          </p>
           <div className="space-y-14">
             {localizedCaseStudies.map((caseStudy, index) => (
               <article key={`case-study-${index}`} className={`space-y-8 ${index > 0 ? "pt-10 md:pt-14" : ""}`}>
