@@ -77,7 +77,7 @@ const services = [
       "Konkreter Anlass mit Datum und offengelegten Quellen",
       "Entscheider namentlich, mit direkten Kontaktdaten",
       "Ausgangslage und Hintergrund des Unternehmens",
-      "Begründung, warum Ihr Angebot zu diesem Fall passt",
+      "Warum Sie gerade jetzt relevant sind",
       "Fertiger Aufhänger für die Erstansprache",
       "Prüfhinweise: wir kennzeichnen, was nicht gesichert ist",
       "Wöchentliche Lieferung, nach drei Monaten monatlich kündbar",
@@ -88,8 +88,8 @@ const services = [
     cardCta: "Lead-Potenzial prüfen →",
   },
   {
-    title: "Gespräche auf Bestellung",
-    subtitle: "E-Mail und LinkedIn, persönlich statt generisch",
+    title: "Persönliche Ansprache per E-Mail und LinkedIn",
+    subtitle: "Wir übernehmen die Ansprache für Sie.",
     description:
       "Normalerweise muss man sich entscheiden: entweder zwanzig sorgfältig recherchierte Nachrichten pro Woche, oder fünfhundert generische. Wir bauen den Weg dazwischen. Jedes Unternehmen wird einzeln recherchiert, jede Nachricht bezieht sich auf dessen konkrete Situation, und das über E-Mail und LinkedIn hinweg in einem Volumen, das planbar Gespräche bringt.",
     benefits: [
@@ -379,9 +379,8 @@ const Index = () => {
         ],
         problemClosing:
           "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die die Anlässe findet, und Ansprache, die dazu passt.",
-        servicesTag: "Leistungen",
-        servicesTitle: "Der Lead Scout: Ihr wöchentlicher Markt-Radar",
-        outreachTitle: "Sie wollen nicht selbst ansprechen? Das übernehmen wir auch.",
+        servicesTitle: "Unsere Leistungen",
+        servicesSub: "Zwei Wege zum richtigen Gespräch – unser Hauptprodukt ist der Lead Scout.",
         outreachResults: "Ergebnisse aus Akquise-Projekten",
         caseSituation: "Ausgangssituation",
         aboutTag: "Über CrossMatic",
@@ -444,9 +443,8 @@ const Index = () => {
         ],
         problemClosing:
           "We make sure you're visible at the right moment: with research that finds the triggers, and outreach that fits.",
-        servicesTag: "Services",
-        servicesTitle: "The Lead Scout: your weekly market radar",
-        outreachTitle: "Don't want to do the outreach yourself? We handle that too.",
+        servicesTitle: "Our Services",
+        servicesSub: "Two ways to the right conversation – our core product is the Lead Scout.",
         outreachResults: "Results from outreach projects",
         caseSituation: "Initial Situation",
         aboutTag: "About CrossMatic",
@@ -491,7 +489,7 @@ const Index = () => {
             "Concrete trigger with date and disclosed sources",
             "Decision-makers by name, with direct contact details",
             "Company background and context",
-            "Rationale for why your offer fits this case",
+            "Why you're relevant right now",
             "Ready-made hook for the first outreach",
             "Verification notes: we flag what isn't confirmed",
             "Weekly delivery, cancel monthly after three months",
@@ -500,8 +498,8 @@ const Index = () => {
         },
         {
           icon: "mail",
-          title: "Conversations on Demand",
-          subtitle: "Email and LinkedIn, personal instead of generic",
+          title: "Personal outreach via email and LinkedIn",
+          subtitle: "We handle the outreach for you.",
           description:
             "Normally you have to choose: either twenty carefully researched messages a week, or five hundred generic ones. We build the path in between. Every company is researched individually, every message references its specific situation, across email and LinkedIn, at a volume that predictably brings conversations.",
           benefits: [
@@ -843,16 +841,12 @@ const Index = () => {
       <section id="leistungen" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.servicesTag}</p>
             <h2 className="whitespace-pre-line bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.servicesTitle}</h2>
+            <p className="mx-auto max-w-3xl text-sm text-muted-foreground md:text-base">{t.servicesSub}</p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 md:gap-y-3">
-            <div className="hidden md:block" aria-hidden="true" />
-            <h3 className="order-2 pt-4 text-center text-lg font-semibold text-white md:order-none md:pt-0 md:text-left">
-              {t.outreachTitle}
-            </h3>
-            <div className="order-1 md:order-none">{renderServiceCard(leadScout)}</div>
-            <div className="order-3 md:order-none">{renderServiceCard(outreach)}</div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {renderServiceCard(leadScout)}
+            {renderServiceCard(outreach)}
           </div>
           <div className="pt-2 text-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
