@@ -2,7 +2,6 @@ import { DarkGradientBg } from "@/components/ui/dark-gradient-bg";
 import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Timeline } from "@/components/ui/timeline";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import farnerLogo from "@/assets/client-logos/farner.svg";
 import arliconLogo from "@/assets/client-logos/arlicon.svg";
@@ -16,25 +15,14 @@ import leadScoutDossierImage from "@/assets/lead-scout-dossier.png";
 import leadScoutCaseDatabaseImage from "@/assets/lead-scout-falldatenbank.png";
 import leadScoutKnowledgeGraphImage from "@/assets/lead-scout-wissensgraph.png";
 import {
-  CalendarCheck2,
-  Clock3,
-  Database,
-  Instagram,
   Linkedin,
   Mail,
   MapPin,
-  Maximize,
-  MessageSquare,
-  Pause,
   PhoneCall,
-  Play,
   Rocket,
   ScanSearch,
-  SendHorizontal,
   Settings2,
   Target,
-  Volume2,
-  VolumeX,
 } from "lucide-react";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { useEffect, useRef, useState } from "react";
@@ -290,175 +278,64 @@ const faqs = [
   },
 ];
 
-const caseStudies = [
+type CaseStudy = {
+  title: string;
+  role: string;
+  text: string;
+  metrics: string[];
+  image?: string;
+  imageAlt?: string;
+  imagePlaceholder?: string;
+  quote?: string;
+  author?: string;
+  authorRole?: string;
+  avatar?: string;
+};
+
+const caseStudiesDe: CaseStudy[] = [
   {
-    type: "outbound",
-    hook: "5 Gespräche in 2 Wochen durch personalisierte E-Mail-Akquise",
-    label: "5 gebuchte Gespräche in 2 Wochen. Dann mussten wir pausieren.",
+    title: "5 gebuchte Gespräche in 2 Wochen",
     role: "Gian Besset Brand Design · Grafik & Webdesign, Basel",
-    kpis: [
-      { value: "Automatisiertes Akquise-System", label: "System", icon: "system" },
-      { value: "18 generierte Interessenten in 2 Wochen", label: "Interessenten", icon: "leads" },
-      { value: "2 Wochen bis zur Pausierung", label: "Laufzeit", icon: "time" },
-      { value: "Physio- & Tierarztpraxen, Schweiz", label: "Zielgruppe", icon: "audience" },
-    ],
-    situation:
-      "Gian Besset wollte planbar neue Kunden gewinnen - unabhängig von Empfehlungen und ohne manuellen Aufwand.",
-    built: [
-      "Aufbau eines automatisierten E-Mail-Akquise-Systems fokussiert auf Physiopraxen und Tierarztpraxen in der Schweiz.",
-      "Jede Nachricht wurde individuell personalisiert - auf die jeweilige Praxis zugeschnitten.",
-    ],
-    madeLabel: "Was wir gemacht haben",
-    resultLabel: "Resultat nach 2 Wochen",
-    result:
-      "Zahlreiche positive Rückmeldungen und 5 gebuchte Gespräche mit potenziellen Kunden. Die Kampagne wurde nach zwei Wochen pausiert - nicht wegen mangelnder Performance, sondern weil die eingehenden Anfragen die verfügbare Kapazität überstiegen.",
-    outcomeCards: [
-      "Zahlreiche positive Rückmeldungen",
-      "5 gebuchte Gespräche in 2 Wochen",
-      "Kampagne wegen Kapazitätsgrenze pausiert",
-    ],
-    pipeline: ["Lead-Liste", "Personalisierte E-Mail", "Antwort", "Gebuchtes Gespräch"],
-    personalizationSnippets: [
-      'Betreff mit Praxisname: "Kurze Idee für {{Praxisname}}"',
-      "Opener mit Fachbereich und lokalem Kontext",
-      "CTA passend zur jeweiligen Praxis-Situation",
-    ],
+    text: "Gian Besset wollte planbar neue Kunden gewinnen, unabhängig von Empfehlungen. Wir bauten ein automatisiertes E-Mail-System für Physio- und Tierarztpraxen in der Schweiz, jede Nachricht auf die einzelne Praxis zugeschnitten. Nach zwei Wochen wurde die Kampagne pausiert, nicht wegen mangelnder Ergebnisse, sondern weil die Anfragen die Kapazität überstiegen.",
+    metrics: ["18 Interessenten", "5 gebuchte Gespräche", "2 Wochen Laufzeit"],
+    image: caseGianReportingImage,
+    imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
     quote:
       "Die Zusammenarbeit war sehr einfach, direkt und unkompliziert. Die Resultate haben meine Erwartungen übertroffen.",
     author: "Gian Besset",
     authorRole: "Gründer Gian Besset Brand Design",
     avatar: caseGianBessetImage,
-    image: caseGianReportingImage,
-    imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
   },
   {
-    type: "outbound",
-    label: "Zugang zu einem Markt, der sich normalerweise nicht öffnet",
-    role: "Arlicon AG · 3D-Visualisierung für Luxusuhren und Juweliere",
-    contentEmpty: true,
-    video: "/case-arlicon.mp4",
-    kpis: [],
-    madeLabel: "Was wir gemacht haben",
-    resultLabel: "Resultat",
-    built: ["", ""],
-    situation:
-      "Ralf suchte einen Weg, den Schweizer Luxusmarkt systematisch zu erschliessen: Boutiquen und Juweliere, die auf Standardanfragen kaum reagieren.",
-    builtText:
-      "Individuell recherchierte E-Mail-Ansprache für 400 Boutiquen und Juweliere in der Deutschschweiz, zugeschnitten auf das jeweilige Haus und Sortiment.",
-    result:
-      "Direkter Kontakt zu Inhabern und Geschäftsführern in einem Markt, der über normale Kanäle praktisch verschlossen ist.",
+    title: "3 Gespräche in den ersten 3 Tagen",
+    role: "Büro Haeberli · Agentur für Grafik und Web, Zürich",
+    text: "Büro Haeberli wollte gezielt Architekturbüros in der Deutschschweiz erreichen, eine Zielgruppe, die auf Standardanfragen kaum reagiert. Wir recherchierten jedes Büro einzeln und schrieben 308 davon persönlich an. Schon in den ersten drei Tagen kamen drei Gespräche zustande.",
+    metrics: ["308 angeschriebene Büros", "19 % Antwortrate", "17 Interessenten"],
+    imagePlaceholder: "Screenshot: Reporting-Ausschnitt",
   },
 ];
 
-const formatVideoTime = (seconds: number) => {
-  if (!Number.isFinite(seconds)) return "0:00";
-  const minutes = Math.floor(seconds / 60);
-  const remaining = Math.floor(seconds % 60);
-  return `${minutes}:${remaining.toString().padStart(2, "0")}`;
-};
-
-const CaseStudyVideoPlayer = ({ src }: { src: string }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-
-  const togglePlay = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (video.paused) {
-      video.play();
-    } else {
-      video.pause();
-    }
-  };
-
-  const toggleMute = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.muted = !video.muted;
-    setIsMuted(video.muted);
-  };
-
-  const toggleFullscreen = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-    } else {
-      video.requestFullscreen?.();
-    }
-  };
-
-  const handleSeek = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const video = videoRef.current;
-    if (!video || !duration) return;
-    const time = (Number(event.target.value) / 100) * duration;
-    video.currentTime = time;
-    setCurrentTime(time);
-  };
-
-  const progress = duration ? (currentTime / duration) * 100 : 0;
-
-  return (
-    <div className="surface-glow-hover group relative overflow-hidden rounded-2xl border border-blue-300/20 bg-black">
-      <video
-        ref={videoRef}
-        src={src}
-        className="block w-full cursor-pointer"
-        autoPlay
-        muted
-        loop
-        playsInline
-        onClick={togglePlay}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-        onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
-        onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
-      />
-      <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-4 py-3">
-        <button
-          type="button"
-          onClick={togglePlay}
-          aria-label={isPlaying ? "Pause" : "Play"}
-          className="shrink-0 text-white/90 transition-colors hover:text-white"
-        >
-          {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-        </button>
-        <span className="shrink-0 text-xs tabular-nums text-white/80">
-          {formatVideoTime(currentTime)} / {formatVideoTime(duration)}
-        </span>
-        <input
-          type="range"
-          min={0}
-          max={100}
-          step={0.1}
-          value={progress}
-          onChange={handleSeek}
-          aria-label="Video-Fortschritt"
-          className="h-1 flex-1 cursor-pointer accent-blue-400"
-        />
-        <button
-          type="button"
-          onClick={toggleMute}
-          aria-label={isMuted ? "Ton an" : "Stumm schalten"}
-          className="shrink-0 text-white/90 transition-colors hover:text-white"
-        >
-          {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
-        </button>
-        <button
-          type="button"
-          onClick={toggleFullscreen}
-          aria-label="Vollbild"
-          className="shrink-0 text-white/90 transition-colors hover:text-white"
-        >
-          <Maximize className="h-5 w-5" />
-        </button>
-      </div>
-    </div>
-  );
-};
+const caseStudiesEn: CaseStudy[] = [
+  {
+    ...caseStudiesDe[0],
+    title: "5 booked calls in 2 weeks",
+    role: "Gian Besset Brand Design · Graphic & Web Design, Basel",
+    text: "Gian Besset wanted to win new clients predictably, independent of referrals. We built an automated email system for physiotherapy and veterinary clinics in Switzerland, with every message tailored to the individual clinic. After two weeks the campaign was paused, not for lack of results, but because demand exceeded capacity.",
+    metrics: ["18 prospects", "5 booked calls", "2 weeks runtime"],
+    imageAlt: "Reporting excerpt from Gian Besset's email outreach campaign",
+    quote:
+      "The collaboration was very easy, direct, and uncomplicated. The results exceeded my expectations.",
+    authorRole: "Founder, Gian Besset Brand Design",
+  },
+  {
+    ...caseStudiesDe[1],
+    title: "3 conversations in the first 3 days",
+    role: "Büro Haeberli · Graphic and Web Agency, Zurich",
+    text: "Büro Haeberli wanted to reach architecture firms in German-speaking Switzerland, an audience that barely responds to standard outreach. We researched every firm individually and contacted 308 of them personally. Three conversations came about within the first three days.",
+    metrics: ["308 firms contacted", "19% reply rate", "17 prospects"],
+    imagePlaceholder: "Screenshot: reporting excerpt",
+  },
+];
 
 const Index = () => {
   const { language } = useLanguage();
@@ -506,7 +383,6 @@ const Index = () => {
         howClosing:
           "Das ist der Unterschied zu einer Recherche, die jedes Mal bei null beginnt. Die Dossiers sind ab der ersten Ausgabe vollständig, das Gedächtnis macht sie mit jeder weiteren treffsicherer.",
         outreachResults: "Ergebnisse aus Akquise-Projekten",
-        caseSituation: "Ausgangssituation",
         aboutTag: "Über CrossMatic",
         aboutTitle: "Ich habe dieses System zuerst für mich selbst gebaut",
         aboutParagraphs: [
@@ -574,7 +450,6 @@ const Index = () => {
         howClosing:
           "That's the difference from research that starts from zero every time. The dossiers are complete from the very first issue, and the memory makes each one after that more precise.",
         outreachResults: "Results from outreach projects",
-        caseSituation: "Initial Situation",
         aboutTag: "About CrossMatic",
         aboutTitle: "I built this system for myself first",
         aboutParagraphs: [
@@ -739,49 +614,7 @@ const Index = () => {
         },
       ];
 
-  const localizedCaseStudies = isDe
-    ? caseStudies
-    : [
-        {
-          ...caseStudies[0],
-          label: "5 booked calls in 2 weeks. Then we had to pause.",
-          role: "Gian Besset Brand Design · Graphic & Web Design, Basel",
-          hook: "5 sales calls in 2 weeks through personalized email outreach",
-          kpis: [
-            { value: "Automated acquisition system", label: "System", icon: "system" },
-            { value: "18 generated prospects in 2 weeks", label: "Prospects", icon: "leads" },
-            { value: "2 weeks until paused", label: "Duration", icon: "time" },
-            { value: "Physio & veterinary clinics, Switzerland", label: "Target Group", icon: "audience" },
-          ],
-          situation:
-            "Gian Besset wanted predictable new clients - independent of referrals and without manual effort.",
-          built: [
-            "Built an automated email outreach system focused on physiotherapy and veterinary clinics in Switzerland.",
-            "Each message was individually personalized for the specific clinic.",
-          ],
-          madeLabel: "What we did",
-          resultLabel: "Result after 2 weeks",
-          result:
-            "Numerous positive responses and 5 booked calls with potential clients. The campaign was paused after two weeks - not due to weak performance, but because incoming demand exceeded available capacity.",
-          quote:
-            "The collaboration was very easy, direct, and uncomplicated. The results exceeded my expectations.",
-          authorRole: "Founder, Gian Besset Brand Design",
-        },
-        {
-          ...caseStudies[1],
-          label: "Access to a market that doesn't normally open up",
-          role: "Arlicon AG · 3D visualization for luxury watches and jewelers",
-          madeLabel: "What we did",
-          resultLabel: "Result",
-          kpis: [],
-          situation:
-            "Ralf was looking for a way to systematically break into the Swiss luxury market: boutiques and jewelers that barely respond to standard outreach.",
-          builtText:
-            "Individually researched email outreach to 400 boutiques and jewelers across German-speaking Switzerland, tailored to each house and product range.",
-          result:
-            "Direct contact with owners and managing directors in a market that's practically closed off through normal channels.",
-        },
-      ];
+  const localizedCaseStudies = isDe ? caseStudiesDe : caseStudiesEn;
 
   useSeo({
     title: isDe
@@ -1045,178 +878,59 @@ const Index = () => {
           <p id="ergebnisse" className="scroll-mt-28 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
             {t.outreachResults}
           </p>
-          <div className="space-y-14">
-            {localizedCaseStudies.map((caseStudy, index) => (
-              <article key={`case-study-${index}`} className={`space-y-8 ${index > 0 ? "pt-10 md:pt-14" : ""}`}>
-              <div className="space-y-3 text-center">
-                <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
-                  {caseStudy.label}
-                </h2>
-                <p className="text-sm text-muted-foreground md:text-base">{caseStudy.role}</p>
-              </div>
-
-              <ContainerScroll disableTilt>
-              {caseStudy.kpis && caseStudy.kpis.some((kpi) => kpi.value) && (
-                <div className="mb-6 hidden gap-3 sm:grid-cols-2 md:grid lg:grid-cols-4">
-                  {caseStudy.kpis.map((kpi) => (
-                    <div
-                      key={kpi.label}
-                      className="group flex h-full flex-col rounded-xl border border-blue-300/20 bg-white/[0.03] p-4 transition-all hover:border-blue-300/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.2)]"
-                    >
-                      <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10">
-                        {kpi.icon === "system" && <Settings2 className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "leads" && <SendHorizontal className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "calls" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "audience" && <Target className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "time" && <Clock3 className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "meetings" && <CalendarCheck2 className="h-4 w-4 text-blue-200" />}
-                        {kpi.icon === "market" && <Target className="h-4 w-4 text-blue-200" />}
-                      </div>
-                      {kpi.value && (
-                        <p className="text-sm font-semibold leading-relaxed text-slate-100 md:text-base">{kpi.value}</p>
-                      )}
-                      <p className="mt-auto pt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">{kpi.label}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              <div className="surface-glow-hover relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
+          <div className="grid gap-6 md:grid-cols-2">
+            {localizedCaseStudies.map((caseStudy) => (
+              <article
+                key={caseStudy.title}
+                className="surface-glow-hover relative flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8"
+              >
                 <GlowingEffect
                   spread={34}
                   glow={false}
                   disabled
-                  proximity={84}
+                  proximity={80}
                   inactiveZone={0.2}
                   borderWidth={1}
                   variant="white"
                 />
-
-                {caseStudy.contentEmpty && caseStudy.video ? (
-                  <div className="space-y-6">
-                    <CaseStudyVideoPlayer src={caseStudy.video} />
-                    {(caseStudy.situation || caseStudy.builtText || caseStudy.result) && (
-                      <div className="grid gap-6 sm:grid-cols-3">
-                        <div className="space-y-2">
-                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{t.caseSituation}</p>
-                          <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
-                        </div>
-                        <div className="space-y-2">
-                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">
-                            {caseStudy.madeLabel ?? "Was wir gebaut haben"}
-                          </p>
-                          <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.builtText}</p>
-                        </div>
-                        <div className="space-y-2">
-                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{caseStudy.resultLabel}</p>
-                          <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className={`grid gap-6 ${caseStudy.type === "outbound" ? "md:grid-cols-[1.2fr_0.8fr]" : "md:grid-cols-[1.1fr_0.9fr]"}`}>
-                    <div className="space-y-6">
-                      <div className="space-y-2">
-                        {!caseStudy.contentEmpty && (
-                          <>
-                            <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{t.caseSituation}</p>
-                            <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.situation}</p>
-                          </>
-                        )}
-                        {caseStudy.contentEmpty && <div className="min-h-[4.5rem]" />}
-                      </div>
-
-                      <div className="space-y-3">
-                        {!caseStudy.contentEmpty && (
-                          <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">
-                            {caseStudy.madeLabel ?? "Was wir gebaut haben"}
-                          </p>
-                        )}
-                        {!caseStudy.contentEmpty ? (
-                          <ul className="space-y-3">
-                            {caseStudy.built?.map((item, builtIndex) => (
-                              <li key={`built-${builtIndex}`} className="flex items-start gap-3 text-sm leading-relaxed text-slate-100/90 md:text-base">
-                                {caseStudy.type === "outbound" && builtIndex === 0 && <SendHorizontal className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                                {caseStudy.type === "outbound" && builtIndex === 1 && <Mail className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                                {caseStudy.type === "conversion" && builtIndex === 0 && <MessageSquare className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                                {caseStudy.type === "conversion" && builtIndex === 1 && <Instagram className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                                {caseStudy.type === "conversion" && builtIndex >= 2 && <Database className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />}
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : (
-                          <div className="min-h-[5rem]" />
-                        )}
-                      </div>
-
-                      <div className={`space-y-2 ${!caseStudy.contentEmpty ? "border-t border-white/10 pt-4" : ""}`}>
-                        {!caseStudy.contentEmpty && (
-                          <>
-                            <p className="text-xs uppercase tracking-[0.16em] text-blue-200/90">{caseStudy.resultLabel}</p>
-                            <p className="text-sm leading-relaxed text-slate-100/90 md:text-base">{caseStudy.result}</p>
-                          </>
-                        )}
-                        {caseStudy.contentEmpty && <div className="min-h-[4.5rem]" />}
-                      </div>
+                <h3 className="text-2xl font-semibold">{caseStudy.title}</h3>
+                <p className="mt-1 text-sm font-medium text-blue-300">{caseStudy.role}</p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">{caseStudy.text}</p>
+                <p className="mt-4 border-t border-white/10 pt-3 text-sm font-medium text-slate-100/90">
+                  {caseStudy.metrics.join(" · ")}
+                </p>
+                <div className="mt-6">
+                  {caseStudy.image ? (
+                    <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
+                      <img src={caseStudy.image} alt={caseStudy.imageAlt} className="block w-full" loading="lazy" />
                     </div>
-
-                    <div className="space-y-4">
-                      {caseStudy.type === "outbound" && !caseStudy.contentEmpty && caseStudy.image && (
-                        <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
-                          <img
-                            src={caseStudy.image}
-                            alt={caseStudy.imageAlt}
-                            className="block w-full"
-                            loading="lazy"
-                          />
-                        </div>
+                  ) : (
+                    <div className="flex aspect-[1024/501] w-full items-center justify-center rounded-2xl border border-dashed border-white/15 bg-white/[0.03] p-6 text-center text-xs uppercase tracking-[0.16em] text-muted-foreground/60">
+                      {caseStudy.imagePlaceholder}
+                    </div>
+                  )}
+                </div>
+                {caseStudy.quote && (
+                  <div className="mt-4 rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
+                    <div className="flex items-start gap-4">
+                      {caseStudy.avatar && (
+                        <img
+                          src={caseStudy.avatar}
+                          alt={caseStudy.author}
+                          className="h-14 w-14 shrink-0 rounded-xl border border-white/15 object-cover"
+                          loading="lazy"
+                        />
                       )}
-
-                      {caseStudy.video && <CaseStudyVideoPlayer src={caseStudy.video} />}
-
-                      {!caseStudy.contentEmpty && caseStudy.image && caseStudy.type !== "outbound" && (
-                        <div className="surface-glow-hover overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
-                          <img
-                            src={caseStudy.image}
-                            alt={caseStudy.imageAlt}
-                            className="h-full w-full object-cover"
-                            loading="lazy"
-                          />
+                      <div className="min-w-0 flex-1 space-y-3">
+                        <p className="text-sm italic leading-relaxed text-slate-100/95 md:text-base">{`"${caseStudy.quote}"`}</p>
+                        <div>
+                          <p className="text-sm font-medium text-blue-200">{caseStudy.author}</p>
+                          <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
                         </div>
-                      )}
-
-                      {caseStudy.contentEmpty ? (
-                        <div className="min-h-[5rem]" />
-                      ) : (
-                        <div className="surface-glow-hover rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
-                          <div className="flex items-start gap-4">
-                            {caseStudy.avatar ? (
-                              <img
-                                src={caseStudy.avatar}
-                                alt={caseStudy.author}
-                                className="h-14 w-14 shrink-0 rounded-xl border border-white/15 object-cover"
-                                loading="lazy"
-                              />
-                            ) : (
-                              <div className="h-14 w-14 shrink-0 rounded-xl border border-white/15 bg-white/5" />
-                            )}
-                            <div className="min-w-0 flex-1 space-y-3">
-                              <p className="text-sm italic leading-relaxed text-slate-100/95 md:text-base">{`"${caseStudy.quote}"`}</p>
-                              <div>
-                                <p className="text-sm font-medium text-blue-200">{caseStudy.author}</p>
-                                <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
+                      </div>
                     </div>
                   </div>
                 )}
-              </div>
-              </ContainerScroll>
               </article>
             ))}
           </div>
