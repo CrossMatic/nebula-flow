@@ -298,7 +298,7 @@ const caseStudiesDe: CaseStudy[] = [
     title: "5 gebuchte Gespräche in 2 Wochen",
     role: "Gian Besset Brand Design · Grafik & Webdesign, Basel",
     text: "Gian Besset wollte planbar neue Kunden gewinnen, unabhängig von Empfehlungen. Wir bauten ein automatisiertes E-Mail-System für Physio- und Tierarztpraxen in der Schweiz, jede Nachricht auf die einzelne Praxis zugeschnitten. Nach zwei Wochen wurde die Kampagne pausiert, nicht wegen mangelnder Ergebnisse, sondern weil die Anfragen die Kapazität überstiegen.",
-    metrics: ["18 Interessenten", "5 gebuchte Gespräche", "2 Wochen Laufzeit"],
+    metrics: ["18 Interessenten", "2 Wochen Laufzeit", "14 % Antwortrate"],
     image: caseGianReportingImage,
     imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
     quote:
@@ -308,10 +308,10 @@ const caseStudiesDe: CaseStudy[] = [
     avatar: caseGianBessetImage,
   },
   {
-    title: "3 Gespräche in den ersten 3 Tagen",
+    title: "3 gebuchte Gespräche in den ersten 3 Tagen",
     role: "Büro Haeberli · Agentur für Grafik und Web, Zürich",
     text: "Büro Haeberli wollte gezielt Architekturbüros in der Deutschschweiz erreichen, eine Zielgruppe, die auf Standardanfragen kaum reagiert. Wir recherchierten jedes Büro einzeln und schrieben 308 davon persönlich an. Schon in den ersten drei Tagen kamen drei Gespräche zustande.",
-    metrics: ["308 angeschriebene Büros", "19 % Antwortrate", "17 Interessenten"],
+    metrics: ["17 Interessenten", "4 Wochen Laufzeit", "19 % Antwortrate"],
     image: caseHaeberliReportingImage,
     imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Büro Haeberli",
   },
@@ -323,7 +323,7 @@ const caseStudiesEn: CaseStudy[] = [
     title: "5 booked calls in 2 weeks",
     role: "Gian Besset Brand Design · Graphic & Web Design, Basel",
     text: "Gian Besset wanted to win new clients predictably, independent of referrals. We built an automated email system for physiotherapy and veterinary clinics in Switzerland, with every message tailored to the individual clinic. After two weeks the campaign was paused, not for lack of results, but because demand exceeded capacity.",
-    metrics: ["18 prospects", "5 booked calls", "2 weeks runtime"],
+    metrics: ["18 prospects", "2 weeks runtime", "14% reply rate"],
     imageAlt: "Reporting excerpt from Gian Besset's email outreach campaign",
     quote:
       "The collaboration was very easy, direct, and uncomplicated. The results exceeded my expectations.",
@@ -331,10 +331,10 @@ const caseStudiesEn: CaseStudy[] = [
   },
   {
     ...caseStudiesDe[1],
-    title: "3 conversations in the first 3 days",
+    title: "3 booked calls in the first 3 days",
     role: "Büro Haeberli · Graphic and Web Agency, Zurich",
     text: "Büro Haeberli wanted to reach architecture firms in German-speaking Switzerland, an audience that barely responds to standard outreach. We researched every firm individually and contacted 308 of them personally. Three conversations came about within the first three days.",
-    metrics: ["308 firms contacted", "19% reply rate", "17 prospects"],
+    metrics: ["17 prospects", "4 weeks runtime", "19% reply rate"],
     imageAlt: "Reporting excerpt from Büro Haeberli's email outreach campaign",
   },
 ];
