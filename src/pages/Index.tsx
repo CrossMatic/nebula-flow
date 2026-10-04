@@ -14,6 +14,7 @@ import caseGianReportingImage from "@/assets/case-gian-reporting.png";
 import joshuaPortrait from "@/assets/joshua-stoeckli-portrait.jpg";
 import leadScoutDossierImage from "@/assets/lead-scout-dossier.png";
 import leadScoutCaseDatabaseImage from "@/assets/lead-scout-falldatenbank.png";
+import leadScoutKnowledgeGraphImage from "@/assets/lead-scout-wissensgraph.png";
 import {
   CalendarCheck2,
   Clock3,
@@ -165,7 +166,8 @@ const leadScoutStepsDe: LeadScoutStep[] = [
       "Der Lead Scout führt für jeden Kunden ein eigenes Gedächtnis. Nach jedem Lauf wird festgehalten, welche Organisationen geprüft wurden und mit welchem Ergebnis, welche Anlässe zu Gesprächen geführt haben und was Sie abgelehnt haben und warum. Dieses Wissen fliesst in den nächsten Lauf ein.",
       "Das hat drei Folgen. Keine Organisation wird zweimal geprüft. Fälle, die zu früh kamen, werden zum richtigen Zeitpunkt wieder aufgegriffen. Und das System trifft mit jedem Monat genauer, weil es Ihren Markt besser kennt. Nach einigen Monaten ist Ihr Marktausschnitt erfasst. Der Scout sucht dann nicht mehr den ganzen Markt ab, sondern das, was sich verändert hat.",
     ],
-    imagePlaceholder: "Screenshot: Wissens-Graph",
+    image: leadScoutKnowledgeGraphImage,
+    imageAlt: "Wissens-Graph des Lead Scout mit verknüpften Organisationen und Anlässen",
   },
 ];
 
@@ -218,7 +220,8 @@ const leadScoutStepsEn: LeadScoutStep[] = [
       "Lead Scout keeps a dedicated memory for each client. After every run, it records which organisations were checked and with what result, which triggers led to conversations, and what you turned down and why. This knowledge feeds into the next run.",
       "That has three consequences. No organisation is checked twice. Cases that came too early are picked up again at the right time. And the system gets more accurate every month, because it knows your market better. After a few months, your segment of the market is mapped. The Scout then no longer searches the whole market, but only what has changed.",
     ],
-    imagePlaceholder: "Screenshot: knowledge graph",
+    image: leadScoutKnowledgeGraphImage,
+    imageAlt: "Lead Scout knowledge graph with connected organisations and triggers",
   },
 ];
 
