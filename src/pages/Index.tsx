@@ -519,7 +519,7 @@ const Index = () => {
   const [leadScout, outreach] = localizedServices;
 
   const renderServiceCard = (service: (typeof localizedServices)[number]) => (
-    <article className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+    <article className="surface-glow-hover relative flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
       <GlowingEffect
         spread={34}
         glow={false}
@@ -529,24 +529,20 @@ const Index = () => {
         borderWidth={1}
         variant="white"
       />
-      <div className="grid gap-5 md:grid-cols-2 md:items-end md:gap-10">
-        <div>
-          <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
-            {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-blue-200" /> : <Mail className="h-5 w-5 text-blue-200" />}
-          </div>
-          <h3 className="text-2xl font-semibold">{service.title}</h3>
-          <p className="mt-1 text-sm font-medium text-blue-300">{service.subtitle}</p>
-          <p className="mt-4 text-sm text-muted-foreground md:text-base">{service.description}</p>
-        </div>
-        <ul className="space-y-1.5">
-          {service.benefits.map((benefit) => (
-            <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90 md:text-base">
-              <span className="mt-[2px] text-blue-300">✓</span>
-              <span>{benefit}</span>
-            </li>
-          ))}
-        </ul>
+      <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
+        {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-blue-200" /> : <Mail className="h-5 w-5 text-blue-200" />}
       </div>
+      <h3 className="text-2xl font-semibold">{service.title}</h3>
+      <p className="mt-1 text-sm font-medium text-blue-300">{service.subtitle}</p>
+      <p className="mt-4 text-sm text-muted-foreground md:text-base">{service.description}</p>
+      <ul className="mt-4 flex-1 space-y-1.5">
+        {service.benefits.map((benefit) => (
+          <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90">
+            <span className="mt-[2px] text-blue-300">✓</span>
+            <span>{benefit}</span>
+          </li>
+        ))}
+      </ul>
       <p className="mt-5 border-t border-white/10 pt-3 text-sm text-muted-foreground">{service.footer}</p>
     </article>
   );
@@ -850,7 +846,14 @@ const Index = () => {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.servicesTag}</p>
             <h2 className="whitespace-pre-line bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.servicesTitle}</h2>
           </div>
-          {renderServiceCard(leadScout)}
+          <div className="grid gap-6 md:grid-cols-2 md:gap-y-3">
+            <div className="hidden md:block" aria-hidden="true" />
+            <h3 className="order-2 pt-4 text-center text-lg font-semibold text-white md:order-none md:pt-0 md:text-left">
+              {t.outreachTitle}
+            </h3>
+            <div className="order-1 md:order-none">{renderServiceCard(leadScout)}</div>
+            <div className="order-3 md:order-none">{renderServiceCard(outreach)}</div>
+          </div>
           <div className="pt-2 text-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
@@ -862,9 +865,7 @@ const Index = () => {
 
       <section id="akquise" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
-          <h2 className="text-center text-2xl font-semibold tracking-tight text-white md:text-3xl">{t.outreachTitle}</h2>
-          {renderServiceCard(outreach)}
-          <p id="ergebnisse" className="scroll-mt-28 pt-8 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <p id="ergebnisse" className="scroll-mt-28 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
             {t.outreachResults}
           </p>
           <div className="space-y-14">
