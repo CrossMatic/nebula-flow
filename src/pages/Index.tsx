@@ -12,6 +12,7 @@ import saschaVoelkiLogo from "@/assets/client-logos/sascha-voelki.png";
 import caseGianBessetImage from "@/assets/case-gian-besset.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
 import joshuaPortrait from "@/assets/joshua-stoeckli-portrait.jpg";
+import leadScoutDossierImage from "@/assets/lead-scout-dossier.png";
 import {
   CalendarCheck2,
   Clock3,
@@ -141,7 +142,8 @@ const leadScoutStepsDe: LeadScoutStep[] = [
       "Jede Angabe ist belegt, jede Quelle verlinkt mit Datum. Kontaktdaten stammen aus offiziellen Unternehmensseiten oder aus dem Handelsregister, nie aus Adressdatenbanken. Was sich nicht belegen lässt, kennzeichnen wir als ungesichert, statt es wegzulassen.",
       "Es gibt bewusst keine garantierte Anzahl Dossiers. Gibt eine Woche nichts her, sagen wir das offen. Zwei Fälle, bei denen das Gespräch von selbst läuft, sind mehr wert als fünf, die niemand anruft.",
     ],
-    imagePlaceholder: "Screenshot: Dossier-Übersicht",
+    image: leadScoutDossierImage,
+    imageAlt: "Lead Scout Dossier: Ausgabe mit Management Summary",
   },
   {
     label: "Ihr Portal",
@@ -192,7 +194,8 @@ const leadScoutStepsEn: LeadScoutStep[] = [
       "Every statement is backed up, every source linked with a date. Contact details come from official company websites or the commercial register, never from address databases. What can't be verified, we flag as unconfirmed rather than leaving it out.",
       "There is deliberately no guaranteed number of dossiers. If a week turns up nothing, we say so openly. Two cases where the conversation flows naturally are worth more than five that nobody calls.",
     ],
-    imagePlaceholder: "Screenshot: dossier overview",
+    image: leadScoutDossierImage,
+    imageAlt: "Lead Scout dossier: issue with management summary",
   },
   {
     label: "Your portal",
