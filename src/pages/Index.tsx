@@ -129,7 +129,7 @@ const leadScoutStepsDe: LeadScoutStep[] = [
   },
   {
     label: "Recherche",
-    title: "Jede Woche mehrere",
+    title: "Jede Woche mehrere hundert Quellen",
     paragraphs: [
       "Für jeden Lauf arbeiten mehrere spezialisierte Rechercheprozesse parallel. Jeder davon deckt einen anderen Quellentyp ab: Handelsregister und Amtsblätter, Ausschreibungen und Baugesuche, Jahresberichte und Geschäftszahlen, Verbandspublikationen, Fachmedien, Regionalzeitungen.",
       "Der Schwerpunkt liegt dabei auf Schweizer Primärquellen. Also dort, wo ein Signal entsteht, bevor es zur Nachricht wird. Wenn etwas in der überregionalen Presse steht, ist es für eine Erstansprache meist schon zu spät.",
@@ -164,7 +164,7 @@ const leadScoutStepsDe: LeadScoutStep[] = [
     paragraphs: [
       "Ein übliches KI-Werkzeug beginnt bei jeder Anfrage von vorne. Es sucht, antwortet und vergisst danach wieder. Beim nächsten Mal macht es dieselben Fehler und schlägt dieselben Organisationen vor.",
       "Der Lead Scout führt für jeden Kunden ein eigenes Gedächtnis. Nach jedem Lauf wird festgehalten, welche Organisationen geprüft wurden und mit welchem Ergebnis, welche Anlässe zu Gesprächen geführt haben und was Sie abgelehnt haben und warum. Dieses Wissen fliesst in den nächsten Lauf ein.",
-      "Das hat drei Folgen. Keine Organisation wird zweimal geprüft. Fälle, die zu früh kamen, werden zum richtigen Zeitpunkt wieder aufgegriffen. Und das System trifft mit jedem Monat genauer, weil es Ihren Markt besser kennt. Nach einigen Monaten ist Ihr Marktausschnitt erfasst. Der Scout sucht dann nicht mehr den ganzen Markt ab, sondern das, was sich verändert hat.",
+      "Das hat drei Folgen. Keine Organisation wird zweimal geprüft. Fälle, die zu früh kamen, werden zum richtigen Zeitpunkt wieder aufgegriffen. Und das System trifft mit jeder Ausgabe genauer, weil es Ihren Markt besser kennt. Mit der Zeit sucht der Scout nicht mehr den ganzen Markt ab, sondern das, was sich verändert hat.",
     ],
     image: leadScoutKnowledgeGraphImage,
     imageAlt: "Wissens-Graph des Lead Scout mit verknüpften Organisationen und Anlässen",
@@ -183,7 +183,7 @@ const leadScoutStepsEn: LeadScoutStep[] = [
   },
   {
     label: "Research",
-    title: "Several every week",
+    title: "Several hundred sources every week",
     paragraphs: [
       "For each run, several specialised research processes work in parallel. Each one covers a different type of source: commercial registers and official gazettes, tenders and building permits, annual reports and financials, association publications, trade media, regional newspapers.",
       "The focus is on Swiss primary sources. That is, where a signal emerges before it becomes news. Once something is in the national press, it's usually too late for a first approach.",
@@ -218,7 +218,7 @@ const leadScoutStepsEn: LeadScoutStep[] = [
     paragraphs: [
       "A typical AI tool starts from scratch with every request. It searches, answers, and then forgets. Next time, it makes the same mistakes and suggests the same organisations.",
       "Lead Scout keeps a dedicated memory for each client. After every run, it records which organisations were checked and with what result, which triggers led to conversations, and what you turned down and why. This knowledge feeds into the next run.",
-      "That has three consequences. No organisation is checked twice. Cases that came too early are picked up again at the right time. And the system gets more accurate every month, because it knows your market better. After a few months, your segment of the market is mapped. The Scout then no longer searches the whole market, but only what has changed.",
+      "That has three consequences. No organisation is checked twice. Cases that came too early are picked up again at the right time. And the system gets more accurate with every issue, because it knows your market better. Over time, the Scout no longer searches the whole market, but only what has changed.",
     ],
     image: leadScoutKnowledgeGraphImage,
     imageAlt: "Lead Scout knowledge graph with connected organisations and triggers",
@@ -502,9 +502,9 @@ const Index = () => {
         servicesTitle: "Unsere Leistungen",
         servicesSub: "Zwei Wege zum richtigen Gespräch – unser Hauptprodukt ist der Lead Scout.",
         howTitle: "So funktioniert der Lead Scout",
-        howSub: "Vom ersten Gespräch bis zur wöchentlichen Lieferung. Und warum die Treffer mit jedem Monat besser werden.",
+        howSub: "Vom ersten Gespräch bis zur wöchentlichen Lieferung. Und warum die Treffer mit jeder Ausgabe schärfer werden.",
         howClosing:
-          "Das ist der Unterschied zu einer Recherche, die bei null beginnt: Nach einem halben Jahr kennt der Lead Scout Ihren Markt besser, als es eine einzelne Suche je könnte.",
+          "Das ist der Unterschied zu einer Recherche, die jedes Mal bei null beginnt. Die Dossiers sind ab der ersten Ausgabe vollständig, das Gedächtnis macht sie mit jeder weiteren treffsicherer.",
         outreachResults: "Ergebnisse aus Akquise-Projekten",
         caseSituation: "Ausgangssituation",
         aboutTag: "Über CrossMatic",
@@ -570,9 +570,9 @@ const Index = () => {
         servicesTitle: "Our Services",
         servicesSub: "Two ways to the right conversation – our core product is the Lead Scout.",
         howTitle: "How Lead Scout works",
-        howSub: "From the first conversation to the weekly delivery. And why the hits get better every month.",
+        howSub: "From the first conversation to the weekly delivery. And why the hits get sharper with every issue.",
         howClosing:
-          "That's the difference from research that starts at zero: after six months, Lead Scout knows your market better than any single search ever could.",
+          "That's the difference from research that starts from zero every time. The dossiers are complete from the very first issue, and the memory makes each one after that more precise.",
         outreachResults: "Results from outreach projects",
         caseSituation: "Initial Situation",
         aboutTag: "About CrossMatic",
