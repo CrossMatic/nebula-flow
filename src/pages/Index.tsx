@@ -617,6 +617,7 @@ const Index = () => {
       ];
 
   const localizedCaseStudies = isDe ? caseStudiesDe : caseStudiesEn;
+  const caseStudyQuote = localizedCaseStudies.find((caseStudy) => caseStudy.quote);
 
   useSeo({
     title: isDe
@@ -901,7 +902,7 @@ const Index = () => {
                 <p className="mt-4 border-t border-white/10 pt-3 text-sm font-medium text-slate-100/90">
                   {caseStudy.metrics.join(" · ")}
                 </p>
-                <div className="mt-6">
+                <div className="mt-auto pt-6">
                   {caseStudy.image ? (
                     <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
                       <img src={caseStudy.image} alt={caseStudy.imageAlt} className="block w-full" loading="lazy" />
@@ -912,30 +913,28 @@ const Index = () => {
                     </div>
                   )}
                 </div>
-                {caseStudy.quote && (
-                  <div className="mt-4 rounded-2xl border border-blue-300/20 bg-blue-500/5 p-5">
-                    <div className="flex items-start gap-4">
-                      {caseStudy.avatar && (
-                        <img
-                          src={caseStudy.avatar}
-                          alt={caseStudy.author}
-                          className="h-14 w-14 shrink-0 rounded-xl border border-white/15 object-cover"
-                          loading="lazy"
-                        />
-                      )}
-                      <div className="min-w-0 flex-1 space-y-3">
-                        <p className="text-sm italic leading-relaxed text-slate-100/95 md:text-base">{`"${caseStudy.quote}"`}</p>
-                        <div>
-                          <p className="text-sm font-medium text-blue-200">{caseStudy.author}</p>
-                          <p className="text-xs text-muted-foreground">{caseStudy.authorRole}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </article>
             ))}
           </div>
+          {caseStudyQuote && (
+            <figure className="surface-glow-hover relative flex flex-col items-center rounded-2xl border border-blue-300/20 bg-blue-500/5 p-6 text-center md:p-8">
+              {caseStudyQuote.avatar && (
+                <img
+                  src={caseStudyQuote.avatar}
+                  alt={caseStudyQuote.author}
+                  className="h-16 w-16 rounded-xl border border-white/15 object-cover"
+                  loading="lazy"
+                />
+              )}
+              <blockquote className="mt-5 max-w-3xl text-base italic leading-relaxed text-slate-100/95 md:text-lg">
+                {`"${caseStudyQuote.quote}"`}
+              </blockquote>
+              <figcaption className="mt-4">
+                <p className="text-sm font-medium text-blue-200">{caseStudyQuote.author}</p>
+                <p className="text-xs text-muted-foreground">{caseStudyQuote.authorRole}</p>
+              </figcaption>
+            </figure>
+          )}
         </div>
       </section>
 
