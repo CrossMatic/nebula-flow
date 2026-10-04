@@ -8,7 +8,6 @@ import arliconLogo from "@/assets/client-logos/arlicon.svg";
 import bueroHaeberliLogo from "@/assets/client-logos/buero-haeberli.svg";
 import gianBessetLogo from "@/assets/client-logos/gian-besset-brand-design.png";
 import saschaVoelkiLogo from "@/assets/client-logos/sascha-voelki.png";
-import caseGianBessetImage from "@/assets/case-gian-besset.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
 import caseHaeberliReportingImage from "@/assets/case-haeberli-reporting.png";
 import joshuaPortrait from "@/assets/joshua-stoeckli-portrait.jpg";
@@ -290,7 +289,6 @@ type CaseStudy = {
   quote?: string;
   author?: string;
   authorRole?: string;
-  avatar?: string;
 };
 
 const caseStudiesDe: CaseStudy[] = [
@@ -305,7 +303,6 @@ const caseStudiesDe: CaseStudy[] = [
       "Die Zusammenarbeit war sehr einfach, direkt und unkompliziert. Die Resultate haben meine Erwartungen übertroffen.",
     author: "Gian Besset",
     authorRole: "Gründer Gian Besset Brand Design",
-    avatar: caseGianBessetImage,
   },
   {
     title: "3 gebuchte Gespräche in den ersten 3 Tagen",
@@ -917,16 +914,8 @@ const Index = () => {
             ))}
           </div>
           {caseStudyQuote && (
-            <figure className="surface-glow-hover relative flex flex-col items-center rounded-2xl border border-blue-300/20 bg-blue-500/5 p-6 text-center md:p-8">
-              {caseStudyQuote.avatar && (
-                <img
-                  src={caseStudyQuote.avatar}
-                  alt={caseStudyQuote.author}
-                  className="h-16 w-16 rounded-xl border border-white/15 object-cover"
-                  loading="lazy"
-                />
-              )}
-              <blockquote className="mt-5 max-w-3xl text-base italic leading-relaxed text-slate-100/95 md:text-lg">
+            <figure className="surface-glow-hover relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 text-center md:p-8">
+              <blockquote className="max-w-3xl text-base italic leading-relaxed text-slate-100/95 md:text-lg">
                 {`"${caseStudyQuote.quote}"`}
               </blockquote>
               <figcaption className="mt-4">
