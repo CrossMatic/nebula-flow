@@ -523,7 +523,7 @@ const Index = () => {
   const [leadScout, outreach] = localizedServices;
 
   const renderServiceCard = (service: (typeof localizedServices)[number]) => (
-    <article className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
+    <article className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
       <GlowingEffect
         spread={34}
         glow={false}
@@ -533,13 +533,13 @@ const Index = () => {
         borderWidth={1}
         variant="white"
       />
-      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
+      <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
         {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-blue-200" /> : <Mail className="h-5 w-5 text-blue-200" />}
       </div>
       <h3 className="text-2xl font-semibold">{service.title}</h3>
       <p className="mt-1 text-sm font-medium text-blue-300">{service.subtitle}</p>
-      <div className="mt-6 grid gap-8 md:grid-cols-2 md:gap-12">
-        <div className="space-y-4">
+      <div className="mt-4 grid gap-5 md:grid-cols-2 md:gap-10">
+        <div className="space-y-3">
           <p className="text-sm text-muted-foreground md:text-base">{service.description}</p>
           {service.icon === "scout" && (
             <p className="text-sm md:text-base">
@@ -552,7 +552,7 @@ const Index = () => {
             </p>
           )}
         </div>
-        <ul className="space-y-2">
+        <ul className="space-y-1.5">
           {service.benefits.map((benefit) => (
             <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90 md:text-base">
               <span className="mt-[2px] text-blue-300">✓</span>
@@ -561,7 +561,7 @@ const Index = () => {
           ))}
         </ul>
       </div>
-      <p className="mt-8 border-t border-white/10 pt-4 text-sm text-muted-foreground">{service.footer}</p>
+      <p className="mt-5 border-t border-white/10 pt-3 text-sm text-muted-foreground">{service.footer}</p>
     </article>
   );
 
