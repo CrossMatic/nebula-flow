@@ -381,8 +381,6 @@ const Index = () => {
           "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die die Anlässe findet, und Ansprache, die dazu passt.",
         servicesTag: "Leistungen",
         servicesTitle: "Der Lead Scout: Ihr wöchentlicher Markt-Radar",
-        sampleDossier:
-          "Auf Anfrage erstellen wir Ihnen vorab ein kostenloses Beispiel-Dossier aus Ihrem Markt, damit Sie sehen, was Sie erhalten.",
         outreachTitle: "Sie wollen nicht selbst ansprechen? Das übernehmen wir auch.",
         outreachResults: "Ergebnisse aus Akquise-Projekten",
         caseSituation: "Ausgangssituation",
@@ -448,8 +446,6 @@ const Index = () => {
           "We make sure you're visible at the right moment: with research that finds the triggers, and outreach that fits.",
         servicesTag: "Services",
         servicesTitle: "The Lead Scout: your weekly market radar",
-        sampleDossier:
-          "On request, we'll create a free sample dossier from your market in advance, so you can see what you'll receive.",
         outreachTitle: "Don't want to do the outreach yourself? We handle that too.",
         outreachResults: "Results from outreach projects",
         caseSituation: "Initial Situation",
@@ -533,24 +529,14 @@ const Index = () => {
         borderWidth={1}
         variant="white"
       />
-      <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
-        {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-blue-200" /> : <Mail className="h-5 w-5 text-blue-200" />}
-      </div>
-      <h3 className="text-2xl font-semibold">{service.title}</h3>
-      <p className="mt-1 text-sm font-medium text-blue-300">{service.subtitle}</p>
-      <div className="mt-4 grid gap-5 md:grid-cols-2 md:gap-10">
-        <div className="space-y-3">
-          <p className="text-sm text-muted-foreground md:text-base">{service.description}</p>
-          {service.icon === "scout" && (
-            <p className="text-sm md:text-base">
-              <a
-                href="mailto:joshua@getcrossmatic.com?subject=Beispiel-Dossier"
-                className="text-blue-300 underline decoration-blue-300/40 underline-offset-4 transition-colors hover:text-blue-200"
-              >
-                {t.sampleDossier}
-              </a>
-            </p>
-          )}
+      <div className="grid gap-5 md:grid-cols-2 md:items-end md:gap-10">
+        <div>
+          <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
+            {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-blue-200" /> : <Mail className="h-5 w-5 text-blue-200" />}
+          </div>
+          <h3 className="text-2xl font-semibold">{service.title}</h3>
+          <p className="mt-1 text-sm font-medium text-blue-300">{service.subtitle}</p>
+          <p className="mt-4 text-sm text-muted-foreground md:text-base">{service.description}</p>
         </div>
         <ul className="space-y-1.5">
           {service.benefits.map((benefit) => (
