@@ -13,6 +13,7 @@ import caseGianBessetImage from "@/assets/case-gian-besset.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
 import joshuaPortrait from "@/assets/joshua-stoeckli-portrait.jpg";
 import leadScoutDossierImage from "@/assets/lead-scout-dossier.png";
+import leadScoutCaseDatabaseImage from "@/assets/lead-scout-falldatenbank.png";
 import {
   CalendarCheck2,
   Clock3,
@@ -153,7 +154,8 @@ const leadScoutStepsDe: LeadScoutStep[] = [
       "Darüber liegt eine Falldatenbank, in der alle Fälle zusammenlaufen. Filterbar nach Region, Anlass und Stand. Sie sehen auf einen Blick, was offen ist, was Sie bereits kontaktiert haben und was daraus geworden ist.",
       "Jede Woche prüfen wir zusätzlich die bestehenden Fälle auf Veränderungen: Ist ein Verfahren weitergegangen, wurde eine Frist verschoben, wurde eine andere Agentur beauftragt. So geht kein Fall verloren. Eine Organisation, die im Frühling noch nicht so weit war, taucht im Herbst wieder auf, wenn der Zeitpunkt passt.",
     ],
-    imagePlaceholder: "Screenshot: Falldatenbank",
+    image: leadScoutCaseDatabaseImage,
+    imageAlt: "Lead Scout Falldatenbank mit Fällen nach Typ, Kanton, Trägerschaft und Lage",
   },
   {
     label: "Das Gedächtnis",
@@ -205,7 +207,8 @@ const leadScoutStepsEn: LeadScoutStep[] = [
       "Above that sits a case database where all cases come together. Filterable by region, trigger, and status. At a glance you see what's open, what you've already contacted, and what came of it.",
       "Every week we also check existing cases for changes: has a procedure moved forward, has a deadline shifted, has another agency been hired. That way no case gets lost. An organisation that wasn't ready in spring resurfaces in autumn, when the timing is right.",
     ],
-    imagePlaceholder: "Screenshot: case database",
+    image: leadScoutCaseDatabaseImage,
+    imageAlt: "Lead Scout case database with cases by type, canton, ownership and status",
   },
   {
     label: "The memory",
