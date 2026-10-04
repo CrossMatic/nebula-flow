@@ -72,7 +72,7 @@ const services = [
     title: "Lead Scout",
     subtitle: "Ihr Markt-Radar",
     description:
-      "Jede Woche erhalten Sie bis zu drei Dossiers zu Unternehmen, bei denen gerade jetzt ein Anlass besteht: ein Führungswechsel, eine Expansion, ein neues Projekt, eine Finanzierungsrunde. Kein Kontaktdatensatz, sondern eine ausgearbeitete Ausgangslage. Sie wissen vor dem ersten Kontakt, was passiert ist, wer entscheidet und warum Sie gerade jetzt relevant sind.",
+      "Jede Woche erhalten Sie bis zu drei Dossiers zu Organisationen, bei denen gerade ein Anlass für Ihre Leistung entsteht. Was als Anlass zählt, legen wir gemeinsam fest, zugeschnitten auf Ihren Markt. Sie erhalten keinen Kontaktdatensatz, sondern eine ausgearbeitete Ausgangslage: Sie wissen vor dem ersten Kontakt, was passiert ist, wer entscheidet und warum Sie gerade jetzt relevant sind.",
     benefits: [
       "Konkreter Anlass mit Datum und offengelegten Quellen",
       "Entscheider namentlich, mit direkten Kontaktdaten",
@@ -490,7 +490,7 @@ const Index = () => {
           title: "Lead Scout",
           subtitle: "Your market radar",
           description:
-            "Every week you receive up to three dossiers on companies where a trigger exists right now: a change in leadership, an expansion, a new project, a funding round. Not a contact record, but a fully worked-out starting point. Before the first contact, you know what happened, who decides, and why you're relevant right now.",
+            "Every week you receive up to three dossiers on organisations where a trigger for your services is emerging right now. What counts as a trigger, we define together, tailored to your market. You don't get a contact record, but a fully worked-out starting point: before the first contact, you know what happened, who decides, and why you're relevant right now.",
           benefits: [
             "Concrete trigger with date and disclosed sources",
             "Decision-makers by name, with direct contact details",
