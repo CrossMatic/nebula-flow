@@ -19,17 +19,17 @@ const Termin = () => {
           {
             question: "Was kostet das?",
             answer:
-              "Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Der AI Lead Scout läuft ab CHF 500 pro Monat, mit drei Monaten Erstlaufzeit. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch — ohne dass Sie sich zu etwas verpflichten.",
+              "Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Der Lead Scout läuft ab CHF 500 pro Monat, mit drei Monaten Erstlaufzeit. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch — ohne dass Sie sich zu etwas verpflichten.",
           },
           {
             question: "Welches der beiden Systeme passt zu mir?",
             answer:
-              "Wenn Sie oder Ihr Team bereits Gespräche führen und nur nicht wissen, bei wem sich der Aufwand lohnt, ist der AI Lead Scout richtig. Wenn Sie neue Gespräche brauchen, aber niemanden haben, der aktiv akquiriert, ist es das Akquise-System. Beides zusammen ergibt Sinn, wenn Sie systematisch wachsen wollen. Im Erstgespräch klären wir das in wenigen Minuten.",
+              "Wenn Sie oder Ihr Team bereits Gespräche führen und nur nicht wissen, bei wem sich der Aufwand lohnt, ist der Lead Scout richtig. Wenn Sie neue Gespräche brauchen, aber niemanden haben, der aktiv akquiriert, ist es das Akquise-System. Beides zusammen ergibt Sinn, wenn Sie systematisch wachsen wollen. Im Erstgespräch klären wir das in wenigen Minuten.",
           },
           {
             question: "Was, wenn es nicht funktioniert?",
             answer:
-              "Das kann vorkommen. Wenn eine Zielgruppe nicht reagiert, sagen wir das offen und passen an: Ansprache, Segment oder Kanal. Was wir nicht machen, ist eine Kampagne weiterlaufen zu lassen, die keine Ergebnisse liefert, nur weil sie bezahlt ist. Und wir arbeiten grundsätzlich mit einer Vereinbarung, die das Risiko für Sie begrenzt — wie die aussieht, hängt vom Projekt ab und besprechen wir vor der Zusammenarbeit.\n\nBeim AI Lead Scout gilt zusätzlich: Liefern wir im ersten Monat kein einziges Dossier, das dem gemeinsam festgelegten Suchprofil entspricht, erstatten wir den ersten Monatsbeitrag.",
+              "Das kann vorkommen. Wenn eine Zielgruppe nicht reagiert, sagen wir das offen und passen an: Ansprache, Segment oder Kanal. Was wir nicht machen, ist eine Kampagne weiterlaufen zu lassen, die keine Ergebnisse liefert, nur weil sie bezahlt ist. Und wir arbeiten grundsätzlich mit einer Vereinbarung, die das Risiko für Sie begrenzt — wie die aussieht, hängt vom Projekt ab und besprechen wir vor der Zusammenarbeit.\n\nBeim Lead Scout gilt zusätzlich: Liefern wir im ersten Monat kein einziges Dossier, das dem gemeinsam festgelegten Suchprofil entspricht, erstatten wir den ersten Monatsbeitrag.",
           },
           {
             question: "Wie persönlich sind die Nachrichten wirklich?",
@@ -39,7 +39,7 @@ const Termin = () => {
           {
             question: "Wie viel Zeit kostet mich das?",
             answer:
-              "Vor dem Start brauchen wir wenig von Ihnen: das Erstgespräch, einen kurzen Abgleich zur Zielgruppe und Ihre Freigabe der Texte. Sobald die Kampagne läuft, kommen die Antworten direkt bei Ihnen an. Sie führen die Konversation weiter und vereinbaren die Termine selbst. Das ist Absicht, denn ab diesem Punkt kauft man von Ihnen und nicht von einem Dienstleister. Rechnen Sie mit etwa einer Stunde pro Woche.\n\nBeim AI Lead Scout ist der Aufwand noch geringer: Sie erhalten die fertigen Dossiers und entscheiden, wen Sie ansprechen. Die Recherche, die Sie sonst selbst machen müssten, entfällt.",
+              "Vor dem Start brauchen wir wenig von Ihnen: das Erstgespräch, einen kurzen Abgleich zur Zielgruppe und Ihre Freigabe der Texte. Sobald die Kampagne läuft, kommen die Antworten direkt bei Ihnen an. Sie führen die Konversation weiter und vereinbaren die Termine selbst. Das ist Absicht, denn ab diesem Punkt kauft man von Ihnen und nicht von einem Dienstleister. Rechnen Sie mit etwa einer Stunde pro Woche.\n\nBeim Lead Scout ist der Aufwand noch geringer: Sie erhalten die fertigen Dossiers und entscheiden, wen Sie ansprechen. Die Recherche, die Sie sonst selbst machen müssten, entfällt.",
           },
           {
             question: "Ist das DSGVO-konform?",
@@ -49,24 +49,24 @@ const Termin = () => {
           {
             question: "Kann ich das System später selbst übernehmen?",
             answer:
-              "Bei den Akquise-Systemen ja: Sie laufen auf Ihren eigenen Konten und Zugängen, und wir übergeben sauber, wenn Sie den Betrieb intern übernehmen wollen. Beim AI Lead Scout gehören Ihnen alle gelieferten Dossiers. Sie können sie jederzeit exportieren und behalten sie auch nach Ende der Zusammenarbeit.",
+              "Bei den Akquise-Systemen ja: Sie laufen auf Ihren eigenen Konten und Zugängen, und wir übergeben sauber, wenn Sie den Betrieb intern übernehmen wollen. Beim Lead Scout gehören Ihnen alle gelieferten Dossiers. Sie können sie jederzeit exportieren und behalten sie auch nach Ende der Zusammenarbeit.",
           },
         ]
       : [
           {
             question: "What does it cost?",
             answer:
-              "The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. AI Lead Scout runs from CHF 500 per month, with an initial term of three months. What it costs in your specific case, we'll tell you in the intro call — without any obligation on your part.",
+              "The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. Lead Scout runs from CHF 500 per month, with an initial term of three months. What it costs in your specific case, we'll tell you in the intro call — without any obligation on your part.",
           },
           {
             question: "Which of the two systems fits me?",
             answer:
-              "If you or your team are already having conversations and just don't know who's worth the effort, AI Lead Scout is the right fit. If you need new conversations but don't have anyone actively doing outreach, it's the acquisition system. Combining both makes sense if you want to grow systematically. We'll figure this out together in a few minutes during the intro call.",
+              "If you or your team are already having conversations and just don't know who's worth the effort, Lead Scout is the right fit. If you need new conversations but don't have anyone actively doing outreach, it's the acquisition system. Combining both makes sense if you want to grow systematically. We'll figure this out together in a few minutes during the intro call.",
           },
           {
             question: "What if it doesn't work?",
             answer:
-              "That can happen. If a target audience doesn't respond, we say so openly and adjust: messaging, segment, or channel. What we don't do is keep a campaign running that isn't delivering results just because it's paid for. And we generally work with an agreement that limits the risk for you - what that looks like depends on the project, and we discuss it before we start working together.\n\nFor AI Lead Scout, the following also applies: if we don't deliver a single dossier in the first month that matches the search profile we defined together, we refund the first monthly fee.",
+              "That can happen. If a target audience doesn't respond, we say so openly and adjust: messaging, segment, or channel. What we don't do is keep a campaign running that isn't delivering results just because it's paid for. And we generally work with an agreement that limits the risk for you - what that looks like depends on the project, and we discuss it before we start working together.\n\nFor Lead Scout, the following also applies: if we don't deliver a single dossier in the first month that matches the search profile we defined together, we refund the first monthly fee.",
           },
           {
             question: "How personal are the messages, really?",
@@ -76,7 +76,7 @@ const Termin = () => {
           {
             question: "How much time will this take me?",
             answer:
-              "Before the start, we need little from you: the intro call, a short alignment on your target audience, and your approval of the texts. Once the campaign is live, replies come straight to you. You continue the conversation and schedule the meetings yourself. That's intentional, because from that point on, people are buying from you, not from a service provider. Expect to spend around an hour a week.\n\nWith AI Lead Scout, the effort is even lower: you receive the finished dossiers and decide who to reach out to. The research you'd otherwise have to do yourself is no longer necessary.",
+              "Before the start, we need little from you: the intro call, a short alignment on your target audience, and your approval of the texts. Once the campaign is live, replies come straight to you. You continue the conversation and schedule the meetings yourself. That's intentional, because from that point on, people are buying from you, not from a service provider. Expect to spend around an hour a week.\n\nWith Lead Scout, the effort is even lower: you receive the finished dossiers and decide who to reach out to. The research you'd otherwise have to do yourself is no longer necessary.",
           },
           {
             question: "Is it GDPR-compliant?",
@@ -86,7 +86,7 @@ const Termin = () => {
           {
             question: "Can I take over the system myself later?",
             answer:
-              "For the acquisition systems, yes: they run on your own accounts and access, and we hand over cleanly if you want to take over operations internally. With AI Lead Scout, all delivered dossiers belong to you. You can export them at any time and keep them even after our collaboration ends.",
+              "For the acquisition systems, yes: they run on your own accounts and access, and we hand over cleanly if you want to take over operations internally. With Lead Scout, all delivered dossiers belong to you. You can export them at any time and keep them even after our collaboration ends.",
           },
         ];
 

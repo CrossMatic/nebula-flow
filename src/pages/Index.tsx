@@ -69,7 +69,7 @@ const AnimatedWords = ({
 
 const services = [
   {
-    title: "AI Lead Scout",
+    title: "Lead Scout",
     subtitle: "Ihr Markt-Radar",
     description:
       "Jede Woche erhalten Sie bis zu drei Dossiers zu Unternehmen, bei denen gerade jetzt ein Anlass besteht: ein Führungswechsel, eine Expansion, ein neues Projekt, eine Finanzierungsrunde. Kein Kontaktdatensatz, sondern eine ausgearbeitete Ausgangslage. Sie wissen vor dem ersten Kontakt, was passiert ist, wer entscheidet und warum Sie gerade jetzt relevant sind.",
@@ -121,7 +121,7 @@ const processSteps = [
   {
     step: "03",
     title: "Woche 2",
-    text: "Technischer Aufbau. Absender-Domains und LinkedIn-Profil werden schrittweise aufgewärmt, damit Ihre Nachrichten ankommen und Ihr Profil nicht eingeschränkt wird. Beim AI Lead Scout laufen in dieser Zeit zwei bis drei Testläufe, mit denen wir die Suche gemeinsam schärfen.",
+    text: "Technischer Aufbau. Absender-Domains und LinkedIn-Profil werden schrittweise aufgewärmt, damit Ihre Nachrichten ankommen und Ihr Profil nicht eingeschränkt wird. Beim Lead Scout laufen in dieser Zeit zwei bis drei Testläufe, mit denen wir die Suche gemeinsam schärfen.",
     icon: "build",
   },
   {
@@ -136,17 +136,17 @@ const faqs = [
   {
     question: "Was kostet das?",
     answer:
-      "Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Der AI Lead Scout läuft ab CHF 500 pro Monat, mit drei Monaten Erstlaufzeit. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch — ohne dass Sie sich zu etwas verpflichten.",
+      "Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Der Lead Scout läuft ab CHF 500 pro Monat, mit drei Monaten Erstlaufzeit. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch — ohne dass Sie sich zu etwas verpflichten.",
   },
   {
     question: "Welches der beiden Systeme passt zu mir?",
     answer:
-      "Wenn Sie oder Ihr Team bereits Gespräche führen und nur nicht wissen, bei wem sich der Aufwand lohnt, ist der AI Lead Scout richtig. Wenn Sie neue Gespräche brauchen, aber niemanden haben, der aktiv akquiriert, ist es das Akquise-System. Beides zusammen ergibt Sinn, wenn Sie systematisch wachsen wollen. Im Erstgespräch klären wir das in wenigen Minuten.",
+      "Wenn Sie oder Ihr Team bereits Gespräche führen und nur nicht wissen, bei wem sich der Aufwand lohnt, ist der Lead Scout richtig. Wenn Sie neue Gespräche brauchen, aber niemanden haben, der aktiv akquiriert, ist es das Akquise-System. Beides zusammen ergibt Sinn, wenn Sie systematisch wachsen wollen. Im Erstgespräch klären wir das in wenigen Minuten.",
   },
   {
     question: "Was, wenn es nicht funktioniert?",
     answer:
-      "Das kann vorkommen. Wenn eine Zielgruppe nicht reagiert, sagen wir das offen und passen an: Ansprache, Segment oder Kanal. Was wir nicht machen, ist eine Kampagne weiterlaufen zu lassen, die keine Ergebnisse liefert, nur weil sie bezahlt ist. Und wir arbeiten grundsätzlich mit einer Vereinbarung, die das Risiko für Sie begrenzt — wie die aussieht, hängt vom Projekt ab und besprechen wir vor der Zusammenarbeit.\n\nBeim AI Lead Scout gilt zusätzlich: Liefern wir im ersten Monat kein einziges Dossier, das dem gemeinsam festgelegten Suchprofil entspricht, erstatten wir den ersten Monatsbeitrag.",
+      "Das kann vorkommen. Wenn eine Zielgruppe nicht reagiert, sagen wir das offen und passen an: Ansprache, Segment oder Kanal. Was wir nicht machen, ist eine Kampagne weiterlaufen zu lassen, die keine Ergebnisse liefert, nur weil sie bezahlt ist. Und wir arbeiten grundsätzlich mit einer Vereinbarung, die das Risiko für Sie begrenzt — wie die aussieht, hängt vom Projekt ab und besprechen wir vor der Zusammenarbeit.\n\nBeim Lead Scout gilt zusätzlich: Liefern wir im ersten Monat kein einziges Dossier, das dem gemeinsam festgelegten Suchprofil entspricht, erstatten wir den ersten Monatsbeitrag.",
   },
   {
     question: "Wie persönlich sind die Nachrichten wirklich?",
@@ -156,7 +156,7 @@ const faqs = [
   {
     question: "Wie viel Zeit kostet mich das?",
     answer:
-      "Vor dem Start brauchen wir wenig von Ihnen: das Erstgespräch, einen kurzen Abgleich zur Zielgruppe und Ihre Freigabe der Texte. Sobald die Kampagne läuft, kommen die Antworten direkt bei Ihnen an. Sie führen die Konversation weiter und vereinbaren die Termine selbst. Das ist Absicht, denn ab diesem Punkt kauft man von Ihnen und nicht von einem Dienstleister. Rechnen Sie mit etwa einer Stunde pro Woche.\n\nBeim AI Lead Scout ist der Aufwand noch geringer: Sie erhalten die fertigen Dossiers und entscheiden, wen Sie ansprechen. Die Recherche, die Sie sonst selbst machen müssten, entfällt.",
+      "Vor dem Start brauchen wir wenig von Ihnen: das Erstgespräch, einen kurzen Abgleich zur Zielgruppe und Ihre Freigabe der Texte. Sobald die Kampagne läuft, kommen die Antworten direkt bei Ihnen an. Sie führen die Konversation weiter und vereinbaren die Termine selbst. Das ist Absicht, denn ab diesem Punkt kauft man von Ihnen und nicht von einem Dienstleister. Rechnen Sie mit etwa einer Stunde pro Woche.\n\nBeim Lead Scout ist der Aufwand noch geringer: Sie erhalten die fertigen Dossiers und entscheiden, wen Sie ansprechen. Die Recherche, die Sie sonst selbst machen müssten, entfällt.",
   },
   {
     question: "Ist das DSGVO-konform?",
@@ -166,7 +166,7 @@ const faqs = [
   {
     question: "Kann ich das System später selbst übernehmen?",
     answer:
-      "Bei den Akquise-Systemen ja: Sie laufen auf Ihren eigenen Konten und Zugängen, und wir übergeben sauber, wenn Sie den Betrieb intern übernehmen wollen. Beim AI Lead Scout gehören Ihnen alle gelieferten Dossiers. Sie können sie jederzeit exportieren und behalten sie auch nach Ende der Zusammenarbeit.",
+      "Bei den Akquise-Systemen ja: Sie laufen auf Ihren eigenen Konten und Zugängen, und wir übergeben sauber, wenn Sie den Betrieb intern übernehmen wollen. Beim Lead Scout gehören Ihnen alle gelieferten Dossiers. Sie können sie jederzeit exportieren und behalten sie auch nach Ende der Zusammenarbeit.",
   },
 ];
 
@@ -380,7 +380,7 @@ const Index = () => {
         problemClosing:
           "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die die Anlässe findet, und Ansprache, die dazu passt.",
         servicesTag: "Leistungen",
-        servicesTitle: "Der AI Lead Scout: Ihr wöchentlicher Markt-Radar",
+        servicesTitle: "Der Lead Scout: Ihr wöchentlicher Markt-Radar",
         sampleDossier:
           "Auf Anfrage erstellen wir Ihnen vorab ein kostenloses Beispiel-Dossier aus Ihrem Markt, damit Sie sehen, was Sie erhalten.",
         outreachTitle: "Sie wollen nicht selbst ansprechen? Das übernehmen wir auch.",
@@ -447,7 +447,7 @@ const Index = () => {
         problemClosing:
           "We make sure you're visible at the right moment: with research that finds the triggers, and outreach that fits.",
         servicesTag: "Services",
-        servicesTitle: "The AI Lead Scout: your weekly market radar",
+        servicesTitle: "The Lead Scout: your weekly market radar",
         sampleDossier:
           "On request, we'll create a free sample dossier from your market in advance, so you can see what you'll receive.",
         outreachTitle: "Don't want to do the outreach yourself? We handle that too.",
@@ -487,7 +487,7 @@ const Index = () => {
     : [
         {
           icon: "scout",
-          title: "AI Lead Scout",
+          title: "Lead Scout",
           subtitle: "Your market radar",
           description:
             "Every week you receive up to three dossiers on companies where a trigger exists right now: a change in leadership, an expansion, a new project, a funding round. Not a contact record, but a fully worked-out starting point. Before the first contact, you know what happened, who decides, and why you're relevant right now.",
@@ -522,6 +522,49 @@ const Index = () => {
 
   const [leadScout, outreach] = localizedServices;
 
+  const renderServiceCard = (service: (typeof localizedServices)[number]) => (
+    <article className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
+      <GlowingEffect
+        spread={34}
+        glow={false}
+        disabled
+        proximity={80}
+        inactiveZone={0.2}
+        borderWidth={1}
+        variant="white"
+      />
+      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
+        {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-blue-200" /> : <Mail className="h-5 w-5 text-blue-200" />}
+      </div>
+      <h3 className="text-2xl font-semibold">{service.title}</h3>
+      <p className="mt-1 text-sm font-medium text-blue-300">{service.subtitle}</p>
+      <div className="mt-6 grid gap-8 md:grid-cols-2 md:gap-12">
+        <div className="space-y-4">
+          <p className="text-sm text-muted-foreground md:text-base">{service.description}</p>
+          {service.icon === "scout" && (
+            <p className="text-sm md:text-base">
+              <a
+                href="mailto:joshua@getcrossmatic.com?subject=Beispiel-Dossier"
+                className="text-blue-300 underline decoration-blue-300/40 underline-offset-4 transition-colors hover:text-blue-200"
+              >
+                {t.sampleDossier}
+              </a>
+            </p>
+          )}
+        </div>
+        <ul className="space-y-2">
+          {service.benefits.map((benefit) => (
+            <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90 md:text-base">
+              <span className="mt-[2px] text-blue-300">✓</span>
+              <span>{benefit}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p className="mt-8 border-t border-white/10 pt-4 text-sm text-muted-foreground">{service.footer}</p>
+    </article>
+  );
+
   const localizedProcessSteps = isDe
     ? processSteps
     : [
@@ -538,7 +581,7 @@ const Index = () => {
         {
           ...processSteps[2],
           title: "Week 2",
-          text: "Technical setup. Sender domains and LinkedIn profile are gradually warmed up so your messages get delivered and your profile doesn't get restricted. With AI Lead Scout, we run two to three test runs during this time to sharpen the search together.",
+          text: "Technical setup. Sender domains and LinkedIn profile are gradually warmed up so your messages get delivered and your profile doesn't get restricted. With Lead Scout, we run two to three test runs during this time to sharpen the search together.",
         },
         {
           ...processSteps[3],
@@ -553,17 +596,17 @@ const Index = () => {
         {
           question: "What does it cost?",
           answer:
-            "The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. AI Lead Scout runs from CHF 500 per month, with an initial term of three months. What it costs in your specific case, we'll tell you in the intro call — without any obligation on your part.",
+            "The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. Lead Scout runs from CHF 500 per month, with an initial term of three months. What it costs in your specific case, we'll tell you in the intro call — without any obligation on your part.",
         },
         {
           question: "Which of the two systems fits me?",
           answer:
-            "If you or your team are already having conversations and just don't know who's worth the effort, AI Lead Scout is the right fit. If you need new conversations but don't have anyone actively doing outreach, it's the acquisition system. Combining both makes sense if you want to grow systematically. We'll figure this out together in a few minutes during the intro call.",
+            "If you or your team are already having conversations and just don't know who's worth the effort, Lead Scout is the right fit. If you need new conversations but don't have anyone actively doing outreach, it's the acquisition system. Combining both makes sense if you want to grow systematically. We'll figure this out together in a few minutes during the intro call.",
         },
         {
           question: "What if it doesn't work?",
           answer:
-            "That can happen. If a target audience doesn't respond, we say so openly and adjust: messaging, segment, or channel. What we don't do is keep a campaign running that isn't delivering results just because it's paid for. And we generally work with an agreement that limits the risk for you - what that looks like depends on the project, and we discuss it before we start working together.\n\nFor AI Lead Scout, the following also applies: if we don't deliver a single dossier in the first month that matches the search profile we defined together, we refund the first monthly fee.",
+            "That can happen. If a target audience doesn't respond, we say so openly and adjust: messaging, segment, or channel. What we don't do is keep a campaign running that isn't delivering results just because it's paid for. And we generally work with an agreement that limits the risk for you - what that looks like depends on the project, and we discuss it before we start working together.\n\nFor Lead Scout, the following also applies: if we don't deliver a single dossier in the first month that matches the search profile we defined together, we refund the first monthly fee.",
         },
         {
           question: "How personal are the messages, really?",
@@ -573,7 +616,7 @@ const Index = () => {
         {
           question: "How much time will this take me?",
           answer:
-            "Before the start, we need little from you: the intro call, a short alignment on your target audience, and your approval of the texts. Once the campaign is live, replies come straight to you. You continue the conversation and schedule the meetings yourself. That's intentional, because from that point on, people are buying from you, not from a service provider. Expect to spend around an hour a week.\n\nWith AI Lead Scout, the effort is even lower: you receive the finished dossiers and decide who to reach out to. The research you'd otherwise have to do yourself is no longer necessary.",
+            "Before the start, we need little from you: the intro call, a short alignment on your target audience, and your approval of the texts. Once the campaign is live, replies come straight to you. You continue the conversation and schedule the meetings yourself. That's intentional, because from that point on, people are buying from you, not from a service provider. Expect to spend around an hour a week.\n\nWith Lead Scout, the effort is even lower: you receive the finished dossiers and decide who to reach out to. The research you'd otherwise have to do yourself is no longer necessary.",
         },
         {
           question: "Is it GDPR-compliant?",
@@ -583,7 +626,7 @@ const Index = () => {
         {
           question: "Can I take over the system myself later?",
           answer:
-            "For the acquisition systems, yes: they run on your own accounts and access, and we hand over cleanly if you want to take over operations internally. With AI Lead Scout, all delivered dossiers belong to you. You can export them at any time and keep them even after our collaboration ends.",
+            "For the acquisition systems, yes: they run on your own accounts and access, and we hand over cleanly if you want to take over operations internally. With Lead Scout, all delivered dossiers belong to you. You can export them at any time and keep them even after our collaboration ends.",
         },
       ];
 
@@ -821,44 +864,7 @@ const Index = () => {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.servicesTag}</p>
             <h2 className="whitespace-pre-line bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.servicesTitle}</h2>
           </div>
-          <article className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
-            <GlowingEffect
-              spread={34}
-              glow={false}
-              disabled
-              proximity={80}
-              inactiveZone={0.2}
-              borderWidth={1}
-              variant="white"
-            />
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
-              <ScanSearch className="h-5 w-5 text-blue-200" />
-            </div>
-            <h3 className="text-2xl font-semibold">{leadScout.title}</h3>
-            <p className="mt-1 text-sm font-medium text-blue-300">{leadScout.subtitle}</p>
-            <div className="mt-6 grid gap-8 md:grid-cols-2 md:gap-12">
-              <div className="space-y-4">
-                <p className="text-sm text-muted-foreground md:text-base">{leadScout.description}</p>
-                <p className="text-sm md:text-base">
-                  <a
-                    href="mailto:joshua@getcrossmatic.com?subject=Beispiel-Dossier"
-                    className="text-blue-300 underline decoration-blue-300/40 underline-offset-4 transition-colors hover:text-blue-200"
-                  >
-                    {t.sampleDossier}
-                  </a>
-                </p>
-              </div>
-              <ul className="space-y-2">
-                {leadScout.benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90 md:text-base">
-                    <span className="mt-[2px] text-blue-300">✓</span>
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <p className="mt-8 border-t border-white/10 pt-4 text-sm text-muted-foreground">{leadScout.footer}</p>
-          </article>
+          {renderServiceCard(leadScout)}
           <div className="pt-2 text-center">
             <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
@@ -870,30 +876,8 @@ const Index = () => {
 
       <section id="akquise" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
-          <div className="mx-auto max-w-4xl space-y-6">
-            <h2 className="text-center text-2xl font-semibold tracking-tight text-white md:text-3xl">{t.outreachTitle}</h2>
-            <div className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
-              <div className="flex items-center gap-3">
-                <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10">
-                  <Mail className="h-4 w-4 text-blue-200" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold">{outreach.title}</h3>
-                  <p className="text-sm text-blue-300">{outreach.subtitle}</p>
-                </div>
-              </div>
-              <p className="mt-4 text-sm text-muted-foreground">{outreach.description}</p>
-              <ul className="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2">
-                {outreach.benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90">
-                    <span className="mt-[2px] text-blue-300">✓</span>
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 border-t border-white/10 pt-3 text-sm text-muted-foreground">{outreach.footer}</p>
-            </div>
-          </div>
+          <h2 className="text-center text-2xl font-semibold tracking-tight text-white md:text-3xl">{t.outreachTitle}</h2>
+          {renderServiceCard(outreach)}
           <p id="ergebnisse" className="scroll-mt-28 pt-8 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
             {t.outreachResults}
           </p>
