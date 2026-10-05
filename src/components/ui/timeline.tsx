@@ -23,16 +23,15 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     <div className="w-full font-sans" ref={containerRef}>
       <div className="relative mx-auto max-w-6xl pb-4 md:pb-8">
         {data.map((item, index) => (
-          <div key={index} className="flex justify-start pt-10 md:gap-10 md:pt-20">
-            <div className="sticky top-40 z-40 flex max-w-xs flex-col items-center self-start md:w-full md:max-w-sm md:flex-row">
-              <div className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#02040a] md:left-3">
+          <div key={index} className="flex flex-col justify-start pt-10 md:flex-row md:gap-10 md:pt-20">
+            <div className="relative z-40 flex min-h-10 items-center self-start md:sticky md:top-40 md:w-full md:max-w-sm">
+              <div className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#02040a]">
                 <div className="h-4 w-4 rounded-full border border-blue-300/60 bg-blue-300/30" />
               </div>
-              <h3 className="hidden bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-xl font-bold text-transparent md:block md:pl-20 md:text-4xl">{item.title}</h3>
+              <h3 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text pl-20 pr-4 text-left text-2xl font-bold text-transparent md:pr-0 md:text-3xl">{item.title}</h3>
             </div>
 
-            <div className="relative w-full pl-20 pr-4 md:pl-4">
-              <h3 className="mb-4 block bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-left text-2xl font-bold text-transparent md:hidden">{item.title}</h3>
+            <div className="relative w-full pl-20 pr-4 pt-4 md:pl-4 md:pt-0">
               {item.content}
             </div>
           </div>

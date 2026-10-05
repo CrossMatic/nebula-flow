@@ -15,14 +15,15 @@ import leadScoutDossierImage from "@/assets/lead-scout-dossier.png";
 import leadScoutCaseDatabaseImage from "@/assets/lead-scout-falldatenbank.png";
 import leadScoutKnowledgeGraphImage from "@/assets/lead-scout-wissensgraph.png";
 import {
+  BrainCircuit,
+  FileSearch,
+  Inbox,
   Linkedin,
   Mail,
   MapPin,
   PhoneCall,
-  Rocket,
   ScanSearch,
-  Settings2,
-  Target,
+  SlidersHorizontal,
 } from "lucide-react";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { useEffect, useRef, useState } from "react";
@@ -216,27 +217,27 @@ const leadScoutStepsEn: LeadScoutStep[] = [
 const processSteps = [
   {
     step: "01",
-    title: "Erstgespräch",
-    text: "30 Minuten, kostenlos. Wir schauen uns Ihre Zielgruppe an und klären, welches System bei Ihnen Sinn ergibt. Oder ob keines passt.",
-    icon: "call",
+    title: "Beispieldossier",
+    text: "Sie nennen uns Ihre Firma und Ihre Wunschkunden. Wir recherchieren einen echten Fall aus Ihrem Markt und schicken ihn Ihnen zu. Kostenlos und unverbindlich.",
+    icon: "dossier",
   },
   {
     step: "02",
-    title: "Woche 1",
-    text: "Zielgruppe und Nachrichten. Wir definieren gemeinsam, wen Sie erreichen wollen. Ich baue die Zielliste auf und schreibe die Nachrichten. Sie geben alles frei, bevor etwas rausgeht.",
-    icon: "strategy",
+    title: "Kalibrierung, Woche 1 und 2",
+    text: "Wir legen gemeinsam fest, was in Ihrem Markt ein Anlass ist, welche Regionen und Grössen zählen und wen wir ausschliessen. In zwei bis drei Testläufen schärfen wir die Suche nach.",
+    icon: "calibrate",
   },
   {
     step: "03",
-    title: "Woche 2",
-    text: "Technischer Aufbau. Absender-Domains und LinkedIn-Profil werden schrittweise aufgewärmt, damit Ihre Nachrichten ankommen und Ihr Profil nicht eingeschränkt wird. Beim Lead Scout laufen in dieser Zeit zwei bis drei Testläufe, mit denen wir die Suche gemeinsam schärfen.",
-    icon: "build",
+    title: "Wöchentliche Lieferung, ab Woche 3",
+    text: "Jede Woche erhalten Sie die geprüften Dossiers in Ihrem Portal. Bestehende Fälle prüfen wir laufend auf Veränderungen.",
+    icon: "delivery",
   },
   {
     step: "04",
-    title: "Ab Woche 3",
-    text: "Der Betrieb läuft. Erste Antworten kommen meist innerhalb weniger Tage, Dossiers erhalten Sie wöchentlich. Sie sehen laufend die Zahlen, ich optimiere nach.",
-    icon: "launch",
+    title: "Mit jeder Woche genauer",
+    text: "Ihre Rückmeldungen fliessen in das Gedächtnis des Systems. So trifft der Scout immer besser, was für Sie zählt.",
+    icon: "learn",
   },
 ];
 
@@ -395,7 +396,8 @@ const Index = () => {
         aboutRole: "Gründer, CrossMatic",
         aboutLinkedin: "LinkedIn",
         processTag: "Prozess",
-        processTitle: "In zwei Wochen von der Zusage zum laufenden System",
+        processTitle: "Vom Beispieldossier zur wöchentlichen Lieferung",
+        processNote: "Beim Akquise-System kommt die Einrichtung der Absenderadressen hinzu, damit Ihre Nachrichten zuverlässig ankommen.",
         faqTag: "FAQ",
         faqTitle: "Häufige Fragen",
         contactTitle: "Bereit für planbare Neukunden?",
@@ -462,7 +464,8 @@ const Index = () => {
         aboutRole: "Founder, CrossMatic",
         aboutLinkedin: "LinkedIn",
         processTag: "Process",
-        processTitle: "From yes to a running system in two weeks",
+        processTitle: "From sample dossier to weekly delivery",
+        processNote: "With the outreach system, we also set up the sender addresses so your messages are reliably delivered.",
         faqTag: "FAQ",
         faqTitle: "Frequently Asked Questions",
         contactTitle: "Ready for predictable new customers?",
@@ -553,23 +556,23 @@ const Index = () => {
     : [
         {
           ...processSteps[0],
-          title: "Intro call",
-          text: "30 minutes, free. We look at your target audience and clarify which system makes sense for you. Or whether neither does.",
+          title: "Sample dossier",
+          text: "Tell us about your company and your ideal clients. We research a real case from your market and send it to you. Free and without obligation.",
         },
         {
           ...processSteps[1],
-          title: "Week 1",
-          text: "Target audience & messaging. We define together who you want to reach. I build the target list and write the messages. You approve everything before it goes out.",
+          title: "Calibration, weeks 1 and 2",
+          text: "Together we define what counts as a trigger in your market, which regions and company sizes matter, and whom we exclude. Two to three test runs sharpen the search.",
         },
         {
           ...processSteps[2],
-          title: "Week 2",
-          text: "Technical setup. Sender domains and LinkedIn profile are gradually warmed up so your messages get delivered and your profile doesn't get restricted. With Lead Scout, we run two to three test runs during this time to sharpen the search together.",
+          title: "Weekly delivery, from week 3",
+          text: "Every week you receive the verified dossiers in your portal. We keep checking existing cases for changes.",
         },
         {
           ...processSteps[3],
-          title: "From Week 3",
-          text: "Operations are running. First replies usually come in within a few days, and you receive dossiers weekly. You see the numbers continuously, and I keep optimizing.",
+          title: "More accurate every week",
+          text: "Your feedback flows into the system's memory, so the Scout gets better and better at finding what matters to you.",
         },
       ];
 
@@ -651,10 +654,10 @@ const Index = () => {
           variant="white"
         />
         <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10 shadow-[0_0_24px_rgba(59,130,246,0.3)]">
-          {item.icon === "call" && <PhoneCall className="h-5 w-5 text-blue-200" />}
-          {item.icon === "strategy" && <Target className="h-5 w-5 text-blue-200" />}
-          {item.icon === "build" && <Settings2 className="h-5 w-5 text-blue-200" />}
-          {item.icon === "launch" && <Rocket className="h-5 w-5 text-blue-200" />}
+          {item.icon === "dossier" && <FileSearch className="h-5 w-5 text-blue-200" />}
+          {item.icon === "calibrate" && <SlidersHorizontal className="h-5 w-5 text-blue-200" />}
+          {item.icon === "delivery" && <Inbox className="h-5 w-5 text-blue-200" />}
+          {item.icon === "learn" && <BrainCircuit className="h-5 w-5 text-blue-200" />}
         </div>
         <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{item.text}</p>
       </div>
@@ -967,6 +970,7 @@ const Index = () => {
             <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.processTitle}</h2>
           </div>
           <Timeline data={processTimelineData} />
+          <p className="text-center text-xs text-muted-foreground md:text-sm">{t.processNote}</p>
         </div>
       </section>
 
