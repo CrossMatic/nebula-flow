@@ -80,7 +80,7 @@ const services = [
     cardCta: "Lead-Potenzial prüfen →",
   },
   {
-    title: "Persönliche Ansprache per E-Mail und LinkedIn",
+    title: "Akquise-System",
     subtitle: "Wir übernehmen die Ansprache für Sie.",
     description:
       "Normalerweise muss man sich entscheiden: entweder zwanzig sorgfältig recherchierte Nachrichten pro Woche, oder fünfhundert generische. Wir bauen den Weg dazwischen. Jedes Unternehmen wird einzeln recherchiert, jede Nachricht bezieht sich auf dessen konkrete Situation, und das über E-Mail und LinkedIn hinweg in einem Volumen, das planbar Gespräche bringt.",
@@ -509,7 +509,7 @@ const Index = () => {
         },
         {
           icon: "mail",
-          title: "Personal outreach via email and LinkedIn",
+          title: "Outreach system",
           subtitle: "We handle the outreach for you.",
           description:
             "Normally you have to choose: either twenty carefully researched messages a week, or five hundred generic ones. We build the path in between. Every company is researched individually, every message references its specific situation, across email and LinkedIn, at a volume that predictably brings conversations.",
