@@ -25,9 +25,9 @@ import {
   ScanSearch,
   SlidersHorizontal,
 } from "lucide-react";
+import { DossierRequestDialog } from "@/components/DossierRequestDialog";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/i18n/language";
 import { useSeo } from "@/seo/useSeo";
 
@@ -346,7 +346,7 @@ const Index = () => {
   const isDe = language === "de";
   const [showNavbar, setShowNavbar] = useState(false);
   const heroRef = useRef<HTMLElement | null>(null);
-  const navigate = useNavigate();
+  const [isDossierOpen, setIsDossierOpen] = useState(false);
   const t = isDe
     ? {
         navServices: "Leistungen",
@@ -358,7 +358,7 @@ const Index = () => {
         heroHeadline: "Wissen, wo gerade entschieden wird",
         heroSub: "Jede Woche recherchierte Dossiers zu den Organisationen, bei denen gerade ein Auftrag entsteht.",
         heroProof: "Im Einsatz bei Farner Consulting.",
-        heroMainCta: "Kostenloses Erstgespräch buchen",
+        heroMainCta: "Kostenloses Beispieldossier anfordern",
         heroServices: "Unsere Leistungen ↓",
         trustedByTitle: "Vertraut von",
         problemTag: "Das Problem",
@@ -405,9 +405,9 @@ const Index = () => {
         processNoteLabel: "Beim Akquise-System:",
         faqTag: "FAQ",
         faqTitle: "Häufige Fragen",
-        contactTitle: "Bereit für planbare Neukunden?",
+        contactTitle: "Sehen Sie es an einem echten Fall",
         contactSub:
-          "30 Minuten, kostenlos, kein Verkaufsgespräch. Wir schauen uns Ihre Zielgruppe an und ich sage Ihnen ehrlich, ob eines der Systeme bei Ihnen Sinn ergibt.",
+          "Kostenlos und unverbindlich. Sie sehen an einem echten Fall aus Ihrem Markt, was Sie jede Woche erhalten würden.",
         footerTagline: "Akquise-Systeme für Agenturen, Beratungen und Kreativdienstleister in der Schweiz.",
         footerNav: "Navigation",
         footerContact: "Kontakt",
@@ -427,7 +427,7 @@ const Index = () => {
         heroHeadline: "Know where decisions are being made",
         heroSub: "Researched dossiers every week on the organisations where a new mandate is taking shape right now.",
         heroProof: "In use at Farner Consulting.",
-        heroMainCta: "Book a Free Intro Call",
+        heroMainCta: "Request a Free Sample Dossier",
         heroServices: "Our Services ↓",
         trustedByTitle: "Trusted by",
         problemTag: "The Problem",
@@ -474,9 +474,9 @@ const Index = () => {
         processNoteLabel: "With the outreach system:",
         faqTag: "FAQ",
         faqTitle: "Frequently Asked Questions",
-        contactTitle: "Ready for predictable new customers?",
+        contactTitle: "See it in a real case",
         contactSub:
-          "30 minutes, free, no sales pitch. We look at your target audience and I'll tell you honestly whether one of the systems makes sense for you.",
+          "Free and without obligation. You see in a real case from your market what you would receive every week.",
         footerTagline: "Acquisition systems for agencies, consultancies, and creative service providers in Switzerland.",
         footerNav: "Navigation",
         footerContact: "Contact",
@@ -756,7 +756,7 @@ const Index = () => {
             className="animate-hero-rise-in flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center"
             style={{ animationDelay: "2200ms" }}
           >
-            <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
+            <GlassButton onClick={() => setIsDossierOpen(true)} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
               <span>→</span>
             </GlassButton>
@@ -886,7 +886,7 @@ const Index = () => {
           ))}
           <p className="mx-auto max-w-3xl text-center text-base font-medium text-white md:text-lg">{t.howClosing}</p>
           <div className="text-center">
-            <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
+            <GlassButton onClick={() => setIsDossierOpen(true)} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
               <span>→</span>
             </GlassButton>
@@ -1025,7 +1025,7 @@ const Index = () => {
           <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.contactTitle}</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-base">{t.contactSub}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <GlassButton onClick={() => navigate("/termin")} contentClassName="inline-flex items-center gap-2">
+            <GlassButton onClick={() => setIsDossierOpen(true)} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
               <span>→</span>
             </GlassButton>
@@ -1092,6 +1092,8 @@ const Index = () => {
         </div>
       </div>
       </footer>
+
+      <DossierRequestDialog open={isDossierOpen} onOpenChange={setIsDossierOpen} />
     </main>
   );
 };
