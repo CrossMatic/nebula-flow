@@ -30,6 +30,7 @@ const inputClassName =
 export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   const { language } = useLanguage();
   const [status, setStatus] = useState<Status>("idle");
+  const [firstName, setFirstName] = useState("");
 
   const t = language === "de"
     ? {
@@ -45,7 +46,8 @@ export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; on
         optional: "optional",
         submit: "Dossier anfordern",
         sending: "Wird gesendet…",
-        success: "Danke. Sie erhalten Ihr Beispieldossier innerhalb von drei Arbeitstagen per E-Mail.",
+        thanks: "Danke",
+        success: "Sie erhalten Ihr Beispieldossier innerhalb von drei Arbeitstagen per E-Mail.",
         error: "Das hat leider nicht geklappt. Schreiben Sie mir direkt an",
         enterName: "Bitte geben Sie Ihren Namen ein.",
         enterEmail: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
@@ -64,7 +66,8 @@ export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; on
         optional: "optional",
         submit: "Request dossier",
         sending: "Sending…",
-        success: "Thank you. You will receive your sample dossier by email within three business days.",
+        thanks: "Thank you",
+        success: "You will receive your sample dossier by email within three business days.",
         error: "Unfortunately that didn't work. Please write to me directly at",
         enterName: "Please enter your name.",
         enterEmail: "Please enter a valid email address.",
@@ -96,6 +99,7 @@ export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; on
 
   async function onSubmit(values: DossierFormValues) {
     if (status === "submitting") return;
+    setFirstName(values.name.trim().split(/\s+/)[0]);
 
     // Honeypot filled: send nothing, but behave as if it worked.
     if (values.fax) {
@@ -128,8 +132,8 @@ export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; on
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-h-[90vh] overflow-y-auto border-white/10 bg-[#05070d] p-6 text-white sm:rounded-2xl md:p-8">
-        <div className="space-y-2 pr-6">
+      <DialogContent className="max-h-[90vh] overflow-y-auto border-white/10 focus:outline-none bg-[#05070d] p-6 text-white sm:rounded-2xl md:p-8">
+        <div className={status === "success" ? "sr-only" : "space-y-2 pr-6"}>
           <DialogTitle className="text-2xl font-semibold text-white">{t.title}</DialogTitle>
           <DialogDescription className="text-sm leading-relaxed text-muted-foreground">{t.intro}</DialogDescription>
         </div>
@@ -139,7 +143,11 @@ export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; on
             <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
               <CheckCircle className="h-6 w-6 text-blue-200" />
             </div>
-            <p className="text-base leading-relaxed text-white">{t.success}</p>
+            <p className="text-xl font-semibold text-white">
+              {t.thanks}
+              {firstName ? `, ${firstName}` : ""}.
+            </p>
+            <p className="mx-auto max-w-sm text-base leading-relaxed text-muted-foreground">{t.success}</p>
           </div>
         ) : (
           <Form {...form}>
