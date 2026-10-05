@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/language";
 
-const DOSSIER_WEBHOOK_URL = "https://joshuaaa18.app.n8n.cloud/webhook-test/c2d8db23-eec7-4471-8d82-15b1a2dc1d11";
+const DOSSIER_WEBHOOK_URL = "https://joshuaaa18.app.n8n.cloud/webhook/c2d8db23-eec7-4471-8d82-15b1a2dc1d11";
 
 type DossierFormValues = {
   name: string;
