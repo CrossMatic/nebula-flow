@@ -391,7 +391,7 @@ const Index = () => {
         aboutTag: "Über CrossMatic",
         aboutTitle: "Ich habe dieses System zuerst für mich selbst gebaut",
         aboutParagraphs: [
-          "Ich bin Joshua Stöckli und führe CrossMatic aus Riehen bei Basel.",
+          "Ich bin Joshua Stöckli und führe CrossMatic aus Basel.",
           "Angefangen hat es damit, dass ich selbst Kunden brauchte. Ich hatte kein Netzwerk, keine Empfehlungen und keinen Namen, auf den jemand reagiert hätte. Also habe ich nicht wahllos angeschrieben, sondern gesucht: Welche Unternehmen passen genau zu meinem Angebot, und bei wem steht gerade etwas an?",
           "So bin ich zu Farner Consulting gekommen. Nicht über eine Beziehung, sondern weil Farner genau dem Profil entsprach, das ich gesucht habe. Heute recherchiert der Lead Scout für Farner jede Woche nach demselben Prinzip.",
           "Aus dieser Arbeit sind zwei Systeme entstanden: die Recherche, die zeigt, wo gerade entschieden wird, und die Ansprache, die daraus ein Gespräch macht.",
@@ -460,7 +460,7 @@ const Index = () => {
         aboutTag: "About CrossMatic",
         aboutTitle: "I built this system for myself first",
         aboutParagraphs: [
-          "I'm Joshua Stöckli, and I run CrossMatic from Riehen near Basel.",
+          "I'm Joshua Stöckli, and I run CrossMatic from Basel.",
           "It started because I needed clients myself. I had no network, no referrals, and no name anyone would respond to. So instead of writing to people at random, I searched: which companies fit my offer exactly, and where is something happening right now?",
           "That's how I came to work with Farner Consulting. Not through a connection, but because Farner matched exactly the profile I was looking for. Today, Lead Scout researches for Farner every week on the same principle.",
           "Two systems grew out of this work: the research that shows where decisions are being made right now, and the outreach that turns that into a conversation.",
