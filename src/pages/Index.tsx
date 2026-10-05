@@ -219,24 +219,28 @@ const processSteps = [
     step: "01",
     title: "Beispieldossier",
     text: "Sie nennen uns Ihre Firma und Ihre Wunschkunden. Wir recherchieren einen echten Fall aus Ihrem Markt und schicken ihn Ihnen zu. Kostenlos und unverbindlich.",
+    note: "Statt des Dossiers klären wir in einem kurzen Gespräch Ihre Zielgruppe und die passenden Kanäle.",
     icon: "dossier",
   },
   {
     step: "02",
     title: "Kalibrierung, Woche 1 und 2",
     text: "Wir legen gemeinsam fest, was in Ihrem Markt ein Anlass ist, welche Regionen und Grössen zählen und wen wir ausschliessen. In zwei bis drei Testläufen schärfen wir die Suche nach.",
+    note: "Wir bauen die Zielliste auf, schreiben die Nachrichten zu Ihrer Freigabe und wärmen die Absenderadressen auf, damit alles zuverlässig ankommt.",
     icon: "calibrate",
   },
   {
     step: "03",
-    title: "Wöchentliche Lieferung, ab Woche 3",
-    text: "Jede Woche erhalten Sie die geprüften Dossiers in Ihrem Portal. Bestehende Fälle prüfen wir laufend auf Veränderungen.",
+    title: "Start, ab Woche 3",
+    text: "Jede Woche erhalten Sie die geprüften Dossiers in Ihrem Portal, mit Anlass, Entscheider und Aufhänger für das erste Gespräch.",
+    note: "Die ersten Nachrichten gehen raus, Antworten landen direkt bei Ihnen.",
     icon: "delivery",
   },
   {
     step: "04",
-    title: "Mit jeder Woche genauer",
-    text: "Ihre Rückmeldungen fliessen in das Gedächtnis des Systems. So trifft der Scout immer besser, was für Sie zählt.",
+    title: "Laufender Betrieb",
+    text: "Wir prüfen bestehende Fälle wöchentlich auf Veränderungen, und Ihre Rückmeldungen fliessen in die Suche ein. So wird sie mit der Zeit präziser.",
+    note: "Sie erhalten ein wöchentliches Reporting, und wir schärfen Ansprache und Zielgruppe laufend nach.",
     icon: "learn",
   },
 ];
@@ -397,7 +401,7 @@ const Index = () => {
         aboutLinkedin: "LinkedIn",
         processTag: "Prozess",
         processTitle: "Vom Beispieldossier zur wöchentlichen Lieferung",
-        processNote: "Beim Akquise-System kommt die Einrichtung der Absenderadressen hinzu, damit Ihre Nachrichten zuverlässig ankommen.",
+        processNoteLabel: "Beim Akquise-System:",
         faqTag: "FAQ",
         faqTitle: "Häufige Fragen",
         contactTitle: "Bereit für planbare Neukunden?",
@@ -465,7 +469,7 @@ const Index = () => {
         aboutLinkedin: "LinkedIn",
         processTag: "Process",
         processTitle: "From sample dossier to weekly delivery",
-        processNote: "With the outreach system, we also set up the sender addresses so your messages are reliably delivered.",
+        processNoteLabel: "With the outreach system:",
         faqTag: "FAQ",
         faqTitle: "Frequently Asked Questions",
         contactTitle: "Ready for predictable new customers?",
@@ -558,21 +562,25 @@ const Index = () => {
           ...processSteps[0],
           title: "Sample dossier",
           text: "Tell us about your company and your ideal clients. We research a real case from your market and send it to you. Free and without obligation.",
+          note: "Instead of a dossier, we clarify your target audience and the right channels in a short call.",
         },
         {
           ...processSteps[1],
           title: "Calibration, weeks 1 and 2",
           text: "Together we define what counts as a trigger in your market, which regions and company sizes matter, and whom we exclude. Two to three test runs sharpen the search.",
+          note: "We build the target list, write the messages for your approval, and warm up the sender addresses so everything is reliably delivered.",
         },
         {
           ...processSteps[2],
-          title: "Weekly delivery, from week 3",
-          text: "Every week you receive the verified dossiers in your portal. We keep checking existing cases for changes.",
+          title: "Launch, from week 3",
+          text: "Every week you receive the verified dossiers in your portal, with the trigger, the decision-maker and a hook for the first conversation.",
+          note: "The first messages go out, and replies land directly with you.",
         },
         {
           ...processSteps[3],
-          title: "More accurate every week",
-          text: "Your feedback flows into the system's memory, so the Scout gets better and better at finding what matters to you.",
+          title: "Ongoing operation",
+          text: "We check existing cases weekly for changes, and your feedback flows into the search. That way it becomes more precise over time.",
+          note: "You receive a weekly report, and we keep refining the messaging and target audience.",
         },
       ];
 
@@ -660,6 +668,9 @@ const Index = () => {
           {item.icon === "learn" && <BrainCircuit className="h-5 w-5 text-blue-200" />}
         </div>
         <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{item.text}</p>
+        <p className="mt-4 border-t border-white/10 pt-4 text-xs leading-relaxed text-muted-foreground md:text-sm">
+          <span className="font-medium text-blue-200">{t.processNoteLabel}</span> {item.note}
+        </p>
       </div>
     ),
     };
@@ -970,7 +981,6 @@ const Index = () => {
             <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.processTitle}</h2>
           </div>
           <Timeline data={processTimelineData} />
-          <p className="text-center text-xs text-muted-foreground md:text-sm">{t.processNote}</p>
         </div>
       </section>
 
