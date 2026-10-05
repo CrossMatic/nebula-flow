@@ -356,7 +356,8 @@ const Index = () => {
         navFaq: "FAQ",
         heroKicker: "Für Agenturen, Beratungen und Kreativdienstleister in der Schweiz",
         heroHeadline: "Wissen, wo gerade entschieden wird",
-        heroSub: "Jede Woche recherchierte Dossiers zu den Organisationen, bei denen gerade ein Auftrag entsteht. Im Einsatz bei Farner Consulting.",
+        heroSub: "Jede Woche recherchierte Dossiers zu den Organisationen, bei denen gerade ein Auftrag entsteht.",
+        heroProof: "Im Einsatz bei Farner Consulting.",
         heroMainCta: "Kostenloses Erstgespräch buchen",
         heroServices: "Unsere Leistungen ↓",
         trustedByTitle: "Vertraut von",
@@ -424,7 +425,8 @@ const Index = () => {
         navFaq: "FAQ",
         heroKicker: "For agencies, consultancies, and creative service providers in Switzerland",
         heroHeadline: "Know where decisions are being made",
-        heroSub: "Researched dossiers every week on the organisations where a new mandate is taking shape right now. In use at Farner Consulting.",
+        heroSub: "Researched dossiers every week on the organisations where a new mandate is taking shape right now.",
+        heroProof: "In use at Farner Consulting.",
         heroMainCta: "Book a Free Intro Call",
         heroServices: "Our Services ↓",
         trustedByTitle: "Trusted by",
@@ -735,15 +737,20 @@ const Index = () => {
 
       <section ref={heroRef} id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
         <DarkGradientBg />
-        <div className="relative z-10 mx-auto max-w-4xl space-y-5 text-center">
+        <div className="relative z-10 mx-auto max-w-6xl space-y-5 text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
             <AnimatedWords text={t.heroKicker} baseDelay={0} step={110} />
           </p>
-          <h1 className="font-display text-4xl font-bold tracking-[-0.02em] text-white md:text-6xl md:leading-[1.1]">
+          <h1 className="font-display text-4xl font-bold tracking-[-0.02em] text-white md:text-6xl md:leading-[1.1] lg:whitespace-nowrap lg:text-[clamp(3rem,5.2vw,3.75rem)]">
             <AnimatedWords text={t.heroHeadline} baseDelay={550} step={110} />
           </h1>
           <p className="text-lg text-muted-foreground">
-            <AnimatedWords text={t.heroSub} baseDelay={1300} />
+            <span className="block">
+              <AnimatedWords text={t.heroSub} baseDelay={1300} />
+            </span>
+            <span className="block">
+              <AnimatedWords text={t.heroProof} baseDelay={1300 + t.heroSub.split(" ").length * 70} />
+            </span>
           </p>
           <div
             className="animate-hero-rise-in flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center"
