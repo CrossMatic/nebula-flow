@@ -338,6 +338,7 @@ const caseStudiesDe: CaseStudy[] = [
       "Die Zusammenarbeit war sehr einfach, direkt und unkompliziert. Die Resultate haben meine Erwartungen übertroffen.",
     author: "Gian Besset",
     authorRole: "Gründer Gian Besset Brand Design",
+    authorImage: gianBessetLogo,
   },
   {
     title: "3 gebuchte Gespräche in den ersten 3 Tagen",
