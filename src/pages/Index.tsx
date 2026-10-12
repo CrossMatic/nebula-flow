@@ -300,8 +300,8 @@ const QuoteFigure = ({ quote, author, authorRole, authorImage, initials }: Quote
       {authorImage && <AvatarImage src={authorImage} alt={author} className="object-cover" />}
       <AvatarFallback className="bg-white/10 text-base font-medium text-blue-200 md:text-lg">{initials}</AvatarFallback>
     </Avatar>
-    <div>
-      <blockquote className="max-w-3xl text-base italic leading-relaxed text-slate-100/95 md:text-lg">
+    <div className="flex-1">
+      <blockquote className="text-base italic leading-relaxed text-slate-100/95 md:text-lg">
         {`"${quote}"`}
       </blockquote>
       <figcaption className="mt-4">
