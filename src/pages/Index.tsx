@@ -2,6 +2,7 @@ import { DarkGradientBg } from "@/components/ui/dark-gradient-bg";
 import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Timeline } from "@/components/ui/timeline";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import farnerLogo from "@/assets/client-logos/farner.svg";
 import arliconLogo from "@/assets/client-logos/arlicon.svg";
@@ -283,6 +284,33 @@ const faqs = [
   },
 ];
 
+type QuoteFigureProps = {
+  quote: string;
+  author?: string;
+  authorRole?: string;
+  authorImage?: string;
+  initials: string;
+};
+
+// Porträt später via authorImage setzen, bis dahin erscheinen die Initialen.
+const QuoteFigure = ({ quote, author, authorRole, authorImage, initials }: QuoteFigureProps) => (
+  <figure className="surface-glow-hover relative flex flex-col items-center gap-5 rounded-2xl border border-white/10 bg-white/5 p-6 text-center sm:flex-row sm:text-left md:gap-6 md:p-8">
+    <Avatar className="h-16 w-16 border border-white/15 md:h-20 md:w-20">
+      {authorImage && <AvatarImage src={authorImage} alt={author} className="object-cover" />}
+      <AvatarFallback className="bg-white/10 text-base font-medium text-blue-200 md:text-lg">{initials}</AvatarFallback>
+    </Avatar>
+    <div>
+      <blockquote className="max-w-3xl text-base italic leading-relaxed text-slate-100/95 md:text-lg">
+        {`"${quote}"`}
+      </blockquote>
+      <figcaption className="mt-4">
+        <p className="text-sm font-medium text-blue-200">{author}</p>
+        <p className="text-xs text-muted-foreground">{authorRole}</p>
+      </figcaption>
+    </div>
+  </figure>
+);
+
 type CaseStudy = {
   title: string;
   role: string;
@@ -294,6 +322,7 @@ type CaseStudy = {
   quote?: string;
   author?: string;
   authorRole?: string;
+  authorImage?: string;
 };
 
 const caseStudiesDe: CaseStudy[] = [
@@ -387,6 +416,10 @@ const Index = () => {
         howSub: "Vom ersten Gespräch bis zur wöchentlichen Lieferung. Und warum die Treffer mit jeder Ausgabe schärfer werden.",
         howClosing:
           "Das ist der Unterschied zu einer Recherche, die jedes Mal bei null beginnt. Die Dossiers sind ab der ersten Ausgabe vollständig, das Gedächtnis macht sie mit jeder weiteren treffsicherer.",
+        howQuote:
+          "Der Lead Scout ermöglicht uns, den Akquisitionsaufwand zu veukunden-Akquisition zielgerichtet und effizient zu gestalten. Gleichzeitig erlaubt es uns, in spezifischen Bereichen ein Marktmonitoring zu führen, das ohne Firlefanz auskommt. Das ist ein echter Fortschritt!",
+        howQuoteAuthor: "Adrian Kohler",
+        howQuoteRole: "Farner Consulting, Basel",
         outreachResults: "Ergebnisse aus Akquise-Projekten",
         aboutTag: "Über CrossMatic",
         aboutTitle: "Ich habe dieses System zuerst für mich selbst gebaut",
@@ -456,6 +489,10 @@ const Index = () => {
         howSub: "From the first conversation to the weekly delivery. And why the hits get sharper with every issue.",
         howClosing:
           "That's the difference from research that starts from zero every time. The dossiers are complete from the very first issue, and the memory makes each one after that more precise.",
+        howQuote:
+          "Lead Scout enables us to reduce our acquisition effort and make new client acquisition targeted and efficient. At the same time, it lets us run market monitoring in specific areas without any frills. That's real progress!",
+        howQuoteAuthor: "Adrian Kohler",
+        howQuoteRole: "Farner Consulting, Basel",
         outreachResults: "Results from outreach projects",
         aboutTag: "About CrossMatic",
         aboutTitle: "I built this system for myself first",
@@ -885,6 +922,12 @@ const Index = () => {
             </div>
           ))}
           <p className="mx-auto max-w-3xl text-center text-base font-medium text-white md:text-lg">{t.howClosing}</p>
+          <QuoteFigure
+            quote={t.howQuote}
+            author={t.howQuoteAuthor}
+            authorRole={t.howQuoteRole}
+            initials="AK"
+          />
           <div className="text-center">
             <GlassButton onClick={() => setIsDossierOpen(true)} contentClassName="inline-flex items-center gap-2">
               {t.heroMainCta}
@@ -935,15 +978,13 @@ const Index = () => {
             ))}
           </div>
           {caseStudyQuote && (
-            <figure className="surface-glow-hover relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 text-center md:p-8">
-              <blockquote className="max-w-3xl text-base italic leading-relaxed text-slate-100/95 md:text-lg">
-                {`"${caseStudyQuote.quote}"`}
-              </blockquote>
-              <figcaption className="mt-4">
-                <p className="text-sm font-medium text-blue-200">{caseStudyQuote.author}</p>
-                <p className="text-xs text-muted-foreground">{caseStudyQuote.authorRole}</p>
-              </figcaption>
-            </figure>
+            <QuoteFigure
+              quote={caseStudyQuote.quote}
+              author={caseStudyQuote.author}
+              authorRole={caseStudyQuote.authorRole}
+              authorImage={caseStudyQuote.authorImage}
+              initials="GB"
+            />
           )}
         </div>
       </section>
