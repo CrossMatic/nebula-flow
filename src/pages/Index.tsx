@@ -416,8 +416,6 @@ const Index = () => {
         servicesSub: "Zwei Wege zum richtigen Gespräch – unser Hauptprodukt ist der Lead Scout.",
         howTitle: "So funktioniert der Lead Scout",
         howSub: "Vom ersten Gespräch bis zur wöchentlichen Lieferung. Und warum die Treffer mit jeder Ausgabe schärfer werden.",
-        howClosing:
-          "Das ist der Unterschied zu einer Recherche, die jedes Mal bei null beginnt. Die Dossiers sind ab der ersten Ausgabe vollständig, das Gedächtnis macht sie mit jeder weiteren treffsicherer.",
         howQuote:
           "Der Lead Scout ermöglicht uns, den Akquisitionsaufwand zu verringern und die Neukunden-Akquisition zielgerichtet und effizient zu gestalten. Gleichzeitig erlaubt es uns, in spezifischen Bereichen ein Marktmonitoring zu führen, das ohne Firlefanz auskommt. Das ist ein echter Fortschritt!",
         howQuoteAuthor: "Adrian Kohler",
@@ -489,8 +487,6 @@ const Index = () => {
         servicesSub: "Two ways to the right conversation – our core product is the Lead Scout.",
         howTitle: "How Lead Scout works",
         howSub: "From the first conversation to the weekly delivery. And why the hits get sharper with every issue.",
-        howClosing:
-          "That's the difference from research that starts from zero every time. The dossiers are complete from the very first issue, and the memory makes each one after that more precise.",
         howQuote:
           "Lead Scout enables us to reduce our acquisition effort and make new client acquisition targeted and efficient. At the same time, it lets us run market monitoring in specific areas without any frills. That's real progress!",
         howQuoteAuthor: "Adrian Kohler",
@@ -923,7 +919,6 @@ const Index = () => {
               )}
             </div>
           ))}
-          <p className="mx-auto max-w-3xl text-center text-base font-medium text-white md:text-lg">{t.howClosing}</p>
           <QuoteFigure
             quote={t.howQuote}
             author={t.howQuoteAuthor}
