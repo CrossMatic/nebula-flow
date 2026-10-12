@@ -419,7 +419,7 @@ const Index = () => {
         howClosing:
           "Das ist der Unterschied zu einer Recherche, die jedes Mal bei null beginnt. Die Dossiers sind ab der ersten Ausgabe vollständig, das Gedächtnis macht sie mit jeder weiteren treffsicherer.",
         howQuote:
-          "Der Lead Scout ermöglicht uns, den Akquisitionsaufwand zu veukunden-Akquisition zielgerichtet und effizient zu gestalten. Gleichzeitig erlaubt es uns, in spezifischen Bereichen ein Marktmonitoring zu führen, das ohne Firlefanz auskommt. Das ist ein echter Fortschritt!",
+          "Der Lead Scout ermöglicht uns, den Akquisitionsaufwand zu verringern und die Neukunden-Akquisition zielgerichtet und effizient zu gestalten. Gleichzeitig erlaubt es uns, in spezifischen Bereichen ein Marktmonitoring zu führen, das ohne Firlefanz auskommt. Das ist ein echter Fortschritt!",
         howQuoteAuthor: "Adrian Kohler",
         howQuoteRole: "Farner Consulting, Basel",
         outreachResults: "Ergebnisse aus Akquise-Projekten",
