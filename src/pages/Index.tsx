@@ -12,6 +12,7 @@ import saschaVoelkiLogo from "@/assets/client-logos/sascha-voelki.png";
 import caseGianReportingImage from "@/assets/case-gian-reporting.png";
 import caseHaeberliReportingImage from "@/assets/case-haeberli-reporting.png";
 import joshuaPortrait from "@/assets/joshua-stoeckli-portrait.jpg";
+import adrianKohlerPortrait from "@/assets/adrian-kohler-portrait.jpg";
 import leadScoutDossierImage from "@/assets/lead-scout-dossier.png";
 import leadScoutCaseDatabaseImage from "@/assets/lead-scout-falldatenbank.png";
 import leadScoutKnowledgeGraphImage from "@/assets/lead-scout-wissensgraph.png";
@@ -926,6 +927,7 @@ const Index = () => {
             quote={t.howQuote}
             author={t.howQuoteAuthor}
             authorRole={t.howQuoteRole}
+            authorImage={adrianKohlerPortrait}
             initials="AK"
           />
           <div className="text-center">
