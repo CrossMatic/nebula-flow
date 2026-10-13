@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Grosse Videodateien (GitHub-Limit 100 MB)
+*.mov

@@ -29,7 +29,7 @@ import {
 } from "lucide-react";
 import { DossierRequestDialog } from "@/components/DossierRequestDialog";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import { Fragment, type ReactNode, useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/i18n/language";
 import { useSeo } from "@/seo/useSeo";
 
@@ -74,14 +74,14 @@ const cardClass =
 const serifAccentClass = "font-serif text-[1.12em] font-normal italic tracking-normal";
 
 // Setzt einzelne Schlüsselwörter eines Titels in die kursive Serifenschrift, optional in Gold.
-const accentWords = (text: string, accents: { word: string; gold?: boolean }[]) => {
+const accentWords = (text: string, accents: { word: string; gold?: boolean; white?: boolean }[]) => {
   if (!accents.length) return text;
   const escaped = accents.map((a) => a.word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   return text.split(new RegExp(`(${escaped.join("|")})`)).map((part, i) => {
     const accent = accents.find((a) => a.word === part);
     if (!accent) return part;
     return (
-      <span key={i} className={`${serifAccentClass} text-gold`}>
+      <span key={i} className={`${serifAccentClass} ${accent.white ? "text-white" : "text-gold"}`}>
         {part}
       </span>
     );
@@ -298,6 +298,7 @@ const processSteps = [
   {
     step: "01",
     title: "Beispieldossier",
+    accent: "Beispieldossier",
     text: "Sie nennen uns Ihre Firma und Ihre Wunschkunden. Wir recherchieren einen echten Fall aus Ihrem Markt und schicken ihn Ihnen zu. Kostenlos und unverbindlich.",
     note: "Statt des Dossiers klären wir in einem kurzen Gespräch Ihre Zielgruppe und die passenden Kanäle.",
     icon: "dossier",
@@ -305,6 +306,7 @@ const processSteps = [
   {
     step: "02",
     title: "Kalibrierung, Woche 1 und 2",
+    accent: "Kalibrierung",
     text: "Wir legen gemeinsam fest, was in Ihrem Markt ein Anlass ist, welche Regionen und Grössen zählen und wen wir ausschliessen. In zwei bis drei Testläufen schärfen wir die Suche nach.",
     note: "Wir bauen die Zielliste auf, schreiben die Nachrichten zu Ihrer Freigabe und wärmen die Absenderadressen auf, damit alles zuverlässig ankommt.",
     icon: "calibrate",
@@ -312,6 +314,7 @@ const processSteps = [
   {
     step: "03",
     title: "Start, ab Woche 3",
+    accent: "Start",
     text: "Jede Woche erhalten Sie die geprüften Dossiers in Ihrem Portal, mit Anlass, Entscheider und Aufhänger für das erste Gespräch.",
     note: "Die ersten Nachrichten gehen raus, Antworten landen direkt bei Ihnen.",
     icon: "delivery",
@@ -319,6 +322,7 @@ const processSteps = [
   {
     step: "04",
     title: "Laufender Betrieb",
+    accent: "Betrieb",
     text: "Wir prüfen bestehende Fälle wöchentlich auf Veränderungen, und Ihre Rückmeldungen fliessen in die Suche ein. So wird sie mit der Zeit präziser.",
     note: "Sie erhalten ein wöchentliches Reporting, und wir schärfen Ansprache und Zielgruppe laufend nach.",
     icon: "learn",
@@ -476,6 +480,7 @@ const QuoteFigure = ({ quote, author, authorRole, authorImage, initials }: Quote
 
 type CaseStudy = {
   title: string;
+  titleAccent: string;
   role: string;
   text: string;
   metrics: string[];
@@ -491,6 +496,7 @@ type CaseStudy = {
 const caseStudiesDe: CaseStudy[] = [
   {
     title: "5 gebuchte Gespräche in 2 Wochen",
+    titleAccent: "Gespräche",
     role: "Gian Besset Brand Design · Grafik & Webdesign, Basel",
     text: "Gian Besset wollte planbar neue Kunden gewinnen, unabhängig von Empfehlungen. Wir bauten ein automatisiertes E-Mail-System für Physio- und Tierarztpraxen in der Schweiz, jede Nachricht auf die einzelne Praxis zugeschnitten. Nach zwei Wochen wurde die Kampagne pausiert, nicht wegen mangelnder Ergebnisse, sondern weil die Anfragen die Kapazität überstiegen.",
     metrics: ["18 Interessenten", "4 Wochen Laufzeit", "14 % Antwortrate"],
@@ -504,6 +510,7 @@ const caseStudiesDe: CaseStudy[] = [
   },
   {
     title: "3 gebuchte Gespräche in den ersten 3 Tagen",
+    titleAccent: "Gespräche",
     role: "Büro Haeberli · Agentur für Grafik und Web, Zürich",
     text: "Büro Haeberli wollte gezielt Architekturbüros in der Deutschschweiz erreichen, eine Zielgruppe, die auf Standardanfragen kaum reagiert. Wir recherchierten jedes Büro einzeln und schrieben 308 davon persönlich an. Schon in den ersten drei Tagen kamen drei Gespräche zustande.",
     metrics: ["17 Interessenten", "4 Wochen Laufzeit", "19 % Antwortrate"],
@@ -516,6 +523,7 @@ const caseStudiesEn: CaseStudy[] = [
   {
     ...caseStudiesDe[0],
     title: "5 booked calls in 2 weeks",
+    titleAccent: "calls",
     role: "Gian Besset Brand Design · Graphic & Web Design, Basel",
     text: "Gian Besset wanted to win new clients predictably, independent of referrals. We built an automated email system for physiotherapy and veterinary clinics in Switzerland, with every message tailored to the individual clinic. After two weeks the campaign was paused, not for lack of results, but because demand exceeded capacity.",
     metrics: ["18 prospects", "4 weeks runtime", "14% reply rate"],
@@ -527,6 +535,7 @@ const caseStudiesEn: CaseStudy[] = [
   {
     ...caseStudiesDe[1],
     title: "3 booked calls in the first 3 days",
+    titleAccent: "calls",
     role: "Büro Haeberli · Graphic and Web Agency, Zurich",
     text: "Büro Haeberli wanted to reach architecture firms in German-speaking Switzerland, an audience that barely responds to standard outreach. We researched every firm individually and contacted 308 of them personally. Three conversations came about within the first three days.",
     metrics: ["17 prospects", "4 weeks runtime", "19% reply rate"],
@@ -819,24 +828,28 @@ const Index = () => {
         {
           ...processSteps[0],
           title: "Sample dossier",
+          accent: "dossier",
           text: "Tell us about your company and your ideal clients. We research a real case from your market and send it to you. Free and without obligation.",
           note: "Instead of a dossier, we clarify your target audience and the right channels in a short call.",
         },
         {
           ...processSteps[1],
           title: "Calibration, weeks 1 and 2",
+          accent: "Calibration",
           text: "Together we define what counts as a trigger in your market, which regions and company sizes matter, and whom we exclude. Two to three test runs sharpen the search.",
           note: "We build the target list, write the messages for your approval, and warm up the sender addresses so everything is reliably delivered.",
         },
         {
           ...processSteps[2],
           title: "Launch, from week 3",
+          accent: "Launch",
           text: "Every week you receive the verified dossiers in your portal, with the trigger, the decision-maker and a hook for the first conversation.",
           note: "The first messages go out, and replies land directly with you.",
         },
         {
           ...processSteps[3],
           title: "Ongoing operation",
+          accent: "operation",
           text: "We check existing cases weekly for changes, and your feedback flows into the search. That way it becomes more precise over time.",
           note: "You receive a weekly report, and we keep refining the messaging and target audience.",
         },
@@ -909,7 +922,8 @@ const Index = () => {
     return {
     title: (
       <>
-        <span className="font-serif font-normal text-gold">{item.step}</span> {item.title}
+        <span className="font-serif font-normal text-gold">{item.step}</span>{" "}
+        {accentWords(item.title, [{ word: item.accent, white: true }])}
       </>
     ),
     content: (
@@ -1175,7 +1189,14 @@ const Index = () => {
                   borderWidth={1}
                   variant="white"
                 />
-                <h3 className="text-2xl font-medium">{serifNumbers(caseStudy.title)}</h3>
+                <h3 className="text-2xl font-medium">
+                  {caseStudy.title.split(caseStudy.titleAccent).map((part, i) => (
+                    <Fragment key={i}>
+                      {i > 0 && <span className={`${serifAccentClass} text-white`}>{caseStudy.titleAccent}</span>}
+                      {serifNumbers(part)}
+                    </Fragment>
+                  ))}
+                </h3>
                 <p className="mt-1 text-sm font-medium text-stone-400">{caseStudy.role}</p>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">{caseStudy.text}</p>
                 <p className="mt-4 border-t border-white/10 pt-3 text-sm font-medium text-slate-100/90">
