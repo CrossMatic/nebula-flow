@@ -81,7 +81,7 @@ const accentWords = (text: string, accents: { word: string; gold?: boolean }[]) 
     const accent = accents.find((a) => a.word === part);
     if (!accent) return part;
     return (
-      <span key={i} className={`${serifAccentClass} ${accent.gold ? "text-gold" : ""}`}>
+      <span key={i} className={`${serifAccentClass} text-gold`}>
         {part}
       </span>
     );
@@ -367,7 +367,7 @@ const faqs = [
 const serifNumbers = (text: string) =>
   text.split(/(\d+(?:[.,']\d+)*(?:\s?%)?)/).map((part, i) =>
     i % 2 === 1 ? (
-      <span key={i} className="font-serif text-[1.18em] font-normal leading-none">
+      <span key={i} className="font-serif text-[1.18em] font-normal leading-none text-gold">
         {part}
       </span>
     ) : (
@@ -909,7 +909,7 @@ const Index = () => {
     return {
     title: (
       <>
-        <span className="font-serif font-normal">{item.step}</span> {item.title}
+        <span className="font-serif font-normal text-gold">{item.step}</span> {item.title}
       </>
     ),
     content: (
