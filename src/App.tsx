@@ -29,7 +29,7 @@ const App = () => (
       <LanguageProvider>
         <BrowserRouter>
           <FloatingLanguageSwitch />
-          <Suspense fallback={<div className="min-h-screen bg-[#02040a]" />}>
+          <Suspense fallback={<div className="min-h-screen bg-background" />}>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/termin" element={<Termin />} />

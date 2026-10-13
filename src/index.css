@@ -1,3 +1,7 @@
+@import "@fontsource-variable/inter/wght.css";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,58 +24,62 @@
 
 @layer base {
   :root {
-    --background: 222 50% 7%;
-    --foreground: 210 40% 98%;
+    /* Warmes, sehr dunkles Anthrazit als Grundton */
+    --background: 30 6% 7%;
+    --foreground: 36 20% 95%;
 
-    --card: 222 50% 7%;
-    --card-foreground: 210 40% 98%;
+    --card: 30 5% 10%;
+    --card-foreground: 36 20% 95%;
 
-    --popover: 222 50% 7%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 30 5% 10%;
+    --popover-foreground: 36 20% 95%;
 
-    --primary: 210 100% 65%;
-    --primary-foreground: 222 50% 7%;
+    /* Einzige Akzentfarbe: entsättigtes, warmes Gold. Nur sparsam einsetzen. */
+    --gold: 39 42% 62%;
 
-    --secondary: 220 30% 14%;
-    --secondary-foreground: 210 40% 98%;
+    --primary: 39 42% 62%;
+    --primary-foreground: 30 10% 8%;
 
-    --muted: 220 30% 14%;
-    --muted-foreground: 215 20% 65%;
+    --secondary: 30 5% 13%;
+    --secondary-foreground: 36 20% 95%;
 
-    --accent: 210 100% 65%;
-    --accent-foreground: 222 50% 7%;
+    --muted: 30 5% 13%;
+    --muted-foreground: 32 6% 62%;
+
+    --accent: 30 5% 16%;
+    --accent-foreground: 36 20% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 30% 20%;
-    --input: 220 30% 20%;
-    --ring: 210 100% 65%;
+    --border: 30 5% 18%;
+    --input: 30 5% 18%;
+    --ring: 39 42% 62%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 222 50% 7%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 210 100% 65%;
-    --sidebar-primary-foreground: 222 50% 7%;
-    --sidebar-accent: 220 30% 14%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 30% 20%;
-    --sidebar-ring: 210 100% 65%;
+    --sidebar-background: 30 6% 7%;
+    --sidebar-foreground: 36 20% 95%;
+    --sidebar-primary: 39 42% 62%;
+    --sidebar-primary-foreground: 30 10% 8%;
+    --sidebar-accent: 30 5% 13%;
+    --sidebar-accent-foreground: 36 20% 95%;
+    --sidebar-border: 30 5% 18%;
+    --sidebar-ring: 39 42% 62%;
   }
 }
 
 @layer components {
   /**
-   * Einheitlicher Hover für Glas-/Karten-Boxen (wie Case-Study-KPIs):
-   * kräftigere blaue Border + dezenter äußerer Glow.
-   * Basis: am Element weiterhin z. B. `border border-white/10` oder `border-blue-300/20`.
+   * Einheitlicher Hover für Glas-/Karten-Boxen:
+   * etwas hellere Border + weicher, dunkler Schatten statt farbigem Glow.
+   * Basis: am Element weiterhin z. B. `border border-white/10`.
    */
   .surface-glow-hover {
     @apply transition-all duration-300;
   }
   .surface-glow-hover:hover {
-    @apply border-blue-300/40 shadow-[0_0_24px_rgba(59,130,246,0.2)];
+    @apply border-white/20 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.7)];
   }
 }
 
@@ -82,11 +90,23 @@
 
   html,
   body {
-    background-color: #02040a;
+    background-color: hsl(var(--background));
   }
 
   body {
-    @apply text-foreground;
+    @apply font-sans text-foreground antialiased;
+  }
+
+  /* Kaum sichtbare Körnung über der ganzen Seite (lokal generiert, kein externer Host) */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px;
   }
 }
 

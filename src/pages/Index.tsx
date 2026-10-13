@@ -1,5 +1,4 @@
-import { DarkGradientBg } from "@/components/ui/dark-gradient-bg";
-import { GlassButton } from "@/components/ui/glass-button";
+import { AccentButton } from "@/components/ui/accent-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Timeline } from "@/components/ui/timeline";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -18,6 +17,7 @@ import leadScoutCaseDatabaseImage from "@/assets/lead-scout-falldatenbank.png";
 import leadScoutKnowledgeGraphImage from "@/assets/lead-scout-wissensgraph.png";
 import {
   BrainCircuit,
+  Check,
   FileSearch,
   Inbox,
   Linkedin,
@@ -38,11 +38,15 @@ const AnimatedWords = ({
   baseDelay,
   step = 70,
   wordClassName = "",
+  highlightWord,
+  highlightClassName = "",
 }: {
   text: string;
   baseDelay: number;
   step?: number;
   wordClassName?: string;
+  highlightWord?: string;
+  highlightClassName?: string;
 }) => {
   const words = text.split(" ");
   return (
@@ -50,7 +54,9 @@ const AnimatedWords = ({
       {words.map((word, i) => (
         <span
           key={`${word}-${i}`}
-          className={`animate-word-fade-in ${wordClassName}`}
+          className={`animate-word-fade-in ${
+            highlightWord && word.replace(/[.,!?]/g, "") === highlightWord ? highlightClassName : wordClassName
+          }`}
           style={{ animationDelay: `${baseDelay + i * step}ms` }}
         >
           {word}
@@ -285,6 +291,90 @@ const faqs = [
   },
 ];
 
+// Zahlen im Fliesstext in der Serifenschrift setzen.
+const serifNumbers = (text: string) =>
+  text.split(/(\d+(?:[.,']\d+)*(?:\s?%)?)/).map((part, i) =>
+    i % 2 === 1 ? (
+      <span key={i} className="font-serif text-[1.18em] font-normal leading-none">
+        {part}
+      </span>
+    ) : (
+      part
+    ),
+  );
+
+const proofCardPositions = [
+  "md:absolute md:-left-3 md:-top-6 lg:-left-14",
+  "md:absolute md:-right-3 md:top-[42%] lg:-right-14",
+  "md:absolute md:-bottom-6 md:left-[16%]",
+];
+
+// Dossier-Vorschau im Hero. Sobald der Screenshot vorliegt, als `image` übergeben;
+// bis dahin zeigt die Karte einen neutralen Platzhalter mit der Dossier-Struktur.
+const HeroDossierPreview = ({
+  image,
+  imageAlt,
+  overviewLabel,
+  proofs,
+}: {
+  image?: string;
+  imageAlt?: string;
+  overviewLabel: string;
+  proofs: string[];
+}) => (
+  <div className="animate-hero-rise-in relative mx-auto mt-16 max-w-4xl md:mt-20" style={{ animationDelay: "2500ms" }}>
+    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-2 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.9)] backdrop-blur-xl md:p-3">
+      <div className="overflow-hidden rounded-xl border border-white/[0.06] bg-[#1a1917]/80 text-left">
+        {image ? (
+          <img src={image} alt={imageAlt} className="block w-full" />
+        ) : (
+          <div aria-hidden="true" className="p-6 md:p-10">
+            <div className="flex items-center justify-between">
+              <div className="h-2 w-24 rounded-full bg-white/15" />
+              <div className="h-2 w-16 rounded-full bg-white/10" />
+            </div>
+            <div className="mt-6 h-4 w-3/4 rounded bg-white/20 md:h-5" />
+            <div className="mt-2 h-4 w-1/2 rounded bg-white/20 md:h-5" />
+            <p className="mt-7 text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:mt-9 md:text-[11px]">
+              Management Summary
+            </p>
+            <div className="mt-3 space-y-2">
+              <div className="h-2 w-full rounded-full bg-white/10" />
+              <div className="h-2 w-[92%] rounded-full bg-white/10" />
+              <div className="h-2 w-[70%] rounded-full bg-white/10" />
+            </div>
+            <p className="mt-7 text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:mt-9 md:text-[11px]">
+              {overviewLabel}
+            </p>
+            <div className="mt-3 divide-y divide-white/[0.06] border-y border-white/[0.06]">
+              {[0, 1, 2].map((row) => (
+                <div key={row} className="grid grid-cols-[1fr_2fr_1fr] gap-4 py-2.5">
+                  <div className="h-2 w-3/4 rounded-full bg-white/15" />
+                  <div className="h-2 w-5/6 rounded-full bg-white/10" />
+                  <div className="h-2 w-1/2 rounded-full bg-white/10" />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+    <div className="mt-5 flex flex-col items-center gap-3 md:mt-0">
+      {proofs.map((proof, index) => (
+        <div
+          key={proof}
+          className={`flex items-center gap-3 rounded-xl border border-white/10 bg-[#1d1c1a]/85 px-4 py-3 text-left text-sm text-stone-100 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.85)] backdrop-blur-md ${proofCardPositions[index] ?? ""}`}
+        >
+          <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/15 ring-1 ring-gold/30">
+            <Check className="h-3.5 w-3.5 text-gold" />
+          </span>
+          {proof}
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 type QuoteFigureProps = {
   quote: string;
   author?: string;
@@ -298,14 +388,14 @@ const QuoteFigure = ({ quote, author, authorRole, authorImage, initials }: Quote
   <figure className="surface-glow-hover relative flex flex-col items-center gap-5 rounded-2xl border border-white/10 bg-white/5 p-6 text-center sm:flex-row sm:text-left md:gap-6 md:p-8">
     <Avatar className="h-16 w-16 border border-white/15 md:h-20 md:w-20">
       {authorImage && <AvatarImage src={authorImage} alt={author} className="object-cover" />}
-      <AvatarFallback className="bg-white/10 text-base font-medium text-blue-200 md:text-lg">{initials}</AvatarFallback>
+      <AvatarFallback className="bg-white/10 text-base font-medium text-stone-200 md:text-lg">{initials}</AvatarFallback>
     </Avatar>
     <div className="flex-1">
       <blockquote className="text-base italic leading-relaxed text-slate-100/95 md:text-lg">
         {`"${quote}"`}
       </blockquote>
       <figcaption className="mt-4">
-        <p className="text-sm font-medium text-blue-200">{author}</p>
+        <p className="text-sm font-medium text-stone-100">{author}</p>
         <p className="text-xs text-muted-foreground">{authorRole}</p>
       </figcaption>
     </div>
@@ -389,6 +479,9 @@ const Index = () => {
         heroHeadline: "Wissen, wo gerade entschieden wird",
         heroSub: "Jede Woche recherchierte Dossiers zu den Organisationen, bei denen gerade ein Auftrag entsteht.",
         heroProof: "Im Einsatz bei Farner Consulting.",
+        heroHighlight: "entschieden",
+        heroProofCards: ["Im Einsatz bei Farner Consulting", "Jede Angabe mit Quelle belegt", "Mehrere hundert Quellen pro Lauf"],
+        heroPreviewOverview: "Übersicht",
         heroMainCta: "Kostenloses Beispieldossier anfordern",
         heroServices: "Unsere Leistungen ↓",
         trustedByTitle: "Vertraut von",
@@ -460,6 +553,9 @@ const Index = () => {
         heroHeadline: "Know where decisions are being made",
         heroSub: "Researched dossiers every week on the organisations where a new mandate is taking shape right now.",
         heroProof: "In use at Farner Consulting.",
+        heroHighlight: "decisions",
+        heroProofCards: ["In use at Farner Consulting", "Every claim backed by a source", "Several hundred sources per run"],
+        heroPreviewOverview: "Overview",
         heroMainCta: "Request a Free Sample Dossier",
         heroServices: "Our Services ↓",
         trustedByTitle: "Trusted by",
@@ -574,16 +670,16 @@ const Index = () => {
         borderWidth={1}
         variant="white"
       />
-      <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
-        {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-blue-200" /> : <Mail className="h-5 w-5 text-blue-200" />}
+      <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+        {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-stone-200" /> : <Mail className="h-5 w-5 text-stone-200" />}
       </div>
-      <h3 className="text-2xl font-semibold">{service.title}</h3>
-      <p className="mt-1 text-sm font-medium text-blue-300">{service.subtitle}</p>
+      <h3 className="text-2xl font-medium">{service.title}</h3>
+      <p className="mt-1 text-sm font-medium text-stone-400">{service.subtitle}</p>
       <p className="mt-4 text-sm text-muted-foreground md:text-base">{service.description}</p>
       <ul className="mt-4 flex-1 space-y-1.5">
         {service.benefits.map((benefit) => (
           <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90">
-            <span className="mt-[2px] text-blue-300">✓</span>
+            <span className="mt-[2px] text-gold">✓</span>
             <span>{benefit}</span>
           </li>
         ))}
@@ -686,7 +782,11 @@ const Index = () => {
   });
   const processTimelineData = localizedProcessSteps.map((item) => {
     return {
-    title: `${item.step} ${item.title}`,
+    title: (
+      <>
+        <span className="font-serif font-normal">{item.step}</span> {item.title}
+      </>
+    ),
     content: (
       <div className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-5">
         <GlowingEffect
@@ -698,15 +798,15 @@ const Index = () => {
           borderWidth={1}
           variant="white"
         />
-        <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-blue-300/30 bg-blue-500/10 shadow-[0_0_24px_rgba(59,130,246,0.3)]">
-          {item.icon === "dossier" && <FileSearch className="h-5 w-5 text-blue-200" />}
-          {item.icon === "calibrate" && <SlidersHorizontal className="h-5 w-5 text-blue-200" />}
-          {item.icon === "delivery" && <Inbox className="h-5 w-5 text-blue-200" />}
-          {item.icon === "learn" && <BrainCircuit className="h-5 w-5 text-blue-200" />}
+        <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04]">
+          {item.icon === "dossier" && <FileSearch className="h-5 w-5 text-stone-200" />}
+          {item.icon === "calibrate" && <SlidersHorizontal className="h-5 w-5 text-stone-200" />}
+          {item.icon === "delivery" && <Inbox className="h-5 w-5 text-stone-200" />}
+          {item.icon === "learn" && <BrainCircuit className="h-5 w-5 text-stone-200" />}
         </div>
         <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{item.text}</p>
         <p className="mt-4 border-t border-white/10 pt-4 text-xs leading-relaxed text-muted-foreground md:text-sm">
-          <span className="font-medium text-blue-200">{t.processNoteLabel}</span> {item.note}
+          <span className="font-medium text-stone-200">{t.processNoteLabel}</span> {item.note}
         </p>
       </div>
     ),
@@ -733,13 +833,13 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="relative overflow-x-hidden bg-[#02040a] text-white">
+    <main className="relative overflow-x-hidden bg-background text-white">
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           showNavbar ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="surface-glow-hover mx-auto mt-4 w-[min(86%,920px)] rounded-xl border border-white/10 bg-[#02040a]/80 px-4 py-3 backdrop-blur-md md:px-6">
+        <div className="surface-glow-hover mx-auto mt-4 w-[min(86%,920px)] rounded-xl border border-white/10 bg-background/80 px-4 py-3 backdrop-blur-md md:px-6">
           <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 md:grid-cols-[10rem_1fr_10rem]">
             <a href="#hero" className="inline-flex items-center">
               <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-[3.125rem] w-auto object-contain" />
@@ -770,43 +870,52 @@ const Index = () => {
         </div>
       </header>
 
-      <section ref={heroRef} id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
-        <DarkGradientBg />
-        <div className="relative z-10 mx-auto max-w-6xl space-y-5 text-center">
-          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
-            <AnimatedWords text={t.heroKicker} baseDelay={0} step={110} />
-          </p>
-          <h1 className="font-display text-4xl font-bold tracking-[-0.02em] text-white md:text-6xl md:leading-[1.1] lg:whitespace-nowrap lg:text-[clamp(3rem,5.2vw,3.75rem)]">
-            <AnimatedWords text={t.heroHeadline} baseDelay={550} step={110} />
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            <span className="block">
-              <AnimatedWords text={t.heroSub} baseDelay={1300} />
-            </span>
-            <span className="block">
-              <AnimatedWords text={t.heroProof} baseDelay={1300 + t.heroSub.split(" ").length * 70} />
-            </span>
-          </p>
-          <div
-            className="animate-hero-rise-in flex flex-col items-center gap-3 pt-4 sm:flex-row sm:justify-center"
-            style={{ animationDelay: "2200ms" }}
-          >
-            <GlassButton onClick={() => setIsDossierOpen(true)} contentClassName="inline-flex items-center gap-2">
-              {t.heroMainCta}
-              <span>→</span>
-            </GlassButton>
-            <button
-              type="button"
-              onClick={() => document.getElementById("leistungen")?.scrollIntoView({ behavior: "smooth" })}
-              className="text-muted-foreground transition-colors hover:text-foreground"
+      <section ref={heroRef} id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 pb-20 pt-28 md:pt-32">
+        <div className="relative z-10 mx-auto w-full max-w-6xl text-center">
+          <div className="space-y-5">
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
+              <AnimatedWords text={t.heroKicker} baseDelay={0} step={110} />
+            </p>
+            <h1 className="text-4xl font-medium tracking-[-0.03em] text-white md:text-6xl md:leading-[1.1] lg:whitespace-nowrap lg:text-[clamp(3rem,5.2vw,3.75rem)]">
+              <AnimatedWords
+                text={t.heroHeadline}
+                baseDelay={550}
+                step={110}
+                highlightWord={t.heroHighlight}
+                highlightClassName="font-serif text-[1.12em] font-normal italic tracking-normal text-gold"
+              />
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              <span className="block">
+                <AnimatedWords text={t.heroSub} baseDelay={1300} />
+              </span>
+              <span className="block">
+                <AnimatedWords
+                  text={t.heroProof}
+                  baseDelay={1300 + t.heroSub.split(" ").length * 70}
+                  wordClassName="font-semibold text-white"
+                />
+              </span>
+            </p>
+            <div
+              className="animate-hero-rise-in flex flex-col items-center gap-4 pt-4 sm:flex-row sm:justify-center sm:gap-6"
+              style={{ animationDelay: "2200ms" }}
             >
-              {t.heroServices}
-            </button>
+              <AccentButton onClick={() => setIsDossierOpen(true)}>{t.heroMainCta}</AccentButton>
+              <button
+                type="button"
+                onClick={() => document.getElementById("leistungen")?.scrollIntoView({ behavior: "smooth" })}
+                className="text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {t.heroServices}
+              </button>
+            </div>
           </div>
+          <HeroDossierPreview overviewLabel={t.heroPreviewOverview} proofs={t.heroProofCards} />
         </div>
       </section>
 
-      <section className="w-full bg-[#02040a] px-4 py-16 md:px-8 lg:px-16">
+      <section className="w-full bg-background px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.trustedByTitle}</p>
           <div className="flex flex-nowrap items-start justify-center gap-x-4 overflow-x-auto sm:gap-x-6 md:gap-x-10">
@@ -836,7 +945,7 @@ const Index = () => {
         <div className="mx-auto max-w-6xl space-y-16">
           <div className="mx-auto max-w-2xl space-y-4 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.problemTag}</p>
-            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
+            <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
               {t.problemTitle}
             </h2>
             <p className="mx-auto max-w-xl text-sm text-muted-foreground md:text-base">{t.problemIntro}</p>
@@ -844,8 +953,8 @@ const Index = () => {
           <div className="grid gap-10 md:grid-cols-3 md:gap-12">
             {t.problemPoints.map((point, index) => (
               <div key={point.title} className="space-y-3 text-center md:text-left">
-                <span className="text-sm font-semibold text-blue-300">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="text-lg font-bold text-white">{point.title}</h3>
+                <span className="font-serif text-3xl leading-none text-stone-400">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="text-lg font-medium text-white">{point.title}</h3>
                 <p className="text-sm text-muted-foreground">{point.body}</p>
               </div>
             ))}
@@ -859,7 +968,7 @@ const Index = () => {
       <section id="leistungen" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
-            <h2 className="whitespace-pre-line bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.servicesTitle}</h2>
+            <h2 className="whitespace-pre-line text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">{t.servicesTitle}</h2>
             <p className="mx-auto max-w-3xl text-sm text-muted-foreground md:text-base">{t.servicesSub}</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -872,7 +981,7 @@ const Index = () => {
       <section id="so-funktionierts" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-14">
           <div className="space-y-3 text-center">
-            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
+            <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
               {t.howTitle}
             </h2>
             <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">{t.howSub}</p>
@@ -880,10 +989,10 @@ const Index = () => {
           <div className="grid gap-10 md:grid-cols-2 md:gap-12">
             {leadScoutSteps.slice(0, 2).map((step, index) => (
               <div key={step.label} className="space-y-3">
-                <p className="text-sm font-semibold text-blue-300">
-                  {String(index + 1).padStart(2, "0")} · {step.label}
+                <p className="text-sm font-medium text-stone-400">
+                  <span className="font-serif text-xl font-normal">{String(index + 1).padStart(2, "0")}</span> · {step.label}
                 </p>
-                <h3 className="text-xl font-semibold text-white md:text-2xl">{step.title}</h3>
+                <h3 className="text-xl font-medium text-white md:text-2xl">{step.title}</h3>
                 {step.paragraphs.map((paragraph) => (
                   <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground md:text-base">
                     {paragraph}
@@ -895,10 +1004,10 @@ const Index = () => {
           {leadScoutSteps.slice(2).map((step, index) => (
             <div key={step.label} className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
               <div className={`space-y-3 ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                <p className="text-sm font-semibold text-blue-300">
-                  {String(index + 3).padStart(2, "0")} · {step.label}
+                <p className="text-sm font-medium text-stone-400">
+                  <span className="font-serif text-xl font-normal">{String(index + 3).padStart(2, "0")}</span> · {step.label}
                 </p>
-                <h3 className="text-xl font-semibold text-white md:text-2xl">{step.title}</h3>
+                <h3 className="text-xl font-medium text-white md:text-2xl">{step.title}</h3>
                 {step.paragraphs.map((paragraph) => (
                   <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground md:text-base">
                     {paragraph}
@@ -927,10 +1036,7 @@ const Index = () => {
             initials="AK"
           />
           <div className="text-center">
-            <GlassButton onClick={() => setIsDossierOpen(true)} contentClassName="inline-flex items-center gap-2">
-              {t.heroMainCta}
-              <span>→</span>
-            </GlassButton>
+            <AccentButton onClick={() => setIsDossierOpen(true)}>{t.heroMainCta}</AccentButton>
           </div>
         </div>
       </section>
@@ -955,15 +1061,15 @@ const Index = () => {
                   borderWidth={1}
                   variant="white"
                 />
-                <h3 className="text-2xl font-semibold">{caseStudy.title}</h3>
-                <p className="mt-1 text-sm font-medium text-blue-300">{caseStudy.role}</p>
+                <h3 className="text-2xl font-medium">{serifNumbers(caseStudy.title)}</h3>
+                <p className="mt-1 text-sm font-medium text-stone-400">{caseStudy.role}</p>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">{caseStudy.text}</p>
                 <p className="mt-4 border-t border-white/10 pt-3 text-sm font-medium text-slate-100/90">
-                  {caseStudy.metrics.join(" · ")}
+                  {serifNumbers(caseStudy.metrics.join(" · "))}
                 </p>
                 <div className="mt-auto pt-6">
                   {caseStudy.image ? (
-                    <div className="overflow-hidden rounded-2xl border border-blue-300/20 bg-black/30">
+                    <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/30">
                       <img src={caseStudy.image} alt={caseStudy.imageAlt} className="block w-full" loading="lazy" />
                     </div>
                   ) : (
@@ -993,7 +1099,7 @@ const Index = () => {
             <div className="space-y-6">
               <div className="space-y-3">
                 <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.aboutTag}</p>
-                <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">
+                <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
                   {t.aboutTitle}
                 </h2>
               </div>
@@ -1024,7 +1130,7 @@ const Index = () => {
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.processTag}</p>
-            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.processTitle}</h2>
+            <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">{t.processTitle}</h2>
           </div>
           <Timeline data={processTimelineData} />
         </div>
@@ -1034,7 +1140,7 @@ const Index = () => {
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="space-y-3 text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.faqTag}</p>
-            <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.faqTitle}</h2>
+            <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">{t.faqTitle}</h2>
           </div>
           <div className="space-y-3">
             {localizedFaqs.map((faq) => (
@@ -1050,7 +1156,7 @@ const Index = () => {
                 />
                 <summary className="cursor-pointer list-none text-left font-medium">
                   {faq.question}
-                  <span className="ml-2 inline-block text-blue-300 transition-transform group-open:rotate-45">+</span>
+                  <span className="ml-2 inline-block text-stone-400 transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <p className="mt-3 whitespace-pre-line text-sm text-muted-foreground">{faq.answer}</p>
               </details>
@@ -1061,13 +1167,10 @@ const Index = () => {
 
       <section id="kontakt" className="w-full px-4 pb-8 pt-14 md:px-8 md:pb-10 md:pt-16 lg:px-16">
         <div className="mx-auto max-w-4xl p-8 text-center md:p-12">
-          <h2 className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl">{t.contactTitle}</h2>
+          <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">{t.contactTitle}</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-base">{t.contactSub}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <GlassButton onClick={() => setIsDossierOpen(true)} contentClassName="inline-flex items-center gap-2">
-              {t.heroMainCta}
-              <span>→</span>
-            </GlassButton>
+            <AccentButton onClick={() => setIsDossierOpen(true)}>{t.heroMainCta}</AccentButton>
           </div>
         </div>
       </section>

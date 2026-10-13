@@ -3,7 +3,7 @@ import { CheckCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { GlassButton } from "@/components/ui/glass-button";
+import { AccentButton } from "@/components/ui/accent-button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -25,7 +25,7 @@ type DossierFormValues = {
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClassName =
-  "border-white/10 bg-black/20 text-white placeholder:text-slate-500 focus-visible:ring-blue-400/50";
+  "border-white/10 bg-black/20 text-white placeholder:text-slate-500 focus-visible:ring-gold/50";
 
 export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   const { language } = useLanguage();
@@ -132,7 +132,7 @@ export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; on
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-h-[90vh] overflow-y-auto border-white/10 focus:outline-none bg-[#05070d] p-6 text-white sm:rounded-2xl md:p-8">
+      <DialogContent className="max-h-[90vh] overflow-y-auto border-white/10 focus:outline-none bg-card p-6 text-white sm:rounded-2xl md:p-8">
         <div className={status === "success" ? "sr-only" : "space-y-2 pr-6"}>
           <DialogTitle className="text-2xl font-semibold text-white">{t.title}</DialogTitle>
           <DialogDescription className="text-sm leading-relaxed text-muted-foreground">{t.intro}</DialogDescription>
@@ -140,8 +140,8 @@ export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; on
 
         {status === "success" ? (
           <div className="space-y-4 py-6 text-center">
-            <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-xl border border-blue-300/30 bg-blue-500/10 shadow-[0_0_30px_rgba(59,130,246,0.35)]">
-              <CheckCircle className="h-6 w-6 text-blue-200" />
+            <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-xl border border-gold/30 bg-gold/10">
+              <CheckCircle className="h-6 w-6 text-gold" />
             </div>
             <p className="text-xl font-semibold text-white">
               {t.thanks}
@@ -236,19 +236,16 @@ export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; on
               )}
 
               <div className="pt-2">
-                <GlassButton type="submit" disabled={isSubmitting} contentClassName="inline-flex items-center gap-2">
+                <AccentButton type="submit" disabled={isSubmitting} hideArrow={isSubmitting}>
                   {isSubmitting ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
                       {t.sending}
                     </>
                   ) : (
-                    <>
-                      {t.submit}
-                      <span>→</span>
-                    </>
+                    t.submit
                   )}
-                </GlassButton>
+                </AccentButton>
               </div>
             </form>
           </Form>
