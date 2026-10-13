@@ -26,6 +26,8 @@
   :root {
     /* Warmes, sehr dunkles Anthrazit als Grundton */
     --background: 30 6% 7%;
+    /* Minimal helleres Anthrazit für abwechselnde Sektionen */
+    --surface: 30 5% 9.5%;
     --foreground: 36 20% 95%;
 
     --card: 30 5% 10%;

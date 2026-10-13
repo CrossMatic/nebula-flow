@@ -29,7 +29,7 @@ import {
 } from "lucide-react";
 import { DossierRequestDialog } from "@/components/DossierRequestDialog";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
-import { useEffect, useRef, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/i18n/language";
 import { useSeo } from "@/seo/useSeo";
 
@@ -66,6 +66,63 @@ const AnimatedWords = ({
     </>
   );
 };
+
+const serifAccentClass = "font-serif text-[1.12em] font-normal italic tracking-normal";
+
+// Setzt einzelne Schlüsselwörter eines Titels in die kursive Serifenschrift, optional in Gold.
+const accentWords = (text: string, accents: { word: string; gold?: boolean }[]) => {
+  if (!accents.length) return text;
+  const escaped = accents.map((a) => a.word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  return text.split(new RegExp(`(${escaped.join("|")})`)).map((part, i) => {
+    const accent = accents.find((a) => a.word === part);
+    if (!accent) return part;
+    return (
+      <span key={i} className={`${serifAccentClass} ${accent.gold ? "text-gold" : ""}`}>
+        {part}
+      </span>
+    );
+  });
+};
+
+// Abschnittslabel als Pille mit feinem goldenen Rahmen.
+const SectionPill = ({ children, className = "" }: { children: ReactNode; className?: string }) => (
+  <span
+    className={`inline-flex items-center rounded-full border border-gold/30 bg-white/[0.05] px-3.5 py-1 text-xs font-medium text-stone-200 ${className}`}
+  >
+    {children}
+  </span>
+);
+
+// Einleitungsabsatz: erster Satz hell und Medium, der Rest im gewohnten Grau.
+const LeadParagraph = ({ text, className = "" }: { text: string; className?: string }) => {
+  const match = text.match(/^(.+?[.!?])\s+([\s\S]+)$/);
+  return (
+    <p className={`text-muted-foreground ${className}`}>
+      <span className="font-medium text-stone-100">{match ? match[1] : text}</span>
+      {match && ` ${match[2]}`}
+    </p>
+  );
+};
+
+// Sehr weicher, grossflächiger Goldschein in einer Ecke der Sektion.
+const CornerGlow = ({ className = "" }: { className?: string }) => (
+  <div
+    aria-hidden
+    className={`pointer-events-none absolute h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(closest-side,hsl(var(--gold)/0.07),transparent)] ${className}`}
+  />
+);
+
+// Feine vertikale Hilfslinien im Hintergrund, oben und unten ausgeblendet.
+const GuideLines = () => (
+  <div
+    aria-hidden
+    className="pointer-events-none absolute inset-0 mx-auto hidden max-w-6xl grid-cols-4 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] md:grid"
+  >
+    {[0, 1, 2, 3].map((i) => (
+      <div key={i} className={`border-l border-white/[0.04] ${i === 3 ? "border-r" : ""}`} />
+    ))}
+  </div>
+);
 
 const services = [
   {
@@ -487,25 +544,31 @@ const Index = () => {
         trustedByTitle: "Vertraut von",
         problemTag: "Das Problem",
         problemTitle: "Ihre besten Kunden entscheiden gerade. Ohne Sie.",
+        problemTitleAccent: "entscheiden",
         problemIntro:
           "In Ihrem Markt entstehen ständig konkrete Anlässe: ein Führungswechsel, eine Expansion, ein neues Projekt, eine Finanzierungsrunde. In genau diesen Momenten wird über Budgets und Partner entschieden. Die meisten Unternehmen erfahren davon erst, wenn die Entscheidung längst gefallen ist.",
         problemPoints: [
           {
             title: "Sie erfahren es zu spät",
+            accent: "spät",
             body: "Wenn eine Ausschreibung öffentlich ist oder jemand aktiv sucht, sind Sie einer von vielen. Der interessante Moment liegt Wochen davor und bleibt unsichtbar, wenn niemand danach sucht.",
           },
           {
             title: "Ohne Signale trifft man ins Leere",
+            accent: "Signale",
             body: "Wer nicht weiss, bei wem gerade etwas ansteht, spricht alle gleich an. Die Nachricht bleibt allgemein, und wer wirklich Bedarf hat, merkt nicht, dass er gemeint ist.",
           },
           {
             title: "Recherche kostet die falsche Zeit",
+            accent: "falsche",
             body: "Wer seinen Markt wirklich beobachten will, verbringt Stunden mit Suchen und Lesen. Zeit, die im Gespräch mit Kunden mehr wert wäre.",
           },
         ],
         problemClosing:
           "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die die Anlässe findet, und Ansprache, die dazu passt.",
         servicesTitle: "Unsere Leistungen",
+        servicesTitleAccent: "Leistungen",
+        servicesMainBadge: "Hauptprodukt",
         servicesSub: "Zwei Wege zum richtigen Gespräch – unser Hauptprodukt ist der Lead Scout.",
         howTitle: "So funktioniert der Lead Scout",
         howSub: "Vom ersten Gespräch bis zur wöchentlichen Lieferung. Und warum die Treffer mit jeder Ausgabe schärfer werden.",
@@ -561,25 +624,31 @@ const Index = () => {
         trustedByTitle: "Trusted by",
         problemTag: "The Problem",
         problemTitle: "Your best customers are deciding right now. Without you.",
+        problemTitleAccent: "deciding",
         problemIntro:
           "Concrete triggers are constantly emerging in your market: a change in leadership, an expansion, a new project, a funding round. These are exactly the moments when budgets and partners get decided. Most companies only find out once the decision has already been made.",
         problemPoints: [
           {
             title: "You find out too late",
+            accent: "late",
             body: "By the time a tender is public or someone is actively searching, you're one of many. The interesting moment is weeks earlier and stays invisible if no one is looking for it.",
           },
           {
             title: "Without signals, outreach misses the mark",
+            accent: "signals",
             body: "If you don't know who has something coming up, you address everyone the same way. The message stays generic, and the ones who actually have a need don't notice it's meant for them.",
           },
           {
             title: "Research eats the wrong kind of time",
+            accent: "wrong",
             body: "Anyone who truly wants to watch their market spends hours searching and reading. Time that would be worth more in conversation with customers.",
           },
         ],
         problemClosing:
           "We make sure you're visible at the right moment: with research that finds the triggers, and outreach that fits.",
         servicesTitle: "Our Services",
+        servicesTitleAccent: "Services",
+        servicesMainBadge: "Core product",
         servicesSub: "Two ways to the right conversation – our core product is the Lead Scout.",
         howTitle: "How Lead Scout works",
         howSub: "From the first conversation to the weekly delivery. And why the hits get sharper with every issue.",
@@ -659,33 +728,49 @@ const Index = () => {
   const [leadScout, outreach] = localizedServices;
   const leadScoutSteps = isDe ? leadScoutStepsDe : leadScoutStepsEn;
 
-  const renderServiceCard = (service: (typeof localizedServices)[number]) => (
-    <article className="surface-glow-hover relative flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
-      <GlowingEffect
-        spread={34}
-        glow={false}
-        disabled
-        proximity={80}
-        inactiveZone={0.2}
-        borderWidth={1}
-        variant="white"
-      />
-      <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
-        {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-stone-200" /> : <Mail className="h-5 w-5 text-stone-200" />}
-      </div>
-      <h3 className="text-2xl font-medium">{service.title}</h3>
-      <p className="mt-1 text-sm font-medium text-stone-400">{service.subtitle}</p>
-      <p className="mt-4 text-sm text-muted-foreground md:text-base">{service.description}</p>
-      <ul className="mt-4 flex-1 space-y-1.5">
-        {service.benefits.map((benefit) => (
-          <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90">
-            <span className="mt-[2px] text-gold">✓</span>
-            <span>{benefit}</span>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-5 border-t border-white/10 pt-3 text-sm text-muted-foreground">{service.footer}</p>
-    </article>
+  const renderServiceCard = (service: (typeof localizedServices)[number], featured = false) => (
+    <div className="relative isolate h-full">
+      {featured && (
+        <div aria-hidden className="pointer-events-none absolute -inset-4 -z-10 rounded-[2rem] bg-gold/[0.09] blur-3xl" />
+      )}
+      <article
+        className={`surface-glow-hover relative flex h-full flex-col rounded-2xl border p-6 md:p-8 ${
+          featured
+            ? "border-gold/55 bg-[linear-gradient(180deg,hsl(var(--gold)/0.07),hsl(var(--surface))_45%)] shadow-[0_24px_60px_-28px_rgba(0,0,0,0.7)] hover:border-gold/70"
+            : "border-white/10 bg-white/[0.03]"
+        }`}
+      >
+        {featured && (
+          <span className="absolute right-5 top-5 inline-flex items-center rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-xs font-medium text-stone-100 md:right-7 md:top-7">
+            {t.servicesMainBadge}
+          </span>
+        )}
+        <GlowingEffect
+          spread={34}
+          glow={false}
+          disabled
+          proximity={80}
+          inactiveZone={0.2}
+          borderWidth={1}
+          variant="white"
+        />
+        <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+          {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-stone-200" /> : <Mail className="h-5 w-5 text-stone-200" />}
+        </div>
+        <h3 className="text-2xl font-medium">{service.title}</h3>
+        <p className="mt-1 text-sm font-medium text-stone-400">{service.subtitle}</p>
+        <p className="mt-4 text-sm text-muted-foreground md:text-base">{service.description}</p>
+        <ul className="mt-4 flex-1 space-y-1.5">
+          {service.benefits.map((benefit) => (
+            <li key={benefit} className="flex items-start gap-2 text-sm text-slate-100/90">
+              <span className="mt-[2px] text-gold">✓</span>
+              <span>{benefit}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-5 border-t border-white/10 pt-3 text-sm text-muted-foreground">{service.footer}</p>
+      </article>
+    </div>
   );
 
   const localizedProcessSteps = isDe
@@ -941,38 +1026,46 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="problem" className="w-full px-4 pb-20 pt-28 md:px-8 md:pt-36 lg:px-16">
-        <div className="mx-auto max-w-6xl space-y-16">
-          <div className="mx-auto max-w-2xl space-y-4 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.problemTag}</p>
+      <section id="problem" className="relative w-full overflow-hidden px-4 pb-20 pt-28 md:px-8 md:pt-36 lg:px-16">
+        <CornerGlow className="-left-48 -top-48" />
+        <div className="relative mx-auto max-w-6xl space-y-16">
+          <div className="mx-auto max-w-2xl space-y-5 text-center">
+            <SectionPill>{t.problemTag}</SectionPill>
             <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
-              {t.problemTitle}
+              {accentWords(t.problemTitle, [{ word: t.problemTitleAccent, gold: true }])}
             </h2>
-            <p className="mx-auto max-w-xl text-sm text-muted-foreground md:text-base">{t.problemIntro}</p>
+            <LeadParagraph text={t.problemIntro} className="mx-auto max-w-xl text-sm md:text-base" />
           </div>
-          <div className="grid gap-10 md:grid-cols-3 md:gap-12">
+          <div className="grid gap-5 md:grid-cols-3 md:gap-6">
             {t.problemPoints.map((point, index) => (
-              <div key={point.title} className="space-y-3 text-center md:text-left">
-                <span className="font-serif text-3xl leading-none text-stone-400">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="text-lg font-medium text-white">{point.title}</h3>
+              <div
+                key={point.title}
+                className="surface-glow-hover space-y-3 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.015] p-6 text-center shadow-[0_24px_60px_-28px_rgba(0,0,0,0.7)] md:p-7 md:text-left"
+              >
+                <span className="block font-serif text-5xl leading-none text-gold">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="pt-2 text-lg font-medium text-white">{accentWords(point.title, [{ word: point.accent }])}</h3>
                 <p className="text-sm text-muted-foreground">{point.body}</p>
               </div>
             ))}
           </div>
-          <p className="mx-auto max-w-2xl text-center text-base font-medium text-white md:text-lg">
-            {t.problemClosing}
-          </p>
+          <div className="space-y-8 text-center">
+            <p className="mx-auto max-w-2xl text-base font-medium text-white md:text-lg">{t.problemClosing}</p>
+            <AccentButton onClick={() => setIsDossierOpen(true)}>{t.heroMainCta}</AccentButton>
+          </div>
         </div>
       </section>
 
-      <section id="leistungen" className="w-full px-4 py-16 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-6xl space-y-10">
+      <section id="leistungen" className="relative w-full overflow-hidden border-y border-white/[0.04] bg-surface px-4 py-20 md:px-8 md:py-24 lg:px-16">
+        <GuideLines />
+        <div className="relative mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
-            <h2 className="whitespace-pre-line text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">{t.servicesTitle}</h2>
-            <p className="mx-auto max-w-3xl text-sm text-muted-foreground md:text-base">{t.servicesSub}</p>
+            <h2 className="whitespace-pre-line text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
+              {accentWords(t.servicesTitle, [{ word: t.servicesTitleAccent, gold: true }])}
+            </h2>
+            <LeadParagraph text={t.servicesSub} className="mx-auto max-w-3xl text-sm md:text-base" />
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {renderServiceCard(leadScout)}
+            {renderServiceCard(leadScout, true)}
             {renderServiceCard(outreach)}
           </div>
         </div>

@@ -20,7 +20,8 @@ export default {
         serif: ["Instrument Serif", ...defaultTheme.fontFamily.serif],
       },
       colors: {
-        gold: "hsl(var(--gold))",
+        gold: "hsl(var(--gold) / <alpha-value>)",
+        surface: "hsl(var(--surface) / <alpha-value>)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
