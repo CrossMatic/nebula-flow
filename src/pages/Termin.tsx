@@ -1,5 +1,6 @@
-import { GlassButton } from "@/components/ui/glass-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { SecondaryButton } from "@/components/ui/secondary-button";
+import { accentWords, cardClass, CornerGlow, LeadParagraph, SectionPill } from "@/components/section-style";
 import crossmaticCLogo from "@/assets/crossmatic-c-logo-clean.png";
 import { Linkedin, Mail, MapPin, PhoneCall } from "lucide-react";
 import { useEffect } from "react";
@@ -95,11 +96,13 @@ const Termin = () => {
       ? {
           section: "Termin",
           title: "Erstgespräch buchen",
+          titleAccent: "Erstgespräch",
           subtitle: "Wählen Sie direkt einen passenden Termin. Die Buchung erfolgt auf dieser Seite.",
           back: "Zurück zur Startseite",
           iframeTitle: "CrossMatic Terminbuchung",
           faq: "FAQ",
           faqTitle: "Häufige Fragen",
+          faqTitleAccent: "Fragen",
           footerTagline: "Automatisierte Lead-Generierung für B2B-Unternehmen.",
           nav: "Navigation",
           services: "Leistungen",
@@ -114,11 +117,13 @@ const Termin = () => {
       : {
           section: "Booking",
           title: "Book an Intro Call",
+          titleAccent: "Intro Call",
           subtitle: "Choose a suitable appointment directly. Booking is completed on this page.",
           back: "Back to Homepage",
           iframeTitle: "CrossMatic Booking",
           faq: "FAQ",
           faqTitle: "Frequently Asked Questions",
+          faqTitleAccent: "Questions",
           footerTagline: "Automated lead generation for B2B companies.",
           nav: "Navigation",
           services: "Services",
@@ -150,22 +155,30 @@ const Termin = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#02040a] px-4 py-8 text-white md:px-8 lg:px-16">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+    <main className="relative min-h-screen overflow-x-hidden bg-background px-4 py-8 text-white md:px-8 lg:px-16">
+      <CornerGlow className="-left-48 -top-48" />
+      <div className="relative mx-auto max-w-6xl">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.section}</p>
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">{t.title}</h1>
-            <p className="mt-2 text-sm text-muted-foreground md:text-base">
-              {t.subtitle}
-            </p>
+            <SectionPill>{t.section}</SectionPill>
+            <h1 className="mt-4 text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
+              {accentWords(t.title, [{ word: t.titleAccent, gold: true }])}
+            </h1>
+            <LeadParagraph text={t.subtitle} className="mt-3 text-sm md:text-base" />
           </div>
-          <GlassButton size="sm" onClick={() => navigate("/")} contentClassName="inline-flex items-center gap-2">
+          <SecondaryButton
+            href="/"
+            size="sm"
+            onClick={(event) => {
+              event.preventDefault();
+              navigate("/");
+            }}
+          >
             {t.back}
-          </GlassButton>
+          </SecondaryButton>
         </div>
 
-        <div id="buchungskalender" className="surface-glow-hover relative overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+        <div id="buchungskalender" className={`${cardClass} relative overflow-hidden`}>
           <GlowingEffect
             spread={36}
             glow={false}
@@ -184,15 +197,17 @@ const Termin = () => {
         </div>
       </div>
 
-      <section id="faq" className="w-full px-0 pb-20 pt-32 md:pt-40">
+      <section id="faq" className="relative w-full px-0 pb-20 pt-32 md:pt-40">
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.faq}</p>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">{t.faqTitle}</h2>
+            <SectionPill>{t.faq}</SectionPill>
+            <h2 className="pt-2 text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
+              {accentWords(t.faqTitle, [{ word: t.faqTitleAccent, gold: true }])}
+            </h2>
           </div>
           <div className="space-y-3">
             {faqs.map((faq) => (
-              <details key={faq.question} className="group surface-glow-hover relative rounded-xl border border-white/10 bg-white/5 p-5">
+              <details key={faq.question} className={`group ${cardClass} relative rounded-xl p-5`}>
                 <GlowingEffect
                   spread={30}
                   glow={false}
@@ -204,7 +219,7 @@ const Termin = () => {
                 />
                 <summary className="cursor-pointer list-none text-left font-medium">
                   {faq.question}
-                  <span className="ml-2 inline-block text-blue-300 transition-transform group-open:rotate-45">+</span>
+                  <span className="ml-2 inline-block text-stone-400 transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <p className="mt-3 whitespace-pre-line text-sm text-muted-foreground">{faq.answer}</p>
               </details>
@@ -213,7 +228,7 @@ const Termin = () => {
         </div>
       </section>
 
-      <footer className="mt-20 w-full border-t border-white/10 px-0 py-14 md:mt-28">
+      <footer className="relative mt-20 w-full px-0 py-14 md:mt-28">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:grid-cols-3">
             <div className="space-y-5">
