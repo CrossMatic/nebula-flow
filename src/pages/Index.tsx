@@ -807,7 +807,7 @@ const Index = () => {
           {service.icon === "scout" ? <ScanSearch className="h-5 w-5 text-stone-200" /> : <Mail className="h-5 w-5 text-stone-200" />}
         </div>
         <h3 className="text-2xl font-medium">
-          <span className={`${serifAccentClass} text-gold`}>{service.title}</span>
+          <span className={`${serifAccentClass} text-white`}>{service.title}</span>
         </h3>
         <p className="mt-1 text-sm font-medium text-stone-400">{service.subtitle}</p>
         <p className="mt-4 text-sm text-muted-foreground md:text-base">{service.description}</p>
