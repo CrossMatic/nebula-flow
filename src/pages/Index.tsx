@@ -368,10 +368,10 @@ const faqs = [
 ];
 
 // Zahlen im Fliesstext in der Serifenschrift setzen.
-const serifNumbers = (text: string) =>
+const serifNumbers = (text: string, colorClass = "text-gold") =>
   text.split(/(\d+(?:[.,']\d+)*(?:\s?%)?)/).map((part, i) =>
     i % 2 === 1 ? (
-      <span key={i} className="font-serif text-[1.18em] font-normal leading-none text-gold">
+      <span key={i} className={`font-serif text-[1.18em] font-normal leading-none ${colorClass}`}>
         {part}
       </span>
     ) : (
@@ -1192,8 +1192,8 @@ const Index = () => {
                 <h3 className="text-2xl font-medium">
                   {caseStudy.title.split(caseStudy.titleAccent).map((part, i) => (
                     <Fragment key={i}>
-                      {i > 0 && <span className={`${serifAccentClass} text-white`}>{caseStudy.titleAccent}</span>}
-                      {serifNumbers(part)}
+                      {i > 0 && <span className={`${serifAccentClass} text-gold`}>{caseStudy.titleAccent}</span>}
+                      {serifNumbers(part, "text-white")}
                     </Fragment>
                   ))}
                 </h3>
