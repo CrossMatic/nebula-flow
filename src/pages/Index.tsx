@@ -67,6 +67,10 @@ const AnimatedWords = ({
   );
 };
 
+// Karte mit feinem Rahmen, weichem Schatten und dezentem Verlauf von oben.
+const cardClass =
+  "surface-glow-hover rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.015] shadow-[0_24px_60px_-28px_rgba(0,0,0,0.7)]";
+
 const serifAccentClass = "font-serif text-[1.12em] font-normal italic tracking-normal";
 
 // Setzt einzelne Schlüsselwörter eines Titels in die kursive Serifenschrift, optional in Gold.
@@ -165,6 +169,7 @@ const services = [
 type LeadScoutStep = {
   label: string;
   title: string;
+  accent: string;
   paragraphs: string[];
   image?: string;
   imageAlt?: string;
@@ -175,6 +180,7 @@ const leadScoutStepsDe: LeadScoutStep[] = [
   {
     label: "Kalibrierung",
     title: "Zuerst klären wir, wonach wir suchen",
+    accent: "wonach",
     paragraphs: [
       "Bevor der erste Lauf startet, legen wir gemeinsam fest, was in Ihrem Markt überhaupt ein Anlass ist. Bei einer Beratung kann das ein Führungswechsel sein, bei einem Designbüro ein Jubiläum oder ein neuer Auftritt, bei einem technischen Dienstleister ein Bauprojekt oder eine anstehende Sanierung.",
       "Dazu kommen Ihre Grenzen: welche Regionen, welche Organisationsgrössen, welche Branchen, und welche Unternehmen als Bestandskunden ausgeschlossen bleiben.",
@@ -184,6 +190,7 @@ const leadScoutStepsDe: LeadScoutStep[] = [
   {
     label: "Recherche",
     title: "Jede Woche mehrere hundert Quellen",
+    accent: "hundert",
     paragraphs: [
       "Für jeden Lauf arbeiten mehrere spezialisierte Rechercheprozesse parallel. Jeder davon deckt einen anderen Quellentyp ab: Handelsregister und Amtsblätter, Ausschreibungen und Baugesuche, Jahresberichte und Geschäftszahlen, Verbandspublikationen, Fachmedien, Regionalzeitungen.",
       "Der Schwerpunkt liegt dabei auf Schweizer Primärquellen. Also dort, wo ein Signal entsteht, bevor es zur Nachricht wird. Wenn etwas in der überregionalen Presse steht, ist es für eine Erstansprache meist schon zu spät.",
@@ -192,6 +199,7 @@ const leadScoutStepsDe: LeadScoutStep[] = [
   {
     label: "Prüfung",
     title: "Was nicht überzeugt, fliegt raus",
+    accent: "raus",
     paragraphs: [
       "Die Ergebnisse werden zusammengeführt und gegen Ihre Kriterien getestet. Ist der Anlass aktuell und datiert? Passt die Organisation ins Profil? Gibt es einen erreichbaren Entscheider? Arbeitet dort bereits ein Mitbewerber?",
       "Was diese Prüfung nicht besteht, erscheint nicht im Bericht. Dafür steht am Ende jeder Ausgabe, was geprüft und warum verworfen wurde.",
@@ -204,6 +212,7 @@ const leadScoutStepsDe: LeadScoutStep[] = [
   {
     label: "Ihr Portal",
     title: "Alles an einem Ort, nicht als Datei im Postfach",
+    accent: "Ort",
     paragraphs: [
       "Sie erhalten einen eigenen Arbeitsbereich. Darin liegt pro Woche eine Ausgabe mit einer kurzen Übersicht und den vollständigen Dossiers.",
       "Darüber liegt eine Falldatenbank, in der alle Fälle zusammenlaufen. Filterbar nach Region, Anlass und Stand. Sie sehen auf einen Blick, was offen ist, was Sie bereits kontaktiert haben und was daraus geworden ist.",
@@ -215,6 +224,7 @@ const leadScoutStepsDe: LeadScoutStep[] = [
   {
     label: "Das Gedächtnis",
     title: "Das System lernt Ihren Markt",
+    accent: "lernt",
     paragraphs: [
       "Ein übliches KI-Werkzeug beginnt bei jeder Anfrage von vorne. Es sucht, antwortet und vergisst danach wieder. Beim nächsten Mal macht es dieselben Fehler und schlägt dieselben Organisationen vor.",
       "Der Lead Scout führt für jeden Kunden ein eigenes Gedächtnis. Nach jedem Lauf wird festgehalten, welche Organisationen geprüft wurden und mit welchem Ergebnis, welche Anlässe zu Gesprächen geführt haben und was Sie abgelehnt haben und warum. Dieses Wissen fliesst in den nächsten Lauf ein.",
@@ -229,6 +239,7 @@ const leadScoutStepsEn: LeadScoutStep[] = [
   {
     label: "Calibration",
     title: "First, we clarify what we're looking for",
+    accent: "looking",
     paragraphs: [
       "Before the first run starts, we define together what actually counts as a trigger in your market. For a consultancy, that might be a change in leadership; for a design studio, an anniversary or a new brand presence; for a technical service provider, a construction project or an upcoming renovation.",
       "Then come your boundaries: which regions, which organisation sizes, which industries, and which companies stay excluded as existing clients.",
@@ -238,6 +249,7 @@ const leadScoutStepsEn: LeadScoutStep[] = [
   {
     label: "Research",
     title: "Several hundred sources every week",
+    accent: "hundred",
     paragraphs: [
       "For each run, several specialised research processes work in parallel. Each one covers a different type of source: commercial registers and official gazettes, tenders and building permits, annual reports and financials, association publications, trade media, regional newspapers.",
       "The focus is on Swiss primary sources. That is, where a signal emerges before it becomes news. Once something is in the national press, it's usually too late for a first approach.",
@@ -246,6 +258,7 @@ const leadScoutStepsEn: LeadScoutStep[] = [
   {
     label: "Review",
     title: "What doesn't hold up gets cut",
+    accent: "cut",
     paragraphs: [
       "The results are merged and tested against your criteria. Is the trigger current and dated? Does the organisation fit the profile? Is there a reachable decision-maker? Is a competitor already working there?",
       "Whatever fails this review doesn't appear in the report. Instead, the end of each edition lists what was checked and why it was discarded.",
@@ -258,6 +271,7 @@ const leadScoutStepsEn: LeadScoutStep[] = [
   {
     label: "Your portal",
     title: "Everything in one place, not as a file in your inbox",
+    accent: "place",
     paragraphs: [
       "You get your own workspace. Each week, it holds an edition with a short overview and the complete dossiers.",
       "Above that sits a case database where all cases come together. Filterable by region, trigger, and status. At a glance you see what's open, what you've already contacted, and what came of it.",
@@ -269,6 +283,7 @@ const leadScoutStepsEn: LeadScoutStep[] = [
   {
     label: "The memory",
     title: "The system learns your market",
+    accent: "learns",
     paragraphs: [
       "A typical AI tool starts from scratch with every request. It searches, answers, and then forgets. Next time, it makes the same mistakes and suggests the same organisations.",
       "Lead Scout keeps a dedicated memory for each client. After every run, it records which organisations were checked and with what result, which triggers led to conversations, and what you turned down and why. This knowledge feeds into the next run.",
@@ -442,7 +457,7 @@ type QuoteFigureProps = {
 
 // Porträt später via authorImage setzen, bis dahin erscheinen die Initialen.
 const QuoteFigure = ({ quote, author, authorRole, authorImage, initials }: QuoteFigureProps) => (
-  <figure className="surface-glow-hover relative flex flex-col items-center gap-5 rounded-2xl border border-white/10 bg-white/5 p-6 text-center sm:flex-row sm:text-left md:gap-6 md:p-8">
+  <figure className={`${cardClass} relative flex flex-col items-center gap-5 p-6 text-center sm:flex-row sm:text-left md:gap-6 md:p-8`}>
     <Avatar className="h-16 w-16 border border-white/15 md:h-20 md:w-20">
       {authorImage && <AvatarImage src={authorImage} alt={author} className="object-cover" />}
       <AvatarFallback className="bg-white/10 text-base font-medium text-stone-200 md:text-lg">{initials}</AvatarFallback>
@@ -571,6 +586,7 @@ const Index = () => {
         servicesMainBadge: "Hauptprodukt",
         servicesSub: "Zwei Wege zum richtigen Gespräch – unser Hauptprodukt ist der Lead Scout.",
         howTitle: "So funktioniert der Lead Scout",
+        howTitleAccent: "Lead Scout",
         howSub: "Vom ersten Gespräch bis zur wöchentlichen Lieferung. Und warum die Treffer mit jeder Ausgabe schärfer werden.",
         howQuote:
           "Der Lead Scout ermöglicht uns, den Akquisitionsaufwand zu verringern und die Neukunden-Akquisition zielgerichtet und effizient zu gestalten. Gleichzeitig erlaubt es uns, in spezifischen Bereichen ein Marktmonitoring zu führen, das ohne Firlefanz auskommt. Das ist ein echter Fortschritt!",
@@ -579,6 +595,7 @@ const Index = () => {
         outreachResults: "Ergebnisse aus Akquise-Projekten",
         aboutTag: "Über CrossMatic",
         aboutTitle: "Ich habe dieses System zuerst für mich selbst gebaut",
+        aboutTitleAccent: "selbst",
         aboutParagraphs: [
           "Ich bin Joshua Stöckli und führe CrossMatic aus Basel.",
           "Angefangen hat es damit, dass ich selbst Kunden brauchte. Ich hatte kein Netzwerk, keine Empfehlungen und keinen Namen, auf den jemand reagiert hätte. Also habe ich nicht wahllos angeschrieben, sondern gesucht: Welche Unternehmen passen genau zu meinem Angebot, und bei wem steht gerade etwas an?",
@@ -591,10 +608,13 @@ const Index = () => {
         aboutLinkedin: "LinkedIn",
         processTag: "Prozess",
         processTitle: "Vom Beispieldossier zur wöchentlichen Lieferung",
+        processTitleAccent: "Lieferung",
         processNoteLabel: "Beim Akquise-System:",
         faqTag: "FAQ",
         faqTitle: "Häufige Fragen",
+        faqTitleAccent: "Fragen",
         contactTitle: "Sehen Sie es an einem echten Fall",
+        contactTitleAccent: "echten",
         contactSub:
           "Kostenlos und unverbindlich. Sie sehen an einem echten Fall aus Ihrem Markt, was Sie jede Woche erhalten würden.",
         footerTagline: "Akquise-Systeme für Agenturen, Beratungen und Kreativdienstleister in der Schweiz.",
@@ -651,6 +671,7 @@ const Index = () => {
         servicesMainBadge: "Core product",
         servicesSub: "Two ways to the right conversation – our core product is the Lead Scout.",
         howTitle: "How Lead Scout works",
+        howTitleAccent: "Lead Scout",
         howSub: "From the first conversation to the weekly delivery. And why the hits get sharper with every issue.",
         howQuote:
           "Lead Scout enables us to reduce our acquisition effort and make new client acquisition targeted and efficient. At the same time, it lets us run market monitoring in specific areas without any frills. That's real progress!",
@@ -659,6 +680,7 @@ const Index = () => {
         outreachResults: "Results from outreach projects",
         aboutTag: "About CrossMatic",
         aboutTitle: "I built this system for myself first",
+        aboutTitleAccent: "myself",
         aboutParagraphs: [
           "I'm Joshua Stöckli, and I run CrossMatic from Basel.",
           "It started because I needed clients myself. I had no network, no referrals, and no name anyone would respond to. So instead of writing to people at random, I searched: which companies fit my offer exactly, and where is something happening right now?",
@@ -671,10 +693,13 @@ const Index = () => {
         aboutLinkedin: "LinkedIn",
         processTag: "Process",
         processTitle: "From sample dossier to weekly delivery",
+        processTitleAccent: "delivery",
         processNoteLabel: "With the outreach system:",
         faqTag: "FAQ",
         faqTitle: "Frequently Asked Questions",
+        faqTitleAccent: "Questions",
         contactTitle: "See it in a real case",
+        contactTitleAccent: "real",
         contactSub:
           "Free and without obligation. You see in a real case from your market what you would receive every week.",
         footerTagline: "Acquisition systems for agencies, consultancies, and creative service providers in Switzerland.",
@@ -727,6 +752,21 @@ const Index = () => {
 
   const [leadScout, outreach] = localizedServices;
   const leadScoutSteps = isDe ? leadScoutStepsDe : leadScoutStepsEn;
+
+  const renderStepCard = (step: LeadScoutStep, number: number, className = "") => (
+    <div key={step.label} className={`${cardClass} space-y-3 p-6 md:p-8 ${className}`}>
+      <p className="flex items-baseline gap-3">
+        <span className="font-serif text-4xl leading-none text-gold">{String(number).padStart(2, "0")}</span>
+        <span className="text-sm font-medium text-stone-400">{step.label}</span>
+      </p>
+      <h3 className="pt-1 text-xl font-medium text-white md:text-2xl">{accentWords(step.title, [{ word: step.accent }])}</h3>
+      {step.paragraphs.map((paragraph) => (
+        <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground md:text-base">
+          {paragraph}
+        </p>
+      ))}
+    </div>
+  );
 
   const renderServiceCard = (service: (typeof localizedServices)[number], featured = false) => (
     <div className="relative isolate h-full">
@@ -873,7 +913,7 @@ const Index = () => {
       </>
     ),
     content: (
-      <div className="surface-glow-hover relative rounded-2xl border border-white/10 bg-white/5 p-5">
+      <div className={`${cardClass} relative p-5`}>
         <GlowingEffect
           spread={32}
           glow={false}
@@ -1002,7 +1042,9 @@ const Index = () => {
 
       <section className="w-full bg-background px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-8">
-          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.trustedByTitle}</p>
+          <div className="text-center">
+            <SectionPill>{t.trustedByTitle}</SectionPill>
+          </div>
           <div className="flex flex-nowrap items-start justify-center gap-x-4 overflow-x-auto sm:gap-x-6 md:gap-x-10">
             {[
               { name: "Farner Consulting AG", logo: farnerLogo },
@@ -1026,7 +1068,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="problem" className="relative w-full overflow-hidden px-4 pb-20 pt-28 md:px-8 md:pt-36 lg:px-16">
+      <section id="problem" className="relative w-full px-4 pb-20 pt-28 md:px-8 md:pt-36 lg:px-16">
         <CornerGlow className="-left-48 -top-48" />
         <div className="relative mx-auto max-w-6xl space-y-16">
           <div className="mx-auto max-w-2xl space-y-5 text-center">
@@ -1040,7 +1082,7 @@ const Index = () => {
             {t.problemPoints.map((point, index) => (
               <div
                 key={point.title}
-                className="surface-glow-hover space-y-3 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.015] p-6 text-center shadow-[0_24px_60px_-28px_rgba(0,0,0,0.7)] md:p-7 md:text-left"
+                className={`${cardClass} space-y-3 p-6 text-center md:p-7 md:text-left`}
               >
                 <span className="block font-serif text-5xl leading-none text-gold">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="pt-2 text-lg font-medium text-white">{accentWords(point.title, [{ word: point.accent }])}</h3>
@@ -1055,7 +1097,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="leistungen" className="relative w-full overflow-hidden border-y border-white/[0.04] bg-surface px-4 py-20 md:px-8 md:py-24 lg:px-16">
+      <section id="leistungen" className="relative w-full px-4 py-20 md:px-8 md:py-24 lg:px-16">
         <GuideLines />
         <div className="relative mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
@@ -1075,38 +1117,16 @@ const Index = () => {
         <div className="mx-auto max-w-6xl space-y-14">
           <div className="space-y-3 text-center">
             <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
-              {t.howTitle}
+              {accentWords(t.howTitle, [{ word: t.howTitleAccent, gold: true }])}
             </h2>
-            <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">{t.howSub}</p>
+            <LeadParagraph text={t.howSub} className="mx-auto max-w-2xl text-sm md:text-base" />
           </div>
-          <div className="grid gap-10 md:grid-cols-2 md:gap-12">
-            {leadScoutSteps.slice(0, 2).map((step, index) => (
-              <div key={step.label} className="space-y-3">
-                <p className="text-sm font-medium text-stone-400">
-                  <span className="font-serif text-xl font-normal">{String(index + 1).padStart(2, "0")}</span> · {step.label}
-                </p>
-                <h3 className="text-xl font-medium text-white md:text-2xl">{step.title}</h3>
-                {step.paragraphs.map((paragraph) => (
-                  <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground md:text-base">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            ))}
+          <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+            {leadScoutSteps.slice(0, 2).map((step, index) => renderStepCard(step, index + 1))}
           </div>
           {leadScoutSteps.slice(2).map((step, index) => (
-            <div key={step.label} className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
-              <div className={`space-y-3 ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                <p className="text-sm font-medium text-stone-400">
-                  <span className="font-serif text-xl font-normal">{String(index + 3).padStart(2, "0")}</span> · {step.label}
-                </p>
-                <h3 className="text-xl font-medium text-white md:text-2xl">{step.title}</h3>
-                {step.paragraphs.map((paragraph) => (
-                  <p key={paragraph} className="text-sm leading-relaxed text-muted-foreground md:text-base">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+            <div key={step.label} className="grid items-center gap-6 md:grid-cols-2 md:gap-10">
+              {renderStepCard(step, index + 3, index % 2 === 1 ? "md:order-2" : "")}
               {step.image ? (
                 <img
                   src={step.image}
@@ -1134,16 +1154,17 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="akquise" className="w-full px-4 py-16 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-6xl space-y-8">
-          <p id="ergebnisse" className="scroll-mt-28 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            {t.outreachResults}
-          </p>
+      <section id="akquise" className="relative w-full px-4 py-16 md:px-8 lg:px-16">
+        <CornerGlow className="-right-48 top-0" />
+        <div className="relative mx-auto max-w-6xl space-y-8">
+          <div id="ergebnisse" className="scroll-mt-28 text-center">
+            <SectionPill>{t.outreachResults}</SectionPill>
+          </div>
           <div className="grid gap-6 md:grid-cols-2">
             {localizedCaseStudies.map((caseStudy) => (
               <article
                 key={caseStudy.title}
-                className="surface-glow-hover relative flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8"
+                className={`${cardClass} relative flex h-full flex-col p-6 md:p-8`}
               >
                 <GlowingEffect
                   spread={34}
@@ -1191,17 +1212,21 @@ const Index = () => {
           <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-start">
             <div className="space-y-6">
               <div className="space-y-3">
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.aboutTag}</p>
-                <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
-                  {t.aboutTitle}
+                <SectionPill>{t.aboutTag}</SectionPill>
+                <h2 className="pt-2 text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
+                  {accentWords(t.aboutTitle, [{ word: t.aboutTitleAccent, gold: true }])}
                 </h2>
               </div>
               <div className="space-y-4">
-                {t.aboutParagraphs.map((paragraph, index) => (
-                  <p key={index} className="text-sm leading-relaxed text-muted-foreground md:text-base">
-                    {paragraph}
-                  </p>
-                ))}
+                {t.aboutParagraphs.map((paragraph, index) =>
+                  index === 0 ? (
+                    <LeadParagraph key={index} text={paragraph} className="text-sm leading-relaxed md:text-base" />
+                  ) : (
+                    <p key={index} className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                      {paragraph}
+                    </p>
+                  ),
+                )}
               </div>
             </div>
             <div
@@ -1222,8 +1247,10 @@ const Index = () => {
       <section id="prozess" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.processTag}</p>
-            <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">{t.processTitle}</h2>
+            <SectionPill>{t.processTag}</SectionPill>
+            <h2 className="pt-2 text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
+              {accentWords(t.processTitle, [{ word: t.processTitleAccent, gold: true }])}
+            </h2>
           </div>
           <Timeline data={processTimelineData} />
         </div>
@@ -1232,12 +1259,14 @@ const Index = () => {
       <section id="faq" className="w-full px-4 py-16 md:px-8 lg:px-16">
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="space-y-3 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{t.faqTag}</p>
-            <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">{t.faqTitle}</h2>
+            <SectionPill>{t.faqTag}</SectionPill>
+            <h2 className="pt-2 text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
+              {accentWords(t.faqTitle, [{ word: t.faqTitleAccent, gold: true }])}
+            </h2>
           </div>
           <div className="space-y-3">
             {localizedFaqs.map((faq) => (
-              <details key={faq.question} className="group surface-glow-hover relative rounded-xl border border-white/10 bg-white/5 p-5">
+              <details key={faq.question} className={`group ${cardClass} relative rounded-xl p-5`}>
                 <GlowingEffect
                   spread={30}
                   glow={false}
@@ -1258,17 +1287,20 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="kontakt" className="w-full px-4 pb-8 pt-14 md:px-8 md:pb-10 md:pt-16 lg:px-16">
-        <div className="mx-auto max-w-4xl p-8 text-center md:p-12">
-          <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">{t.contactTitle}</h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-base">{t.contactSub}</p>
+      <section id="kontakt" className="relative w-full px-4 pb-8 pt-14 md:px-8 md:pb-10 md:pt-16 lg:px-16">
+        <CornerGlow className="-left-48 -top-24" />
+        <div className="relative mx-auto max-w-4xl p-8 text-center md:p-12">
+          <h2 className="text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
+            {accentWords(t.contactTitle, [{ word: t.contactTitleAccent, gold: true }])}
+          </h2>
+          <LeadParagraph text={t.contactSub} className="mx-auto mt-4 max-w-xl text-sm md:text-base" />
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <AccentButton onClick={() => setIsDossierOpen(true)}>{t.heroMainCta}</AccentButton>
           </div>
         </div>
       </section>
 
-      <footer className="mt-4 w-full border-t border-white/10 px-4 py-14 md:mt-6 md:px-8 lg:px-16">
+      <footer className="mt-4 w-full px-4 py-14 md:mt-6 md:px-8 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:grid-cols-3">
             <div className="space-y-5">
