@@ -1,4 +1,5 @@
 import { AccentButton } from "@/components/ui/accent-button";
+import { SecondaryButton } from "@/components/ui/secondary-button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Timeline } from "@/components/ui/timeline";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -564,7 +565,8 @@ const Index = () => {
         heroProofCards: ["Im Einsatz bei Farner Consulting", "Jede Angabe mit Quelle belegt", "Mehrere hundert Quellen pro Lauf"],
         heroPreviewOverview: "Übersicht",
         heroMainCta: "Kostenloses Beispieldossier anfordern",
-        heroServices: "Unsere Leistungen ↓",
+        bookCall: "Erstgespräch buchen",
+        bookCallHint: "Lieber direkt sprechen?",
         trustedByTitle: "Vertraut von",
         problemTag: "Das Problem",
         problemTitle: "Ihre besten Kunden entscheiden gerade. Ohne Sie.",
@@ -649,7 +651,8 @@ const Index = () => {
         heroProofCards: ["In use at Farner Consulting", "Every claim backed by a source", "Several hundred sources per run"],
         heroPreviewOverview: "Overview",
         heroMainCta: "Request a Free Sample Dossier",
-        heroServices: "Our Services ↓",
+        bookCall: "Book an intro call",
+        bookCallHint: "Rather talk directly?",
         trustedByTitle: "Trusted by",
         problemTag: "The Problem",
         problemTitle: "Your best customers are deciding right now. Without you.",
@@ -820,6 +823,11 @@ const Index = () => {
           ))}
         </ul>
         <p className="mt-5 border-t border-white/10 pt-3 text-sm text-muted-foreground">{service.footer}</p>
+        {service.icon === "mail" && (
+          <div className="mt-6">
+            <SecondaryButton href="/termin">{t.bookCall}</SecondaryButton>
+          </div>
+        )}
       </article>
     </div>
   );
@@ -980,10 +988,10 @@ const Index = () => {
           showNavbar ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="surface-glow-hover mx-auto mt-4 w-[min(86%,920px)] rounded-xl border border-white/10 bg-background/80 px-4 py-3 backdrop-blur-md md:px-6">
-          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 md:grid-cols-[10rem_1fr_10rem]">
-            <a href="#hero" className="inline-flex items-center">
-              <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-[3.125rem] w-auto object-contain" />
+        <div className="surface-glow-hover mx-auto mt-4 w-[min(94%,1040px)] rounded-xl border border-white/10 bg-background/80 px-3 py-3 backdrop-blur-md md:w-[min(86%,1040px)] md:px-6">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-2 md:grid-cols-[1fr_auto_1fr] md:gap-4">
+            <a href="#hero" className="inline-flex min-w-max items-center">
+              <img src={crossmaticCLogo} alt="CrossMatic C Logo" className="h-10 w-auto object-contain md:h-[3.125rem]" />
             </a>
             <nav className="hidden items-center justify-center gap-5 text-sm text-slate-200/90 md:flex">
               <a href="#leistungen" className="transition-colors hover:text-white">
@@ -1006,6 +1014,9 @@ const Index = () => {
               <div className="block">
                 <LanguageSwitch variant="inline" compact />
               </div>
+              <SecondaryButton href="/termin" size="sm">
+                {t.bookCall}
+              </SecondaryButton>
             </div>
           </div>
         </div>
@@ -1039,17 +1050,11 @@ const Index = () => {
               </span>
             </p>
             <div
-              className="animate-hero-rise-in flex flex-col items-center gap-4 pt-4 sm:flex-row sm:justify-center sm:gap-6"
+              className="animate-hero-rise-in flex flex-col items-center gap-4 pt-4 sm:flex-row sm:justify-center"
               style={{ animationDelay: "2200ms" }}
             >
               <AccentButton onClick={() => setIsDossierOpen(true)}>{t.heroMainCta}</AccentButton>
-              <button
-                type="button"
-                onClick={() => document.getElementById("leistungen")?.scrollIntoView({ behavior: "smooth" })}
-                className="text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {t.heroServices}
-              </button>
+              <SecondaryButton href="/termin">{t.bookCall}</SecondaryButton>
             </div>
           </div>
           <HeroDossierPreview overviewLabel={t.heroPreviewOverview} proofs={t.heroProofCards} />
@@ -1108,7 +1113,15 @@ const Index = () => {
           </div>
           <div className="space-y-8 text-center">
             <p className="mx-auto max-w-2xl text-base font-medium text-white md:text-lg">{t.problemClosing}</p>
-            <AccentButton onClick={() => setIsDossierOpen(true)}>{t.heroMainCta}</AccentButton>
+            <div>
+              <AccentButton onClick={() => setIsDossierOpen(true)}>{t.heroMainCta}</AccentButton>
+              <p className="mt-4 text-sm text-muted-foreground">
+                {t.bookCallHint}{" "}
+                <a href="/termin" className="font-medium text-gold transition-colors hover:text-gold/80">
+                  {t.bookCall}
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -1166,6 +1179,12 @@ const Index = () => {
           />
           <div className="text-center">
             <AccentButton onClick={() => setIsDossierOpen(true)}>{t.heroMainCta}</AccentButton>
+            <p className="mt-4 text-sm text-muted-foreground">
+              {t.bookCallHint}{" "}
+              <a href="/termin" className="font-medium text-gold transition-colors hover:text-gold/80">
+                {t.bookCall}
+              </a>
+            </p>
           </div>
         </div>
       </section>
@@ -1317,8 +1336,9 @@ const Index = () => {
             {accentWords(t.contactTitle, [{ word: t.contactTitleAccent, gold: true }])}
           </h2>
           <LeadParagraph text={t.contactSub} className="mx-auto mt-4 max-w-xl text-sm md:text-base" />
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <AccentButton onClick={() => setIsDossierOpen(true)}>{t.heroMainCta}</AccentButton>
+            <SecondaryButton href="/termin">{t.bookCall}</SecondaryButton>
           </div>
         </div>
       </section>
