@@ -202,6 +202,98 @@
   }
 }
 
+/* Hero-Dossier-Mockup: baut sich auf, sobald es sichtbar wird (data-play via IntersectionObserver).
+   --t skaliert alle Dauern und Verzögerungen, auf Mobile halb so lang. */
+.dossier-live {
+  --t: 1;
+}
+
+@media (max-width: 767px) {
+  .dossier-live {
+    --t: 0.5;
+  }
+}
+
+@keyframes dossier-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes dossier-title-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dossier-pulse-in {
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes dossier-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.dossier-bar {
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.dossier-title {
+  opacity: 0;
+  transform: translateY(6px);
+  will-change: opacity, transform;
+}
+
+.dossier-pulse {
+  opacity: 0;
+  will-change: opacity;
+}
+
+.dossier-live[data-play] .dossier-bar {
+  animation: dossier-fill calc(var(--dur, 1500ms) * var(--t)) cubic-bezier(0.16, 1, 0.3, 1) calc(var(--delay, 0ms) * var(--t)) forwards;
+}
+
+.dossier-live[data-play] .dossier-title {
+  animation: dossier-title-in calc(600ms * var(--t)) ease-out calc(var(--delay, 0ms) * var(--t)) forwards;
+}
+
+.dossier-live[data-play] .dossier-pulse {
+  animation:
+    dossier-pulse-in 400ms ease-out calc(var(--delay, 0ms) * var(--t)) forwards,
+    dossier-pulse 2s ease-in-out calc(var(--delay, 0ms) * var(--t) + 400ms) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dossier-live .dossier-bar,
+  .dossier-live .dossier-title,
+  .dossier-live .dossier-pulse,
+  .dossier-live[data-play] .dossier-bar,
+  .dossier-live[data-play] .dossier-title,
+  .dossier-live[data-play] .dossier-pulse {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Glass button */
 .glass-button-wrap {
   position: relative;

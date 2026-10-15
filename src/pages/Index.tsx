@@ -341,6 +341,13 @@ const proofCardPositions = [
 
 // Dossier-Vorschau im Hero. Sobald der Screenshot vorliegt, als `image` übergeben;
 // bis dahin zeigt die Karte einen neutralen Platzhalter mit der Dossier-Struktur.
+// Zeitplan des Aufbaus in ms (Desktop); auf Mobile halbiert via --t in index.css.
+const dossierTiming = (delay: number, dur?: number) =>
+  ({ "--delay": `${delay}ms`, ...(dur ? { "--dur": `${dur}ms` } : {}) }) as React.CSSProperties;
+
+// Das Mockup blendet ab 2500 ms ein (animate-hero-rise-in); der Aufbau soll erst danach beginnen.
+const DOSSIER_MIN_START_MS = 2900;
+
 const HeroDossierPreview = ({
   image,
   imageAlt,
@@ -351,59 +358,97 @@ const HeroDossierPreview = ({
   imageAlt?: string;
   overviewLabel: string;
   proofs: string[];
-}) => (
-  <div className="animate-hero-rise-in relative mx-auto mt-16 max-w-4xl md:mt-20" style={{ animationDelay: "2500ms" }}>
-    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-2 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.9)] backdrop-blur-xl md:p-3">
-      <div className="overflow-hidden rounded-xl border border-white/[0.06] bg-[#1a1917]/80 text-left">
-        {image ? (
-          <img src={image} alt={imageAlt} className="block w-full" />
-        ) : (
-          <div aria-hidden="true" className="p-6 md:p-10">
-            <div className="flex items-center justify-between">
-              <div className="h-2 w-24 rounded-full bg-white/15" />
-              <div className="h-2 w-16 rounded-full bg-white/10" />
+}) => {
+  const mockupRef = useRef<HTMLDivElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const node = mockupRef.current;
+    if (!node) return;
+    const mountedAt = performance.now();
+    let timeout: number | undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        const wait = Math.max(0, DOSSIER_MIN_START_MS - (performance.now() - mountedAt));
+        timeout = window.setTimeout(() => setIsPlaying(true), wait);
+      },
+      { threshold: 0.3 },
+    );
+    observer.observe(node);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timeout);
+    };
+  }, []);
+
+  return (
+    <div className="animate-hero-rise-in relative mx-auto mt-16 max-w-4xl md:mt-20" style={{ animationDelay: "2500ms" }}>
+      <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-2 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.9)] backdrop-blur-xl md:p-3">
+        <div className="overflow-hidden rounded-xl border border-white/[0.06] bg-[#1a1917]/80 text-left">
+          {image ? (
+            <img src={image} alt={imageAlt} className="block w-full" />
+          ) : (
+            <div
+              ref={mockupRef}
+              aria-hidden="true"
+              data-play={isPlaying ? "" : undefined}
+              className="dossier-live p-6 md:p-10"
+            >
+              <div className="flex items-center justify-between">
+                <div className="dossier-bar h-2 w-24 rounded-full bg-white/15" style={dossierTiming(0)} />
+                <div className="dossier-bar h-2 w-16 rounded-full bg-white/10" style={dossierTiming(150)} />
+              </div>
+              <div className="dossier-bar mt-6 h-4 w-3/4 rounded bg-white/20 md:h-5" style={dossierTiming(300)} />
+              <div className="dossier-bar mt-2 h-4 w-1/2 rounded bg-white/20 md:h-5" style={dossierTiming(500)} />
+              <p
+                className="dossier-title mt-7 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:mt-9 md:text-[11px]"
+                style={dossierTiming(1200)}
+              >
+                Management Summary
+                <span className="dossier-pulse h-1.5 w-1.5 rounded-full bg-gold" style={dossierTiming(4600)} />
+              </p>
+              <div className="mt-3 space-y-2">
+                <div className="dossier-bar h-2 w-full rounded-full bg-white/10" style={dossierTiming(1600)} />
+                <div className="dossier-bar h-2 w-[92%] rounded-full bg-white/10" style={dossierTiming(1800)} />
+                <div className="dossier-bar h-2 w-[70%] rounded-full bg-white/10" style={dossierTiming(2000)} />
+              </div>
+              <p
+                className="dossier-title mt-7 text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:mt-9 md:text-[11px]"
+                style={dossierTiming(2600)}
+              >
+                {overviewLabel}
+              </p>
+              <div className="mt-3 divide-y divide-white/[0.06] border-y border-white/[0.06]">
+                {[0, 1, 2].map((row) => (
+                  <div key={row} className="grid grid-cols-[1fr_2fr_1fr] gap-4 py-2.5">
+                    <div className="dossier-bar h-2 w-3/4 rounded-full bg-white/15" style={dossierTiming(3000 + row * 200, 900)} />
+                    <div className="dossier-bar h-2 w-5/6 rounded-full bg-white/10" style={dossierTiming(3080 + row * 200, 900)} />
+                    <div className="dossier-bar h-2 w-1/2 rounded-full bg-white/10" style={dossierTiming(3160 + row * 200, 900)} />
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="mt-6 h-4 w-3/4 rounded bg-white/20 md:h-5" />
-            <div className="mt-2 h-4 w-1/2 rounded bg-white/20 md:h-5" />
-            <p className="mt-7 text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:mt-9 md:text-[11px]">
-              Management Summary
-            </p>
-            <div className="mt-3 space-y-2">
-              <div className="h-2 w-full rounded-full bg-white/10" />
-              <div className="h-2 w-[92%] rounded-full bg-white/10" />
-              <div className="h-2 w-[70%] rounded-full bg-white/10" />
-            </div>
-            <p className="mt-7 text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:mt-9 md:text-[11px]">
-              {overviewLabel}
-            </p>
-            <div className="mt-3 divide-y divide-white/[0.06] border-y border-white/[0.06]">
-              {[0, 1, 2].map((row) => (
-                <div key={row} className="grid grid-cols-[1fr_2fr_1fr] gap-4 py-2.5">
-                  <div className="h-2 w-3/4 rounded-full bg-white/15" />
-                  <div className="h-2 w-5/6 rounded-full bg-white/10" />
-                  <div className="h-2 w-1/2 rounded-full bg-white/10" />
-                </div>
-              ))}
-            </div>
+          )}
+        </div>
+      </div>
+      <div className="mt-5 flex flex-col items-center gap-3 md:mt-0">
+        {proofs.map((proof, index) => (
+          <div
+            key={proof}
+            className={`flex items-center gap-3 rounded-xl border border-white/10 bg-[#1d1c1a]/85 px-4 py-3 text-left text-sm text-stone-100 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.85)] backdrop-blur-md ${proofCardPositions[index] ?? ""}`}
+          >
+            <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/15 ring-1 ring-gold/30">
+              <Check className="h-3.5 w-3.5 text-gold" />
+            </span>
+            {proof}
           </div>
-        )}
+        ))}
       </div>
     </div>
-    <div className="mt-5 flex flex-col items-center gap-3 md:mt-0">
-      {proofs.map((proof, index) => (
-        <div
-          key={proof}
-          className={`flex items-center gap-3 rounded-xl border border-white/10 bg-[#1d1c1a]/85 px-4 py-3 text-left text-sm text-stone-100 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.85)] backdrop-blur-md ${proofCardPositions[index] ?? ""}`}
-        >
-          <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/15 ring-1 ring-gold/30">
-            <Check className="h-3.5 w-3.5 text-gold" />
-          </span>
-          {proof}
-        </div>
-      ))}
-    </div>
-  </div>
-);
+  );
+};
 
 type QuoteFigureProps = {
   quote: string;
