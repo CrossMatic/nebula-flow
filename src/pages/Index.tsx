@@ -659,7 +659,7 @@ const Index = () => {
         servicesTitle: "Unsere Leistungen",
         servicesTitleAccent: "Leistungen",
         servicesMainBadge: "Hauptprodukt",
-        servicesSub: "Zwei Wege zum richtigen Gespräch – unser Hauptprodukt ist der Lead Scout.",
+        servicesSub: "Zwei Wege zum richtigen Gespräch.",
         howTitle: "So funktioniert der Lead Scout",
         howTitleAccent: "Lead Scout",
         howSub: "Vom ersten Gespräch bis zur wöchentlichen Lieferung. Und warum die Treffer mit jeder Ausgabe schärfer werden.",
@@ -747,7 +747,7 @@ const Index = () => {
         servicesTitle: "Our Services",
         servicesTitleAccent: "Services",
         servicesMainBadge: "Core product",
-        servicesSub: "Two ways to the right conversation – our core product is the Lead Scout.",
+        servicesSub: "Two ways to the right conversation.",
         howTitle: "How Lead Scout works",
         howTitleAccent: "Lead Scout",
         howSub: "From the first conversation to the weekly delivery. And why the hits get sharper with every issue.",
@@ -891,11 +891,6 @@ const Index = () => {
           ))}
         </ul>
         <p className="mt-5 border-t border-white/10 pt-3 text-sm text-muted-foreground">{service.footer}</p>
-        {service.icon === "mail" && (
-          <div className="mt-6">
-            <SecondaryButton href="/termin">{t.bookCall}</SecondaryButton>
-          </div>
-        )}
       </article>
     </div>
   );
