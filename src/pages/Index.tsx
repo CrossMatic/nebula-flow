@@ -276,7 +276,7 @@ const processSteps = [
   {
     step: "04",
     title: "Laufender Betrieb",
-    accent: "Betrieb",
+    accent: "Laufender Betrieb",
     text: "Wir prüfen bestehende Fälle wöchentlich auf Veränderungen, und Ihre Rückmeldungen fliessen in die Suche ein. So wird sie mit der Zeit präziser.",
     note: "Sie erhalten ein wöchentliches Reporting, und wir schärfen Ansprache und Zielgruppe laufend nach.",
     icon: "learn",
@@ -928,7 +928,7 @@ const Index = () => {
         {
           ...processSteps[3],
           title: "Ongoing operation",
-          accent: "operation",
+          accent: "Ongoing operation",
           text: "We check existing cases weekly for changes, and your feedback flows into the search. That way it becomes more precise over time.",
           note: "You receive a weekly report, and we keep refining the messaging and target audience.",
         },
