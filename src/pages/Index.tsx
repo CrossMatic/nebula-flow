@@ -33,9 +33,14 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  Maximize,
+  Pause,
   PhoneCall,
+  Play,
   ScanSearch,
   SlidersHorizontal,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import { DossierRequestDialog } from "@/components/DossierRequestDialog";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
@@ -492,6 +497,117 @@ const caseStudiesEn: CaseStudy[] = [
   },
 ];
 
+const formatVideoTime = (seconds: number) => {
+  if (!Number.isFinite(seconds)) return "0:00";
+  const minutes = Math.floor(seconds / 60);
+  const remaining = Math.floor(seconds % 60);
+  return `${minutes}:${remaining.toString().padStart(2, "0")}`;
+};
+
+const CaseStudyVideoPlayer = ({ src, labels }: { src: string; labels: { progress: string; unmute: string; mute: string; fullscreen: string } }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  };
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  };
+
+  const toggleFullscreen = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      video.requestFullscreen?.();
+    }
+  };
+
+  const handleSeek = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const video = videoRef.current;
+    if (!video || !duration) return;
+    const time = (Number(event.target.value) / 100) * duration;
+    video.currentTime = time;
+    setCurrentTime(time);
+  };
+
+  const progress = duration ? (currentTime / duration) * 100 : 0;
+
+  return (
+    <div className="surface-glow-hover group relative overflow-hidden rounded-2xl border border-white/10 bg-black">
+      <video
+        ref={videoRef}
+        src={src}
+        className="block w-full cursor-pointer"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        onClick={togglePlay}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
+        onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
+      />
+      <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-4 py-3">
+        <button
+          type="button"
+          onClick={togglePlay}
+          aria-label={isPlaying ? "Pause" : "Play"}
+          className="shrink-0 text-white/90 transition-colors hover:text-white"
+        >
+          {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+        </button>
+        <span className="shrink-0 text-xs tabular-nums text-white/80">
+          {formatVideoTime(currentTime)} / {formatVideoTime(duration)}
+        </span>
+        <input
+          type="range"
+          min={0}
+          max={100}
+          step={0.1}
+          value={progress}
+          onChange={handleSeek}
+          aria-label={labels.progress}
+          className="h-1 flex-1 cursor-pointer accent-gold"
+        />
+        <button
+          type="button"
+          onClick={toggleMute}
+          aria-label={isMuted ? labels.unmute : labels.mute}
+          className="shrink-0 text-white/90 transition-colors hover:text-white"
+        >
+          {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+        </button>
+        <button
+          type="button"
+          onClick={toggleFullscreen}
+          aria-label={labels.fullscreen}
+          className="shrink-0 text-white/90 transition-colors hover:text-white"
+        >
+          <Maximize className="h-5 w-5" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const Index = () => {
   const { language } = useLanguage();
   const isDe = language === "de";
@@ -552,6 +668,8 @@ const Index = () => {
         howQuoteAuthor: "Adrian Kohler",
         howQuoteRole: "Farner Consulting, Basel",
         outreachResults: "Ergebnisse aus Akquise-Projekten",
+        caseVideoCaption: "Arlicon AG · 3D-Visualisierung für Luxusuhren und Juweliere",
+        caseVideoLabels: { progress: "Video-Fortschritt", unmute: "Ton an", mute: "Stumm schalten", fullscreen: "Vollbild" },
         aboutTag: "Über CrossMatic",
         aboutTitle: "Sie sprechen immer mit mir",
         aboutTitleAccent: "mir",
@@ -638,6 +756,8 @@ const Index = () => {
         howQuoteAuthor: "Adrian Kohler",
         howQuoteRole: "Farner Consulting, Basel",
         outreachResults: "Results from outreach projects",
+        caseVideoCaption: "Arlicon AG · 3D visualization for luxury watches and jewelers",
+        caseVideoLabels: { progress: "Video progress", unmute: "Unmute", mute: "Mute", fullscreen: "Fullscreen" },
         aboutTag: "About CrossMatic",
         aboutTitle: "You always speak with me",
         aboutTitleAccent: "me",
@@ -1194,6 +1314,10 @@ const Index = () => {
               initials="GB"
             />
           )}
+          <figure className="space-y-3">
+            <CaseStudyVideoPlayer src="/case-arlicon.mp4" labels={t.caseVideoLabels} />
+            <figcaption className="text-center text-sm font-medium text-stone-400">{t.caseVideoCaption}</figcaption>
+          </figure>
         </div>
       </section>
 
