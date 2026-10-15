@@ -51,14 +51,3 @@ export const CornerGlow = ({ className = "" }: { className?: string }) => (
   />
 );
 
-// Feine vertikale Hilfslinien im Hintergrund, oben und unten ausgeblendet.
-export const GuideLines = () => (
-  <div
-    aria-hidden
-    className="pointer-events-none absolute inset-0 mx-auto hidden max-w-6xl grid-cols-4 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] md:grid"
-  >
-    {[0, 1, 2, 3].map((i) => (
-      <div key={i} className={`border-l border-white/[0.04] ${i === 3 ? "border-r" : ""}`} />
-    ))}
-  </div>
-);

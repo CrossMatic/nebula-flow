@@ -4,7 +4,6 @@ import {
   accentWords,
   cardClass,
   CornerGlow,
-  GuideLines,
   LeadParagraph,
   SectionPill,
   serifAccentClass,
@@ -1241,7 +1240,6 @@ const Index = () => {
       </section>
 
       <section id="leistungen" className="relative w-full px-4 py-20 md:px-8 md:py-24 lg:px-16">
-        <GuideLines />
         <div className="relative mx-auto max-w-6xl space-y-10">
           <div className="space-y-3 text-center">
             <h2 className="whitespace-pre-line text-3xl font-medium tracking-[-0.02em] text-white md:text-4xl">
