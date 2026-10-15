@@ -89,7 +89,7 @@ const services = [
       "Ausgangslage und Hintergrund des Unternehmens",
       "Warum Sie gerade jetzt relevant sind",
       "Fertiger Aufhänger für die Erstansprache",
-      "Prüfhinweise: wir kennzeichnen, was nicht gesichert ist",
+      "Jede Angabe belegt, Unsicheres offen gekennzeichnet",
       "Wöchentliche Lieferung, nach drei Monaten monatlich kündbar",
     ],
     footer: "Ideal für: Beratungen, Agenturen und Kreativdienstleister, die gezielt akquirieren wollen und wissen möchten, bei wem sich der Aufwand gerade lohnt. Ob Sie die Dossiers selbst nutzen oder an Ihr Team weitergeben.",
@@ -447,7 +447,7 @@ const caseStudiesDe: CaseStudy[] = [
     title: "5 gebuchte Gespräche in 2 Wochen",
     titleAccent: "Gespräche",
     role: "Gian Besset Brand Design · Grafik & Webdesign, Basel",
-    text: "Gian Besset wollte planbar neue Kunden gewinnen, unabhängig von Empfehlungen. Wir bauten ein automatisiertes E-Mail-System für Physio- und Tierarztpraxen in der Schweiz, jede Nachricht auf die einzelne Praxis zugeschnitten. Nach zwei Wochen wurde die Kampagne pausiert, nicht wegen mangelnder Ergebnisse, sondern weil die Anfragen die Kapazität überstiegen.",
+    text: "Gian Besset wollte planbar neue Kunden gewinnen, unabhängig von Empfehlungen. Wir bauten ein automatisiertes E-Mail-System für Physio- und Tierarztpraxen in der Schweiz, jede Nachricht auf die einzelne Praxis zugeschnitten. Schon nach zwei Wochen mussten wir die Kampagne pausieren, nicht wegen mangelnder Ergebnisse, sondern weil die Anfragen die Kapazität überstiegen. Insgesamt lief sie vier Wochen.",
     metrics: ["18 Interessenten", "4 Wochen Laufzeit", "14 % Antwortrate"],
     image: caseGianReportingImage,
     imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
@@ -474,7 +474,7 @@ const caseStudiesEn: CaseStudy[] = [
     title: "5 booked calls in 2 weeks",
     titleAccent: "calls",
     role: "Gian Besset Brand Design · Graphic & Web Design, Basel",
-    text: "Gian Besset wanted to win new clients predictably, independent of referrals. We built an automated email system for physiotherapy and veterinary clinics in Switzerland, with every message tailored to the individual clinic. After two weeks the campaign was paused, not for lack of results, but because demand exceeded capacity.",
+    text: "Gian Besset wanted to win new clients predictably, independent of referrals. We built an automated email system for physiotherapy and veterinary clinics in Switzerland, with every message tailored to the individual clinic. After just two weeks we had to pause the campaign, not for lack of results, but because demand exceeded capacity. In total it ran for four weeks.",
     metrics: ["18 prospects", "4 weeks runtime", "14% reply rate"],
     imageAlt: "Reporting excerpt from Gian Besset's email outreach campaign",
     quote:
@@ -687,7 +687,7 @@ const Index = () => {
             "Company background and context",
             "Why you're relevant right now",
             "Ready-made hook for the first outreach",
-            "Verification notes: we flag what isn't confirmed",
+            "Every claim sourced, anything uncertain clearly flagged",
             "Weekly delivery, cancel monthly after three months",
           ],
           footer: "Ideal for: consultancies, agencies and creative service providers who want to do targeted outreach and know who is worth the effort right now. Whether you use the dossiers yourself or pass them on to your team.",
@@ -858,23 +858,23 @@ const Index = () => {
 
   useSeo({
     title: isDe
-      ? "CrossMatic | Akquise-Systeme für Agenturen, Beratungen & Kreativdienstleister in der Schweiz"
-      : "CrossMatic | Outbound Systems for Agencies, Consultancies & Creative Service Providers in Switzerland",
+      ? "CrossMatic | Lead Scout – wöchentliche Dossiers für Schweizer Agenturen und Beratungen"
+      : "CrossMatic | Lead Scout – Weekly Dossiers for Swiss Agencies and Consultancies",
     description: isDe
-      ? "Wir finden die Unternehmen, bei denen gerade jetzt ein Anlass besteht, und sprechen die Entscheider persönlich an. Über 30 vermittelte Erstgespräche für Schweizer Dienstleister."
-      : "We find the companies with a real reason to act right now, and reach out to decision-makers directly. Over 30 booked intro calls for Swiss service providers.",
+      ? "Jede Woche recherchierte Dossiers zu den Organisationen, bei denen gerade ein Auftrag entsteht. Jede Angabe mit Quelle belegt. Im Einsatz bei Farner Consulting."
+      : "Researched dossiers every week on the organisations where a new mandate is taking shape right now. Every claim backed by a source. In use at Farner Consulting.",
     ogTitle: isDe
-      ? "CrossMatic | Akquise-Systeme für Agenturen, Beratungen & Kreativdienstleister"
-      : "CrossMatic | Outbound Systems for Agencies, Consultancies & Creative Service Providers",
+      ? "CrossMatic | Lead Scout – wöchentliche Dossiers für Schweizer Agenturen und Beratungen"
+      : "CrossMatic | Lead Scout – Weekly Dossiers for Swiss Agencies and Consultancies",
     ogDescription: isDe
-      ? "Über 30 vermittelte Erstgespräche für Schweizer Dienstleister."
-      : "Over 30 booked intro calls for Swiss service providers.",
+      ? "Jede Woche recherchierte Dossiers zu den Organisationen, bei denen gerade ein Auftrag entsteht. Jede Angabe mit Quelle belegt. Im Einsatz bei Farner Consulting."
+      : "Researched dossiers every week on the organisations where a new mandate is taking shape right now. Every claim backed by a source. In use at Farner Consulting.",
     twitterTitle: isDe
-      ? "CrossMatic | Akquise-Systeme für Agenturen, Beratungen & Kreativdienstleister"
-      : "CrossMatic | Outbound Systems for Agencies, Consultancies & Creative Service Providers",
+      ? "CrossMatic | Lead Scout – wöchentliche Dossiers für Schweizer Agenturen und Beratungen"
+      : "CrossMatic | Lead Scout – Weekly Dossiers for Swiss Agencies and Consultancies",
     twitterDescription: isDe
-      ? "Über 30 vermittelte Erstgespräche für Schweizer Dienstleister."
-      : "Over 30 booked intro calls for Swiss service providers.",
+      ? "Jede Woche recherchierte Dossiers zu den Organisationen, bei denen gerade ein Auftrag entsteht. Jede Angabe mit Quelle belegt. Im Einsatz bei Farner Consulting."
+      : "Researched dossiers every week on the organisations where a new mandate is taking shape right now. Every claim backed by a source. In use at Farner Consulting.",
   });
   const processTimelineData = localizedProcessSteps.map((item) => {
     return {
@@ -1018,7 +1018,7 @@ const Index = () => {
             {[
               { name: "Farner Consulting AG", logo: farnerLogo },
               { name: "Arlicon AG", logo: arliconLogo },
-              { name: "Büro Häberli", logo: bueroHaeberliLogo },
+              { name: "Büro Haeberli", logo: bueroHaeberliLogo },
               { name: "Gian Besset Brand Design", logo: gianBessetLogo },
               { name: "Sascha Völki – Büro für visuelle Konzepte", logo: saschaVoelkiLogo },
             ].map((client, index) => (
