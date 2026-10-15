@@ -669,11 +669,10 @@ const Index = () => {
         howQuoteRole: "Farner Consulting, Basel",
         outreachResults: "Ergebnisse aus Akquise-Projekten",
         caseVideoIntro:
-          "Arlicon visualisiert Luxusuhren in 3D, eine Zielgruppe, die man nicht einfach anschreibt. Wie die Kampagne gelaufen ist, erzählt Ralph selbst. 36 Sekunden.",
+          "Für Arlicon haben wir unser automatisches Akquise-System eingesetzt – Luxusuhren und Juweliere, eine Zielgruppe, die man nicht einfach anschreibt. 36 Sekunden.",
         caseVideoCaption: "Arlicon AG · 3D-Visualisierung für Luxusuhren und Juweliere",
         caseVideoLabels: { progress: "Video-Fortschritt", unmute: "Ton an", mute: "Stumm schalten", fullscreen: "Vollbild" },
         outreachCtaLead: "Ob Recherche oder Ansprache: Im Erstgespräch klären wir in wenigen Minuten, was zu Ihnen passt.",
-        outreachCtaDossier: "Lieber zuerst ein Beispieldossier sehen?",
         aboutTag: "Über CrossMatic",
         aboutTitle: "Sie sprechen immer mit mir",
         aboutTitleAccent: "mir",
@@ -761,11 +760,10 @@ const Index = () => {
         howQuoteRole: "Farner Consulting, Basel",
         outreachResults: "Results from outreach projects",
         caseVideoIntro:
-          "Arlicon visualizes luxury watches in 3D, an audience you don't just cold-email. Ralph explains how the campaign went in his own words. 36 seconds.",
+          "For Arlicon we deployed our automated outreach system – luxury watches and jewelers, an audience you don't just cold-email. 36 seconds.",
         caseVideoCaption: "Arlicon AG · 3D visualization for luxury watches and jewelers",
         caseVideoLabels: { progress: "Video progress", unmute: "Unmute", mute: "Mute", fullscreen: "Fullscreen" },
         outreachCtaLead: "Research or outreach: in an intro call, we'll work out in a few minutes what fits you.",
-        outreachCtaDossier: "Prefer to see a sample dossier first?",
         aboutTag: "About CrossMatic",
         aboutTitle: "You always speak with me",
         aboutTitleAccent: "me",
@@ -1326,15 +1324,6 @@ const Index = () => {
             <p className="mx-auto max-w-2xl text-base font-medium text-white md:text-lg">{t.outreachCtaLead}</p>
             <div>
               <AccentButton onClick={() => window.location.assign("/termin")}>{t.bookCall}</AccentButton>
-              <p className="mt-4 text-sm">
-                <button
-                  type="button"
-                  onClick={() => setIsDossierOpen(true)}
-                  className="font-medium text-gold transition-colors hover:text-gold/80"
-                >
-                  {t.outreachCtaDossier}
-                </button>
-              </p>
             </div>
           </div>
         </div>
