@@ -282,41 +282,49 @@ const processSteps = [
   },
 ];
 
-const faqs = [
+type Faq = {
+  question: string;
+  answer: string;
+  // Nur bei Fragen gesetzt, die sich ausschliesslich auf das Akquise-System beziehen.
+  tag?: string;
+};
+
+const faqs: Faq[] = [
   {
     question: "Was kostet das?",
     answer:
-      "Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Der Lead Scout läuft ab CHF 500 pro Monat, mit drei Monaten Erstlaufzeit. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch — ohne dass Sie sich zu etwas verpflichten.",
+      "Der Lead Scout läuft ab CHF 500 pro Monat, monatlich kündbar. Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch – ohne dass Sie sich zu etwas verpflichten.",
   },
   {
-    question: "Welches der beiden Systeme passt zu mir?",
+    question: "Welches der beiden Angebote passt zu mir?",
     answer:
-      "Wenn Sie oder Ihr Team bereits Gespräche führen und nur nicht wissen, bei wem sich der Aufwand lohnt, ist der Lead Scout richtig. Wenn Sie neue Gespräche brauchen, aber niemanden haben, der aktiv akquiriert, ist es das Akquise-System. Beides zusammen ergibt Sinn, wenn Sie systematisch wachsen wollen. Im Erstgespräch klären wir das in wenigen Minuten.",
+      "Wenn Sie oder Ihr Team bereits Gespräche führen und nur nicht wissen, bei wem sich der Aufwand lohnt, ist der Lead Scout richtig. Er findet die Organisationen, bei denen gerade ein Auftrag entsteht, und bereitet sie als Dossier auf. Wenn Sie neue Gespräche brauchen, aber niemanden haben, der aktiv akquiriert, ist es das Akquise-System. Im Erstgespräch klären wir das in wenigen Minuten.",
   },
   {
-    question: "Was, wenn es nicht funktioniert?",
+    question: "Was, wenn eine Woche nichts Gutes dabei ist?",
     answer:
-      "Das kann vorkommen. Wenn eine Zielgruppe nicht reagiert, sagen wir das offen und passen an: Ansprache, Segment oder Kanal. Was wir nicht machen, ist eine Kampagne weiterlaufen zu lassen, die keine Ergebnisse liefert, nur weil sie bezahlt ist. Und wir arbeiten grundsätzlich mit einer Vereinbarung, die das Risiko für Sie begrenzt — wie die aussieht, hängt vom Projekt ab und besprechen wir vor der Zusammenarbeit.\n\nBeim Lead Scout gilt zusätzlich: Liefern wir im ersten Monat kein einziges Dossier, das dem gemeinsam festgelegten Suchprofil entspricht, erstatten wir den ersten Monatsbeitrag.",
+      "Dann liefern wir nichts und sagen es offen. Es gibt bewusst keine Mindestanzahl an Dossiers. Wir arbeiten lieber mit einem leeren Bericht und der Begründung, was geprüft und verworfen wurde, als einen schwachen Fall zu liefern, nur damit etwas im Postfach liegt. Genau das unterscheidet den Lead Scout von einer Adressliste.",
   },
   {
-    question: "Wie persönlich sind die Nachrichten wirklich?",
+    question: "Woher kommen die Kontaktdaten, und ist das seriös?",
     answer:
-      "Jedes Unternehmen wird einzeln recherchiert, und jede Nachricht bezieht sich auf dessen konkrete Situation — nicht auf ein Segment oder eine Branche. Sie geben alle Texte frei, bevor die erste Nachricht rausgeht, und sehen damit genau, was in Ihrem Namen verschickt wird.",
+      "Ausschliesslich aus offiziellen Quellen: Handelsregister, Impressum, Geschäftsberichte, Unternehmenswebsites und amtliche Publikationen. Nie aus LinkedIn, nie aus gekauften Adresslisten. Jede Angabe im Dossier ist mit ihrer Herkunft und einer Quelle versehen, sodass Sie alles nachprüfen können.",
   },
   {
     question: "Wie viel Zeit kostet mich das?",
     answer:
-      "Vor dem Start brauchen wir wenig von Ihnen: das Erstgespräch, einen kurzen Abgleich zur Zielgruppe und Ihre Freigabe der Texte. Sobald die Kampagne läuft, kommen die Antworten direkt bei Ihnen an. Sie führen die Konversation weiter und vereinbaren die Termine selbst. Das ist Absicht, denn ab diesem Punkt kauft man von Ihnen und nicht von einem Dienstleister. Rechnen Sie mit etwa einer Stunde pro Woche.\n\nBeim Lead Scout ist der Aufwand noch geringer: Sie erhalten die fertigen Dossiers und entscheiden, wen Sie ansprechen. Die Recherche, die Sie sonst selbst machen müssten, entfällt.",
+      "Beim Lead Scout gibt es am Anfang einen einmaligen Aufwand: ein kurzes Kalibrierungsdokument, mit dem wir gemeinsam festlegen, wonach gesucht wird. Das dauert etwa fünfzehn bis zwanzig Minuten und zahlt sich über die folgenden Wochen aus. Danach erhalten Sie die fertigen Dossiers und entscheiden nur noch, wen Sie ansprechen. Die Recherche, die Sie sonst selbst machen müssten, entfällt.",
   },
   {
-    question: "Ist das DSGVO-konform?",
+    question: "Wie läuft die Ansprache beim Akquise-System?",
+    tag: "Akquise-System",
     answer:
-      "E-Mail-Akquise führen wir ausschliesslich für die Schweiz und den englischsprachigen Raum durch. Für Deutschland und Österreich arbeiten wir über LinkedIn, weil Cold E-Mail dort rechtlich nicht sauber umsetzbar ist. Wir sagen Ihnen lieber vorher, was nicht geht, als Sie in ein Risiko laufen zu lassen. Alle Kampagnen laufen mit transparenten Absenderangaben und funktionierender Abmeldemöglichkeit.",
+      "Jedes Unternehmen wird einzeln recherchiert, und jede Nachricht bezieht sich auf dessen konkrete Situation. Sie geben alle Texte frei, bevor die erste Nachricht rausgeht. Sobald Antworten kommen, führen Sie die Konversation selbst weiter – ab diesem Punkt kauft man von Ihnen, nicht von einem Dienstleister. Rechnen Sie mit etwa einer Stunde pro Woche.",
   },
   {
-    question: "Kann ich das System später selbst übernehmen?",
+    question: "Ist das rechtlich sauber?",
     answer:
-      "Bei den Akquise-Systemen ja: Sie laufen auf Ihren eigenen Konten und Zugängen, und wir übergeben sauber, wenn Sie den Betrieb intern übernehmen wollen. Beim Lead Scout gehören Ihnen alle gelieferten Dossiers. Sie können sie jederzeit exportieren und behalten sie auch nach Ende der Zusammenarbeit.",
+      "Beim Lead Scout stellt sich die Frage nicht: Wir verschicken keine Nachrichten, sondern liefern Ihnen aufbereitete, öffentlich belegte Informationen. Sie entscheiden, wen Sie auf welchem Weg ansprechen. Beim Akquise-System führen wir E-Mail-Akquise nur für die Schweiz und den englischsprachigen Raum durch; für Deutschland und Österreich arbeiten wir über LinkedIn, weil Cold E-Mail dort rechtlich nicht sauber umsetzbar ist. Alle Kampagnen laufen mit transparenten Absenderangaben und funktionierender Abmeldung.",
   },
 ];
 
@@ -978,43 +986,44 @@ const Index = () => {
         },
       ];
 
-  const localizedFaqs = isDe
+  const localizedFaqs: Faq[] = isDe
     ? faqs
     : [
         {
           question: "What does it cost?",
           answer:
-            "The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. Lead Scout runs from CHF 500 per month, with an initial term of three months. What it costs in your specific case, we'll tell you in the intro call — without any obligation on your part.",
+            "Lead Scout runs from CHF 500 per month, cancellable monthly. The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. What it costs in your specific case, we'll tell you in the intro call – without any obligation on your part.",
         },
         {
-          question: "Which of the two systems fits me?",
+          question: "Which of the two offerings fits me?",
           answer:
-            "If you or your team are already having conversations and just don't know who's worth the effort, Lead Scout is the right fit. If you need new conversations but don't have anyone actively doing outreach, it's the acquisition system. Combining both makes sense if you want to grow systematically. We'll figure this out together in a few minutes during the intro call.",
+            "If you or your team are already having conversations and just don't know who's worth the effort, Lead Scout is the right fit. It finds the organisations where a mandate is taking shape right now and prepares them as a dossier. If you need new conversations but don't have anyone actively doing outreach, it's the acquisition system. We'll figure this out together in a few minutes during the intro call.",
         },
         {
-          question: "What if it doesn't work?",
+          question: "What if there's nothing good in a given week?",
           answer:
-            "That can happen. If a target audience doesn't respond, we say so openly and adjust: messaging, segment, or channel. What we don't do is keep a campaign running that isn't delivering results just because it's paid for. And we generally work with an agreement that limits the risk for you - what that looks like depends on the project, and we discuss it before we start working together.\n\nFor Lead Scout, the following also applies: if we don't deliver a single dossier in the first month that matches the search profile we defined together, we refund the first monthly fee.",
+            "Then we deliver nothing and say so openly. There is deliberately no minimum number of dossiers. We'd rather send an empty report explaining what was checked and discarded than deliver a weak case just so something lands in your inbox. That's exactly what sets Lead Scout apart from an address list.",
         },
         {
-          question: "How personal are the messages, really?",
+          question: "Where does the contact data come from, and is it legitimate?",
           answer:
-            "Every company is researched individually, and every message refers to its specific situation - not to a segment or an industry. You approve every text before the first message goes out, so you see exactly what's being sent in your name.",
+            "Exclusively from official sources: the commercial register, legal notices, annual reports, company websites, and official publications. Never from LinkedIn, never from purchased address lists. Every detail in the dossier comes with its origin and a source, so you can verify all of it.",
         },
         {
           question: "How much time will this take me?",
           answer:
-            "Before the start, we need little from you: the intro call, a short alignment on your target audience, and your approval of the texts. Once the campaign is live, replies come straight to you. You continue the conversation and schedule the meetings yourself. That's intentional, because from that point on, people are buying from you, not from a service provider. Expect to spend around an hour a week.\n\nWith Lead Scout, the effort is even lower: you receive the finished dossiers and decide who to reach out to. The research you'd otherwise have to do yourself is no longer necessary.",
+            "With Lead Scout there is a one-off effort at the start: a short calibration document in which we define together what to search for. It takes about fifteen to twenty minutes and pays off over the following weeks. After that you receive the finished dossiers and only decide who to reach out to. The research you'd otherwise have to do yourself is no longer necessary.",
         },
         {
-          question: "Is it GDPR-compliant?",
+          question: "How does the outreach work in the acquisition system?",
+          tag: "Acquisition system",
           answer:
-            "We run email outreach exclusively for Switzerland and the English-speaking world. For Germany and Austria, we work via LinkedIn, because cold email isn't legally clean there. We'd rather tell you upfront what won't work than let you run into a risk. All campaigns run with transparent sender details and a working opt-out.",
+            "Every company is researched individually, and every message refers to its specific situation. You approve every text before the first message goes out. Once replies come in, you continue the conversation yourself – from that point on, people are buying from you, not from a service provider. Expect to spend around an hour a week.",
         },
         {
-          question: "Can I take over the system myself later?",
+          question: "Is this legally clean?",
           answer:
-            "For the acquisition systems, yes: they run on your own accounts and access, and we hand over cleanly if you want to take over operations internally. With Lead Scout, all delivered dossiers belong to you. You can export them at any time and keep them even after our collaboration ends.",
+            "With Lead Scout the question doesn't arise: we don't send any messages, we deliver prepared information backed by public sources. You decide who to approach and how. In the acquisition system, we run email outreach only for Switzerland and the English-speaking world; for Germany and Austria we work via LinkedIn, because cold email isn't legally clean there. All campaigns run with transparent sender details and a working opt-out.",
         },
       ];
 
@@ -1443,6 +1452,11 @@ const Index = () => {
                 />
                 <summary className="cursor-pointer list-none text-left font-medium">
                   {faq.question}
+                  {faq.tag ? (
+                    <span className="ml-2 inline-flex items-center rounded-full border border-white/15 bg-white/[0.06] px-2 py-0.5 align-middle text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                      {faq.tag}
+                    </span>
+                  ) : null}
                   <span className="ml-2 inline-block text-stone-400 transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <p className="mt-3 whitespace-pre-line text-sm text-muted-foreground">{faq.answer}</p>
