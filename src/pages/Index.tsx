@@ -1191,7 +1191,7 @@ const Index = () => {
           <div className="flex flex-nowrap items-start justify-center gap-x-4 overflow-x-auto sm:gap-x-6 md:gap-x-10">
             {[
               { name: "Gian Besset Brand Design", logo: gianBessetLogo },
-              { name: "Sascha Völki – Büro für visuelle Konzepte", logo: saschaVoelkiLogo },
+              { name: "Thomas Bargetzi AG", logo: saschaVoelkiLogo },
               { name: "Farner Consulting AG", logo: farnerLogo },
               { name: "Büro Haeberli", logo: bueroHaeberliLogo },
               { name: "Arlicon AG", logo: arliconLogo },
