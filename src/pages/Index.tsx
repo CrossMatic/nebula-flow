@@ -1190,11 +1190,11 @@ const Index = () => {
           </div>
           <div className="flex flex-nowrap items-start justify-center gap-x-4 overflow-x-auto sm:gap-x-6 md:gap-x-10">
             {[
-              { name: "Farner Consulting AG", logo: farnerLogo },
-              { name: "Arlicon AG", logo: arliconLogo },
-              { name: "Büro Haeberli", logo: bueroHaeberliLogo },
               { name: "Gian Besset Brand Design", logo: gianBessetLogo },
               { name: "Sascha Völki – Büro für visuelle Konzepte", logo: saschaVoelkiLogo },
+              { name: "Farner Consulting AG", logo: farnerLogo },
+              { name: "Büro Haeberli", logo: bueroHaeberliLogo },
+              { name: "Arlicon AG", logo: arliconLogo },
             ].map((client, index) => (
               <div key={index} className="flex w-24 shrink-0 flex-col items-center gap-2 sm:w-32 md:w-36">
                 <div className="flex h-[3.2rem] w-[3.2rem] items-center justify-center sm:h-16 sm:w-16 md:h-[4.8rem] md:w-[4.8rem]">
