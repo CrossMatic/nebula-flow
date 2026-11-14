@@ -23,7 +23,7 @@ import joshuaPortrait from "@/assets/joshua-stoeckli-portrait.jpg";
 import adrianKohlerPortrait from "@/assets/adrian-kohler-portrait.jpg";
 import leadScoutDossierImage from "@/assets/lead-scout-dossier.png";
 import leadScoutCaseDatabaseImage from "@/assets/lead-scout-falldatenbank.png";
-import leadScoutKnowledgeGraphImage from "@/assets/lead-scout-wissensgraph.png";
+import leadScoutKnowledgeGraphImage from "@/assets/lead-scout-wissensgraph-neu.png";
 import {
   BrainCircuit,
   Check,
