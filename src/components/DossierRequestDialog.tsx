@@ -36,7 +36,7 @@ export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; on
     ? {
         title: "Ihr Beispieldossier",
         intro:
-          "Wir recherchieren einen echten Fall aus Ihrem Markt: eine Organisation, bei der gerade ein Anlass für Ihre Leistung entsteht. Kostenlos und unverbindlich.",
+          "Ich recherchiere einen echten Fall aus Ihrem Markt: eine Organisation, bei der gerade ein Anlass für Ihre Leistung entsteht. Kostenlos und unverbindlich.",
         name: "Name",
         email: "E-Mail",
         company: "Firma",
@@ -56,7 +56,7 @@ export function DossierRequestDialog({ open, onOpenChange }: { open: boolean; on
     : {
         title: "Your sample dossier",
         intro:
-          "We research a real case from your market: an organisation where a trigger for your service is emerging right now. Free and without obligation.",
+          "I research a real case from your market: an organisation where a trigger for your service is emerging right now. Free and without obligation.",
         name: "Name",
         email: "Email",
         company: "Company",

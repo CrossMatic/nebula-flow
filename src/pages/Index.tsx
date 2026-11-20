@@ -86,7 +86,7 @@ const services = [
     title: "Lead Scout",
     subtitle: "Ihr Markt-Radar",
     description:
-      "Jede Woche erhalten Sie bis zu drei Dossiers zu Organisationen, bei denen gerade ein Anlass für Ihre Leistung entsteht. Was als Anlass zählt, legen wir gemeinsam fest, zugeschnitten auf Ihren Markt. Sie erhalten keinen Kontaktdatensatz, sondern eine ausgearbeitete Ausgangslage: Sie wissen vor dem ersten Kontakt, was passiert ist, wer entscheidet und warum Sie gerade jetzt relevant sind.",
+      "Jede Woche erhalten Sie bis zu drei Dossiers zu Organisationen, bei denen gerade ein Anlass für Ihre Leistung entsteht. Was als Anlass zählt, lege ich gemeinsam mit Ihnen fest, zugeschnitten auf Ihren Markt. Sie erhalten keine rohe Kontaktliste, sondern eine ausgearbeitete Ausgangslage: Sie wissen vor dem ersten Kontakt, was passiert ist, wer entscheidet und warum Sie gerade jetzt relevant sind.",
     benefits: [
       "Konkreter Anlass mit Datum und offengelegten Quellen",
       "Entscheider namentlich, mit direkten Kontaktdaten",
@@ -103,9 +103,9 @@ const services = [
   },
   {
     title: "Akquise-System",
-    subtitle: "Wir übernehmen die Ansprache für Sie.",
+    subtitle: "Ich übernehme die Ansprache für Sie.",
     description:
-      "Normalerweise muss man sich entscheiden: entweder zwanzig sorgfältig recherchierte Nachrichten pro Woche, oder fünfhundert generische. Wir bauen den Weg dazwischen. Jedes Unternehmen wird einzeln recherchiert, jede Nachricht bezieht sich auf dessen konkrete Situation, und das über E-Mail und LinkedIn hinweg in einem Volumen, das planbar Gespräche bringt.",
+      "Normalerweise muss man sich entscheiden: entweder zwanzig sorgfältig recherchierte Nachrichten pro Woche, oder fünfhundert generische. Ich baue den Weg dazwischen. Jedes Unternehmen wird einzeln recherchiert, jede Nachricht bezieht sich auf dessen konkrete Situation, und das über E-Mail und LinkedIn hinweg in einem Volumen, das planbar Gespräche bringt.",
     benefits: [
       "Zielliste und Recherche pro Unternehmen, nicht pro Segment",
       "E-Mail und LinkedIn als kombinierte Kanäle",
@@ -132,12 +132,12 @@ type LeadScoutStep = {
 const leadScoutStepsDe: LeadScoutStep[] = [
   {
     label: "Kalibrierung",
-    title: "Zuerst klären wir, wonach wir suchen",
+    title: "Zuerst kläre ich, wonach ich suche",
     accent: "wonach",
     paragraphs: [
-      "Bevor der erste Lauf startet, legen wir gemeinsam fest, was in Ihrem Markt überhaupt ein Anlass ist. Bei einer Beratung kann das ein Führungswechsel sein, bei einem Designbüro ein Jubiläum oder ein neuer Auftritt, bei einem technischen Dienstleister ein Bauprojekt oder eine anstehende Sanierung.",
+      "Bevor der erste Lauf startet, lege ich gemeinsam mit Ihnen fest, was in Ihrem Markt überhaupt ein Anlass ist. Bei einer Beratung kann das ein Führungswechsel sein, bei einem Designbüro ein Jubiläum oder ein neuer Auftritt, bei einem technischen Dienstleister ein Bauprojekt oder eine anstehende Sanierung.",
       "Dazu kommen Ihre Grenzen: welche Regionen, welche Organisationsgrössen, welche Branchen, und welche Unternehmen als Bestandskunden ausgeschlossen bleiben.",
-      "Diese Kalibrierung ist die Grundlage für alles Weitere. Sie dauert rund zwei Wochen, in denen wir zwei bis drei Testläufe machen und gemeinsam nachschärfen.",
+      "Diese Kalibrierung ist die Grundlage für alles Weitere. Sie dauert rund zwei Wochen, in denen ich zwei bis drei Testläufe mache und die Suche nachschärfe.",
     ],
   },
   {
@@ -156,8 +156,8 @@ const leadScoutStepsDe: LeadScoutStep[] = [
     paragraphs: [
       "Die Ergebnisse werden zusammengeführt und gegen Ihre Kriterien getestet. Ist der Anlass aktuell und datiert? Passt die Organisation ins Profil? Gibt es einen erreichbaren Entscheider? Arbeitet dort bereits ein Mitbewerber?",
       "Was diese Prüfung nicht besteht, erscheint nicht im Bericht. Dafür steht am Ende jeder Ausgabe, was geprüft und warum verworfen wurde.",
-      "Jede Angabe ist belegt, jede Quelle verlinkt mit Datum. Kontaktdaten stammen aus offiziellen Unternehmensseiten oder aus dem Handelsregister, nie aus Adressdatenbanken. Was sich nicht belegen lässt, kennzeichnen wir als ungesichert, statt es wegzulassen.",
-      "Es gibt bewusst keine garantierte Anzahl Dossiers. Gibt eine Woche nichts her, sagen wir das offen. Zwei Fälle, bei denen das Gespräch von selbst läuft, sind mehr wert als fünf, die niemand anruft.",
+      "Jede Angabe ist belegt, jede Quelle verlinkt mit Datum. Kontaktdaten stammen aus offiziellen Unternehmensseiten oder aus dem Handelsregister, nie aus Adressdatenbanken. Was sich nicht belegen lässt, kennzeichne ich als ungesichert, statt es wegzulassen.",
+      "Es gibt bewusst keine garantierte Anzahl Dossiers. Gibt eine Woche nichts her, sage ich das offen. Zwei Fälle, bei denen das Gespräch von selbst läuft, sind mehr wert als fünf, die niemand anruft.",
     ],
     image: leadScoutDossierImage,
     imageAlt: "Lead Scout Dossier: Ausgabe mit Management Summary",
@@ -169,7 +169,7 @@ const leadScoutStepsDe: LeadScoutStep[] = [
     paragraphs: [
       "Sie erhalten einen eigenen Arbeitsbereich. Darin liegt pro Woche eine Ausgabe mit einer kurzen Übersicht und den vollständigen Dossiers.",
       "Darüber liegt eine Falldatenbank, in der alle Fälle zusammenlaufen. Filterbar nach Region, Anlass und Stand. Sie sehen auf einen Blick, was offen ist, was Sie bereits kontaktiert haben und was daraus geworden ist.",
-      "Jede Woche prüfen wir zusätzlich die bestehenden Fälle auf Veränderungen: Ist ein Verfahren weitergegangen, wurde eine Frist verschoben, wurde eine andere Agentur beauftragt. So geht kein Fall verloren. Eine Organisation, die im Frühling noch nicht so weit war, taucht im Herbst wieder auf, wenn der Zeitpunkt passt.",
+      "Jede Woche prüfe ich zusätzlich die bestehenden Fälle auf Veränderungen: Ist ein Verfahren weitergegangen, wurde eine Frist verschoben, wurde eine andere Agentur beauftragt. So geht kein Fall verloren. Eine Organisation, die im Frühling noch nicht so weit war, taucht im Herbst wieder auf, wenn der Zeitpunkt passt.",
     ],
     image: leadScoutCaseDatabaseImage,
     imageAlt: "Lead Scout Falldatenbank mit Fällen nach Typ, Kanton, Trägerschaft und Lage",
@@ -191,12 +191,12 @@ const leadScoutStepsDe: LeadScoutStep[] = [
 const leadScoutStepsEn: LeadScoutStep[] = [
   {
     label: "Calibration",
-    title: "First, we clarify what we're looking for",
+    title: "First, I clarify what I'm looking for",
     accent: "looking",
     paragraphs: [
-      "Before the first run starts, we define together what actually counts as a trigger in your market. For a consultancy, that might be a change in leadership; for a design studio, an anniversary or a new brand presence; for a technical service provider, a construction project or an upcoming renovation.",
+      "Before the first run starts, I define together with you what actually counts as a trigger in your market. For a consultancy, that might be a change in leadership; for a design studio, an anniversary or a new brand presence; for a technical service provider, a construction project or an upcoming renovation.",
       "Then come your boundaries: which regions, which organisation sizes, which industries, and which companies stay excluded as existing clients.",
-      "This calibration is the foundation for everything that follows. It takes about two weeks, during which we run two to three test runs and refine together.",
+      "This calibration is the foundation for everything that follows. It takes about two weeks, during which I run two to three test runs and refine the search.",
     ],
   },
   {
@@ -215,8 +215,8 @@ const leadScoutStepsEn: LeadScoutStep[] = [
     paragraphs: [
       "The results are merged and tested against your criteria. Is the trigger current and dated? Does the organisation fit the profile? Is there a reachable decision-maker? Is a competitor already working there?",
       "Whatever fails this review doesn't appear in the report. Instead, the end of each edition lists what was checked and why it was discarded.",
-      "Every statement is backed up, every source linked with a date. Contact details come from official company websites or the commercial register, never from address databases. What can't be verified, we flag as unconfirmed rather than leaving it out.",
-      "There is deliberately no guaranteed number of dossiers. If a week turns up nothing, we say so openly. Two cases where the conversation flows naturally are worth more than five that nobody calls.",
+      "Every statement is backed up, every source linked with a date. Contact details come from official company websites or the commercial register, never from address databases. What can't be verified, I flag as unconfirmed rather than leaving it out.",
+      "There is deliberately no guaranteed number of dossiers. If a week turns up nothing, I say so openly. Two cases where the conversation flows naturally are worth more than five that nobody calls.",
     ],
     image: leadScoutDossierImage,
     imageAlt: "Lead Scout dossier: issue with management summary",
@@ -228,7 +228,7 @@ const leadScoutStepsEn: LeadScoutStep[] = [
     paragraphs: [
       "You get your own workspace. Each week, it holds an edition with a short overview and the complete dossiers.",
       "Above that sits a case database where all cases come together. Filterable by region, trigger, and status. At a glance you see what's open, what you've already contacted, and what came of it.",
-      "Every week we also check existing cases for changes: has a procedure moved forward, has a deadline shifted, has another agency been hired. That way no case gets lost. An organisation that wasn't ready in spring resurfaces in autumn, when the timing is right.",
+      "Every week I also check existing cases for changes: has a procedure moved forward, has a deadline shifted, has another agency been hired. That way no case gets lost. An organisation that wasn't ready in spring resurfaces in autumn, when the timing is right.",
     ],
     image: leadScoutCaseDatabaseImage,
     imageAlt: "Lead Scout case database with cases by type, canton, ownership and status",
@@ -252,16 +252,16 @@ const processSteps = [
     step: "01",
     title: "Beispieldossier",
     accent: "Beispieldossier",
-    text: "Sie nennen uns Ihre Firma und Ihre Wunschkunden. Wir recherchieren einen echten Fall aus Ihrem Markt und schicken ihn Ihnen zu. Kostenlos und unverbindlich.",
-    note: "Statt des Dossiers klären wir in einem kurzen Gespräch Ihre Zielgruppe und die passenden Kanäle.",
+    text: "Sie nennen mir Ihre Firma und Ihre Wunschkunden. Ich recherchiere einen echten Fall aus Ihrem Markt und schicke ihn Ihnen zu. Kostenlos und unverbindlich.",
+    note: "Statt des Dossiers kläre ich mit Ihnen in einem kurzen Gespräch Ihre Zielgruppe und die passenden Kanäle.",
     icon: "dossier",
   },
   {
     step: "02",
     title: "Kalibrierung",
     accent: "Kalibrierung",
-    text: "In den ersten zwei Wochen legen wir gemeinsam fest, was in Ihrem Markt ein Anlass ist, welche Regionen und Grössen zählen und wen wir ausschliessen. In zwei bis drei Testläufen schärfen wir die Suche nach.",
-    note: "Wir bauen die Zielliste auf, schreiben die Nachrichten zu Ihrer Freigabe und wärmen die Absenderadressen auf, damit alles zuverlässig ankommt.",
+    text: "In den ersten zwei Wochen lege ich gemeinsam mit Ihnen fest, was in Ihrem Markt ein Anlass ist, welche Regionen und Grössen zählen und wen ich ausschliesse. In zwei bis drei Testläufen schärfe ich die Suche nach.",
+    note: "Ich baue die Zielliste auf, schreibe die Nachrichten zu Ihrer Freigabe und wärme die Absenderadressen auf, damit alles zuverlässig ankommt.",
     icon: "calibrate",
   },
   {
@@ -276,8 +276,8 @@ const processSteps = [
     step: "04",
     title: "Laufender Betrieb",
     accent: "Laufender Betrieb",
-    text: "Wir prüfen bestehende Fälle wöchentlich auf Veränderungen, und Ihre Rückmeldungen fliessen in die Suche ein. So wird sie mit der Zeit präziser.",
-    note: "Sie erhalten ein wöchentliches Reporting, und wir schärfen Ansprache und Zielgruppe laufend nach.",
+    text: "Ich prüfe bestehende Fälle wöchentlich auf Veränderungen, und Ihre Rückmeldungen fliessen in die Suche ein. So wird sie mit der Zeit präziser.",
+    note: "Sie erhalten ein wöchentliches Reporting, und ich schärfe Ansprache und Zielgruppe laufend nach.",
     icon: "learn",
   },
 ];
@@ -293,17 +293,17 @@ const faqs: Faq[] = [
   {
     question: "Was kostet das?",
     answer:
-      "Der Lead Scout läuft ab CHF 500 pro Monat, monatlich kündbar. Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Was es in Ihrem Fall konkret kostet, sagen wir Ihnen im Erstgespräch – ohne dass Sie sich zu etwas verpflichten.",
+      "Der Lead Scout läuft ab CHF 500 pro Monat, nach drei Monaten monatlich kündbar. Das Akquise-System startet bei CHF 2'000 für den Aufbau, abhängig von Zielgruppengrösse und Kanälen. Was es in Ihrem Fall konkret kostet, sage ich Ihnen im Erstgespräch – ohne dass Sie sich zu etwas verpflichten.",
   },
   {
     question: "Welches der beiden Angebote passt zu mir?",
     answer:
-      "Wenn Sie oder Ihr Team bereits Gespräche führen und nur nicht wissen, bei wem sich der Aufwand lohnt, ist der Lead Scout richtig. Er findet die Organisationen, bei denen gerade ein Auftrag entsteht, und bereitet sie als Dossier auf. Wenn Sie neue Gespräche brauchen, aber niemanden haben, der aktiv akquiriert, ist es das Akquise-System. Im Erstgespräch klären wir das in wenigen Minuten.",
+      "Wenn Sie oder Ihr Team bereits Gespräche führen und nur nicht wissen, bei wem sich der Aufwand lohnt, ist der Lead Scout richtig. Er findet die Organisationen, bei denen gerade ein Auftrag entsteht, und bereitet sie als Dossier auf. Wenn Sie neue Gespräche brauchen, aber niemanden haben, der aktiv akquiriert, ist es das Akquise-System. Im Erstgespräch kläre ich das mit Ihnen in wenigen Minuten.",
   },
   {
     question: "Was, wenn eine Woche nichts Gutes dabei ist?",
     answer:
-      "Dann liefern wir nichts und sagen es offen. Es gibt bewusst keine Mindestanzahl an Dossiers. Wir arbeiten lieber mit einem leeren Bericht und der Begründung, was geprüft und verworfen wurde, als einen schwachen Fall zu liefern, nur damit etwas im Postfach liegt. Genau das unterscheidet den Lead Scout von einer Adressliste.",
+      "Dann liefere ich nichts und sage es offen. Es gibt bewusst keine Mindestanzahl an Dossiers. Ich arbeite lieber mit einem leeren Bericht und der Begründung, was geprüft und verworfen wurde, als einen schwachen Fall zu liefern, nur damit etwas im Postfach liegt. Genau das unterscheidet den Lead Scout von einer Adressliste.",
   },
   {
     question: "Woher kommen die Kontaktdaten, und ist das seriös?",
@@ -313,7 +313,7 @@ const faqs: Faq[] = [
   {
     question: "Wie viel Zeit kostet mich das?",
     answer:
-      "Beim Lead Scout gibt es am Anfang einen einmaligen Aufwand: ein kurzes Kalibrierungsdokument, mit dem wir gemeinsam festlegen, wonach gesucht wird. Das dauert etwa fünfzehn bis zwanzig Minuten und zahlt sich über die folgenden Wochen aus. Danach erhalten Sie die fertigen Dossiers und entscheiden nur noch, wen Sie ansprechen. Die Recherche, die Sie sonst selbst machen müssten, entfällt.",
+      "Beim Lead Scout gibt es am Anfang einen einmaligen Aufwand: Sie füllen ein kurzes Kalibrierungsdokument aus, mit dem Sie festlegen, wonach ich suche (etwa 15 bis 20 Minuten). Danach laufen im Hintergrund zwei bis drei Testläufe über rund zwei Wochen, bevor die erste reguläre Ausgabe kommt – ohne weiteren Aufwand für Sie. Ab dann erhalten Sie die fertigen Dossiers und entscheiden nur noch, wen Sie ansprechen. Die Recherche, die Sie sonst selbst machen müssten, entfällt.",
   },
   {
     question: "Wie läuft die Ansprache beim Akquise-System?",
@@ -324,7 +324,7 @@ const faqs: Faq[] = [
   {
     question: "Ist das rechtlich sauber?",
     answer:
-      "Beim Lead Scout stellt sich die Frage nicht: Wir verschicken keine Nachrichten, sondern liefern Ihnen aufbereitete, öffentlich belegte Informationen. Sie entscheiden, wen Sie auf welchem Weg ansprechen. Beim Akquise-System führen wir E-Mail-Akquise nur für die Schweiz und den englischsprachigen Raum durch; für Deutschland und Österreich arbeiten wir über LinkedIn, weil Cold E-Mail dort rechtlich nicht sauber umsetzbar ist. Alle Kampagnen laufen mit transparenten Absenderangaben und funktionierender Abmeldung.",
+      "Beim Lead Scout stellt sich die Frage nicht: Ich verschicke keine Nachrichten, sondern liefern Ihnen aufbereitete, öffentlich belegte Informationen. Sie entscheiden, wen Sie auf welchem Weg ansprechen. Beim Akquise-System führe ich E-Mail-Akquise nur für die Schweiz und den englischsprachigen Raum durch; für Deutschland und Österreich arbeite ich über LinkedIn, weil Cold E-Mail dort rechtlich nicht sauber umsetzbar ist. Alle Kampagnen laufen mit transparenten Absenderangaben und funktionierender Abmeldung.",
   },
 ];
 
@@ -504,7 +504,7 @@ const caseStudiesDe: CaseStudy[] = [
     title: "5 gebuchte Gespräche in 2 Wochen",
     titleAccent: "Gespräche",
     role: "Gian Besset Brand Design · Grafik & Webdesign, Basel",
-    text: "Gian Besset wollte planbar neue Kunden gewinnen, unabhängig von Empfehlungen. Wir bauten ein automatisiertes E-Mail-System für Physio- und Tierarztpraxen in der Schweiz, jede Nachricht auf die einzelne Praxis zugeschnitten. Schon nach zwei Wochen mussten wir die Kampagne pausieren, nicht wegen mangelnder Ergebnisse, sondern weil die Anfragen die Kapazität überstiegen. Insgesamt lief sie vier Wochen.",
+    text: "Gian Besset wollte planbar neue Kunden gewinnen, unabhängig von Empfehlungen. Ich baute ein automatisiertes E-Mail-System für Physio- und Tierarztpraxen in der Schweiz, jede Nachricht auf die einzelne Praxis zugeschnitten. Schon nach zwei Wochen musste ich die Kampagne pausieren, nicht wegen mangelnder Ergebnisse, sondern weil die Anfragen die Kapazität überstiegen. Insgesamt lief sie vier Wochen.",
     metrics: ["18 Interessenten", "4 Wochen Laufzeit", "14 % Antwortrate"],
     image: caseGianReportingImage,
     imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Gian Besset",
@@ -518,7 +518,7 @@ const caseStudiesDe: CaseStudy[] = [
     title: "3 gebuchte Gespräche in den ersten 3 Tagen",
     titleAccent: "Gespräche",
     role: "Büro Haeberli · Agentur für Grafik und Web, Zürich",
-    text: "Büro Haeberli wollte gezielt Architekturbüros in der Deutschschweiz erreichen, eine Zielgruppe, die auf Standardanfragen kaum reagiert. Wir recherchierten jedes Büro einzeln und schrieben 308 davon persönlich an. Schon in den ersten drei Tagen kamen drei Gespräche zustande.",
+    text: "Büro Haeberli wollte gezielt Architekturbüros in der Deutschschweiz erreichen, eine Zielgruppe, die auf Standardanfragen kaum reagiert. Ich recherchierte jedes Büro einzeln und schrieb 308 davon persönlich an. Schon in den ersten drei Tagen kamen drei Gespräche zustande.",
     metrics: ["17 Interessenten", "4 Wochen Laufzeit", "19 % Antwortrate"],
     image: caseHaeberliReportingImage,
     imageAlt: "Reporting-Ausschnitt der E-Mail-Akquise-Kampagne von Büro Haeberli",
@@ -531,7 +531,7 @@ const caseStudiesEn: CaseStudy[] = [
     title: "5 booked calls in 2 weeks",
     titleAccent: "calls",
     role: "Gian Besset Brand Design · Graphic & Web Design, Basel",
-    text: "Gian Besset wanted to win new clients predictably, independent of referrals. We built an automated email system for physiotherapy and veterinary clinics in Switzerland, with every message tailored to the individual clinic. After just two weeks we had to pause the campaign, not for lack of results, but because demand exceeded capacity. In total it ran for four weeks.",
+    text: "Gian Besset wanted to win new clients predictably, independent of referrals. I built an automated email system for physiotherapy and veterinary clinics in Switzerland, with every message tailored to the individual clinic. After just two weeks I had to pause the campaign, not for lack of results, but because demand exceeded capacity. In total it ran for four weeks.",
     metrics: ["18 prospects", "4 weeks runtime", "14% reply rate"],
     imageAlt: "Reporting excerpt from Gian Besset's email outreach campaign",
     quote:
@@ -543,7 +543,7 @@ const caseStudiesEn: CaseStudy[] = [
     title: "3 booked calls in the first 3 days",
     titleAccent: "calls",
     role: "Büro Haeberli · Graphic and Web Agency, Zurich",
-    text: "Büro Haeberli wanted to reach architecture firms in German-speaking Switzerland, an audience that barely responds to standard outreach. We researched every firm individually and contacted 308 of them personally. Three conversations came about within the first three days.",
+    text: "Büro Haeberli wanted to reach architecture firms in German-speaking Switzerland, an audience that barely responds to standard outreach. I researched every firm individually and contacted 308 of them personally. Three conversations came about within the first three days.",
     metrics: ["17 prospects", "4 weeks runtime", "19% reply rate"],
     imageAlt: "Reporting excerpt from Büro Haeberli's email outreach campaign",
   },
@@ -707,8 +707,8 @@ const Index = () => {
           },
         ],
         problemClosing:
-          "Wir sorgen dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die die Anlässe findet, und Ansprache, die dazu passt.",
-        servicesTitle: "Unsere Leistungen",
+          "Ich sorge dafür, dass Sie im richtigen Moment sichtbar sind: mit Recherche, die die Anlässe findet, und Ansprache, die dazu passt.",
+        servicesTitle: "Meine Leistungen",
         servicesTitleAccent: "Leistungen",
         servicesMainBadge: "Hauptprodukt",
         servicesSub: "Zwei Wege zum richtigen Gespräch.",
@@ -721,10 +721,10 @@ const Index = () => {
         howQuoteRole: "Farner Consulting, Basel",
         outreachResults: "Ergebnisse aus Akquise-Projekten",
         caseVideoIntro:
-          "Für Arlicon haben wir unser automatisches Akquise-System eingesetzt – Luxusuhren und Juweliere, eine Zielgruppe, die man nicht einfach anschreibt. 36 Sekunden.",
+          "Für Arlicon habe ich mein automatisches Akquise-System eingesetzt – Luxusuhren und Juweliere, eine Zielgruppe, die man nicht einfach anschreibt. 36 Sekunden.",
         caseVideoCaption: "Arlicon AG · 3D-Visualisierung für Luxusuhren und Juweliere",
         caseVideoLabels: { progress: "Video-Fortschritt", unmute: "Ton an", mute: "Stumm schalten", fullscreen: "Vollbild" },
-        outreachCtaLead: "Ob Recherche oder Ansprache: Im Erstgespräch klären wir in wenigen Minuten, was zu Ihnen passt.",
+        outreachCtaLead: "Ob Recherche oder Ansprache: Im Erstgespräch kläre ich mit Ihnen in wenigen Minuten, was zu Ihnen passt.",
         aboutTag: "Über CrossMatic",
         aboutTitle: "Sie sprechen immer mit mir",
         aboutTitleAccent: "mir",
@@ -798,8 +798,8 @@ const Index = () => {
           },
         ],
         problemClosing:
-          "We make sure you're visible at the right moment: with research that finds the triggers, and outreach that fits.",
-        servicesTitle: "Our Services",
+          "I make sure you're visible at the right moment: with research that finds the triggers, and outreach that fits.",
+        servicesTitle: "My Services",
         servicesTitleAccent: "Services",
         servicesMainBadge: "Core product",
         servicesSub: "Two ways to the right conversation.",
@@ -812,10 +812,10 @@ const Index = () => {
         howQuoteRole: "Farner Consulting, Basel",
         outreachResults: "Results from outreach projects",
         caseVideoIntro:
-          "For Arlicon we deployed our automated outreach system – luxury watches and jewelers, an audience you don't just cold-email. 36 seconds.",
+          "For Arlicon I deployed my automated outreach system – luxury watches and jewelers, an audience you don't just cold-email. 36 seconds.",
         caseVideoCaption: "Arlicon AG · 3D visualization for luxury watches and jewelers",
         caseVideoLabels: { progress: "Video progress", unmute: "Unmute", mute: "Mute", fullscreen: "Fullscreen" },
-        outreachCtaLead: "Research or outreach: in an intro call, we'll work out in a few minutes what fits you.",
+        outreachCtaLead: "Research or outreach: in an intro call, I'll work out with you in a few minutes what fits.",
         aboutTag: "About CrossMatic",
         aboutTitle: "You always speak with me",
         aboutTitleAccent: "me",
@@ -858,7 +858,7 @@ const Index = () => {
           title: "Lead Scout",
           subtitle: "Your market radar",
           description:
-            "Every week you receive up to three dossiers on organisations where a trigger for your services is emerging right now. What counts as a trigger, we define together, tailored to your market. You don't get a contact record, but a fully worked-out starting point: before the first contact, you know what happened, who decides, and why you're relevant right now.",
+            "Every week you receive up to three dossiers on organisations where a trigger for your services is emerging right now. What counts as a trigger, I define together with you, tailored to your market. You don't get a raw contact list, but a fully worked-out starting point: before the first contact, you know what happened, who decides, and why you're relevant right now.",
           benefits: [
             "Concrete trigger with date and disclosed sources",
             "Decision-makers by name, with direct contact details",
@@ -873,9 +873,9 @@ const Index = () => {
         {
           icon: "mail",
           title: "Outreach system",
-          subtitle: "We handle the outreach for you.",
+          subtitle: "I handle the outreach for you.",
           description:
-            "Normally you have to choose: either twenty carefully researched messages a week, or five hundred generic ones. We build the path in between. Every company is researched individually, every message references its specific situation, across email and LinkedIn, at a volume that predictably brings conversations.",
+            "Normally you have to choose: either twenty carefully researched messages a week, or five hundred generic ones. I build the path in between. Every company is researched individually, every message references its specific situation, across email and LinkedIn, at a volume that predictably brings conversations.",
           benefits: [
             "Target list and research per company, not per segment",
             "Email and LinkedIn as combined channels",
@@ -960,15 +960,15 @@ const Index = () => {
           ...processSteps[0],
           title: "Sample dossier",
           accent: "dossier",
-          text: "Tell us about your company and your ideal clients. We research a real case from your market and send it to you. Free and without obligation.",
-          note: "Instead of a dossier, we clarify your target audience and the right channels in a short call.",
+          text: "Tell me about your company and your ideal clients. I research a real case from your market and send it to you. Free and without obligation.",
+          note: "Instead of a dossier, I clarify your target audience with you and the right channels in a short call.",
         },
         {
           ...processSteps[1],
           title: "Calibration",
           accent: "Calibration",
-          text: "In the first two weeks, we define together what counts as a trigger in your market, which regions and company sizes matter, and whom we exclude. Two to three test runs sharpen the search.",
-          note: "We build the target list, write the messages for your approval, and warm up the sender addresses so everything is reliably delivered.",
+          text: "In the first two weeks, I define together with you what counts as a trigger in your market, which regions and company sizes matter, and whom I exclude. Two to three test runs sharpen the search.",
+          note: "I build the target list, write the messages for your approval, and warm up the sender addresses so everything is reliably delivered.",
         },
         {
           ...processSteps[2],
@@ -981,8 +981,8 @@ const Index = () => {
           ...processSteps[3],
           title: "Ongoing operation",
           accent: "Ongoing operation",
-          text: "We check existing cases weekly for changes, and your feedback flows into the search. That way it becomes more precise over time.",
-          note: "You receive a weekly report, and we keep refining the messaging and target audience.",
+          text: "I check existing cases weekly for changes, and your feedback flows into the search. That way it becomes more precise over time.",
+          note: "You receive a weekly report, and I keep refining the messaging and target audience.",
         },
       ];
 
@@ -992,17 +992,17 @@ const Index = () => {
         {
           question: "What does it cost?",
           answer:
-            "Lead Scout runs from CHF 500 per month, cancellable monthly. The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. What it costs in your specific case, we'll tell you in the intro call – without any obligation on your part.",
+            "Lead Scout runs from CHF 500 per month, cancellable monthly after three months. The acquisition system starts at CHF 2,000 for setup, depending on target audience size and channels. What it costs in your specific case, I'll tell you in the intro call – without any obligation on your part.",
         },
         {
           question: "Which of the two offerings fits me?",
           answer:
-            "If you or your team are already having conversations and just don't know who's worth the effort, Lead Scout is the right fit. It finds the organisations where a mandate is taking shape right now and prepares them as a dossier. If you need new conversations but don't have anyone actively doing outreach, it's the acquisition system. We'll figure this out together in a few minutes during the intro call.",
+            "If you or your team are already having conversations and just don't know who's worth the effort, Lead Scout is the right fit. It finds the organisations where a mandate is taking shape right now and prepares them as a dossier. If you need new conversations but don't have anyone actively doing outreach, it's the acquisition system. I'll figure this out with you in a few minutes during the intro call.",
         },
         {
           question: "What if there's nothing good in a given week?",
           answer:
-            "Then we deliver nothing and say so openly. There is deliberately no minimum number of dossiers. We'd rather send an empty report explaining what was checked and discarded than deliver a weak case just so something lands in your inbox. That's exactly what sets Lead Scout apart from an address list.",
+            "Then I deliver nothing and say so openly. There is deliberately no minimum number of dossiers. I'd rather send an empty report explaining what was checked and discarded than deliver a weak case just so something lands in your inbox. That's exactly what sets Lead Scout apart from an address list.",
         },
         {
           question: "Where does the contact data come from, and is it legitimate?",
@@ -1012,7 +1012,7 @@ const Index = () => {
         {
           question: "How much time will this take me?",
           answer:
-            "With Lead Scout there is a one-off effort at the start: a short calibration document in which we define together what to search for. It takes about fifteen to twenty minutes and pays off over the following weeks. After that you receive the finished dossiers and only decide who to reach out to. The research you'd otherwise have to do yourself is no longer necessary.",
+            "With Lead Scout there is a one-off effort at the start: you fill in a short calibration document that defines what I search for (about 15 to 20 minutes). After that, two to three test runs take place in the background over about two weeks before the first regular edition arrives – with no further effort on your part. From then on you receive the finished dossiers and only decide who to reach out to. The research you'd otherwise have to do yourself is no longer necessary.",
         },
         {
           question: "How does the outreach work in the acquisition system?",
@@ -1023,7 +1023,7 @@ const Index = () => {
         {
           question: "Is this legally clean?",
           answer:
-            "With Lead Scout the question doesn't arise: we don't send any messages, we deliver prepared information backed by public sources. You decide who to approach and how. In the acquisition system, we run email outreach only for Switzerland and the English-speaking world; for Germany and Austria we work via LinkedIn, because cold email isn't legally clean there. All campaigns run with transparent sender details and a working opt-out.",
+            "With Lead Scout the question doesn't arise: I don't send any messages, I deliver prepared information backed by public sources. You decide who to approach and how. In the acquisition system, I run email outreach only for Switzerland and the English-speaking world; for Germany and Austria I work via LinkedIn, because cold email isn't legally clean there. All campaigns run with transparent sender details and a working opt-out.",
         },
       ];
 
