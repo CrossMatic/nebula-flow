@@ -676,7 +676,6 @@ const Index = () => {
         heroKicker: "Für Agenturen, Beratungen und Kreativdienstleister in der Schweiz",
         heroHeadline: "Wissen, wer Sie gerade braucht",
         heroSub: "Jede Woche recherchierte Dossiers zu den Organisationen, bei denen gerade ein Auftrag entsteht.",
-        heroProof: "Im Einsatz bei Farner Consulting.",
         heroHighlight: "braucht",
         heroProofCards: ["Laufendes Marktmonitoring", "Quellenbasierte Akquise-Unterstützung", "Zugeschnitten auf Ihren Markt"],
         heroPreviewOverview: "Übersicht",
@@ -767,7 +766,6 @@ const Index = () => {
         heroKicker: "For agencies, consultancies, and creative service providers in Switzerland",
         heroHeadline: "Know who needs you right now",
         heroSub: "Researched dossiers every week on the organisations where a new mandate is taking shape right now.",
-        heroProof: "In use at Farner Consulting.",
         heroHighlight: "needs",
         heroProofCards: ["Continuous market monitoring", "Source-based sales support", "Tailored to your market"],
         heroPreviewOverview: "Overview",
@@ -1162,13 +1160,6 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">
               <span className="block">
                 <AnimatedWords text={t.heroSub} baseDelay={1300} />
-              </span>
-              <span className="block">
-                <AnimatedWords
-                  text={t.heroProof}
-                  baseDelay={1300 + t.heroSub.split(" ").length * 70}
-                  wordClassName="font-semibold text-white"
-                />
               </span>
             </p>
             <div
